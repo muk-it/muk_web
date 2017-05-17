@@ -32,7 +32,7 @@
         be available.   
     """,
     'version': '10.0.1.0.0',   
-    'category': 'Hidden',   
+    'category': 'Extra Tools',   
     'license': 'AGPL-3',    
     'author': "MuK IT",
     'website': "http://www.mukit.at",
