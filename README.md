@@ -1,1 +1,1 @@
-# muk_web
+# MuK Odoo Web Modules
