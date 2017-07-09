@@ -35,7 +35,7 @@
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
     "depends": [
-        "base",
+        "muk_web_preview",
     ],
     "data": [
         "template/assets.xml",
