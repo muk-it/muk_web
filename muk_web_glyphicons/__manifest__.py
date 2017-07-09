@@ -22,7 +22,7 @@
 ###################################################################################
 
 {
-    "name": "MuK - Bootstrap Glyphicons",
+    "name": "Bootstrap Glyphicons",
     'summary': """Bootstrap Glyphicons Support""",
     'description':"""
         Odoo does not natively support the Glyphicons from Bootstrap although 
