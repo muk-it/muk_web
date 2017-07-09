@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<templates>
+    <t t-extend="Sidebar">
+    	<t t-jquery="a:has(.o_sidebar_delete_attachment)" t-operation="replace">
+    		<a t-att-title="item.title or None" t-att-data-section="section.name" t-att-data-index="item_index" t-att-href="item.url">
+                <span class="o_sidebar_label"><t t-raw="item.label"/></span>
+                <span t-if="section.name == 'files' and widget.options.editable and !item.callback" class="fa fa-trash-o o_sidebar_delete_attachment" t-att-data-id="item.id" title="Delete this attachment"/>
+            </a>
+    	</t>
+        <t t-jquery="span.o_sidebar_delete_attachment" t-operation="before">
+            <span t-if="section.name == 'files' and !item.callback and item.url" class="fa fa-file-o o_sidebar_preview_attachment" t-att-data-id="item.id" title="Preview this attachment"/>
+        </t>
+    </t>
+</templates>
+
+
