@@ -2,7 +2,7 @@
 <odoo>
 	<template id="assets_backend" name="muk_web_glyphicons_assets" inherit_id="web.assets_backend">
 		<xpath expr="." position="inside">
-			<link rel="stylesheet" href="/muk_web_glyphicons/static/src/less/muk_web_glyphicons.less" />
+			<link rel="stylesheet" href="/muk_web_glyphicons/static/src/less/glyphicons.less" />
 		</xpath>
 	</template>
 </odoo>

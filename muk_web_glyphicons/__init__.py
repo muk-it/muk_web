@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 ###################################################################################
-# 
-#    MuK Document Management System
 #
 #    Copyright (C) 2017 MuK IT GmbH
 #
