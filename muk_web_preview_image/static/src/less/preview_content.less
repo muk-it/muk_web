@@ -17,15 +17,17 @@
 *
 **********************************************************************************/
 
-.o_preview_image img {
+.o_preview_image {
 	position: absolute;
+	display: flex;
 	height: 100%;
-	width: auto;
-    margin: auto;
-    top: 0; 
-    bottom:0; 
-    left: 0; 
-    right:0;
+	width: 100%;
+}
+
+.o_preview_image img {
+	margin: auto;
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .iv-container {

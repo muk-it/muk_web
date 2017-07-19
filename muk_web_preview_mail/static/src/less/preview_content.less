@@ -17,52 +17,111 @@
 *
 **********************************************************************************/
 
-.o_preview_text {
+.o_preview_mail {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	
-	.code-container {
+	.mail-container {
 		display: none;
 		
-		pre {
-			padding-top: 0;
-    		padding-bottom: 0;
+		.meta-panel {
+			height: 158px;
+			padding: 5px 25px 0 25px;
+			
+			.meta-table {
+				margin-bottom: 10px ! important;
+				
+				.meta-tag {
+					width: 25px;
+				}
+			}
+			
+			.meta-table > tbody > tr {
+			    border-top: 1px solid @gray-light;
+			}
+			
+			.meta-table > tbody > tr:first-child {
+			    border-top: 0;
+			}
+			
+			.meta-table > tbody > tr > td {
+			    border-top: 0;
+			    padding: 3px 8px 3px 8px;
+			}
 		}
 		
-		.code-lang {
-			width: 100%;
-			height: 32px;
-			top: 5px;
-			width: 100%;
-		}
-		
-		.code-view {
-			padding-top: 0;
-    		padding-bottom: 0;
-		}
+		/* Based on Bootstrap Line Tabs by @keenthemes, Licensed under MIT */
+		.content-panel {
+			padding: 0 10px 10px 10px;
+			
+			.tab-line > .nav-tabs {
+				border: none;
+				margin: 0px;
+			}
 	
-		td.hljs-ln-numbers {
-			-webkit-touch-callout: none;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			text-align: center;
-			color: #ccc;
-			border-right: 1px solid #CCC;
-			vertical-align: top;
-			padding-right: 5px;
-		}
-
-		td.hljs-ln-code {
-			padding-left: 10px;
+			.tab-line > .nav-tabs > li {
+				margin-right: 2px;
+			}
+	
+			.tab-line > .nav-tabs > li > a {
+				border: 0;
+				margin-right: 0;
+				color: @gray;
+			}
+			
+			.tab-line > .nav-tabs > li > a > span {
+				padding-left: 5px;
+			}
+			
+			.tab-line > .nav-tabs > li > a > i {
+				font-size: 15px;
+			}
+	
+			.tab-line > .nav-tabs > li.open,
+			.tab-line > .nav-tabs > li:hover {
+				border-bottom: 4px solid  lighten(@brand-primary, 20%);
+			}
+	
+			.tab-line > .nav-tabs > li.open > a,
+			.tab-line > .nav-tabs > li:hover > a {
+				border: 0;
+				color: @gray-light;
+				background: none ! important;
+			}
+	
+			.tab-line > .nav-tabs > li.open .dropdown-menu,
+			.tab-line > .nav-tabs > li:hover .dropdown-menu {
+				margin-top: 0px;
+			}
+	
+			.tab-line > .nav-tabs > li.active {
+				position: relative;
+				border-bottom: 4px solid @brand-primary;
+			}
+	
+			.tab-line > .nav-tabs > li.active > a {
+				border: 0;
+				color: @gray-dark;
+			}
+	
+			.tab-line > .tab-content {
+				border: 0;
+				border-top: 1px solid #eee;
+				margin-top: -3px;
+				padding: 15px 0;
+			}
+			
+			.attachment-container {
+				position: absolute;
+				width: calc(~'100% - 20px');
+				height: calc(~'100% - 215px');
+			}
 		}
 	}
-	
+
 	/* Based on a CodePen Snippet by Dave McCarthy */
-	.code-loader {
+	.mail-loader {
 		height: 20px;
 		width: 250px;
 		position: absolute;

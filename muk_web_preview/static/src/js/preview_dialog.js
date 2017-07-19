@@ -31,9 +31,7 @@ var _t = core._t;
 
 var PreviewDialog = Widget.extend({
 	init: function(parent, generator, url, mimetype, extension, title) {
-        var self = this;
 		this._super(parent);
-		this.generator = generator;
         this._opened = $.Deferred();
         this.title = title || _t('Preview');
         this.url = url;
@@ -43,6 +41,8 @@ var PreviewDialog = Widget.extend({
         this.$modal.on('hidden.bs.modal', _.bind(this.destroy, this));
         this.$modal.find('.preview-maximize').on('click', _.bind(this.maximize, this));
         this.$modal.find('.preview-minimize').on('click', _.bind(this.minimize, this));
+		this.generator = generator;
+		this.generator.widget = this;
 	},
     renderElement: function() {
         this._super();
@@ -93,8 +93,8 @@ var PreviewDialog = Widget.extend({
     }
 });
 
-PreviewDialog.createPreviewDialog = function (owner, url, mimetype, extension, title) {
-    return new PreviewDialog(owner, new PreviewGenerator(), url, mimetype, extension, title).open();
+PreviewDialog.createPreviewDialog = function (parent, url, mimetype, extension, title) {
+    return new PreviewDialog(parent, new PreviewGenerator(parent, {}), url, mimetype, extension, title).open();
 };
 
 return PreviewDialog;

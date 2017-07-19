@@ -75,11 +75,8 @@ c;a?(e.title||(e.title=a.replace(/^.*[\\\/]/,"")),e.documentUrl=a,b(a,function(b
 	
 	        Viewer = function(plugin, parameters) {
 	            var matches = (/&(filename=([^&]+)|title=([^&]+)|)&/).exec(window.location.hash);
-	            console.log(matches);
 	            if(matches && matches.length > 1) {
 	                parameters.title = decodeURIComponent(matches[2]);
-	            } else {
-	            	parameters.title = "";
 	            }
 	            return original_Viewer(plugin, parameters);
 	        }

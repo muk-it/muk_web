@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ###################################################################################
-# 
+#
 #    Copyright (C) 2017 MuK IT GmbH
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,40 +19,4 @@
 #
 ###################################################################################
 
-{
-    "name": "MuK Preview Text",
-    "summary": """Text Preview""",
-    "description": """ 
-        Extendes the Preview Dialog to support text files.
-        It supports most of the common text file extensions.
-    """,
-    "version": "10.0.1.0.1",
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "website": "http://www.mukit.at",
-    "author": "MuK IT",
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "muk_web_preview",
-    ],
-    "data": [
-        "template/assets.xml",
-    ],
-    "demo": [
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-    
-}
+import controllers

@@ -60,11 +60,13 @@ var OpenOfficeHandler = PreviewHandler.extend({
 });
 
 var PreviewGenerator = core.Class.extend({
-	handler: {
-		"PDFHandler": new PDFHandler(),
-		"OpenOfficeHandler": new OpenOfficeHandler(),
-	},
-	init: function(additional_handler) {
+	handler: {},
+	init: function(widget, additional_handler) {
+		this.widget = widget;
+		this.handler = _.extend(this.handler, {
+			"PDFHandler": new PDFHandler(widget),
+			"OpenOfficeHandler": new OpenOfficeHandler(widget)
+		});
 		this.handler = _.extend(this.handler, additional_handler);
 	},
 	createPreview: function(url, mimetype, extension, title) {
@@ -83,8 +85,8 @@ var PreviewGenerator = core.Class.extend({
 	}
 });
 
-PreviewGenerator.createPreview = function(url, mimetype, extension, title) {
-    return new PreviewGenerator({}).createPreview(url, mimetype, extension, title);
+PreviewGenerator.createPreview = function(widget, url, mimetype, extension, title) {
+    return new PreviewGenerator(widget, {}).createPreview(url, mimetype, extension, title);
 };
 
 return PreviewGenerator;

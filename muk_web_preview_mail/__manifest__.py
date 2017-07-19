@@ -20,13 +20,14 @@
 ###################################################################################
 
 {
-    "name": "MuK Preview Text",
-    "summary": """Text Preview""",
+    "name": "MuK Preview Mail",
+    "summary": """Mail Preview""",
     "description": """ 
-        Extendes the Preview Dialog to support text files.
-        It supports most of the common text file extensions.
+        Extendes the Extendes the Preview Dialog to support mails.
+        Currently the following mail extensions are supported:
+            - Microsoft Outlook Express Mail Message (*.eml, message/rfc822)
     """,
-    "version": "10.0.1.0.1",
+    "version": "10.0.1.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -35,6 +36,7 @@
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
     "depends": [
+        "mail",
         "muk_web_preview",
     ],
     "data": [
@@ -49,7 +51,10 @@
         'static/description/banner.png'
     ],
     "external_dependencies": {
-        "python": [],
+        "python": [
+            'requests',
+            'cachetools'
+        ],
         "bin": [],
     },
     "application": False,

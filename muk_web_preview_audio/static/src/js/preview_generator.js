@@ -56,12 +56,11 @@ var AudioHandler = PreviewHandler.extend({
 });
 
 PreviewGenerator.include({
-	audioHandler: {
-		"AudioHandler": new AudioHandler(),
-	},
-	init: function(additional_handler) {
-		additional_handler = _.extend(this.audioHandler, additional_handler);
-		this._super(additional_handler);
+	init: function(widget, additional_handler) {
+		this._super(widget, additional_handler);
+		this.handler = _.extend(this.handler, {
+			"AudioHandler": new AudioHandler(widget),
+		});
 	},
 });
 

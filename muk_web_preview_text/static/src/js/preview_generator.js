@@ -91,11 +91,13 @@ var TextHandler = PreviewHandler.extend({
 		    		}
 		    	});		    	
 		    	$.each($codeBlock.attr('class').split(" "), function (i, cls) {
-		    	    console.log(cls);
 		    	    if($content.find(".code-lang option[value='" + cls + "']").val()) {
 		    	    	$codeLang.val(cls).trigger("change");
 		    	    }
 		    	});
+		    },
+		    error: function(request, status, error) {
+		    	console.error(request.responseText);
 		    }
 		});
         result.resolve($content);
@@ -104,12 +106,12 @@ var TextHandler = PreviewHandler.extend({
 });
 
 PreviewGenerator.include({
-	textHandler: {
-		"TextHandler": new TextHandler(),
-	},
-	init: function(additional_handler) {
-		additional_handler = _.extend(this.textHandler, additional_handler);
-		this._super(additional_handler);
+	textHandler: {},
+	init: function(widget, additional_handler) {
+		this._super(widget, additional_handler);
+		this.handler = _.extend(this.handler, {
+			"TextHandler": new TextHandler(widget)
+		});
 	},
 });
 

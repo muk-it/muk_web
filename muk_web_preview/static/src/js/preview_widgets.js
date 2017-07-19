@@ -23,6 +23,7 @@ odoo.define('muk_preview.PreviewWidgets', function (require) {
 var core = require('web.core');
 var utils = require('web.utils');
 var Widget = require('web.Widget');
+var ListView = require('web.ListView');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
 var PreviewGenerator = require('muk_preview.PreviewGenerator');
@@ -40,7 +41,7 @@ core.form_widget_registry.get("binary").include({
         		e.stopPropagation();
                 var value = self.get('value');
                 var filename_fieldname = self.node.attrs.filename;
-                var filename_field = self.view.fields && self.view.fields[filename_fieldname];
+                var filename_field = self.view.fields && filename_fieldname && self.view.fields[filename_fieldname];
                 var filename = filename_field ? filename_field.get('value') : null;
                 PreviewDialog.createPreviewDialog(self, '/web/content?' + $.param({
                     'model': self.view.dataset.model,
@@ -50,7 +51,7 @@ core.form_widget_registry.get("binary").include({
                     'filename': filename,
                     'download': true,
                     'data': utils.is_bin_size(value) ? null : value,
-                }), false, filename.split('.').pop(), filename);
+                }), false, filename ? filename.split('.').pop() : false, filename);
         	});
         }
     },
@@ -71,8 +72,54 @@ core.form_widget_registry.get("binary").include({
             this._super();
         }
     }
-    
 });
 
+core.list_widget_registry.get("field.binary").include({
+	_format: function(row_data, options) {
+        var link = this._super(row_data, options);
+		var value = row_data[this.id].value;
+		var filename = this.filename && row_data[this.filename].value;
+        if (value && filename && value.substr(0, 10).indexOf(' ') !== -1) {
+            var download_url = '/web/content?' + $.param({
+            	'model': options.model,
+            	'field': this.id,
+            	'id': options.id,
+            	'download': true,
+            	'filename_field': this.filename
+			});
+            var preview = _.template(
+	    		'<button type="button" \
+	        		  class="o_binary_preview" \
+	        		  aria-hidden="true" \
+					  data-link="<%-link%>" \
+					  data-filename="<%-filename%>"> \
+	        	  	<i class="fa fa-file-text-o"></i> \
+	          	</button>')({
+	        	link: download_url,
+	            filename: filename,
+		    });
+            return preview + link;
+        }
+        return link;
+	}
+});
+
+ListView.include({
+	reload_content: function() {
+		var self = this;
+		var reloaded = this._super();
+		reloaded.then(function() {
+			var $elements = self.$el.find('.o_binary_preview');
+			$elements.click(function(e) {
+        		e.stopPropagation();
+        		var $target = $(e.currentTarget);
+				PreviewDialog.createPreviewDialog(self, $target.data('link'),
+						false, $target.data('filename').split('.').pop(),
+						$target.data('filename'));
+			});
+	    });
+		return reloaded;
+	}
+});
 
 });

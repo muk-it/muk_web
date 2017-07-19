@@ -54,12 +54,11 @@ var ImageHandler = PreviewHandler.extend({
 });
 
 PreviewGenerator.include({
-	imageHandler: {
-		"ImageHandler": new ImageHandler(),
-	},
-	init: function(additional_handler) {
-		additional_handler = _.extend(this.imageHandler, additional_handler);
-		this._super(additional_handler);
+	init: function(widget, additional_handler) {
+		this._super(widget, additional_handler);
+		this.handler = _.extend(this.handler, {
+			"ImageHandler": new ImageHandler(widget),
+		});
 	},
 });
 

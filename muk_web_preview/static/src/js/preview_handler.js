@@ -23,6 +23,9 @@ odoo.define('muk_preview.PreviewHandler', function (require) {
 var core = require('web.core');
 
 var Handler = core.Class.extend({
+	init: function(widget) {
+		this.widget = widget;
+	},
 	checkExtension: function(extension) {
 		return false;
 	},

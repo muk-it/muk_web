@@ -45,7 +45,7 @@ var VideoHandler = PreviewHandler.extend({
     },
     createHtml: function(url, mimetype, extension, title) {
     	var result = $.Deferred();
-    	if(!mimetype) {
+    	if(!mimetype || mimetype === 'application/octet-stream') {
     		mimetype = this.mimetypeMap[extension];
     	}
 		var $content = $(QWeb.render('VideoHTMLContent', {url: url, type: mimetype}));
@@ -55,12 +55,11 @@ var VideoHandler = PreviewHandler.extend({
 });
 
 PreviewGenerator.include({
-	videoHandler: {
-		"VideoHandler": new VideoHandler(),
-	},
-	init: function(additional_handler) {
-		additional_handler = _.extend(this.videoHandler, additional_handler);
-		this._super(additional_handler);
+	init: function(widget, additional_handler) {
+		this._super(widget, additional_handler);
+		this.handler = _.extend(this.handler, {
+			"VideoHandler": new VideoHandler(widget),
+		});
 	},
 });
 
