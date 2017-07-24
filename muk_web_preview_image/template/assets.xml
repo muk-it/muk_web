@@ -24,6 +24,7 @@
 	        <script type="text/javascript" src="/muk_web_preview_image/static/lib/imageviewer/imageviewer.js"/>
 	        
 			<link rel="stylesheet" href="/muk_web_preview_image/static/src/less/preview_content.less" />
+	        <script type="text/javascript" src="/muk_web_preview_image/static/src/js/preview_handler.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_image/static/src/js/preview_generator.js"/>
 	    </xpath>
 	</template>

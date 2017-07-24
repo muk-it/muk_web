@@ -26,7 +26,7 @@
         Adds a button to the Attachment Sidebar to
         preview the content directly in the browser..
     """,
-    "version": "10.0.1.0.0",
+    "version": "10.0.1.0.1",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -36,6 +36,14 @@
     ],
     "depends": [
         "muk_web_preview",
+        "muk_web_preview_audio",
+        "muk_web_preview_csv",
+        "muk_web_preview_image",
+        "muk_web_preview_mail",
+        "muk_web_preview_msoffice",
+        "muk_web_preview_text",
+        "muk_web_preview_vector",
+        "muk_web_preview_video",
     ],
     "data": [
         "template/assets.xml",

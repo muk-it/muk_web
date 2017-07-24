@@ -19,7 +19,7 @@
 
 <templates>
 	<div t-name="VectorHTMLContent" class="o_preview_vector">
-		<div class='vector-loader'>
+		<div class='loader vector-loader'>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>
@@ -28,6 +28,22 @@
 			<div class='loader--dot'></div>
 			<div class='loader--text'></div>
 		</div>
-		<div class='vector-container' />
+		<div class='vector-container'>
+			<div class="vector-controls">
+				<div class="btn-group">
+					<button class="btn zoom-plus">
+						<i class="fa fa-plus-circle"></i>
+					</button>
+					<button class="btn zoom-minus">
+						<i class="fa fa-minus-circle"></i>
+					</button>
+					<button class="btn zoom-reset">
+						<i class="fa fa-refresh"></i>
+					</button>
+				</div>
+			</div>
+			<div class='vector-content'>
+			</div>
+		</div>
 	</div>
 </templates>

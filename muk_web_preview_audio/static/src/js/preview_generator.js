@@ -22,44 +22,17 @@ odoo.define('muk_preview_audio.PreviewGenerator', function (require) {
 
 var core = require('web.core');
 
-var PreviewHandler = require('muk_preview.PreviewHandler');
 var PreviewGenerator = require('muk_preview.PreviewGenerator');
+var PreviewHandler = require('muk_preview_audio.PreviewHandler');
 
 var QWeb = core.qweb;
 var _t = core._t;
-
-var AudioHandler = PreviewHandler.extend({
-	mimetypeMap: {
-		'.wav': 'audio/wav',
-		'.ogg': 'audio/ogg',
-		'.mp3': 'audio/mpeg',
-		'wav': 'audio/wav',
-		'ogg': 'audio/ogg',
-		'mp3': 'audio/mpeg',
-	},
-	checkExtension: function(extension) {
-		return ['.wav', '.ogg', '.mp3', 'wav', 'ogg', 'mp3'].includes(extension);
-    },
-    checkType: function(mimetype) {
-		return ['audio/wav', '	audio/ogg', 'audio/mpeg'].includes(mimetype);
-    },
-    createHtml: function(url, mimetype, extension, title) {
-    	var result = $.Deferred();
-    	if(!mimetype || mimetype === 'application/octet-stream') {
-    		mimetype = this.mimetypeMap[extension];
-    	}
-		var $content = $(QWeb.render('AudioHTMLContent', {url: url, type: mimetype, title: title}));
-		var visualizer = new Visualizer($content.find('audio'), $content.find('.visualizer'), $content.find('canvas'));
-        result.resolve($content);
-		return $.when(result);
-    },
-});
 
 PreviewGenerator.include({
 	init: function(widget, additional_handler) {
 		this._super(widget, additional_handler);
 		this.handler = _.extend(this.handler, {
-			"AudioHandler": new AudioHandler(widget),
+			"AudioHandler": new PreviewHandler.AudioHandler(widget),
 		});
 	},
 });

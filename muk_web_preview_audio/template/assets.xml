@@ -23,6 +23,7 @@
 	        <script type="text/javascript" src="/muk_web_preview_audio/static/lib/visualizer/visualizer.js"/>
 	        
 			<link rel="stylesheet" href="/muk_web_preview_audio/static/src/less/preview_content.less" />
+	        <script type="text/javascript" src="/muk_web_preview_audio/static/src/js/preview_handler.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_audio/static/src/js/preview_generator.js"/>
 	    </xpath>
 	</template>

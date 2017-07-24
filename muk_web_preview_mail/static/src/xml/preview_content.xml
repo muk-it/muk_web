@@ -19,7 +19,7 @@
 
 <templates>
 	<div t-name="MailHTMLContent" class="o_preview_mail">
-		<div class='mail-loader'>
+		<div class='loader mail-loader'>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>

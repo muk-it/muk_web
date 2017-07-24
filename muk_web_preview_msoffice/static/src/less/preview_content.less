@@ -1,0 +1,107 @@
+/**********************************************************************************
+* 
+*    Copyright (C) 2017 MuK IT GmbH
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Affero General Public License as
+*    published by the Free Software Foundation, either version 3 of the
+*    License, or (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Affero General Public License for more details.
+*
+*    You should have received a copy of the GNU Affero General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+.o_preview_excel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    
+    /* Based on Bootstrap Line Tabs by @keenthemes, Licensed under MIT */
+    .excel-container {
+		display: none;
+		width: 100%;
+		height: 100%;
+		padding: 0 10px 0 10px;
+		
+		.tab-line {
+			width: 100%;
+    		height: 100%;
+		}
+		
+		.tab-line > .nav-tabs {
+			height: 42px;
+			border: none;
+			margin: 0px;
+		}
+
+		.tab-line > .nav-tabs > li {
+			margin-right: 2px;
+		}
+
+		.tab-line > .nav-tabs > li > a {
+			border: 0;
+			margin-right: 0;
+			color: @gray;
+		}
+		
+		.tab-line > .nav-tabs > li > a > span {
+			padding-left: 5px;
+		}
+		
+		.tab-line > .nav-tabs > li > a > i {
+			font-size: 15px;
+		}
+
+		.tab-line > .nav-tabs > li.open,
+		.tab-line > .nav-tabs > li:hover {
+			border-bottom: 4px solid  lighten(@brand-primary, 20%);
+		}
+
+		.tab-line > .nav-tabs > li.open > a,
+		.tab-line > .nav-tabs > li:hover > a {
+			border: 0;
+			color: @gray-light;
+			background: none ! important;
+		}
+
+		.tab-line > .nav-tabs > li.open .dropdown-menu,
+		.tab-line > .nav-tabs > li:hover .dropdown-menu {
+			margin-top: 0px;
+		}
+
+		.tab-line > .nav-tabs > li.active {
+			position: relative;
+			border-bottom: 4px solid @brand-primary;
+		}
+
+		.tab-line > .nav-tabs > li.active > a {
+			border: 0;
+			color: @gray-dark;
+		}
+
+		.tab-line > .tab-content {
+			position: absolute;
+    		top: 45px;
+			border: 0;
+			border-top: 1px solid #eee;
+			margin-top: -3px;
+			padding: 3px 0 0 0;
+			height: calc(~'100% - 45px');
+			width: calc(~'100% - 20px');
+		}
+		
+		.table-container {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+    }
+}
+

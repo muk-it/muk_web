@@ -19,7 +19,7 @@
 
 <templates>
 	<div t-name="TextHTMLContent" class="o_preview_text">
-		<div class='code-loader'>
+		<div class='loader code-loader'>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>

@@ -22,50 +22,17 @@ odoo.define('muk_preview_vector.PreviewGenerator', function (require) {
 
 var core = require('web.core');
 
-var PreviewHandler = require('muk_preview.PreviewHandler');
 var PreviewGenerator = require('muk_preview.PreviewGenerator');
+var PreviewHandler = require('muk_preview_vector.PreviewHandler');
 
 var QWeb = core.qweb;
 var _t = core._t;
-
-var VectorHandler = PreviewHandler.extend({
-	checkExtension: function(extension) {
-		return ['.svg', 'svg'].includes(extension);
-    },
-    checkType: function(mimetype) {
-		return ['image/svg+xml'].includes(mimetype);
-    },
-    createHtml: function(url, mimetype, extension, title) {
-    	var result = $.Deferred();
-		var $content = $(QWeb.render('VectorHTMLContent', {url: url}));
-		$.ajax(url, {
-		    dataType: "text",
-		    success: function(vector) {
-		    	$content.find('.vector-loader').hide();
-	        	$content.find('.vector-container').show();
-		    	$content.find('.vector-container').html(vector);
-		    	svgPanZoom('svg', {
-		    	    zoomEnabled: true,
-		    	    controlIconsEnabled: true,
-		    	    fit: true,
-		    	    center: true,
-		    	    minZoom: 0.1
-		    	  });
-		    },
-		    error: function(request, status, error) {
-		    	console.error(request.responseText);
-		    }
-		});
-        result.resolve($content);
-		return $.when(result);
-    },
-});
 
 PreviewGenerator.include({
 	init: function(widget, additional_handler) {
 		this._super(widget, additional_handler);
 		this.handler = _.extend(this.handler, {
-			"VectorHandler": new VectorHandler(widget),
+			"VectorHandler": new PreviewHandler.VectorHandler(widget),
 		});
 	},
 });

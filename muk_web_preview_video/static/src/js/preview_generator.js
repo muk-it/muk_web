@@ -22,43 +22,17 @@ odoo.define('muk_preview_video.PreviewGenerator', function (require) {
 
 var core = require('web.core');
 
-var PreviewHandler = require('muk_preview.PreviewHandler');
 var PreviewGenerator = require('muk_preview.PreviewGenerator');
+var PreviewHandler = require('muk_preview_video.PreviewHandler');
 
 var QWeb = core.qweb;
 var _t = core._t;
-
-var VideoHandler = PreviewHandler.extend({
-	mimetypeMap: {
-		'.mp4': 'video/mp4',
-		'.webm': 'video/webm',
-		'.ogg': 'video/ogg',
-		'mp4': 'video/mp4',
-		'webm': 'video/webm',
-		'ogg': 'video/ogg',
-	},
-	checkExtension: function(extension) {
-		return ['.mp4', '.webm', '.ogg', 'mp4', 'webm', 'ogg'].includes(extension);
-    },
-    checkType: function(mimetype) {
-		return ['video/mp4', '	video/webm', 'video/ogg'].includes(mimetype);
-    },
-    createHtml: function(url, mimetype, extension, title) {
-    	var result = $.Deferred();
-    	if(!mimetype || mimetype === 'application/octet-stream') {
-    		mimetype = this.mimetypeMap[extension];
-    	}
-		var $content = $(QWeb.render('VideoHTMLContent', {url: url, type: mimetype}));
-        result.resolve($content);
-		return $.when(result);
-    },
-});
 
 PreviewGenerator.include({
 	init: function(widget, additional_handler) {
 		this._super(widget, additional_handler);
 		this.handler = _.extend(this.handler, {
-			"VideoHandler": new VideoHandler(widget),
+			"VideoHandler": new PreviewHandler.VideoHandler(widget),
 		});
 	},
 });

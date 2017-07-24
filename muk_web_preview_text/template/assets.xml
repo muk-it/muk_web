@@ -25,6 +25,7 @@
 	        <script type="text/javascript" src="/muk_web_preview_text/static/lib/highlight_line_numbers/highlight_line_numbers.js"/>
 	        
 			<link rel="stylesheet" href="/muk_web_preview_text/static/src/less/preview_content.less" />
+	        <script type="text/javascript" src="/muk_web_preview_text/static/src/js/preview_handler.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_text/static/src/js/preview_generator.js"/>
 	    </xpath>
 	</template>

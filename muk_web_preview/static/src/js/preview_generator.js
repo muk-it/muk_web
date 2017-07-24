@@ -27,45 +27,13 @@ var PreviewHandler = require('muk_preview.PreviewHandler');
 var QWeb = core.qweb;
 var _t = core._t;
 
-var PDFHandler = PreviewHandler.extend({
-	checkExtension: function(extension) {
-		return ['.pdf', 'pdf'].includes(extension);
-    },
-    checkType: function(mimetype) {
-		return ['application/pdf'].includes(mimetype);
-    },
-    createHtml: function(url, mimetype, extension, title) {
-    	var result = $.Deferred();	
-    	var viewerUrlTempalte = _.template('/muk_web_preview/static/lib/ViewerJS/index.html#<%= url %>');
-		result.resolve($(QWeb.render('ViewerJSFrame', {url: viewerUrlTempalte({url})})));
-		return $.when(result);
-	},    
-});
-
-var OpenOfficeHandler = PreviewHandler.extend({
-	checkExtension: function(extension) {
-		return ['.odt', '.odp', '.ods', '.fodt', '.ott', '.fodp', '.otp', '.fods', '.ots',
-			'odt', 'odp', 'ods', 'fodt', 'ott', 'fodp', 'otp', 'fods', 'ots'].includes(extension);
-    },
-    checkType: function(mimetype) {
-		return ['application/vnd.oasis.opendocument.text', 'application/vnd.oasis.opendocument.presentation',
-				'application/vnd.oasis.opendocument.spreadsheet'].includes(mimetype);
-    },
-    createHtml: function(url, mimetype, extension, title) {
-    	var result = $.Deferred();	
-    	var viewerUrlTempalte = _.template('/muk_web_preview/static/lib/ViewerJS/index.html#<%= url %>');
-		result.resolve($(QWeb.render('ViewerJSFrame', {url: viewerUrlTempalte({url})})));
-		return $.when(result);
-    },
-});
-
 var PreviewGenerator = core.Class.extend({
 	handler: {},
 	init: function(widget, additional_handler) {
 		this.widget = widget;
 		this.handler = _.extend(this.handler, {
-			"PDFHandler": new PDFHandler(widget),
-			"OpenOfficeHandler": new OpenOfficeHandler(widget)
+			"PDFHandler": new PreviewHandler.PDFHandler(widget),
+			"OpenOfficeHandler": new PreviewHandler.OpenOfficeHandler(widget)
 		});
 		this.handler = _.extend(this.handler, additional_handler);
 	},

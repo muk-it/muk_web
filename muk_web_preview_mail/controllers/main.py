@@ -60,7 +60,7 @@ class Main(http.Controller):
     def parse_mail(self, url, attachment=None, force_compute=False, **kw):     
         try:
             message = mail_cache[url] if mail_cache and not force_compute else None
-        except KeyError:
+        except (KeyError, NameError):
             message = None
         if not message:
             if not bool(urlparse.urlparse(url).netloc):
@@ -80,21 +80,24 @@ class Main(http.Controller):
                     if response.headers['content-type'] == 'message/rfc822':
                         message = request.env['mail.thread'].message_parse(response.data, False)
                     else:
-                        return werkzeug.exceptions.BadRequest(_("Unparsable message! The file has to be of type: message/rfc822"))
+                        return werkzeug.exceptions.UnsupportedMediaType(_("Unparsable message! The file has to be of type: message/rfc822"))
             else:
-                if requests:
+                if requests: #FIXME
                     try:
                         response = requests.get(url)
                         if response.headers['content-type'] == 'message/rfc822':
                             message = request.env['mail.thread'].message_parse(response.content, False)
                         else:
-                            return werkzeug.exceptions.BadRequest(_("Unparsable message! The file has to be of type: message/rfc822"))
+                            return werkzeug.exceptions.UnsupportedMediaType(_("Unparsable message! The file has to be of type: message/rfc822"))
                     except requests.exceptions.RequestException as exception:
                         return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
                 else:
                     return werkzeug.exceptions.InternalServerError(_("To parse emails the Python library requests needs to be installed." +
                                                                      "Please contact your system administrator."))
-        mail_cache[url] = message.copy()
+            try:
+                mail_cache[url] = message.copy()
+            except NameError:
+                pass
         return self._make_parse_response(request.httprequest.url, message, attachment)
         
     def _set_query_parameter(self, url, param_name, param_value):
