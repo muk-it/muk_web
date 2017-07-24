@@ -1,7 +1,7 @@
-# MuK Preview Video
+# MuK Preview MS Office
 
-Extendes the Preview Dialog to support videos. Currently the following video extensions are supported:
+Extendes the Preview Dialog to support MS Office files. Currently the following file extensions are supported:
 
-* WebM (*.webm, video/webm)
-* Ogg Theora Vorbis (*.ogg, video/ogg)
-* MP4 (*.mp4, video/mp4)
+* Word (*.doc | *.docx, application/msword)
+* Excel (*.xls | *.xlsx, application/msexcel)
+* PowerPoint (*.ppt | *.pptx, application/mspowerpoint)

@@ -23,13 +23,13 @@
     "name": "MuK Preview MS Office",
     "summary": """MS Office Preview""",
     "description": """ 
-        Extendes the Preview Dialog to support videos.
-        Currently the following video extensions are supported:
-            - WebM (*.webm, video/webm)
-            - Ogg Theora Vorbis (*.ogg, video/ogg)
-            - MP4 (*.mp4, video/mp4)
+        Extendes the Preview Dialog to support MS Office files.
+        Currently the following file extensions are supported:
+            - Word (*.doc | *.docx, application/msword)
+            - Excel (*.xls | *.xlsx, application/msexcel)
+            - PowerPoint (*.ppt | *.pptx, application/mspowerpoint)
     """,
-    "version": "10.0.1.0.0",
+    "version": "10.0.1.0.1",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

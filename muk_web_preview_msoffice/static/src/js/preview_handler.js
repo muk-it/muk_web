@@ -27,12 +27,45 @@ var PreviewHandler = require('muk_preview.PreviewHandler');
 var QWeb = core.qweb;
 var _t = core._t;
 
+var WordHandler = PreviewHandler.PDFHandler.extend({
+	checkExtension: function(extension) {
+		return ['.doc', '.docx', '.docm', 'doc', 'docx', 'docm'].includes(extension);
+    },
+    checkType: function(mimetype) {
+		return ['application/msword', 'application/ms-word', 'application/vnd.ms-word.document.macroEnabled.12',
+			'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(mimetype);
+    },
+    createHtml: function(url, mimetype, extension, title) {
+    	return this._super('/web/preview/converter/msoffice?' + $.param({
+            'url': url,
+            'title': title,
+        }));
+    },
+});
+
+var PowerPointHandler = PreviewHandler.PDFHandler.extend({
+	checkExtension: function(extension) {
+		return ['.ppt', '.pptx', '.pptm', 'ppt', 'pptx', 'pptm'].includes(extension);
+    },
+    checkType: function(mimetype) {
+		return ['application/vnd.mspowerpoint', 'application/vnd.ms-powerpoint',
+			'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+			'application/vnd.ms-powerpoint.presentation.macroEnabled.12'].includes(mimetype);
+    },
+    createHtml: function(url, mimetype, extension, title) {
+    	return this._super('/web/preview/converter/msoffice?' + $.param({
+            'url': url,
+            'title': title,
+        }));
+    },
+});
+
 var ExcelHandler = PreviewHandler.BaseHandler.extend({
 	checkExtension: function(extension) {
 		return ['.xls', '.xlsx', '.xlsm', '.xlsb', 'xls', 'xlsx', 'xlsm', 'xlsb'].includes(extension);
     },
     checkType: function(mimetype) {
-		return ['application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+		return ['application/vnd.ms-excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 			'application/vnd.ms-excel.sheet.binary.macroEnabled.12', 'application/vnd.ms-excel.sheet.macroEnabled.12'].includes(mimetype);
     },
     createHtml: function(url, mimetype, extension, title) {
@@ -103,6 +136,8 @@ var ExcelHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	ExcelHandler: ExcelHandler,
+	WordHandler: WordHandler,
+	PowerPointHandler: PowerPointHandler,
 }
 
 });

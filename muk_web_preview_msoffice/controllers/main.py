@@ -22,6 +22,7 @@
 import os
 import sys
 import json
+import uuid
 import base64
 import urllib
 import urllib2
@@ -64,13 +65,37 @@ class Main(http.Controller):
     @http.route('/web/preview/converter/msoffice', auth="user", type='http')
     def convert_msoffice(self, url, filename=None, force_compute=False, **kw):     
         try:
-            pdf = pdf_cache[url] if pdf_cache and not force_compute else None
-        except (KeyError, NameError):
-            pdf = None
-        if not pdf:
+            response = pdf_cache[url] if pdf_cache and not force_compute else None
+        except KeyError:
+            response = None
+        if not response:
             return self._get_response(url, filename)
         return pdf
     
+    def _get_response(self, url, filename):
+        if not bool(urlparse.urlparse(url).netloc):
+            method, params = self._get_route(url)
+            response = method(**params)
+            if not response.status_code == 200:
+                return self._make_error_response(response.status_code,response.description if hasattr(response, 'description') else _("Unknown Error"))
+            else:
+                content_type = response.headers['content-type']
+                data = response.data
+        else:
+            try:
+                response = requests.get(url)
+                content_type = response.headers['content-type']
+                data = response.content
+            except requests.exceptions.RequestException as exception:
+                return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
+        try:
+            return self._make_pdf_response(pdfconv.converter.convert_binary2pdf(data, content_type, filename, format='binary'), filename or uuid.uuid4())
+        except KeyError:
+            return werkzeug.exceptions.UnsupportedMediaType(_("The file couldn't be converted. Unsupported mine type."))
+        except (ImportError, IOError, WindowsError) as error:
+            _logger.error(error)
+            return werkzeug.exceptions.InternalServerError(_("An error occurred during the process. Please contact your system administrator."))
+
     def _get_route(self, url):
         url_parts = url.split('?')
         path = url_parts[0]
@@ -94,34 +119,3 @@ class Main(http.Controller):
                    ('Content-Disposition', 'attachment;filename={};'.format(filename)),
                    ('Content-Length', len(file))]
         return request.make_response(file, headers)
-    
-    def _get_response(self, url, filename):
-        if not bool(urlparse.urlparse(url).netloc):
-            method, params = self._get_route(url)
-            response = method(**params)
-            if not response.status_code == 200:
-                return self._make_error_response(response.status_code,response.description if hasattr(response, 'description') else _("Unknown Error"))
-            else:
-                content_type = response.headers['content-type']
-                data = response.data
-        else:
-            if requests:
-                try:
-                    response = requests.get(url)
-                    content_type = response.headers['content-type']
-                    data = response.content
-                except requests.exceptions.RequestException as exception:
-                    return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
-            else:
-                _logger.error("Python library requests is missing.")
-                return werkzeug.exceptions.InternalServerError(_("To convert files the Python library requests needs to be installed." +
-                                                                 "Please contact your system administrator."))
-        try:
-            
-            return werkzeug.exceptions.NotImplemented()
-
-
-        except KeyError:
-            return werkzeug.exceptions.UnsupportedMediaType(_("The file couldn't be converted. Unsupported mine type."))
-        
-        

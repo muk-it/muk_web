@@ -33,6 +33,8 @@ PreviewGenerator.include({
 		this._super(widget, additional_handler);
 		this.handler = _.extend(this.handler, {
 			"ExcelHandler": new PreviewHandler.ExcelHandler(widget),
+			"WordHandler": new PreviewHandler.WordHandler(widget),
+			"PowerPointHandler": new PreviewHandler.PowerPointHandler(widget),
 		});
 	},
 }); 
