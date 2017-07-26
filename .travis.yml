@@ -6,6 +6,9 @@ python:
 sudo: false
 cache: pip
 
+notifications:
+  email: false
+
 addons:
   apt:
     packages:
