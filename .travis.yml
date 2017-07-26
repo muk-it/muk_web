@@ -23,7 +23,12 @@ env:
 virtualenv:
   system_site_packages: true
 
+
+
 install:
+  - pip install requests
+  - pip install cachetools
+  - pip install pdfconv
   - pip install anybox.testing.openerp
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
