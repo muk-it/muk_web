@@ -25,6 +25,13 @@
 		</iframe>
 	</div>
 	
+	<div t-name="PDFjsFrame" class="o_preview_pdfjs">
+		<iframe allowfullscreen="allowfullscreen" 
+			webkitallowfullscreen="webkitallowfullscreen"
+			t-att-src="url">
+		</iframe>
+	</div>
+	
 	<div t-name="UnsupportedContent" class="o_preview_unsupported">
 		<div class="o_preview_unsupported_header">
 			<h3>Unsupported File Extension</h3>

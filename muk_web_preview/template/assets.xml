@@ -20,6 +20,8 @@
 <odoo>
 	<template id="assets_backend" inherit_id="web.assets_backend">
 	    <xpath expr=".">
+	        <script type="text/javascript" src="/muk_web_preview/static/lib/printThis/printThis.js"/>
+	        
 			<link rel="stylesheet" href="/muk_web_preview/static/src/less/preview_widgets.less" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/less/preview_dialog.less" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/less/preview_content.less" />

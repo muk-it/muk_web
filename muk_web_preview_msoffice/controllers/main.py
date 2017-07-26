@@ -60,19 +60,19 @@ try:
 except ImportError:
     _logger.warn('Cannot `import pdfconv`.')
     
-class Main(http.Controller):
+class MSOfficeParserController(http.Controller):
     
     @http.route('/web/preview/converter/msoffice', auth="user", type='http')
-    def convert_msoffice(self, url, filename=None, force_compute=False, **kw):     
+    def convert_msoffice(self, url, export_filename=None, force_compute=False, **kw):    
         try:
             response = pdf_cache[url] if pdf_cache and not force_compute else None
         except KeyError:
             response = None
         if not response:
-            return self._get_response(url, filename)
-        return pdf
+            return self._get_response(url, export_filename)
+        return response
     
-    def _get_response(self, url, filename):
+    def _get_response(self, url, export_filename):
         if not bool(urlparse.urlparse(url).netloc):
             method, params = self._get_route(url)
             response = method(**params)
@@ -89,7 +89,9 @@ class Main(http.Controller):
             except requests.exceptions.RequestException as exception:
                 return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
         try:
-            return self._make_pdf_response(pdfconv.converter.convert_binary2pdf(data, content_type, filename, format='binary'), filename or uuid.uuid4())
+            response = self._make_pdf_response(pdfconv.converter.convert_binary2pdf(data, content_type, None, format='binary'), export_filename or uuid.uuid4())
+            pdf_cache[url] = response
+            return response
         except KeyError:
             return werkzeug.exceptions.UnsupportedMediaType(_("The file couldn't be converted. Unsupported mine type."))
         except (ImportError, IOError, WindowsError) as error:
@@ -116,6 +118,6 @@ class Main(http.Controller):
     
     def _make_pdf_response(self, file, filename):
         headers = [('Content-Type', 'application/pdf'),
-                   ('Content-Disposition', 'attachment;filename={};'.format(filename)),
+                   ('Content-Disposition', 'attachment;filename="{}";'.format(filename)),
                    ('Content-Length', len(file))]
         return request.make_response(file, headers)

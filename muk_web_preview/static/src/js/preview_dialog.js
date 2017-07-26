@@ -21,6 +21,7 @@ odoo.define('muk_preview.PreviewDialog', function (require) {
 "use strict";
 
 var core = require('web.core');
+var framework = require('web.framework');
 var Widget = require('web.Widget');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -41,6 +42,7 @@ var PreviewDialog = Widget.extend({
         this.$modal.on('hidden.bs.modal', _.bind(this.destroy, this));
         this.$modal.find('.preview-maximize').on('click', _.bind(this.maximize, this));
         this.$modal.find('.preview-minimize').on('click', _.bind(this.minimize, this));
+        this.$modal.find('.preview-print').on('click', _.bind(this.print, this));
 		this.generator = generator;
 		this.generator.widget = this;
 	},
@@ -49,6 +51,7 @@ var PreviewDialog = Widget.extend({
         var self = this;
         this.generator.createPreview(this.url, this.mimetype, this.extension, this.title).then(function($content) {
             self.setElement($("<div/>").addClass("modal-body preview-body").append($content));
+            self.$modal.find('.preview-print').toggle($content.hasClass('printable'));
         });
 	},
     open: function() {
@@ -70,6 +73,28 @@ var PreviewDialog = Widget.extend({
     	this.$modal.find('.preview-maximize').toggle();
     	this.$modal.find('.preview-minimize').toggle();
     	this.$modal .removeClass("modal-fullscreen");
+    },
+    print: function(e) {
+    	var $printable = this.$modal.find('.printable');
+    	framework.blockUI();
+    	setTimeout(function() {
+    		framework.unblockUI();
+    	}, ($printable.data('print-delay') || 333) * 0.95);
+    	if(this.$modal.find('.print-content').length) {
+    		this.$modal.find('.print-content').printThis({
+    			importCSS: true,
+    			importStyle: true,
+    			printDelay: $printable.data('print-delay') || 333,
+    			loadCSS: $printable.data('print-css') || "",
+    		});
+    	} else {
+    		this.$modal.find('.printable').printThis({
+    			importCSS: true,
+    			importStyle: true,
+    			printDelay: $printable.data('print-delay') || 333,
+    			loadCSS: $printable.data('print-css') || "",
+    		});
+    	}
     },
     close: function() {
         this.$modal.modal('hide');

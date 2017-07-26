@@ -46,7 +46,7 @@
             - XBM-Dateien (*.xbm, image/x-xbitmap)
             - XPM-Dateien (*.xpm, image/x-xpixmap)
     """,
-    "version": "10.0.1.0.1",
+    "version": "10.0.1.0.2",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

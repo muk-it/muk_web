@@ -49,7 +49,7 @@ var PDFHandler = BaseHandler.extend({
     },
     createHtml: function(url, mimetype, extension, title) {
     	var result = $.Deferred();	
-    	var viewerUrlTempalte = _.template('/muk_web_preview/static/lib/ViewerJS/index.html#<%= url %>');
+    	var viewerUrlTempalte = _.template('/muk_web_preview/static/lib/PDFjs/web/viewer.html?file=<%= url %>');
 		result.resolve($(QWeb.render('ViewerJSFrame', {url: viewerUrlTempalte({url})})));
 		return $.when(result);
 	},    

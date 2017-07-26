@@ -40,7 +40,7 @@ var PreviewGenerator = core.Class.extend({
 	createPreview: function(url, mimetype, extension, title) {
 		var matchedHandler = false;
 		_.each(this.handler, function(handler, key, handler_list) {
-			if(handler.checkType(mimetype) || handler.checkExtension(extension)) {
+			if(handler.checkExtension(extension) || handler.checkType(mimetype)) {
 				matchedHandler = handler;
 			}
 		});

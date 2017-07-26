@@ -36,10 +36,8 @@ var WordHandler = PreviewHandler.PDFHandler.extend({
 			'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(mimetype);
     },
     createHtml: function(url, mimetype, extension, title) {
-    	return this._super('/web/preview/converter/msoffice?' + $.param({
-            'url': url,
-            'title': title,
-        }));
+    	var convertUrlTempalte = _.template('/web/preview/converter/msoffice?url=<%= url %>');
+    	return this._super(convertUrlTempalte({url: encodeURIComponent(url)}));
     },
 });
 
@@ -53,10 +51,8 @@ var PowerPointHandler = PreviewHandler.PDFHandler.extend({
 			'application/vnd.ms-powerpoint.presentation.macroEnabled.12'].includes(mimetype);
     },
     createHtml: function(url, mimetype, extension, title) {
-    	return this._super('/web/preview/converter/msoffice?' + $.param({
-            'url': url,
-            'title': title,
-        }));
+    	var convertUrlTempalte = _.template('/web/preview/converter/msoffice?url=<%= url %>');
+    	return this._super(convertUrlTempalte({url: encodeURIComponent(url)}));
     },
 });
 

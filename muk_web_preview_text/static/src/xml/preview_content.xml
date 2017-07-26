@@ -18,7 +18,9 @@
 -->
 
 <templates>
-	<div t-name="TextHTMLContent" class="o_preview_text">
+	<div t-name="TextHTMLContent" class="o_preview_text printable"
+		data-print-css="/muk_web_preview_text/static/src/css/preview_print.css"
+		data-print-delay="10000">
 		<div class='loader code-loader'>
 			<div class='loader--dot'></div>
 			<div class='loader--dot'></div>
@@ -187,7 +189,7 @@
 					<option value="zephir, zep">Zephir</option>
 				</select>
 			</div>
-			<pre>
+			<pre class="print-content">
 				<code class="code-view" />
 			</pre>
 		</div>

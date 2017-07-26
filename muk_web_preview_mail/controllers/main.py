@@ -52,15 +52,15 @@ try:
 except ImportError:
     _logger.warn('Cannot `import cachetools`.')
 
-class Main(http.Controller):
+class MailParserController(http.Controller):
     
     _Attachment = collections.namedtuple('Attachment', 'name mimetype extension url info')
     
     @http.route('/web/preview/converter/mail', auth="user", type='http')
     def parse_mail(self, url, attachment=None, force_compute=False, **kw):     
         try:
-            message = mail_cache[url] if mail_cache and not force_compute else None
-        except (KeyError, NameError):
+            message = mail_cache[url] if not force_compute else None
+        except KeyError:
             message = None
         if not message:
             if not bool(urlparse.urlparse(url).netloc):
@@ -82,22 +82,15 @@ class Main(http.Controller):
                     else:
                         return werkzeug.exceptions.UnsupportedMediaType(_("Unparsable message! The file has to be of type: message/rfc822"))
             else:
-                if requests: #FIXME
-                    try:
-                        response = requests.get(url)
-                        if response.headers['content-type'] == 'message/rfc822':
-                            message = request.env['mail.thread'].message_parse(response.content, False)
-                        else:
-                            return werkzeug.exceptions.UnsupportedMediaType(_("Unparsable message! The file has to be of type: message/rfc822"))
-                    except requests.exceptions.RequestException as exception:
-                        return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
-                else:
-                    return werkzeug.exceptions.InternalServerError(_("To parse emails the Python library requests needs to be installed." +
-                                                                     "Please contact your system administrator."))
-            try:
-                mail_cache[url] = message.copy()
-            except NameError:
-                pass
+                try:
+                    response = requests.get(url)
+                    if response.headers['content-type'] == 'message/rfc822':
+                        message = request.env['mail.thread'].message_parse(response.content, False)
+                    else:
+                        return werkzeug.exceptions.UnsupportedMediaType(_("Unparsable message! The file has to be of type: message/rfc822"))
+                except requests.exceptions.RequestException as exception:
+                    return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
+            mail_cache[url] = message.copy()
         return self._make_parse_response(request.httprequest.url, message, attachment)
         
     def _set_query_parameter(self, url, param_name, param_value):
@@ -115,7 +108,7 @@ class Main(http.Controller):
 
     def _make_attachment_response(self, file, filename):
         headers = [('Content-Type', mimetypes.guess_type(urllib.pathname2url(filename))[0]),
-                   ('Content-Disposition', 'attachment;filename={};'.format(filename)),
+                   ('Content-Disposition', 'attachment; filename="{}";'.format(filename)),
                    ('Content-Length', len(file))]
         return request.make_response(file, headers)
 
