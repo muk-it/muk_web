@@ -24,7 +24,7 @@
     "summary": """Attachment Preview Dialog""",
     "description": """ 
         Adds a button to the Attachment Sidebar to
-        preview the content directly in the browser..
+        preview the content directly in the browser.
     """,
     "version": "10.0.1.0.4",
     "category": "Extra Tools",
