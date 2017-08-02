@@ -30,4 +30,17 @@
     </field>
 </record>
 
+<record id="view_document_file_kanban" model="ir.ui.view">
+    <field name="name">Adding an ID to the o_image</field>
+    <field name="model">ir.attachment</field>
+    <field name="inherit_id" ref="mail.view_document_file_kanban"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@class='o_image']" position="attributes">
+        	 <attribute name="t-att-data-id">record.id.value</attribute>
+        </xpath>
+    </field>
+</record>
+
+
+
 </odoo>

@@ -20,7 +20,12 @@
 <odoo>
 	<template id="assets_backend" inherit_id="web.assets_backend">
 	    <xpath expr=".">
+			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/attachment_preview.less" />
+			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/chatter_preview.less" />
 			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/sidebar_preview.less" />
+			
+	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/attachment_preview.js"/>
+	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/chatter_preview.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/sidebar_preview.js"/>
 	    </xpath>
 	</template>
