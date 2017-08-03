@@ -24,6 +24,7 @@
 			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/chatter_preview.less" />
 			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/sidebar_preview.less" />
 			
+	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/preview_helper.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/attachment_preview.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/chatter_preview.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/sidebar_preview.js"/>

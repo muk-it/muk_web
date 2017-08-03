@@ -27,8 +27,7 @@ var Model = require("web.Model");
 var ChatThread = require('mail.ChatThread');
 var Chatter = require('mail.Chatter');
 
-var PreviewGenerator = require('muk_preview.PreviewGenerator');
-var PreviewDialog = require('muk_preview.PreviewDialog');
+var PreviewHelper = require('muk_preview_attachment.PreviewHelper');
 
 var Attachment = new Model('ir.attachment', session.user_context);
 
@@ -45,18 +44,8 @@ ChatThread.include({
     preview: function(e) {
     	e.preventDefault();
         e.stopPropagation();
-        var self = this;
-        var $target  = $(e.currentTarget);
-        
-        Attachment.query(['name', 'url', 'type', 'mimetype', 'extension'])
-    	.filter([['id', '=', $target.find('.o_attachment_id ').data('id')]])
-    	.first().then(function(attachment) {
-    		if(!attachment.url && attachment.type === "binary") {
-    			attachment.url = '/web/content/' + attachment.id + '?download=true';
-    		}
-    		PreviewDialog.createPreviewDialog(self, attachment.url, attachment.mimetype,
-    				attachment.extension, attachment.name);
-    });
+        PreviewHelper.createAttachmentPreview($(e.currentTarget)
+         .find('.o_attachment_id ').data('id'));
     },
 });
 
@@ -70,18 +59,8 @@ Chatter.include({
     preview: function(e) {
     	e.preventDefault();
         e.stopPropagation();
-        var self = this;
-        var $target  = $(e.currentTarget);
-        
-        Attachment.query(['name', 'url', 'type', 'mimetype', 'extension'])
-	    	.filter([['id', '=', $target.find('.o_attachment_id ').data('id')]])
-	    	.first().then(function(attachment) {
-	    		if(!attachment.url && attachment.type === "binary") {
-	    			attachment.url = '/web/content/' + attachment.id + '?download=true';
-	    		}
-	    		PreviewDialog.createPreviewDialog(self, attachment.url, attachment.mimetype,
-	    				attachment.extension, attachment.name);
-	    });
+        PreviewHelper.createAttachmentPreview($(e.currentTarget)
+         .find('.o_attachment_id ').data('id'));
     },
 });
 

@@ -25,8 +25,7 @@ var session = require('web.session');
 var Sidebar = require('web.Sidebar');
 var Model = require("web.Model");
 
-var PreviewGenerator = require('muk_preview.PreviewGenerator');
-var PreviewDialog = require('muk_preview.PreviewDialog');
+var PreviewHelper = require('muk_preview_attachment.PreviewHelper');
 
 var Attachment = new Model('ir.attachment', session.user_context);
 
@@ -41,18 +40,7 @@ Sidebar.include({
     on_attachment_preview: function(e) {
         e.preventDefault();
         e.stopPropagation();
-        var self = this;
-        var $target  = $(e.currentTarget);
-        
-        Attachment.query(['name', 'url', 'type', 'mimetype', 'extension'])
-        	.filter([['id', '=', $target.data('id')]])
-        	.first().then(function(attachment) {
-        		if(!attachment.url && attachment.type === "binary") {
-        			attachment.url = '/web/content/' + attachment.id + '?download=true';
-        		}
-        		PreviewDialog.createPreviewDialog(self, attachment.url, attachment.mimetype,
-        				attachment.extension, attachment.name);
-        });
+        PreviewHelper.createAttachmentPreview($(e.currentTarget).data('id'));
     },
 });
 
