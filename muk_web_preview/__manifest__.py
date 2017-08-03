@@ -39,6 +39,7 @@
     ],
     "depends": [
         "base",
+        "web",
     ],
     "data": [
         "template/assets.xml",
