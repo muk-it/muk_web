@@ -94,7 +94,7 @@ class MSOfficeParserController(http.Controller):
             return response
         except KeyError:
             return werkzeug.exceptions.UnsupportedMediaType(_("The file couldn't be converted. Unsupported mine type."))
-        except (ImportError, IOError, WindowsError) as error:
+        except (ImportError, IOError, OSError) as error:
             _logger.error(error)
             return werkzeug.exceptions.InternalServerError(_("An error occurred during the process. Please contact your system administrator."))
 
