@@ -22,7 +22,10 @@
 	    <xpath expr=".">	        
 	        <script type="text/javascript" src="/muk_web_preview_csv/static/lib/PapaParse/papaparse.js"/>
 	        
-			<link rel="stylesheet" href="/muk_web_preview_csv/static/lib/handsontable/handsontable.css" />
+	        <script type="text/javascript" src="/muk_web_preview_csv/static/lib/numbro/numbro.js"/>
+			<link rel="stylesheet" href="/muk_web_preview_csv/static/lib/pikaday/pikaday.css" />
+	        <script type="text/javascript" src="/muk_web_preview_csv/static/lib/pikaday/pikaday.js"/>
+	        <link rel="stylesheet" href="/muk_web_preview_csv/static/lib/handsontable/handsontable.css" />
 	        <script type="text/javascript" src="/muk_web_preview_csv/static/lib/handsontable/handsontable.js"/>
 	        
 			<link rel="stylesheet" href="/muk_web_preview_csv/static/src/less/preview_content.less" />
