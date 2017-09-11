@@ -38,6 +38,7 @@
         "muk_web_client_refresh",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "views/refresh_menu.xml",
         "views/refresh_rule_view.xml"
     ],
