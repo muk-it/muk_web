@@ -28,7 +28,7 @@ from odoo.exceptions import ValidationError, AccessError
 _logger = logging.getLogger(__name__)
 
 class RefreshRule(models.Model):
-    _name = 'muk_web_client_refresh_config.rule'
+    _name = 'muk_web_client_refresh.rule'
     _description = "Auto Refresh Rule"
 
     name = fields.Char(

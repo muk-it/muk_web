@@ -40,6 +40,9 @@
     ],
     "data": [
         "template/assets.xml",
+        "security/ir.model.access.csv",
+        "views/refresh_menu.xml",
+        "views/refresh_rule_view.xml",
     ],
     "demo": [
     ],
