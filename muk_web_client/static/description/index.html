@@ -7,20 +7,17 @@
 	</div>
 </section>
 
-<section class="oe_container" style="padding-bottom: 70px;">
+<section class="oe_container" style="padding-bottom: 50px;">
 	<div class="oe_row oe_spaced">
 		<div class="oe_picture">
 			<h3 class="oe_slogan">Overview</h3>
-			<p class="oe_mt32">Extends the Odoo web client to include
+			<p class="oe_mt32" style="padding-bottom: 10px;">Extends the Odoo web client to include
 				bus channels. Channels can be created to listen to Odoo bus
 				notifications. To add a channel listener to the client just
 				extend the web client and declare a new bus channel.
 			</p>
-			<p>
-				Example:
-			</p>
 			<pre>
-			    <code>
+		    	<code>
 var WebClient = require('web.WebClient');
 var session = require('web.session');	
 
@@ -34,7 +31,7 @@ WebClient.include({
 		...
 	}
 });
-			    </code>
+		    	</code>
 			</pre>
 		</div>
 	</div>
