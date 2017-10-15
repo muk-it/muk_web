@@ -1,0 +1,63 @@
+/**********************************************************************************
+* 
+*    Copyright (C) 2017 MuK IT GmbH
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Affero General Public License as
+*    published by the Free Software Foundation, either version 3 of the
+*    License, or (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Affero General Public License for more details.
+*
+*    You should have received a copy of the GNU Affero General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+.o_preview_text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	
+	.code-container {
+		display: none;
+		
+		pre {
+			padding-top: 0;
+    		padding-bottom: 0;
+		}
+		
+		.code-lang {
+			width: 100%;
+			height: 32px;
+			top: 5px;
+		}
+		
+		.code-view {
+			padding-top: 0;
+    		padding-bottom: 0;
+		}
+	
+		td.hljs-ln-numbers {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			text-align: center;
+			color: #ccc;
+			border-right: 1px solid #CCC;
+			vertical-align: top;
+			padding-right: 5px;
+		}
+
+		td.hljs-ln-code {
+			padding-left: 10px;
+		}
+	}
+}
+

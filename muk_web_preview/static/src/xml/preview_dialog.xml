@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<templates>
+	<div t-name="PreviewDialog" class="modal fade" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true" t-att-id="_.uniqueId('modal_')">
+	    <div class="modal-dialog modal-lg">
+	        <div class="modal-content">
+	            <div class="modal-header preview-header">
+	                <button type="button" class="preview-dialog-btn preview-close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+	                <button type="button" class="preview-dialog-btn preview-maximize" aria-hidden="true"><i class="fa fa-desktop"></i></button>
+	                <button type="button" class="preview-dialog-btn preview-minimize" aria-hidden="true"><i class="fa fa-minus"></i></button>
+	                <a class="preview-dialog-btn preview-download" aria-hidden="true" t-att-href="url"><i class="fa fa-download"></i></a>
+	                <button type="button" class="preview-dialog-btn preview-print" aria-hidden="true"><i class="fa fa-print"></i></button>
+	                <h4 class="modal-title preview-title"><t t-raw="title"/></h4>
+	            </div>
+	            <div class="modal-body">
+	            </div>
+	            <div class="modal-footer">
+	            	<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</templates>
