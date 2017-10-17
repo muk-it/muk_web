@@ -26,7 +26,7 @@
 
     """,
     "version": "10.0.1.0.1",
-    "category": "Extra Tools",
+    "category": "Hidden",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
     "author": "MuK IT",
