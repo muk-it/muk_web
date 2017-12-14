@@ -25,16 +25,14 @@ import json
 import uuid
 import base64
 import urllib
-import urllib2
 import logging
 import tempfile
-import urlparse
-import cStringIO
 import mimetypes
 import collections
 
 import werkzeug.exceptions
 from contextlib import closing
+from urllib.parse import urlparse
 
 from odoo import _
 from odoo import tools

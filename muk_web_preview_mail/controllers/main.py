@@ -24,14 +24,12 @@ import json
 import email
 import base64
 import urllib
-import urllib2
 import logging
-import urlparse
-import cStringIO
 import mimetypes
 import collections
 
 import werkzeug.exceptions
+from urllib.parse import urlparse
 
 from odoo import _
 from odoo import tools
