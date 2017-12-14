@@ -30,6 +30,7 @@ import collections
 
 import werkzeug.exceptions
 from urllib.parse import urlparse
+from urllib.parse import parse_qsl
 
 from odoo import _
 from odoo import tools
@@ -61,14 +62,14 @@ class MailParserController(http.Controller):
         except KeyError:
             message = None
         if not message:
-            if not bool(urlparse.urlparse(url).netloc):
+            if not bool(urlparse(url).netloc):
                 url_parts = url.split('?')
                 path = url_parts[0]
                 query_string = url_parts[1] if len(url_parts) > 1 else None
                 router = request.httprequest.app.get_db_router(request.db).bind('')
                 match = router.match(path, query_args=query_string)
                 method = router.match(path, query_args=query_string)[0]
-                params = dict(urlparse.parse_qsl(query_string))
+                params = dict(parse_qsl(query_string))
                 if len(match) > 1:
                     params.update(match[1])
                 response = method(**params)

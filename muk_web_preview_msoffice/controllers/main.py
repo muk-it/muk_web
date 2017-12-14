@@ -33,6 +33,7 @@ import collections
 import werkzeug.exceptions
 from contextlib import closing
 from urllib.parse import urlparse
+from urllib.parse import parse_qsl
 
 from odoo import _
 from odoo import tools
@@ -71,7 +72,7 @@ class MSOfficeParserController(http.Controller):
         return response
     
     def _get_response(self, url, export_filename):
-        if not bool(urlparse.urlparse(url).netloc):
+        if not bool(urlparse(url).netloc):
             method, params = self._get_route(url)
             response = method(**params)
             if not response.status_code == 200:
@@ -103,7 +104,7 @@ class MSOfficeParserController(http.Controller):
         router = request.httprequest.app.get_db_router(request.db).bind('')
         match = router.match(path, query_args=query_string)
         method = router.match(path, query_args=query_string)[0]
-        params = dict(urlparse.parse_qsl(query_string))
+        params = dict(parse_qsl(query_string))
         if len(match) > 1:
             params.update(match[1])
         return method, params
