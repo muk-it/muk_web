@@ -11,4 +11,5 @@ addon | version | summary
 [muk_web_client_refresh](muk_web_client_refresh/) | 11.0 | Web Client Refresh
 [muk_web_preview](muk_web_preview/) | 11.0 | Preview Dialog
 [muk_web_preview_attachment](muk_web_preview_attachment/) | 11.0 | Preview Dialog Attachment
+[muk_web_share](muk_web_share/) | 11.0 | Share Dialog
 
