@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<templates>
+	
+	<div t-name="muk_web_share.ShareDialog" class="muk_share_content">
+		<t t-call="muk_web_share.ShareButtons"/>
+		<t t-call="muk_web_share.ShareChats"/>
+	</div>
+
+	<p t-name="muk_web_share.ShareButtons" class="muk_share_buttons">
+		<a class="muk_share_buttons_chat" 
+			title="Chat" href="#">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-square-o fa-stack-2x"></i>
+				<i class="fa fa-comments fa-stack-1x"></i>
+			</span>
+		</a>
+		<a t-if="isMobile" class="muk_share_buttons_whatsapp" 
+			title="Whatsapp" href="#" 
+			data-action="share/whatsapp/share">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-square-o fa-stack-2x"></i>
+				<i class="fa fa-whatsapp fa-stack-1x"></i>
+			</span>
+		</a>
+		<a class="muk_share_buttons_email" 
+			title="E-mail" href="#">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-square-o fa-stack-2x"></i>
+				<i class="fa fa-envelope fa-stack-1x"></i>
+			</span>
+		</a>
+		<a class="muk_share_buttons_copy" 
+			title="Clipboard" href="#">
+			<span class="fa-stack fa-lg">
+				<i class="fa fa-square-o fa-stack-2x"></i>
+				<i class="fa fa-clipboard fa-stack-1x"></i>
+			</span>
+		</a>
+	</p>
+	
+	<div t-name="muk_web_share.ShareChats" class="muk_share_chat">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#chat" aria-controls="chat" role="tab" data-toggle="tab">
+					Chat
+				</a>
+			</li>
+			<li role="presentation">
+				<a href="#channel" aria-controls="channel" role="tab" data-toggle="tab">
+					Channel
+				</a>
+			</li>
+			<li role="presentation">
+				<a href="#user" aria-controls="channel" role="tab" data-toggle="tab">
+					User
+				</a>
+			</li>
+		</ul>
+		<a t-if="!isMobile" class="muk_share_chat_send" href="#">New message</a>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="chat"></div>
+			<div role="tabpanel" class="tab-pane" id="channel"></div>
+			<div role="tabpanel" class="tab-pane" id="user"></div>
+		</div>
+	</div>
+
+	<div t-name="muk_web_share.ShareUsers" class="muk_share_list muk_share_chat_users">
+		<t t-if="_.isEmpty(users)">
+            <li class="text-center o_no_activity mt16">
+                <span>No users...</span>
+            </li>
+        </t>
+		<t t-foreach="users" t-as="user">
+			<div t-att-data-user_id="user.id" t-att-data-partner_id="user.partner_id[0]" class="muk_share_list_item muk_share_chat_user">
+				<div class="muk_share_list_box">
+					<img t-if="!user.image" class="muk_share_list_image" src="/web/static/src/img/placeholder.png" />
+					<img t-if="user.image" class="muk_share_list_image" t-attf-src="data:image/*;base64,{{user.image}}" />
+					<div class="muk_share_list_info">
+						<div class="muk_share_list_title">
+							<span class="muk_share_list_name">
+								<t t-esc="user.name" />
+							</span>
+						</div>
+						<div class="muk_share_list_subtitle">
+							<t t-esc="user.login" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+	</div>
+	
+	<div t-name="muk_web_share.ShareChannels" class="muk_share_list muk_share_chat_channels">
+		<t t-if="_.isEmpty(channels)">
+            <li class="text-center o_no_activity mt16">
+                 <span>No discussion yet...</span>
+            </li>
+        </t>
+		<t t-foreach="channels" t-as="channel">
+			<div t-att-data-channel_id="channel.id" class="muk_share_list_item muk_share_chat_channel">
+				<div class="muk_share_list_box">
+					<img t-if="!channel.image_src" class="muk_share_list_image" src="/web/static/src/img/placeholder.png" />
+					<img t-if="channel.image_src" class="muk_share_list_image" t-att-src="channel.image_src" />
+					<div class="muk_share_list_info">
+						<div class="muk_share_list_title">
+							<span class="muk_share_list_name">
+								<t t-esc="channel.name" />
+							</span>
+						</div>
+						<div class="muk_share_list_subtitle">
+							<t t-raw="channel.last_message_preview"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+	</div>
+	
+	<div t-name="muk_web_share.ShareChatItems" class="muk_share_list muk_share_chat_chats">
+		<t t-if="_.isEmpty(channels)">
+            <li class="text-center o_no_activity mt16">
+                 <span>No discussion yet...</span>
+            </li>
+        </t>
+		<t t-foreach="channels" t-as="channel">
+			<div t-att-data-channel_id="channel.id" class="muk_share_list_item muk_share_chat_chat">
+				<div class="muk_share_list_box">
+					<img t-if="!channel.image_src" class="muk_share_list_image" src="/web/static/src/img/placeholder.png" />
+					<img t-if="channel.image_src" class="muk_share_list_image" t-att-src="channel.image_src" />
+					<div class="muk_share_list_info">
+						<div class="muk_share_list_title">
+							<span class="muk_share_list_name">
+								<t t-esc="channel.name" />
+							</span>
+						</div>
+						<div class="muk_share_list_subtitle">
+							<t t-raw="channel.last_message_preview"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+	</div>
+	
+</templates>

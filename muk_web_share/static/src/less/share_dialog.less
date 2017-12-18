@@ -1,0 +1,156 @@
+/**********************************************************************************
+* 
+*    Copyright (C) 2017 MuK IT GmbH
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Affero General Public License as
+*    published by the Free Software Foundation, either version 3 of the
+*    License, or (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Affero General Public License for more details.
+*
+*    You should have received a copy of the GNU Affero General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+.muk_share_dialog {
+	
+	.modal-title {
+		i {
+			padding-right: 5px;
+		}
+	}
+	
+	.muk_share_buttons {
+		text-align: center;
+		
+		.fa-stack {
+			position: relative;
+			
+			.fa-comments {
+				position: relative;
+	    		bottom: 2px;
+	    		left: 0.5px;
+			}
+			
+			.fa-whatsapp {
+				position: relative;
+	    		bottom: 2px;    
+	    		left: 0.5px;
+			}
+			
+			.fa-envelope {
+				position: relative;
+	    		bottom: 2px;
+	    		left: 0.5px;
+			}
+			
+			.fa-clipboard {
+				position: relative;
+	    		bottom: 1px;
+	    		left: 0.5px;
+			}
+		}
+	}
+	
+	.muk_share_chat {
+		position: relative;
+		
+		.nav-tabs {
+			border-bottom: 2px solid @gray-lighter-darker;
+		}
+	
+		.nav-tabs > li.active > a,
+		.nav-tabs > li.active > a:focus,
+		.nav-tabs > li.active > a:hover {
+			border-width: 0;
+		}
+	
+		.nav-tabs > li > a {
+			border: none;
+			color: @gray-lighter-darker;
+		}
+	
+		.nav-tabs > li.active > a,
+		.nav-tabs > li > a:hover {
+			border: none;
+			color: @odoo-brand-primary ! important;
+			background: transparent;
+		}
+	
+		.nav-tabs > li > a::after {
+			content: "";
+			background: @odoo-brand-primary;
+			height: 2px;
+			position: absolute;
+			width: 100%;
+			left: 0px;
+			bottom: -1px;
+			transition: all 250ms ease 0s;
+			transform: scale(0);
+		}
+	
+		.nav-tabs > li.active > a::after,
+		.nav-tabs > li:hover > a::after {
+			transform: scale(1);
+		}
+
+		.tab-pane {
+			padding: 5px 0 0 0;
+		}
+	
+		.tab-content {
+			.muk_share_list {
+				.muk_share_list_item {
+					cursor: pointer;
+					border-bottom: 1px solid @gray-lighter-darker;
+					
+					&:hover {
+						background: @gray-lighter-darker;
+					}
+					
+					.muk_share_list_box {
+						height: 50px;
+					    position: relative;
+    
+						.muk_share_list_image {
+							height: 50px;
+	    					width: 50px;
+	    					position: absolute;
+						}
+						
+						.muk_share_list_info {
+							width: 100%;
+						    display: inline-block;
+						    padding-left: 60px;
+						    
+						    .muk_share_list_title {
+						    	font-size: 16px;
+							    font-weight: bold;
+						    }
+						    
+						    .muk_share_list_subtitle {
+						    	white-space: nowrap;
+							    overflow:hidden !important;
+							    text-overflow: ellipsis;
+						    }
+						}
+					}
+				}
+			}
+		}
+		
+		.muk_share_chat_send {
+			position: absolute;
+		    top: 15px;
+		    right: 10px;
+		    font-size: 12px;
+		}
+	}
+
+}
+
