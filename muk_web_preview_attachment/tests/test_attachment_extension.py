@@ -56,7 +56,7 @@ class AttachmentExtensionTestCase(common.TransactionCase):
             self.sample = self.attachment_model.create({
                 'name': "test",
                 'mimetype': "image/png",
-                'datas': base64.encodestring(file.read()),
+                'datas': base64.business(file.read()),
             })
         self.assertEqual(self.sample.extension, ".png")
         
