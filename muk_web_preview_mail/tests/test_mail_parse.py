@@ -40,7 +40,7 @@ class MailParseTestCase(common.TransactionCase):
     def setUp(self):
         super(MailParseTestCase, self).setUp()
         self.attachment_model = self.env['ir.attachment'].sudo()
-        with closing(open(os.path.join(_path, 'tests/data/sample.eml'), 'r')) as file:
+        with closing(open(os.path.join(_path, 'tests/data/sample.eml'), 'rb')) as file:
             self.sample_mail_attachment = self.attachment_model.create({
                 'name': 'SampleMail',
                 'datas_fname': "sample.eml",

@@ -43,7 +43,7 @@ class AttachmentExtensionTestCase(common.TransactionCase):
         super(AttachmentExtensionTestCase, self).tearDown()
         
     def test_attachment_extension_filename(self):
-        with closing(open(os.path.join(_path, 'tests/data/sample.png'), 'r')) as file:
+        with closing(open(os.path.join(_path, 'tests/data/sample.png'), 'rb')) as file:
             self.sample = self.attachment_model.create({
                 'name': "test",
                 'datas_fname': "sample.png",
@@ -52,7 +52,7 @@ class AttachmentExtensionTestCase(common.TransactionCase):
         self.assertEqual(self.sample.extension, ".png")
         
     def test_attachment_extension_mimetype(self):
-        with closing(open(os.path.join(_path, 'tests/data/sample.png'), 'r')) as file:
+        with closing(open(os.path.join(_path, 'tests/data/sample.png'), 'rb')) as file:
             self.sample = self.attachment_model.create({
                 'name': "test",
                 'mimetype': "image/png",
