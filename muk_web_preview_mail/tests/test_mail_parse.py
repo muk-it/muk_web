@@ -44,7 +44,7 @@ class MailParseTestCase(common.TransactionCase):
             self.sample_mail_attachment = self.attachment_model.create({
                 'name': 'SampleMail',
                 'datas_fname': "sample.eml",
-                'datas': base64.encodestring(file.read()),
+                'datas': base64.b64decode(file.read()),
             })
 
     def tearDown(self):
