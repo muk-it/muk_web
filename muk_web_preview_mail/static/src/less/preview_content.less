@@ -24,6 +24,7 @@
 	
 	.mail-container {
 		display: none;
+		height: 100%;
 		
 		.meta-panel {
 			height: 175px;
@@ -53,7 +54,12 @@
 		
 		/* Based on Bootstrap Line Tabs by @keenthemes, Licensed under MIT */
 		.content-panel {
+			height: calc(~'100% - 180px');
 			padding: 0 10px 10px 10px;
+			
+			.tab-line {
+				height: 100%;
+			}
 			
 			.tab-line > .nav-tabs {
 				border: none;
@@ -112,11 +118,16 @@
 				padding: 15px 0;
 			}
 			
-			.attachment-container {
-				position: absolute;
-				width: calc(~'100% - 20px');
-				height: calc(~'100% - 230px');
+			.tab-content {
+				height: 100%;
+    			position: relative;
 			}
+			
+			.tab-pane {
+				height: 100%;
+    			overflow-y: auto;
+			}
+				
 		}
 	}
 }
