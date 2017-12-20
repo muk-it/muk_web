@@ -106,7 +106,7 @@ class MailParserController(http.Controller):
         return exception
 
     def _make_attachment_response(self, file, filename):
-        headers = [('Content-Type', mimetypes.guess_type(urllib..request.pathname2url(filename))[0]),
+        headers = [('Content-Type', mimetypes.guess_type(urllib.request.pathname2url(filename))[0]),
                    ('Content-Disposition', 'attachment; filename="{}";'.format(filename)),
                    ('Content-Length', len(file))]
         return request.make_response(file, headers)
@@ -119,7 +119,7 @@ class MailParserController(http.Controller):
         else:
             attachments = []
             for file in message["attachments"]:
-                mimetype = mimetypes.guess_type(urllib..request.pathname2url(file.fname))[0]
+                mimetype = mimetypes.guess_type(urllib.request.pathname2url(file.fname))[0]
                 extension = os.path.splitext(file.fname)[1]
                 link = self._set_query_parameter(url, "attachment", file.fname)
                 attachments.append(self._Attachment(file.fname, mimetype, extension, link, file.info))
