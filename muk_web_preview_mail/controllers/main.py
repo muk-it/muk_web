@@ -29,8 +29,7 @@ import mimetypes
 import collections
 
 import werkzeug.exceptions
-from urllib.parse import urlparse
-from urllib.parse import parse_qsl
+from urllib import parse
 
 from odoo import _
 from odoo import tools
@@ -62,14 +61,14 @@ class MailParserController(http.Controller):
         except KeyError:
             message = None
         if not message:
-            if not bool(urlparse(url).netloc):
+            if not bool(parse.urlparse(url).netloc):
                 url_parts = url.split('?')
                 path = url_parts[0]
                 query_string = url_parts[1] if len(url_parts) > 1 else None
                 router = request.httprequest.app.get_db_router(request.db).bind('')
                 match = router.match(path, query_args=query_string)
                 method = router.match(path, query_args=query_string)[0]
-                params = dict(parse_qsl(query_string))
+                params = dict(parse.parse_qsl(query_string))
                 if len(match) > 1:
                     params.update(match[1])
                 response = method(**params)
@@ -93,11 +92,11 @@ class MailParserController(http.Controller):
         return self._make_parse_response(request.httprequest.url, message, attachment)
         
     def _set_query_parameter(self, url, param_name, param_value):
-        scheme, netloc, path, query_string, fragment = urlparse.urlsplit(url)
-        query_params = urlparse.parse_qs(query_string)
+        scheme, netloc, path, query_string, fragment = parse.urlsplit(url)
+        query_params = parse.parse_qs(query_string)
         query_params[param_name] = [param_value]
-        new_query_string = urllib.urlencode(query_params, doseq=True)
-        return urlparse.urlunsplit((scheme, netloc, path, new_query_string, fragment))
+        new_query_string = urllib.parse.urlencode(query_params, doseq=True)
+        return parse.urlunsplit((scheme, netloc, path, new_query_string, fragment))
     
     def _make_error_response(self, status, message):
         exception = werkzeug.exceptions.HTTPException()
