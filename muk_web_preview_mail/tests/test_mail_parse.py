@@ -51,6 +51,5 @@ class MailParseTestCase(common.HttpCase):
         super(MailParseTestCase, self).tearDown()
         
     def test_parse_mail(self):
-        url = '/web/content/%s?download=true' % self.sample_mail_attachment.id
-        self.phantom_js("/web/preview/converter/mail?url=%s" % url,"","", login='admin')
+        self.url_open("/web/preview/converter/mail?url=/web/content/%s?download=true" % self.sample_mail_attachment.id)
         
