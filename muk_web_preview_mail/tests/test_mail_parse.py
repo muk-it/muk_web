@@ -28,7 +28,7 @@ from contextlib import closing
 from odoo import _
 from odoo.tests import common
 
-from .. import controllers
+from odoo.addons.muk_web_preview_mail.controllers import main
 
 _path = os.path.dirname(os.path.dirname(__file__))
 
@@ -51,8 +51,6 @@ class MailParseTestCase(common.TransactionCase):
         super(MailParseTestCase, self).tearDown()
         
     def test_parse_mail(self):
-        pass
-        # FIXME
-        # self.assertTrue(controllers.main.MailParserController().parse_mail('/web/content/%s?download=true' % self.sample_mail_attachment.id))
+        self.assertTrue(main.MailParserController().parse_mail('/web/content/%s?download=true' % self.sample_mail_attachment.id))
     
         
