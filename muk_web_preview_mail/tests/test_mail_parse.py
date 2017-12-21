@@ -21,6 +21,7 @@
 
 import os
 import base64
+import logging
 import unittest
 
 from contextlib import closing
@@ -31,6 +32,7 @@ from odoo.tests import common
 from odoo.addons.muk_web_preview_mail.controllers import main
 
 _path = os.path.dirname(os.path.dirname(__file__))
+_logger = logging.getLogger(__name__)
 
 class MailParseTestCase(common.HttpCase):
     
@@ -52,5 +54,6 @@ class MailParseTestCase(common.HttpCase):
         
     def test_parse_mail(self):
         url = "/web/preview/converter/mail?url=/web/content/%s?download=true" % self.sample_mail_attachment.id
+        _logger.info(self.url_open(url))
         self.assertTrue(self.url_open(url))
         
