@@ -32,7 +32,7 @@ from odoo.addons.muk_web_preview_mail.controllers import main
 
 _path = os.path.dirname(os.path.dirname(__file__))
 
-class MailParseTestCase(common.TransactionCase):
+class MailParseTestCase(common.HttpCase):
     
     at_install = False
     post_install = True
@@ -51,6 +51,6 @@ class MailParseTestCase(common.TransactionCase):
         super(MailParseTestCase, self).tearDown()
         
     def test_parse_mail(self):
-        self.assertTrue(main.MailParserController().parse_mail('/web/content/%s?download=true' % self.sample_mail_attachment.id))
-    
+        url = '/web/content/%s?download=true' % self.sample_mail_attachment.id
+        self.phantom_js("/web/preview/converter/mail?url=%s" % url,"","", login='admin')
         
