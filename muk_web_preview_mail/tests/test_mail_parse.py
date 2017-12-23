@@ -23,15 +23,15 @@ import os
 import base64
 import logging
 import unittest
+import urllib.parse
 
+from urllib.parse import urlencode
 from contextlib import closing
 
 from odoo import _
 from odoo.tests import common
 
 from odoo.addons.muk_web_preview_mail.controllers import main
-
-from requests import Request
 
 _path = os.path.dirname(os.path.dirname(__file__))
 _logger = logging.getLogger(__name__)
@@ -56,17 +56,15 @@ class MailParseTestCase(common.HttpCase):
         
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
-        self.assertTrue(self.url_open('/'))
-        _logger.info(self.url_open('/'))  
-        _logger.info(self.url_open('/').headers)    
-        _logger.info(self.url_open('/').content)  
-        
+        url = "/web/preview/converter/mail"
         params = {'url': "/web/content/{}?download=true".format(
            self.sample_mail_attachment.id
         )}
-        request = Request('GET', '/web/preview/converter/mail', params=params).prepare()
-        url = request.url
-        
+        url_parts = list(parse.urlparse(url))
+        query = dict(parse.parse_qsl(url_parts[4]))
+        query.update(params)
+        url_parts[4] = urlencode(query)
+        url = parse.urlunparse(url_parts)
         _logger.info(url)
         self.assertTrue(self.url_open(url))
         _logger.info(self.url_open(url))  
