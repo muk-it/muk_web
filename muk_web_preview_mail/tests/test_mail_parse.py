@@ -59,7 +59,7 @@ class MailParseTestCase(common.HttpCase):
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
         url = "/web/preview/converter/mail?url=/web/content/{}".format(
-            self.sample_mail_attachment.id
+            1
         )
 #         params = {'url': "/web/content/{}".format(
 #            self.sample_mail_attachment.id
