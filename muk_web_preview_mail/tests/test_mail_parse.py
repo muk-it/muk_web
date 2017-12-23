@@ -57,6 +57,8 @@ class MailParseTestCase(common.HttpCase):
         super(MailParseTestCase, self).tearDown()
         
     def test_parse_mail(self):
+        _logger(self.attachment_model.search([['name', '=', 'SampleMail']]))
+        
         self.authenticate('admin', 'admin')
         url = "/web/preview/converter/mail"
         _logger.info(self.url_open("/web/content?id=%s" % self.sample_mail_attachment.id))  
