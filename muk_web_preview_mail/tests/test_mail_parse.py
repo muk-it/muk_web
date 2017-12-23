@@ -57,4 +57,4 @@ class MailParseTestCase(common.HttpCase):
         self.assertTrue(self.url_open(url))
         _logger.info(self.url_open(url))  
         _logger.info(self.url_open(url).headers)    
-        _logger.info(self.url_open(url).data)       
+        _logger.info(self.url_open(url).content)       
