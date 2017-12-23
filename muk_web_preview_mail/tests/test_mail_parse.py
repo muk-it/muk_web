@@ -57,11 +57,8 @@ class MailParseTestCase(common.HttpCase):
         super(MailParseTestCase, self).tearDown()
         
     def test_parse_mail(self):
-        _logger.info(self.attachment_model.search([['name', '=', 'SampleMail']]))
-        
         self.authenticate('admin', 'admin')
         url = "/web/preview/converter/mail"
-        _logger.info(self.url_open("/web/content?id=%s" % self.sample_mail_attachment.id))  
         params = {'url': "/web/content?id={}".format(
            self.sample_mail_attachment.id
         )}
@@ -70,8 +67,4 @@ class MailParseTestCase(common.HttpCase):
         query.update(params)
         url_parts[4] = urlencode(query)
         url = urlunparse(url_parts)
-        _logger.info(url)
-        #self.assertTrue(self.url_open(url))
-        _logger.info(self.url_open(url))  
-        _logger.info(self.url_open(url).headers)    
-        _logger.info(self.url_open(url).content)       
+        self.url_open(url)      
