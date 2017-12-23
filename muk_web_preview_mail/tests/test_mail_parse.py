@@ -24,7 +24,8 @@ import base64
 import logging
 import unittest
 
-from urllib import parse
+from urllib.parse import urlparse
+from urllib.parse import parse_qsl
 from urllib.parse import urlencode
 from contextlib import closing
 
@@ -60,11 +61,11 @@ class MailParseTestCase(common.HttpCase):
         params = {'url': "/web/content/{}?download=true".format(
            self.sample_mail_attachment.id
         )}
-        url_parts = list(parse.urlparse(url))
-        query = dict(parse.parse_qsl(url_parts[4]))
+        url_parts = list(urlparse(url))
+        query = dict(parse_qsl(url_parts[4]))
         query.update(params)
         url_parts[4] = urlencode(query)
-        url = parse.urlunparse(url_parts)
+        url = urlunparse(url_parts)
         _logger.info(url)
         self.assertTrue(self.url_open(url))
         _logger.info(self.url_open(url))  
