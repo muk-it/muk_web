@@ -88,8 +88,8 @@ class MailParserController(http.Controller):
                         return werkzeug.exceptions.UnsupportedMediaType(_("Unparsable message! The file has to be of type: message/rfc822"))
                 except requests.exceptions.RequestException as exception:
                     return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
-            mail_cache[url] = message.copy()
-        return self._make_parse_response(request.httprequest.url, message, attachment)
+            mail_cache[url] = message
+        return self._make_parse_response(request.httprequest.url, message.copy(), attachment)
         
     def _set_query_parameter(self, url, param_name, param_value):
         scheme, netloc, path, query_string, fragment = parse.urlsplit(url)
@@ -113,7 +113,7 @@ class MailParserController(http.Controller):
     def _make_parse_response(self, url, message, attachment):
         if attachment:
             for file in message["attachments"]:
-                if file.fname == attachment:
+                if file.fname and file.fname == attachment:
                     return self._make_attachment_response(file.content, file.fname)
         else:
             attachments = []
