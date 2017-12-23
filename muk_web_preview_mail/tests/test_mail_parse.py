@@ -58,19 +58,16 @@ class MailParseTestCase(common.HttpCase):
         
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
-        url = "/web/preview/converter/mail?url=/web/content/{}".format(
-            1
-        )
-#         params = {'url': "/web/content/{}".format(
-#            self.sample_mail_attachment.id
-#         )}
-#         url_parts = list(urlparse(url))
-#         query = dict(parse_qsl(url_parts[4]))
-#         query.update(params)
-#         url_parts[4] = urlencode(query)
-#         
-#         _logger.info(url_parts)
-#         url = urlunparse(url_parts)
+        url = "/web/preview/converter/mail"
+        _logger.info(self.url_open("/web/content?id=1"))  
+        params = {'url': "/web/content?id={}".format(
+           1
+        )}
+        url_parts = list(urlparse(url))
+        query = dict(parse_qsl(url_parts[4]))
+        query.update(params)
+        url_parts[4] = urlencode(query)
+        url = urlunparse(url_parts)
         _logger.info(url)
         self.assertTrue(self.url_open(url))
         _logger.info(self.url_open(url))  
