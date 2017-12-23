@@ -58,7 +58,10 @@ class MailParseTestCase(common.HttpCase):
         _logger.info(self.url_open('/'))  
         _logger.info(self.url_open('/').headers)    
         _logger.info(self.url_open('/').content)  
-        url = "/web/preview/converter/mail?url=/web/content/%s?download=true" % self.sample_mail_attachment.id
+        url = "/web/preview/converter/mail?url=/web/content/{}?download=true".format(
+           self.sample_mail_attachment.id
+        )
+        _logger.info(url)
         self.assertTrue(self.url_open(url))
         _logger.info(self.url_open(url))  
         _logger.info(self.url_open(url).headers)    

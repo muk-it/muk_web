@@ -24,6 +24,7 @@ env:
   - TESTS="1" ODOO_REPO="odoo/odoo"
 
 before_install:
+ - sudo apt-get install -y unoconv
  - "export PATH=$PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH"
  - "if [ $(phantomjs --version) != '2.1.1' ]; then rm -rf $PWD/travis_phantomjs; mkdir -p $PWD/travis_phantomjs; fi"
  - "if [ $(phantomjs --version) != '2.1.1' ]; then wget https://assets.membergetmember.co/software/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2; fi"
@@ -31,7 +32,6 @@ before_install:
  - "phantomjs --version"
 
 install:
-  - sudo apt-get --yes unoconv
   - pip install cachetools
   - pip install pdfconv
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
