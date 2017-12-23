@@ -55,4 +55,4 @@ class MailParseTestCase(common.HttpCase):
     def test_parse_mail(self):
         url = "/web/preview/converter/mail?url=/web/content/%s?download=true" % self.sample_mail_attachment.id
         self.assertTrue(self.url_open(url))
-        
+        _logger.info(self.url_open(url).dir())        
