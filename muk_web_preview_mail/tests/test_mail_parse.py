@@ -23,8 +23,8 @@ import os
 import base64
 import logging
 import unittest
-import urllib.parse
 
+from urllib import parse
 from urllib.parse import urlencode
 from contextlib import closing
 
