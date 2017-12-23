@@ -54,6 +54,10 @@ class MailParseTestCase(common.HttpCase):
         
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
+        self.assertTrue(self.url_open('/'))
+        _logger.info(self.url_open('/'))  
+        _logger.info(self.url_open('/').headers)    
+        _logger.info(self.url_open('/').content)  
         url = "/web/preview/converter/mail?url=/web/content/%s?download=true" % self.sample_mail_attachment.id
         self.assertTrue(self.url_open(url))
         _logger.info(self.url_open(url))  

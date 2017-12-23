@@ -31,6 +31,7 @@ before_install:
  - "phantomjs --version"
 
 install:
+  - sudo apt-get --yes unoconv
   - pip install cachetools
   - pip install pdfconv
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
