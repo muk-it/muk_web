@@ -24,6 +24,7 @@ import base64
 import logging
 import unittest
 
+from urllib.parse import urlunparse
 from urllib.parse import urlparse
 from urllib.parse import parse_qsl
 from urllib.parse import urlencode
@@ -65,6 +66,8 @@ class MailParseTestCase(common.HttpCase):
         query = dict(parse_qsl(url_parts[4]))
         query.update(params)
         url_parts[4] = urlencode(query)
+        
+        _logger.info(url_parts)
         url = urlunparse(url_parts)
         _logger.info(url)
         self.assertTrue(self.url_open(url))
