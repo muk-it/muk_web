@@ -40,6 +40,7 @@ var ShareDialog = Dialog.extend({
             dialogClass: 'muk_share_dialog_body',
             $content: $(QWeb.render('muk_web_share.ShareDialog', {
             	widget: this,
+            	isMobile: config.device.isMobile,
             })),
             buttons: [{
                 text: _t("Close"),
@@ -175,11 +176,19 @@ var ShareDialog = Dialog.extend({
 	    this.do_notify(_t("Link has been copied to clipboard!"));
     },
     formatUrl: function(url) {
+    	if(this.__parentedParent && this.__parentedParent.state) {
+    		var data = this.__parentedParent.state.data;
+    		return $('<div>').append($('<a>',{
+	    	    text: data.name || url,
+	    	    title: _t('Odoo Link'),
+	    	    href: url,
+	    	})).html();
+    	} 
     	return $('<div>').append($('<a>',{
-    	    text: url,
-    	    title: _t('Odoo Link'),
-    	    href: url,
-    	})).html();
+		    text: url,
+		    title: _t('Odoo Link'),
+		    href: url,
+		})).html();
     }
 });
 

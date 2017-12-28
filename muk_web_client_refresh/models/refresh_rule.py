@@ -108,7 +108,7 @@ class RefreshRule(models.Model):
         @api.returns('self', lambda value: value.id)
         def create_refresh(self, vals, **kwargs):
             result = create_refresh.origin(self, vals, **kwargs)
-            self.env['bus.bus'].sendone('refresh', self._name)
+            self.env['bus.bus'].sendone('refresh', [self.env.cr.dbname, self._name, self._uid])
             
             
             return result
@@ -119,7 +119,7 @@ class RefreshRule(models.Model):
         @api.multi
         def write_refresh(self, vals, **kwargs):
             result = write_refresh.origin(self, vals, **kwargs)
-            self.env['bus.bus'].sendone('refresh', self._name)
+            self.env['bus.bus'].sendone('refresh', [self.env.cr.dbname, self._name, self._uid])
             return result
         return write_refresh
     
@@ -128,6 +128,6 @@ class RefreshRule(models.Model):
         @api.multi
         def unlink_refresh(self, **kwargs):
             result = unlink_refresh.origin(self, **kwargs)
-            self.env['bus.bus'].sendone('refresh', self._name)
+            self.env['bus.bus'].sendone('refresh', [self.env.cr.dbname, self._name, self._uid])
             return result
         return unlink_refresh

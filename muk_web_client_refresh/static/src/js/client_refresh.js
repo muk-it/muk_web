@@ -33,7 +33,8 @@ WebClient.include({
     refresh: function(message) {
     	var widget = this.action_manager.inner_widget;
     	var active_view = widget ? widget.active_view : false;
-        if (active_view){   
+        if (active_view && message instanceof Array && message.length === 3) {
+        	var message = message[1];
             var controller = this.action_manager.inner_widget.active_view.controller
             if (controller.modelName === message &&
             		!controller.$el.hasClass('o_form_editable')){                                               
