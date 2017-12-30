@@ -43,6 +43,7 @@
         "template/assets.xml",
     ],
     "demo": [
+        "demo/preview_mail_demo.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",

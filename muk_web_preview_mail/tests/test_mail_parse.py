@@ -45,13 +45,7 @@ class MailParseTestCase(common.HttpCase):
     
     def setUp(self):
         super(MailParseTestCase, self).setUp()
-        self.attachment_model = self.env['ir.attachment'].sudo()
-        with closing(open(os.path.join(_path, 'tests/data/sample.eml'), 'rb')) as file:
-            self.sample_mail_attachment = self.attachment_model.create({
-                'name': 'SampleMail',
-                'datas_fname': "sample.eml",
-                'datas': base64.b64encode(file.read()),
-            })
+        self.attachment_model = self.browse_ref('muk_web_preview_mail.mail_attachment_demo')
 
     def tearDown(self):
         super(MailParseTestCase, self).tearDown()
