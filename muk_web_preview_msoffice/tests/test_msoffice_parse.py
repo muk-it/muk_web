@@ -61,4 +61,4 @@ class MSOfficeParseTestCase(common.HttpCase):
         query.update(params)
         url_parts[4] = urlencode(query)
         url = urlunparse(url_parts)
-        self.assertTrue(self.url_open(url))      
+        self.url_open(url)      
