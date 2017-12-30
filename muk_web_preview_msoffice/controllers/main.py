@@ -88,11 +88,11 @@ class MSOfficeParserController(http.Controller):
             except requests.exceptions.RequestException as exception:
                 return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
         try:
-            _logger.info(content_type)
             response = self._make_pdf_response(pdfconv.converter.convert_binary2pdf(data, content_type, None, format='binary'), export_filename or uuid.uuid4())
             pdf_cache[url] = response
             return response
-        except KeyError:
+        except KeyError as error:
+            _logger.error(error)
             return werkzeug.exceptions.UnsupportedMediaType(_("The file couldn't be converted. Unsupported mine type."))
         except (ImportError, IOError, OSError) as error:
             _logger.error(error)
