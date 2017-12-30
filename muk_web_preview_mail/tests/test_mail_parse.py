@@ -45,7 +45,7 @@ class MailParseTestCase(common.HttpCase):
     
     def setUp(self):
         super(MailParseTestCase, self).setUp()
-        self.attachment_model = self.browse_ref('muk_web_preview_mail.mail_attachment_demo')
+        self.sample_mail_attachment = self.browse_ref('muk_web_preview_mail.mail_attachment_demo')
 
     def tearDown(self):
         super(MailParseTestCase, self).tearDown()
