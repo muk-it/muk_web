@@ -5,9 +5,9 @@
 	<record id="msoffice_attachment_demo" model="ir.attachment">	    
 		<field name="name">sample.doc</field> 
 		<field name="datas_fname">sample.doc</field>
+		<field name="mimetype">application/msword</field>
 	    <field name="datas" type="base64" file="muk_web_preview_msoffice/demo/data/sample.doc"/>
 	</record>
-	
 
 	</data>
 </odoo>
