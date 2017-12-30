@@ -19,5 +19,5 @@
 #
 ###################################################################################
 
-from . import test_office_parse
+from . import test_msoffice_parse
 

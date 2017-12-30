@@ -38,23 +38,23 @@ from odoo.addons.muk_web_preview_mail.controllers import main
 _path = os.path.dirname(os.path.dirname(__file__))
 _logger = logging.getLogger(__name__)
 
-class OfficeParseTestCase(common.HttpCase):
+class MSOfficeParseTestCase(common.HttpCase):
     
     at_install = False
     post_install = True
     
     def setUp(self):
-        super(OfficeParseTestCase, self).setUp()
-        self.sample_office_attachment = self.browse_ref('muk_web_preview_office.office_attachment_demo')
+        super(MSOfficeParseTestCase, self).setUp()
+        self.sample_msoffice_attachment = self.browse_ref('muk_web_preview_msoffice.msoffice_attachment_demo')
 
     def tearDown(self):
-        super(OfficeParseTestCase, self).tearDown()
+        super(MSOfficeParseTestCase, self).tearDown()
         
-    def test_parse_office(self):
+    def test_parse_msoffice(self):
         self.authenticate('admin', 'admin')
         url = "/web/preview/converter/msoffice"
         params = {'url': "/web/content?id={}".format(
-           self.sample_office_attachment.id
+           self.sample_msoffice_attachment.id
         )}
         url_parts = list(urlparse(url))
         query = dict(parse_qsl(url_parts[4]))
