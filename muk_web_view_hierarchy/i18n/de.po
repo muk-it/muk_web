@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* muk_web_view_hierarchy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-08 20:01+0000\n"
+"PO-Revision-Date: 2018-01-08 21:02+0100\n"
+"Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
+"Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: muk_web_view_hierarchy
+#. openerp-web
+#: code:addons/muk_web_view_hierarchy/static/src/js/view_hierarchy.js:36
+#, python-format
+msgid "Create"
+msgstr "Anlegen"
+
+#. module: muk_web_view_hierarchy
+#. openerp-web
+#: code:addons/muk_web_view_hierarchy/static/src/js/view_hierarchy.js:26
+#, python-format
+msgid "Hierarchy"
+msgstr "Hierarchie"
+
+#. module: muk_web_view_hierarchy
+#: model:ir.model,name:muk_web_view_hierarchy.model_ir_actions_act_window_view
+msgid "ir.actions.act_window.view"
+msgstr "ir.actions.act_window.view"
+
+#. module: muk_web_view_hierarchy
+#: model:ir.model,name:muk_web_view_hierarchy.model_ir_ui_view
+msgid "ir.ui.view"
+msgstr "ir.ui.view"

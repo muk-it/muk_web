@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* muk_web_client_refresh
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-08 19:45+0000\n"
+"PO-Revision-Date: 2018-01-08 20:49+0100\n"
+"Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
+"Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: muk_web_client_refresh
+#: model:ir.ui.menu,name:muk_web_client_refresh.cat_menu_refresh
+msgid "Auto Refresh"
+msgstr "Automatische Aktualisierung"
+
+#. module: muk_web_client_refresh
+#: model:ir.model,name:muk_web_client_refresh.model_muk_web_client_refresh_rule
+msgid "Auto Refresh Rule"
+msgstr "Aktualisierungsregel"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: muk_web_client_refresh
+#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_refresh_rule_tree
+msgid "Document Settings"
+msgstr "Dokumenten-Einstellungen"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_id
+msgid "ID"
+msgstr "ID"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_model
+msgid "Model"
+msgstr "Modell"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_name
+msgid "Name"
+msgstr "Name"
+
+#. module: muk_web_client_refresh
+#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_refresh_rule_form
+msgid "Refresg Rule"
+msgstr "Aktualisierungsregel"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_refresh_create
+msgid "Refresh on Create"
+msgstr "Nach dem Anlegen aktualisieren"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_refresh_unlink
+msgid "Refresh on Unlink"
+msgstr "Nach dem Löschen aktualisieren"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_refresh_write
+msgid "Refresh on Writes"
+msgstr "Nach Schreibvorgängen aktualisieren"
+
+#. module: muk_web_client_refresh
+#: model:ir.actions.act_window,name:muk_web_client_refresh.action_refresh_rule
+#: model:ir.ui.menu,name:muk_web_client_refresh.menu_dms_settings
+msgid "Rules"
+msgstr "Regeln"
+
+#. module: muk_web_client_refresh
+#: model:ir.model.fields,help:muk_web_client_refresh.field_muk_web_client_refresh_rule_model
+msgid "Select model for which you want to refresh the corresponding views."
+msgstr "Wählen Sie das Modell aus, dessen Views Sie aktualisieren möchten."
+
+#. module: muk_web_client_refresh
+#: sql_constraint:muk_web_client_refresh.rule:0
+msgid "There is already a rule defined on this model."
+msgstr "Für dieses Modell ist bereits eine Regel definiert."
