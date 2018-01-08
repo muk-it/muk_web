@@ -1,16 +1,45 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
+# 	* muk_web_export_attachment
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-20 10:02+0000\n"
-"PO-Revision-Date: 2017-07-20 10:02+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2018-01-08 19:50+0000\n"
+"PO-Revision-Date: 2018-01-08 20:51+0100\n"
+"Last-Translator: Henning Hraban Ramm <hraban@fiee.net>\n"
+"Language-Team: fiëé visuëlle <hraban@fiee.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
+#. module: muk_web_export_attachment
+#: code:addons/muk_web_export_attachment/controllers/main.py:125
+#, python-format
+msgid "An error occurred during the process. Please contact your system administrator."
+msgstr "Während des Vorgangs ist ein Fehler aufgetreten. Bitte kontaktieren Sie Ihren Systemadministrator."
+
+#. module: muk_web_export_attachment
+#. openerp-web
+#: code:addons/muk_web_export_attachment/static/src/xml/sidebar_preview.xml:26
+#, python-format
+msgid "Export this attachment"
+msgstr "Diesen Anhang exportieren"
+
+#. module: muk_web_export_attachment
+#: code:addons/muk_web_export_attachment/controllers/main.py:122
+#, python-format
+msgid "The file couldn't be converted. Unsupported mine type."
+msgstr "Die Datei konnte nicht konvertiert werden. Nicht unterstützter Mime-Typ."
+
+#. module: muk_web_export_attachment
+#: code:addons/muk_web_export_attachment/controllers/main.py:106
+#: code:addons/muk_web_export_attachment/controllers/main.py:116
+#, python-format
+msgid "Unknown Error"
+msgstr "Unbekannter Fehler"
