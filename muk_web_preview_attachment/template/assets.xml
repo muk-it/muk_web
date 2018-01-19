@@ -19,14 +19,15 @@
 
 <odoo>
 	<template id="assets_backend" inherit_id="web.assets_backend">
-	    <xpath expr=".">
+	    <xpath expr="//link[last()]" position="after">
 			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/attachment_preview.less" />
 			<link rel="stylesheet" href="/muk_web_preview_attachment/static/src/less/sidebar_preview.less" />
-			
-	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/preview_helper.js"/>
+		</xpath>
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/preview_helper.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/attachment_preview.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/chatter_preview.js"/>
 	        <script type="text/javascript" src="/muk_web_preview_attachment/static/src/js/sidebar_preview.js"/>
-	    </xpath>
+		</xpath>
 	</template>
 </odoo>

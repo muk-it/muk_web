@@ -28,7 +28,7 @@
         The module also enables the possibility to
         preview attachment in the Odoo Chat Widgets.
     """,
-    "version": "11.0.1.0.5",
+    "version": "11.0.1.0.6",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

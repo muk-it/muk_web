@@ -29,9 +29,9 @@
 	                <button type="button" class="preview-dialog-btn preview-print" aria-hidden="true"><i class="fa fa-print"></i></button>
 	                <h4 class="modal-title preview-title"><t t-raw="title"/></h4>
 	            </div>
-	            <div class="modal-body">
+	            <div class="modal-body preview-body">
 	            </div>
-	            <div class="modal-footer">
+	            <div class="modal-footer preview-footer">
 	            	<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
 	            </div>
 	        </div>

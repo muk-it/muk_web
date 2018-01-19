@@ -27,7 +27,7 @@
         Currently the following Markdown file extensions are supported:
             - Markdown (*.md, text/markdown)
     """,
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.1.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

@@ -29,7 +29,7 @@
             - Ogg Theora Vorbis (*.ogg, audio/ogg)
             - MP3 (*.mp3, audio/mpeg)
     """,
-    "version": "11.0.1.0.2",
+    "version": "11.0.1.1.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

@@ -27,7 +27,7 @@
         Currently the following vector graphic extensions are supported:
             - Scalable Vector Graphics (*.svg, image/svg+xml)
     """,
-    "version": "11.0.1.0.1",
+    "version": "11.0.1.1.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

@@ -1,0 +1,25 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* muk_web_preview_video
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-19 12:01+0000\n"
+"PO-Revision-Date: 2018-01-19 13:02+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 2.0.5\n"
+
+#. module: muk_web_preview_video
+#. openerp-web
+#: code:addons/muk_web_preview_video/static/src/xml/preview_content.xml:23
+#, python-format
+msgid "Your browser does not support the video tag."
+msgstr "Dieser Videotyp wird von Ihrem Browser nicht unterstützt."

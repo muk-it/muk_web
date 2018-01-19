@@ -20,6 +20,7 @@
 odoo.define('muk_preview_vector.PreviewHandler', function (require) {
 "use strict";
 
+var ajax = require('web.ajax');
 var core = require('web.core');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -28,6 +29,11 @@ var QWeb = core.qweb;
 var _t = core._t;
 
 var VectorHandler = PreviewHandler.BaseHandler.extend({
+	cssLibs: [
+    ],
+    jsLibs: [
+        '/muk_web_preview_vector/static/lib/svg-pan-zoom/svg-pan-zoom.js',
+    ],
 	checkExtension: function(extension) {
 		return ['.svg', 'svg'].includes(extension);
     },
@@ -37,40 +43,42 @@ var VectorHandler = PreviewHandler.BaseHandler.extend({
     createHtml: function(url, mimetype, extension, title) {
     	var result = $.Deferred();
 		var $content = $(QWeb.render('VectorHTMLContent', {url: url}));
-		$.ajax(url, {
-		    dataType: "text",
-		    success: function(vector) {
-		    	$content.find('.vector-loader').hide();
-	        	$content.find('.vector-container').show();
-		    	$content.find('.vector-content').html(vector);
-		    	var svgPanZoom = $("svg").svgPanZoom({
-		    	    events: {
-		    	        mouseWheel: true,
-		    	        doubleClick: true,
-		    	        drag: true,
-		    	        dragCursor: "move",
-		    	    },
-		    	    animationTime: 300,
-		    	    zoomFactor: 0.1,
-		    	    maxZoom: 5, 
-		    	    panFactor: 100, 
-		    	});
-		    	$content.find('.zoom-plus').click(function(){
-		    		svgPanZoom.zoomIn()
-		    	});
-		    	$content.find('.zoom-minus').click(function(){
-		    		svgPanZoom.zoomOut()
-		    	});
-		    	$content.find('.zoom-reset').click(function(){
-		    		svgPanZoom.reset()
-		    	});
-		    },
-		    error: function(request, status, error) {
-		    	console.error(request.responseText);
-		    }
+		ajax.loadLibs(this).then(function() {
+			$.ajax(url, {
+			    dataType: "text",
+			    success: function(vector) {
+			    	$content.find('.vector-loader').hide();
+		        	$content.find('.vector-container').show();
+			    	$content.find('.vector-content').html(vector);
+			    	var svgPanZoom = $("svg").svgPanZoom({
+			    	    events: {
+			    	        mouseWheel: true,
+			    	        doubleClick: true,
+			    	        drag: true,
+			    	        dragCursor: "move",
+			    	    },
+			    	    animationTime: 300,
+			    	    zoomFactor: 0.1,
+			    	    maxZoom: 5, 
+			    	    panFactor: 100, 
+			    	});
+			    	$content.find('.zoom-plus').click(function(){
+			    		svgPanZoom.zoomIn()
+			    	});
+			    	$content.find('.zoom-minus').click(function(){
+			    		svgPanZoom.zoomOut()
+			    	});
+			    	$content.find('.zoom-reset').click(function(){
+			    		svgPanZoom.reset()
+			    	});
+			    },
+			    error: function(request, status, error) {
+			    	console.error(request.responseText);
+			    }
+			});
 		});
         result.resolve($content);
-		return $.when(result);
+		return result;
     },
 });
 

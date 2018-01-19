@@ -20,6 +20,7 @@
 odoo.define('muk_preview_text.PreviewHandler', function (require) {
 "use strict";
 
+var ajax = require('web.ajax');
 var core = require('web.core');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -28,6 +29,13 @@ var QWeb = core.qweb;
 var _t = core._t;
 
 var TextHandler = PreviewHandler.BaseHandler.extend({
+	cssLibs: [
+		'/muk_web_preview_text/static/lib/highlight/styles/default.css',
+    ],
+    jsLibs: [
+        '/muk_web_preview_text/static/lib/highlight/highlight.pack.js',
+        '/muk_web_preview_text/static/lib/highlight_line_numbers/highlight_line_numbers.js',
+    ],
 	checkExtension: function(extension) {
 		return ['.abc', '.acgi', '.aip', '.asm', '.asp', '.c', '.c', '.c++', '.cc', '.cc', '.com', '.conf',
 			'.cpp', '.csh', '.css', '.cxx', '.def', '.el', '.etx', '.f', '.f', '.f77', '.f90', '.f90',
@@ -64,44 +72,46 @@ var TextHandler = PreviewHandler.BaseHandler.extend({
     createHtml: function(url, mimetype, extension, title) {
     	var result = $.Deferred();
     	var $content = $(QWeb.render('TextHTMLContent'));
-		$.ajax(url, {
-		    dataType: "text",
-		    success: function(text) {
-		    	$content.find('.code-loader').hide();
-	        	$content.find('.code-container').show();
-		    	var $codeBlock = $content.find('.code-view');
-		    	var $codeLang = $content.find(".code-lang");
-		    	function setText(language) {
-		    		$codeBlock.removeClass();
-	    			$codeBlock.addClass('code-view');
-		    		if(language) {
-		    			$codeBlock.addClass(language);
-		    		}
-		    		$codeBlock.text(text);
-	    			hljs.highlightBlock($codeBlock[0]);
-				    hljs.lineNumbersBlock($codeBlock[0]);
-		    	}
-		    	setText();
-		    	$codeLang.select2();
-		    	$codeLang.on("change", function(e) {
-		    		if(e.val === 'default') {
-			    		setText();
-		    		} else {
-		    			setText(e.val);
-		    		}
-		    	});		    	
-		    	$.each($codeBlock.attr('class').split(" "), function (i, cls) {
-		    	    if($content.find(".code-lang option[value='" + cls + "']").val()) {
-		    	    	$codeLang.val(cls).trigger("change");
-		    	    }
-		    	});
-		    },
-		    error: function(request, status, error) {
-		    	console.error(request.responseText);
-		    }
-		});
+    	ajax.loadLibs(this).then(function() {
+	    	$.ajax(url, {
+			    dataType: "text",
+			    success: function(text) {
+			    	$content.find('.code-loader').hide();
+		        	$content.find('.code-container').show();
+			    	var $codeBlock = $content.find('.code-view');
+			    	var $codeLang = $content.find(".code-lang");
+			    	function setText(language) {
+			    		$codeBlock.removeClass();
+		    			$codeBlock.addClass('code-view');
+			    		if(language) {
+			    			$codeBlock.addClass(language);
+			    		}
+			    		$codeBlock.text(text);
+		    			hljs.highlightBlock($codeBlock[0]);
+					    hljs.lineNumbersBlock($codeBlock[0]);
+			    	}
+			    	setText();
+			    	$codeLang.select2();
+			    	$codeLang.on("change", function(e) {
+			    		if(e.val === 'default') {
+				    		setText();
+			    		} else {
+			    			setText(e.val);
+			    		}
+			    	});		    	
+			    	$.each($codeBlock.attr('class').split(" "), function (i, cls) {
+			    	    if($content.find(".code-lang option[value='" + cls + "']").val()) {
+			    	    	$codeLang.val(cls).trigger("change");
+			    	    }
+			    	});
+			    },
+			    error: function(request, status, error) {
+			    	console.error(request.responseText);
+			    }
+			});
+    	});
         result.resolve($content);
-		return $.when(result);
+		return result;
     },
 });
 

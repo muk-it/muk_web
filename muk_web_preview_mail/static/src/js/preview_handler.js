@@ -20,6 +20,7 @@
 odoo.define('muk_preview_mail.PreviewHandler', function (require) {
 "use strict";
 
+var ajax = require('web.ajax');
 var core = require('web.core');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -120,7 +121,7 @@ var MailHandler = PreviewHandler.BaseHandler.extend({
 		    }
 		});
         result.resolve($content);
-		return $.when(result);
+		return result;
     },
 });
 

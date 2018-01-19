@@ -29,7 +29,7 @@
             - Portable Document Format (.pdf)
             - Open Document (.odt, .odp, .ods, .otp)
     """,
-    "version": "11.0.1.0.5",
+    "version": "11.0.1.1.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

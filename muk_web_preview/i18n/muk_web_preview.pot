@@ -1,0 +1,94 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* muk_web_preview
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-18 23:26+0000\n"
+"PO-Revision-Date: 2018-01-18 23:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:69
+#, python-format
+msgid "Download"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:62
+#, python-format
+msgid "Extension:"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:54
+#, python-format
+msgid "Filename:"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:43
+#, python-format
+msgid "Odoo App Store"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_dialog.xml:35
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/js/preview_dialog.js:44
+#, python-format
+msgid "Preview"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:41
+#, python-format
+msgid "This file type is currently not supported. By installing further extension via the"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:58
+#, python-format
+msgid "Type:"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/js/preview_generator.js:51
+#, python-format
+msgid "Unknown"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:37
+#, python-format
+msgid "Unsupported File Extension"
+msgstr ""
+
+#. module: muk_web_preview
+#. openerp-web
+#: code:addons/muk_web_preview/static/src/xml/preview_content.xml:43
+#, python-format
+msgid "it is possible to improve the Preview."
+msgstr ""
+

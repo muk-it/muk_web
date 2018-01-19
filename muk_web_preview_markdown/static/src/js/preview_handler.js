@@ -20,6 +20,7 @@
 odoo.define('muk_preview_markdown.PreviewHandler', function (require) {
 "use strict";
 
+var ajax = require('web.ajax');
 var core = require('web.core');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -28,6 +29,11 @@ var QWeb = core.qweb;
 var _t = core._t;
 
 var MarkdownHandler = PreviewHandler.BaseHandler.extend({
+	cssLibs: [
+    ],
+    jsLibs: [
+        '/muk_web_preview_markdown/static/lib/showdown/showdown.js',
+    ],
 	checkExtension: function(extension) {
 		return ['.md', 'md'].includes(extension);
     },
@@ -37,19 +43,22 @@ var MarkdownHandler = PreviewHandler.BaseHandler.extend({
     createHtml: function(url, mimetype, extension, title) {
     	var result = $.Deferred();
     	var $content = $(QWeb.render('MarkdownHTMLContent'));
-		$.ajax(url, {
-		    dataType: "text",
-		    success: function(text) {
-		    	$content.find('.markdown-loader').hide();
-	        	$content.find('.markdown-container').show();
-	        	$content.find('.markdown-container').html(new showdown.Converter().makeHtml(text));
-		    },
-		    error: function(request, status, error) {
-		    	console.error(request.responseText);
-		    }
-		});
+    	ajax.loadLibs(this).then(function() {
+	    	$.ajax(url, {
+			    dataType: "text",
+			    success: function(text) {
+			    	$content.find('.markdown-loader').hide();
+		        	$content.find('.markdown-container').show();
+		        	$content.find('.markdown-container').html(
+		        			new showdown.Converter().makeHtml(text));
+			    },
+			    error: function(request, status, error) {
+			    	console.error(request.responseText);
+			    }
+			});
+    	});
         result.resolve($content);
-		return $.when(result);
+		return result;
     },
 });
 

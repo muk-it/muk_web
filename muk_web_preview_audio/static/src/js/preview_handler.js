@@ -20,6 +20,7 @@
 odoo.define('muk_preview_audio.PreviewHandler', function (require) {
 "use strict";
 
+var ajax = require('web.ajax');
 var core = require('web.core');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -28,13 +29,14 @@ var QWeb = core.qweb;
 var _t = core._t;
 
 var AudioHandler = PreviewHandler.BaseHandler.extend({
+	cssLibs: [
+    ],
+    jsLibs: [
+        '/muk_web_preview_audio/static/lib/visualizer/visualizer.js',
+    ],
 	mimetypeMap: {
-		'.wav': 'audio/wav',
-		'.ogg': 'audio/ogg',
-		'.mp3': 'audio/mpeg',
-		'wav': 'audio/wav',
-		'ogg': 'audio/ogg',
-		'mp3': 'audio/mpeg',
+		'.wav': 'audio/wav', '.ogg': 'audio/ogg', '.mp3': 'audio/mpeg',
+		'wav': 'audio/wav', 'ogg': 'audio/ogg', 'mp3': 'audio/mpeg',
 	},
 	checkExtension: function(extension) {
 		return ['.wav', '.ogg', '.mp3', 'wav', 'ogg', 'mp3'].includes(extension);
@@ -43,14 +45,17 @@ var AudioHandler = PreviewHandler.BaseHandler.extend({
 		return ['audio/wav', '	audio/ogg', 'audio/mpeg'].includes(mimetype);
     },
     createHtml: function(url, mimetype, extension, title) {
+    	var self = this;
     	var result = $.Deferred();
-    	if(!mimetype || mimetype === 'application/octet-stream') {
-    		mimetype = this.mimetypeMap[extension];
-    	}
-		var $content = $(QWeb.render('AudioHTMLContent', {url: url, type: mimetype, title: title}));
-		var visualizer = new Visualizer($content.find('audio'), $content.find('.visualizer'), $content.find('canvas'));
-        result.resolve($content);
-		return $.when(result);
+    	ajax.loadLibs(this).then(function() {
+	    	if(!mimetype || mimetype === 'application/octet-stream') {
+	    		mimetype = self.mimetypeMap[extension];
+	    	}
+			var $content = $(QWeb.render('AudioHTMLContent', {url: url, type: mimetype, title: title}));
+			var visualizer = new Visualizer($content.find('audio'), $content.find('.visualizer'), $content.find('canvas'));
+	        result.resolve($content);
+    	});
+    	return result;
     },
 });
 

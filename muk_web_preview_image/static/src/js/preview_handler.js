@@ -20,6 +20,7 @@
 odoo.define('muk_preview_image.PreviewHandler', function (require) {
 "use strict";
 
+var ajax = require('web.ajax');
 var core = require('web.core');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
@@ -28,6 +29,12 @@ var QWeb = core.qweb;
 var _t = core._t;
 
 var ImageHandler = PreviewHandler.BaseHandler.extend({
+	cssLibs: [
+		'/muk_web_preview_image/static/lib/imageviewer/imageviewer.css',
+    ],
+    jsLibs: [
+        '/muk_web_preview_image/static/lib/imageviewer/imageviewer.js',
+    ],
 	checkExtension: function(extension) {
 		return ['.cod', '.ras', '.fif', '.gif', '.ief', '.jpeg', '.jpg', '.jpe', '.png', '.tiff',
 	        '.tif', '.mcf', '.wbmp', '.fh4', '.fh5', '.fhc', '.ico', '.pnm', '.pbm', '.pgm',
@@ -43,12 +50,14 @@ var ImageHandler = PreviewHandler.BaseHandler.extend({
     },
     createHtml: function(url, mimetype, extension, title) {
     	var result = $.Deferred();
-		var $content = $(QWeb.render('ImageHTMLContent', {url: url, alt: title}));
-		$content.find('img').click(function (e) {
-			ImageViewer().show(this.src, this.src);
-	    });
-        result.resolve($content);
-		return $.when(result);
+    	ajax.loadLibs(this).then(function() {
+    		var $content = $(QWeb.render('ImageHTMLContent', {url: url, alt: title}));
+    		$content.find('img').click(function (e) {
+    			ImageViewer().show(this.src, this.src);
+    	    });
+            result.resolve($content);
+    	});
+    	return result
     },
 });
 
