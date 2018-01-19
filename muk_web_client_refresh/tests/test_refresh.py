@@ -44,27 +44,22 @@ class RefreshTestCase(common.TransactionCase):
     
     def test_refresh_rule(self):
         start = self.bus.search([], count=True)
-        model = self.model.search([('model', '=', 'ir.logging')], limit=1)
+        model = self.model.search([('model', '=', 'res.partner')], limit=1)
         self.rule.create({
             'name': "TestRule",
             'model': model.id,
             'refresh_create': True,
             'refresh_write': True,
             'refresh_unlink': True})
-        log = model.create({
+        partner = model.create({
             'name': "Test",
-            'type': "server",
-            'message': "Test",
-            'path': "/",
-            'func': "Test",
-            'line': "1",
         })
         create = self.bus.search([], count=True)
         self.assertTrue(start < create)
-        log.write({'name': "Rename"})
+        partner.write({'name': "Rename"})
         write = self.bus.search([], count=True)
         self.assertTrue(write > create)
-        log.unlink()
+        partner.unlink()
         delete = self.bus.search([], count=True)
         self.assertTrue(write < delete)
         
