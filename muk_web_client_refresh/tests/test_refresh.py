@@ -35,6 +35,7 @@ class RefreshTestCase(common.TransactionCase):
     
     def setUp(self):
         super(RefreshTestCase, self).setUp()
+        self.partner = self.env['res.partner'].sudo()
         self.model = self.env['ir.model'].sudo()
         self.bus = self.env['bus.bus'].sudo()
         self.rule = self.env['muk_web_client_refresh.rule'].sudo()
@@ -51,7 +52,7 @@ class RefreshTestCase(common.TransactionCase):
             'refresh_create': True,
             'refresh_write': True,
             'refresh_unlink': True})
-        partner = model.create({
+        partner = self.partner.create({
             'name': "Test",
         })
         create = self.bus.search([], count=True)
