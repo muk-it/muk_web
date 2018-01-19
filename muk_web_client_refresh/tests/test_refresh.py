@@ -74,9 +74,3 @@ class RefreshTestCase(common.TransactionCase):
         partner.unlink()
         delete = self.bus.search([], count=True)
         self.assertTrue(start == delete)
-        
-        rule.unlink()
-        
-        
-    
-        
