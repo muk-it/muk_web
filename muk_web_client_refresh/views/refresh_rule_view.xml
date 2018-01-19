@@ -37,7 +37,7 @@
 	<field name="name">muk_web_client_refresh_rule.form</field>
 	<field name="model">muk_web_client_refresh.rule</field>
 	<field name="arch" type="xml">
-		<form string="Refresg Rule">
+		<form string="Refresh Rule">
 			<sheet>
 				<group string="General">
 					<field name="name"/>

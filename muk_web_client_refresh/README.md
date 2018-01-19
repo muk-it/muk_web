@@ -13,5 +13,5 @@ manually via python. This can be useful if there is a need for a
 view refresh on other operations like an action. 
 
 ```python
-self.env['bus.bus'].sendone('refresh', self._name)
+self.env['bus.bus'].sendone('refresh', [self.env.cr.dbname, self._name, self._uid])
 ```

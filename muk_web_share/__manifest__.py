@@ -28,7 +28,7 @@
         can be shared with another user. On mobile devices,
         the link of the form can be posted to Whatsapp.
     """,
-    "version": "11.0.1.0.2",
+    "version": "11.0.1.0.3",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -38,6 +38,7 @@
     ],
     "depends": [
         "web",
+        "mail"
     ],
     "data": [
         "template/assets.xml",

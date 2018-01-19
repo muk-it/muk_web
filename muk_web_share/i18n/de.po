@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* muk_web_share
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-19 12:35+0000\n"
+"PO-Revision-Date: 2018-01-19 13:38+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 2.0.5\n"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:68
+#, python-format
+msgid "Channel"
+msgstr "Kanal"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:30
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:63
+#, python-format
+msgid "Chat"
+msgstr "Chat"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:52
+#, python-format
+msgid "Clipboard"
+msgstr "Zwischenablage"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/js/share_dialog.js:46
+#, python-format
+msgid "Close"
+msgstr "Close"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:45
+#, python-format
+msgid "E-mail"
+msgstr "Email"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/js/share_dialog.js:176
+#, python-format
+msgid "Link has been copied to clipboard!"
+msgstr "Der Link wurde in die Zwischenablage kopiert!"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:78
+#, python-format
+msgid "New message"
+msgstr "Neue Nachricht"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:115
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:141
+#, python-format
+msgid "No discussion yet..."
+msgstr "Noch keine Diskussion ..."
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:89
+#, python-format
+msgid "No users..."
+msgstr "Keine Benutzer ..."
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/js/share_dialog.js:183
+#: code:addons/muk_web_share/static/src/js/share_dialog.js:189
+#, python-format
+msgid "Odoo Link"
+msgstr "Odoo Link"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/js/share_dialog.js:38
+#, python-format
+msgid "Share"
+msgstr "Teilen"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:73
+#, python-format
+msgid "User"
+msgstr "Benutzer"
+
+#. module: muk_web_share
+#. openerp-web
+#: code:addons/muk_web_share/static/src/xml/share_dialog.xml:38
+#, python-format
+msgid "Whatsapp"
+msgstr "Whatsapp"

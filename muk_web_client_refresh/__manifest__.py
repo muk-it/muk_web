@@ -29,7 +29,7 @@
         "refresh" rules. These rules can be applied to any Odoo model and
         trigger a refresh either on create, write or unlink.
     """,
-    "version": "11.0.1.0.3",
+    "version": "11.0.1.0.4",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
