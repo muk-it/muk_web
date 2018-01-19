@@ -46,7 +46,7 @@ class RefreshTestCase(common.TransactionCase):
     def test_refresh_rule(self):
         start = self.bus.search([], count=True)
         model = self.model.search([('model', '=', 'res.partner')], limit=1)
-        self.rule.create({
+        rule = self.rule.create({
             'name': "TestRule",
             'model': model.id,
             'refresh_create': True,
@@ -63,6 +63,19 @@ class RefreshTestCase(common.TransactionCase):
         partner.unlink()
         delete = self.bus.search([], count=True)
         self.assertTrue(write < delete)
+        rule.write({'refresh_create': False})
+        start = self.bus.search([], count=True)
+        partner = self.partner.create({
+            'name': "Test",
+        })
+        create = self.bus.search([], count=True)
+        self.assertTrue(start == create)
+        rule.unlink()
+        partner.unlink()
+        delete = self.bus.search([], count=True)
+        self.assertTrue(start == delete)
+        
+        rule.unlink()
         
         
     
