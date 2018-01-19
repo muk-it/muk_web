@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+	
+	<record id="pdf_attachment_demo" model="ir.attachment">	    
+		<field name="name">sample.pdf</field> 
+		<field name="datas_fname">sample.pdf</field>
+	    <field name="datas" type="base64" file="muk_web_preview/demo/data/sample.pdf"/>
+	</record>
+	
+	</data>
+</odoo>

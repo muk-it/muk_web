@@ -45,6 +45,7 @@
         "template/assets.xml",
     ],
     "demo": [
+        "demo/preview_demo.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",
