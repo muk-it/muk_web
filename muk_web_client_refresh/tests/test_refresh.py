@@ -51,7 +51,7 @@ class RefreshTestCase(common.TransactionCase):
             'refresh_create': True,
             'refresh_write': True,
             'refresh_unlink': True})
-        log = self.logging.create({
+        log = model.create({
             'name': "Test",
             'type': "server",
             'message': "Test",
