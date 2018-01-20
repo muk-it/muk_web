@@ -40,6 +40,8 @@
     "depends": [
         "base",
         "web",
+        "web_tour",
+        "web_editor",
     ],
     "data": [
         "template/assets.xml",
