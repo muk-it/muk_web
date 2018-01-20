@@ -37,7 +37,7 @@ class PreviewTestCase(common.HttpCase):
 
     def tearDown(self):
         super(PreviewTestCase, self).tearDown()
-        
+    
     @unittest.skip("skip")    
     def test_preview(self):
         self.phantom_js("/web",
