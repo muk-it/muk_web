@@ -40,7 +40,6 @@
     "depends": [
         "base",
         "web",
-        "web_tour",
     ],
     "data": [
         "template/assets.xml",
