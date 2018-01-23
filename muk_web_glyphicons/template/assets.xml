@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="assets_backend" name="muk_web_glyphicons_assets" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<link rel="stylesheet" href="/muk_web_glyphicons/static/src/less/glyphicons.less" />
+		</xpath>
+	</template>
+</odoo>
