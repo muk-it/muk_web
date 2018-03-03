@@ -44,7 +44,9 @@ FormRenderer.include({
 		var self = this;
 		var _super = this._super.apply(this, arguments);
 		_super.then(function() {
-			self._renderShareButton();
+			if(self.mode === 'readonly') {
+				self._renderShareButton();
+			}
 		});
 		return _super;
 	},
