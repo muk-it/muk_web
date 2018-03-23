@@ -20,12 +20,23 @@
 <odoo>
 	<template id="assets_common" inherit_id="web.assets_common">
 		<xpath expr="//link[last()]" position="after">
+			<link rel="stylesheet" href="/muk_web_utils/static/lib/spectrum/css/spectrum.css" />
 			<link rel="stylesheet" href="/muk_web_utils/static/lib/bootstrap-switch/css/bootstrap-switch.css" />
 		</xpath>
 		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_utils/static/lib/spectrum/js/spectrum.js"/>
 			<script type="text/javascript" src="/muk_web_utils/static/lib/bootstrap-switch/js/bootstrap-switch.js"/>
 		</xpath>
 	</template>
+
+<template id="assets_editor" name="Editor Assets" inherit_id="web_editor.assets_editor">
+	<xpath expr="//link[last()]" position="after">
+	</xpath>
+	<xpath expr="//script[last()]" position="after">
+		<script type="text/javascript" src="/muk_web_utils/static/lib/summernote/specialchars/summernote-ext-specialchars.js" />
+		<script type="text/javascript" src="/muk_web_utils/static/lib/summernote/emoji/summernote-ext-emoji.js" />
+	</xpath>
+</template>
 
 	<template id="assets_backend" inherit_id="web.assets_backend">
 		<xpath expr="//script[last()]" position="after">
