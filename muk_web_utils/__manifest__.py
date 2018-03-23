@@ -35,6 +35,7 @@
     ],
     "depends": [
         "web",
+        "web_editor",
     ],
     "data": [
         "template/assets.xml",
