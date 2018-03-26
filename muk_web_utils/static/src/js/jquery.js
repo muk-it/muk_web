@@ -49,9 +49,3 @@ $.fn.dndHover = function(options) {
         });
     });
 };
-
-$.fn.force_redraw = function() {
-    return this.hide(0, function() {
-        $(this).show();
-    });
-}
