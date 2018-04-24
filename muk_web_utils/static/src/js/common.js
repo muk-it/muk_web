@@ -62,10 +62,30 @@ function format_size(bytes, options) {
     return format_number(bytes) + ' ' + units[u];
 }
 
+
+function unique_string() {
+    function chr4() {
+        return Math.random().toString(16).slice(-4);
+    }
+    return chr4() + chr4() + '-' + chr4() + '-' + chr4() + '-' + chr4() + '-' + chr4() + chr4() + chr4();
+}
+
+function unique_id(prefix) {
+	var random = unique_string();
+	var prefix = prefix || "";
+	var id = prefix + random;
+	while ($('#' + id).length >= 1) {
+        id = prefix + unique_string();
+    }
+   	return id;
+}
+
 return {
 	delay: delay,
 	format_number: format_number,
 	format_size: format_size,
-}
+	unique_string: unique_string,
+	unique_id: unique_id,
+};
 
 });
