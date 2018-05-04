@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -26,6 +24,7 @@
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -36,8 +35,6 @@
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",
