@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-19 12:42+0000\n"
-"PO-Revision-Date: 2018-01-19 13:45+0100\n"
+"POT-Creation-Date: 2018-05-04 22:56+0000\n"
+"PO-Revision-Date: 2018-05-05 00:58+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,110 +15,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: de\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. module: muk_web_client_refresh
-#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_refresh_rule_form
-msgid "Access Rights"
-msgstr "Zugriffsrechte"
+#: model:ir.actions.act_window,name:muk_web_client_refresh.action_client_refresh_actions
+#: model:ir.ui.menu,name:muk_web_client_refresh.menu_client_refresh_actions
+msgid "Automated Refresh"
+msgstr "Automatisches Neuladen"
 
 #. module: muk_web_client_refresh
-#: model:ir.ui.menu,name:muk_web_client_refresh.cat_menu_refresh
-msgid "Auto Refresh"
-msgstr "Automatische Aktualisierung"
+#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_client_refresh_actions_tree
+msgid "Automation"
+msgstr "Automatisierung"
 
 #. module: muk_web_client_refresh
-#: model:ir.model,name:muk_web_client_refresh.model_muk_web_client_refresh_rule
-msgid "Auto Refresh Rule"
-msgstr "Regeln für die automatische Aktualisierung"
+#: model:ir.actions.act_window,help:muk_web_client_refresh.action_client_refresh_actions
+msgid "Click to setup a new automated refresh action."
+msgstr "Klicken Sie hier, um eine neue automatische Aktualisierungsaktion einzurichten."
 
 #. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_create_uid
-msgid "Created by"
-msgstr "Erstellt von"
+#: model:ir.ui.view,arch_db:muk_web_client_refresh.res_config_settings_view_form
+msgid "Configure Actions"
+msgstr "Aktionen konfigurieren"
 
 #. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_create_date
-msgid "Created on"
-msgstr "Erstellt am"
+#: model:ir.model.fields,field_description:muk_web_client_refresh.field_res_config_settings_refresh_delay
+#: model:ir.ui.view,arch_db:muk_web_client_refresh.res_config_settings_view_form
+msgid "Delay"
+msgstr "Verzögerung"
 
 #. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_display_name
-msgid "Display Name"
-msgstr "Anzeigename"
+#: model:ir.model.fields,help:muk_web_client_refresh.field_res_config_settings_refresh_delay
+msgid ""
+"Delays the execution of refresh and thus prevents the view from being reloaded too often.\n"
+"            For example, a delay of 1000 (ms) would mean that the view cannot be reloaded more than once a second. "
+msgstr ""
+"Verzögert die Ausführung des Refresh und verhindert so, dass der View zu oft neu geladen wird.\n"
+"            Beispielsweise würde eine Verzögerung von 1000 (ms) bedeuten, dass der View nicht mehr als einmal pro Sekunde neu geladen werden kann. "
 
 #. module: muk_web_client_refresh
-#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_refresh_rule_tree
-msgid "Document Settings"
-msgstr "Einstellungen"
+#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_client_refresh_actions_form
+msgid "e.g. Refresh Users on Create"
+msgstr "z.B. Benutzer beim Anlegen neuladen"
 
 #. module: muk_web_client_refresh
-#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_refresh_rule_form
-msgid "General"
-msgstr "Allgemein"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_id
-msgid "ID"
-msgstr "ID"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule___last_update
-msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_write_uid
-msgid "Last Updated by"
-msgstr "Zuletzt aktualisiert durch"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_write_date
-msgid "Last Updated on"
-msgstr "Zuletzt aktualisiert am"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_model
-msgid "Model"
-msgstr "Modell"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_name
-msgid "Name"
-msgstr "Name"
-
-#. module: muk_web_client_refresh
-#: model:ir.ui.view,arch_db:muk_web_client_refresh.view_refresh_rule_form
-msgid "Refresh Rule"
-msgstr "Regel für die Aktualisierung"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_refresh_create
-msgid "Refresh on Create"
-msgstr "Aktualisierung nach der Erstellung"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_refresh_unlink
-msgid "Refresh on Unlink"
-msgstr "Aktualisierung nach dem Löschen"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_muk_web_client_refresh_rule_refresh_write
-msgid "Refresh on Writes"
-msgstr "Aktualisierung nach dem Schreiben"
-
-#. module: muk_web_client_refresh
-#: model:ir.actions.act_window,name:muk_web_client_refresh.action_refresh_rule
-#: model:ir.ui.menu,name:muk_web_client_refresh.menu_dms_settings
-msgid "Rules"
-msgstr "Regeln"
-
-#. module: muk_web_client_refresh
-#: model:ir.model.fields,help:muk_web_client_refresh.field_muk_web_client_refresh_rule_model
-msgid "Select model for which you want to refresh the corresponding views."
-msgstr "Wählen Sie das Modell aus, für das Sie die entsprechenden Sichten aktualisieren möchten."
-
-#. module: muk_web_client_refresh
-#: sql_constraint:muk_web_client_refresh.rule:0
-msgid "There is already a rule defined on this model."
-msgstr "Für dieses Modell ist bereits eine Regel definiert."
+#: model:ir.model,name:muk_web_client_refresh.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"

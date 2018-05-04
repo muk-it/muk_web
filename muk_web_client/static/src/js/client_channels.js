@@ -22,19 +22,19 @@ odoo.define('muk_web_client.channel', function (require) {
 
 var WebClient = require('web.WebClient');
 var session = require('web.session');	
-var bus = require('bus.bus')	
+var bus = require('bus.bus');	
 
 WebClient.include({
     init: function(parent, client_options){
-        this._super(parent, client_options);
+    	this._super.apply(this, arguments);
         this.bus_channels = [];
         this.bus_events = [];
     },
     show_application: function() {
-        var _super = this._super();
+        var res = this._super();
         bus.bus.on('notification', this, this.bus_notification);
         bus.bus.start_polling();
-        return _super;
+        return res;
     },
     destroy: function() {
     	var self = this;
@@ -45,7 +45,7 @@ WebClient.include({
         $.each(this.bus_events, function(index, event) {
             self.bus_off(event[0], event[1]);
         });
-        this._super();
+        this._super.apply(this, arguments);
     },
     bus_declare_channel: function(channel, method) {
     	if($.inArray(channel, this.bus_channels) === -1) {

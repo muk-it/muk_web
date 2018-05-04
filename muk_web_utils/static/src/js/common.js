@@ -46,7 +46,7 @@ function format_number(value) {
 }
 
 function format_size(bytes, options) {
-	var options = options || {}
+	var options = options || {};
     var thresh = options.si ? 1000 : 1024;
     if(Math.abs(bytes) < thresh) {
     	return format_number(bytes) + ' B';

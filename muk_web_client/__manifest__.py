@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,16 +20,11 @@
 {
     "name": "MuK Web Client",
     "summary": """Odoo Web Client Extension""",
-    "description": """ 
-        Extends the Odoo web client to include
-        bus channels. Channels can be created to listen to Odoo bus
-        notifications. To add a channel listener to the client just
-        extend the web client and declare a new bus channel.
-    """,
-    "version": "11.0.1.0.1",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -39,11 +32,12 @@
     "depends": [
         "web",
         "bus",
+        "base_setup",
+        "muk_web_utils",
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
+        "views/res_config_settings_view.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",

@@ -1,5 +1,3 @@
-## -*- coding: utf-8 -*-
-
 ###################################################################################
 #
 #    Copyright (C) 2018 MuK IT GmbH
@@ -22,13 +20,11 @@
 {
     "name": "MuK Web Utils",
     "summary": """Utility Features""",
-    "description": """ 
-        Technical module to provide some utility features.
-    """,
-    "version": "11.0.1.0.4",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -39,8 +35,6 @@
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,31 +20,23 @@
 {
     "name": "MuK Web Refresh",
     "summary": """Web Client Refresh""",
-    "description": """ 
-        Adds a "refresh" channel to the web client,
-        which can be used to trigger a view refresh without refreshing the
-        browser itself. Furthermore, it allows the user the creation of
-        "refresh" rules. These rules can be applied to any Odoo model and
-        trigger a refresh either on create, write or unlink.
-    """,
-    "version": "11.0.1.0.4",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
     "depends": [
+        "base_automation",
         "muk_web_client",
     ],
     "data": [
         "template/assets.xml",
-        "security/ir.model.access.csv",
-        "views/refresh_menu.xml",
-        "views/refresh_rule_view.xml",
-    ],
-    "demo": [
+        "views/refresh_action_view.xml",
+        "views/res_config_settings_view.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",

@@ -17,29 +17,13 @@
 #
 ###################################################################################
 
-import logging
+from odoo import fields, models
 
-from odoo.tests import common
+class ResConfigSettings(models.TransientModel):
 
-_logger = logging.getLogger(__name__)
+    _inherit = 'res.config.settings'
 
-class UtilsTestCase(common.HttpCase):
+    module_muk_web_client_refresh = fields.Boolean(
+        string="Web Refresh",
+        help="Define action rules to automatically refresh views.")
     
-    at_install = False
-    post_install = True
-    
-    def setUp(self):
-        super(UtilsTestCase, self).setUp()
-
-    def tearDown(self):
-        super(UtilsTestCase, self).tearDown()
-    
-    def test_common(self):
-        self.phantom_js('/web/tests?filter=utils%20>%20common', "", "", login='admin', timeout=360)
-        
-    def test_jquery(self):
-        self.phantom_js('/web/tests?filter=utils%20>%20jquery', "", "", login='admin', timeout=360)
-    
-    def test_mimetype(self):
-        self.phantom_js('/web/tests?filter=utils%20>%20mimetype', "", "", login='admin', timeout=360)
-        

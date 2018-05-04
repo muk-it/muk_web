@@ -21,31 +21,46 @@ odoo.define('muk_web_client_refresh.channel', function (require) {
 "use strict";
 
 var WebClient = require('web.WebClient');
-var session = require('web.session');	
-var bus = require('bus.bus')	
+var session = require('web.session');		
+var config = require('web.config');	
+var bus = require('bus.bus');	
+
+var utils = require('muk_web_utils.common');
 
 WebClient.include({
+	start: function () {
+		var self = this;
+		var load_config = this._rpc({
+            route: '/config/muk_web_client_refresh.refresh_delay',
+        }).done(function(result) {
+            self.refresh_delay = result.refresh_delay;
+        });
+		return $.when(this._super.apply(this, arguments), load_config);
+	},
 	show_application: function() {
 		var channel = 'refresh';
         this.bus_declare_channel(channel, this.refresh);
-        return this._super();
+        return this._super.apply(this, arguments);
     },
     refresh: function(message) {
-    	var widget = this.action_manager.inner_widget;
-    	var active_view = widget ? widget.active_view : false;
-        if (active_view && message instanceof Array && message.length === 3) {
-        	var message = message[1];
-            var controller = this.action_manager.inner_widget.active_view.controller
-            if (controller.modelName === message &&
-            		!controller.$el.hasClass('o_form_editable')){                                               
-            	controller.reload();                                     
-            } else if((message === "mail.message" || message === "mail.activity") &&
-            		!controller.$el.hasClass('o_form_editable') &&
-            		active_view.type === "form") {
-            	controller.reload();           
+    	var self = this;
+    	utils.delay(function() {
+    		var widget = self.action_manager && self.action_manager.inner_widget;
+        	var active_view = widget ? widget.active_view : false;
+        	if (active_view && message.uid && session.uid !== message.uid) {
+                var controller = self.action_manager.inner_widget.active_view.controller;
+                if(controller.modelName === message.model && controller.mode === "readonly") {
+                	if(active_view.type === "form" && message.ids.includes(widget.env.currentId)) {
+                		controller.reload();
+                	} else if(active_view.type === "list") {
+                		controller.reload();
+                	} else if(active_view.type === "kanban") {
+                		controller.reload();
+                	}
+                }
             }
-        }
-    }
+	    }, self.refresh_delay || 1000);
+    },
 });
-    
+
 });

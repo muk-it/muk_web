@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<odoo>
+
+<record id="view_client_refresh_actions_form" model="ir.ui.view">
+    <field name="name">base.automation.form</field>
+    <field name="model">base.automation</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="base_automation.view_base_automation_form"/>
+    <field name="arch" type="xml">
+    	<xpath expr="//field[@name='name']" position="attributes">
+        	<attribute name="placeholder">e.g. Refresh Users on Create</attribute>
+        </xpath>
+        <xpath expr="//field[@name='state']" position="attributes">
+        	<attribute name="readonly">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='code']" position="attributes">
+        	<attribute name="readonly">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_client_refresh_actions_tree" model="ir.ui.view">
+    <field name="name">base.automation.tree</field>
+    <field name="model">base.automation</field>
+    <field name="arch" type="xml">
+        <tree string="Automation">
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="trigger"/>
+            <field name="model_id"/>
+        </tree>
+    </field>
+</record>
+
+<record id="action_client_refresh_actions" model="ir.actions.act_window">
+	<field name="name">Automated Refresh</field>
+	<field name="res_model">base.automation</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<field name="domain">
+		[
+			['code', '=', 'env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})']
+		]
+	</field>
+	<field name="context">
+		{
+			'default_state': 'code',
+			'default_code': 'env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})'
+		}
+	</field>
+	<field name="help" type="html">
+		<p class="oe_view_nocontent_create">
+			Click to setup a new automated refresh action.
+		</p>
+	</field>
+	<field name="view_ids" eval="[(5, 0, 0),
+		(0, 0, {'view_mode': 'tree', 'view_id': ref('view_client_refresh_actions_tree')}),
+		(0, 0, {'view_mode': 'form', 'view_id': ref('view_client_refresh_actions_form')})]"/>
+</record>
+	
+<menuitem id="menu_client_refresh_actions" parent="base.menu_automation" 
+	action="action_client_refresh_actions" sequence="2"/>
+
+</odoo>
