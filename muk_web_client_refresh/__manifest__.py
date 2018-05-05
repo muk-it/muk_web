@@ -37,6 +37,7 @@
         "template/assets.xml",
         "views/refresh_action_view.xml",
         "views/res_config_settings_view.xml",
+        "data/refresh_actions.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",
