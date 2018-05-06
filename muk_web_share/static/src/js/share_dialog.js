@@ -49,7 +49,7 @@ var ShareDialog = Dialog.extend({
             }],
             technical: true,
         });
-		this._super(parent, options);
+		this._super.apply(this, arguments);
     },
 	willStart: function () {
         var self = this;
@@ -57,9 +57,9 @@ var ShareDialog = Dialog.extend({
         	self.$modal.find('.modal-dialog').addClass("muk_share_dialog");
         	self.$modal.find('.modal-title').prepend($('<i class="fa fa-share-alt"/>'));
         	self.$content.find('.muk_share_buttons_whatsapp').attr("href",
-            		'whatsapp://send?text=' + self.url);
+            		'whatsapp://send?text=' + encodeURIComponent(self.url));
             self.$content.find('.muk_share_buttons_email').attr("href",
-            		'mailto:?subject=&body=' + self.url);
+            		'mailto:?subject=' + _t("Share") + '&body=' + encodeURIComponent(self.url));
         	self.$content.find('.muk_share_buttons_chat').click(function(e) {
         	    e.preventDefault();
         	    e.stopPropagation();
@@ -94,8 +94,8 @@ var ShareDialog = Dialog.extend({
             model: 'res.users',
             method: 'search_read',
             context: session.user_context,
-        }).then(function(users) {
-        	var users = _.filter(users, function (user) {
+        }).then(function(result) {
+        	var users = _.filter(result, function (user) {
         		return !user.share && user.id !== session.uid;
             });
         	self.$content.find('#user').append($(QWeb.render('muk_web_share.ShareUsers', {
@@ -163,6 +163,7 @@ var ShareDialog = Dialog.extend({
     newMessage: function(message) {
     	this.copyClipboard(message);
     	this.openChat();
+    	this.close();
     },
     openChat: function() {
         chat_manager.bus.trigger('open_chat');

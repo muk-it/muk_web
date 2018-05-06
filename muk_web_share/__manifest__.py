@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,16 +20,11 @@
 {
     "name": "MuK Web Share",
     "summary": """Share Button""",
-    "description": """ 
-        Adds a button to every form view. By clicking
-        this button a dialog opens and the current form
-        can be shared with another user. On mobile devices,
-        the link of the form can be posted to Whatsapp.
-    """,
-    "version": "11.0.1.0.4",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -42,8 +35,6 @@
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",
