@@ -41,7 +41,7 @@
     <field name="name">base.automation.tree</field>
     <field name="model">base.automation</field>
     <field name="arch" type="xml">
-        <tree string="Automation">
+        <tree string="Automations">
             <field name="sequence" widget="handle"/>
             <field name="name"/>
             <field name="trigger"/>
@@ -57,13 +57,21 @@
 	<field name="view_mode">tree,form</field>
 	<field name="domain">
 		[
-			['code', '=', 'env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})']
+			['code', '=', 'env["bus.bus"].sendone("refresh", {
+				"create": record.exists() and record.create_date == record.write_date,
+				"model": model._name,
+				"uid": env.user.id,
+				"ids": (record | records).mapped("id")})']
 		]
 	</field>
 	<field name="context">
 		{
 			'default_state': 'code',
-			'default_code': 'env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})'
+			'default_code': 'env["bus.bus"].sendone("refresh", {
+				"create": record.exists() and record.create_date == record.write_date,
+				"model": model._name,
+				"uid": env.user.id,
+				"ids": (record | records).mapped("id")})'
 		}
 	</field>
 	<field name="help" type="html">

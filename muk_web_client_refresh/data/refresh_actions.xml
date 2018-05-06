@@ -24,7 +24,11 @@
 	    <field name="model_id" ref="base.model_res_partner" />  
 	    <field name="state">code</field>  
 	    <field name="trigger">on_create</field>  
-	    <field name="code">env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})</field>
+	    <field name="code">env["bus.bus"].sendone("refresh", {
+				"create": record.exists() and record.create_date == record.write_date,
+				"model": model._name,
+				"uid": env.user.id,
+				"ids": (record | records).mapped("id")})</field>
 	</record>
 
 	<record id="base_automation_refresh_partner_on_write" model="base.automation">	  
@@ -32,7 +36,11 @@
 	    <field name="model_id" ref="base.model_res_partner" />  
 	    <field name="state">code</field>  
 	    <field name="trigger">on_write</field>  
-	    <field name="code">env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})</field>
+	    <field name="code">env["bus.bus"].sendone("refresh", {
+				"create": record.exists() and record.create_date == record.write_date,
+				"model": model._name,
+				"uid": env.user.id,
+				"ids": (record | records).mapped("id")})</field>
 	</record>
 	
 	<record id="base_automation_refresh_partner_on_unlink" model="base.automation">	  
@@ -40,7 +48,23 @@
 	    <field name="model_id" ref="base.model_res_partner" />  
 	    <field name="state">code</field>  
 	    <field name="trigger">on_unlink</field>  
-	    <field name="code">env["bus.bus"].sendone("refresh", {"model": model._name, "uid": env.user.id, "ids": (record | records).mapped("id")})</field>
+	    <field name="code">env["bus.bus"].sendone("refresh", {
+				"create": record.exists() and record.create_date == record.write_date,
+				"model": model._name,
+				"uid": env.user.id,
+				"ids": (record | records).mapped("id")})</field>
+	</record>
+	
+	<record id="base_automation_refresh_partner_on_create_or_write" model="base.automation">	  
+	    <field name="name">Refresh Users on Creation/Update</field>  
+	    <field name="model_id" ref="base.model_res_users" />  
+	    <field name="state">code</field>  
+	    <field name="trigger">on_create_or_write</field>  
+	    <field name="code">env["bus.bus"].sendone("refresh", {
+				"create": record.exists() and record.create_date == record.write_date,
+				"model": model._name,
+				"uid": env.user.id,
+				"ids": (record | records).mapped("id")})</field>
 	</record>
 
 </odoo>

@@ -43,23 +43,27 @@ WebClient.include({
         return this._super.apply(this, arguments);
     },
     refresh: function(message) {
-    	var self = this;
-    	utils.delay(function() {
-    		var widget = self.action_manager && self.action_manager.inner_widget;
-        	var active_view = widget ? widget.active_view : false;
-        	if (active_view && message.uid && session.uid !== message.uid) {
-                var controller = self.action_manager.inner_widget.active_view.controller;
-                if(controller.modelName === message.model && controller.mode === "readonly") {
-                	if(active_view.type === "form" && message.ids.includes(widget.env.currentId)) {
-                		controller.reload();
-                	} else if(active_view.type === "list") {
-                		controller.reload();
-                	} else if(active_view.type === "kanban") {
-                		controller.reload();
-                	}
-                }
+    	var widget = this.action_manager && this.action_manager.inner_widget;
+    	var active_view = widget ? widget.active_view : false;
+    	if (active_view && message.uid && session.uid !== message.uid) {
+            var controller = this.action_manager.inner_widget.active_view.controller;
+            if(controller.modelName === message.model && controller.mode === "readonly") {
+            	if(active_view.type === "form" && message.ids.includes(widget.env.currentId)) {
+            		this.reload(controller);
+            	} else if(active_view.type === "list" &&
+            			(message.create || _.intersection(message.ids, widget.env.ids) >= 1)) {
+            		this.reload(controller);
+            	} else if(active_view.type === "kanban" &&
+            			(message.create || _.intersection(message.ids, widget.env.ids) >= 1)) {
+            		this.reload(controller);
+            	}
             }
-	    }, self.refresh_delay || 1000);
+        }
+    },
+    reload: function(controller) {
+    	utils.delay(function() {
+    		controller.reload();
+	    }, this.refresh_delay || 1000);
     },
 });
 

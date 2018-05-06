@@ -1,3 +1,8 @@
+`2.1.0`
+-------
+
+- Reduced unnecessary refresh calls
+
 `2.0.0`
 -------
 

@@ -30,5 +30,5 @@ class RefreshController(http.Controller):
     def refresh_delay(self, **kw):
         params = request.env['ir.config_parameter'].sudo()
         return {
-            'refresh_delay': int(params.get_param("muk_web_client_refresh.refresh_delay", default=10000))
+            'refresh_delay': int(params.get_param("muk_web_client_refresh.refresh_delay", default=1000))
         }
