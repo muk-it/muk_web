@@ -2,7 +2,7 @@
 -------
 
 - Migrated to Python 3
-- Moved libraries to Web Utils
+- Libraries moved to Web Utils
 
 `1.1.0`
 -------
