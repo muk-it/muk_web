@@ -30,7 +30,7 @@ Framework
 =============
 
 To extend the preview a new "PreviewHandler" has to be created and subsequently added to the "PreviewGenerator". 
-In the following steps show the implementation of the image preview.
+The following steps show the implementation of the image preview.
 
 PreviewHandler
 --------------
