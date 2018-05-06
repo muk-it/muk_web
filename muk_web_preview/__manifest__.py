@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,17 +20,11 @@
 {
     "name": "MuK Preview",
     "summary": """File Preview Dialog""",
-    "description": """ 
-        Adds a button to the FieldBinaryFile form widget to
-        preview the file content directly in the browser.
-        Currently the following file extensions are supported:
-            - Portable Document Format (.pdf)
-            - Open Document (.odt, .odp, .ods, .otp)
-    """,
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -40,6 +32,7 @@
     "depends": [
         "base",
         "web",
+        "muk_web_utils",
     ],
     "data": [
         "template/assets.xml",

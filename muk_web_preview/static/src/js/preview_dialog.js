@@ -36,7 +36,7 @@ var PreviewDialog = Widget.extend({
 	cssLibs: [
     ],
     jsLibs: [
-        '/muk_web_preview/static/lib/printThis/printThis.js',
+        '/muk_web_utils/static/lib/printThis/printThis.js',
     ],
 	init: function(parent, generator, url, mimetype, extension, title) {
 		this._super(parent);

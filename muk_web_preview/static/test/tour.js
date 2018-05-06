@@ -11,22 +11,22 @@ var name = 'preview';
 
 var options = {
     test: true,
-    url: '/web',
+    url: '/web?debug=',
     wait_for: base.ready()
-}
+};
 
 var setps = [
 	{
 		content: 'open menu_administration',
-		trigger: 'a.oe_menu_toggler[data-menu-xmlid="base.menu_administration"]',
+		trigger: 'a[data-menu-xmlid="base.menu_administration"]',
 		run: 'click',
 	},{
-		content: 'open next_id_9',
-		trigger: 'a.oe_menu_toggler[data-menu-xmlid="base.next_id_9"]',
+		content: 'open menu_custom',
+		trigger: 'a[data-menu-xmlid="base.menu_custom"]',
 		run: 'click',
 	},{
 		content: 'open menu_action_attachment',
-		trigger: 'a.oe_menu_leaf[data-menu-xmlid="base.menu_action_attachment"]',
+		trigger: 'a[data-menu-xmlid="base.menu_action_attachment"]',
 		run: 'click',
 	},{
 		content: 'search sample.pdf',
@@ -36,6 +36,11 @@ var setps = [
 	},{
 		content: 'search sample.pdf',
 		trigger: 'ul.o_searchview_autocomplete li a',
+		extra_trigger: 'div.o_main_content > div.o_control_panel li.active:contains("Attachment")',
+		run: 'click',
+	},{
+		content: 'switch to list view',
+		trigger: '.o_cp_switch_list',
 		extra_trigger: 'div.o_main_content > div.o_control_panel li.active:contains("Attachment")',
 		run: 'click',
 	},{

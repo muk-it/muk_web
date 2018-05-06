@@ -28,7 +28,7 @@ QUnit.module('utils', function () {
         assert.expect(1);
         
         var result = $.fn.textWidth("Lorem ipsum dolor sit amet");
-        assert.strictEqual(result, 157);
+        assert.strictEqual(result, 159);
     });
 
 });
