@@ -1,5 +1,5 @@
 ###################################################################################
-#
+# 
 #    Copyright (C) 2017 MuK IT GmbH
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -17,17 +17,37 @@
 #
 ###################################################################################
 
-from odoo import fields, models
-
-class ResConfigSettings(models.TransientModel):
-
-    _inherit = 'res.config.settings'
-
-    module_muk_web_client_refresh = fields.Boolean(
-        string="Web Refresh",
-        help="Define action rules to automatically refresh views.")
+{
+    "name": "MuK Web Notification",
+    "summary": """Web Client Notification""",
+    "version": "11.0.1.0.0",
+    "category": "Extra Tools",
+    "license": "AGPL-3",
+    "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
+    "author": "MuK IT",
+    "contributors": [
+        "Mathias Markl <mathias.markl@mukit.at>",
+    ],
+    "depends": [
+        "muk_web_client",
+    ],
+    "data": [
+        "template/assets.xml",
+        "views/send_notifications.xml",
+        "views/res_config_settings_view.xml",
+    ],
+    "qweb": [
+        "static/src/xml/*.xml",
+    ],
+    "images": [
+        'static/description/banner.png'
+    ],
+    "external_dependencies": {
+        "python": [],
+        "bin": [],
+    },
+    "application": False,
+    "installable": True,
     
-    module_muk_web_client_notification = fields.Boolean(
-        string="Web Notification",
-        help="Send instant messages to users in real time.")
-    
+}

@@ -17,17 +17,28 @@
 #
 ###################################################################################
 
-from odoo import fields, models
+import logging
 
-class ResConfigSettings(models.TransientModel):
+from odoo import api, models
 
-    _inherit = 'res.config.settings'
+_logger = logging.getLogger(__name__)
 
-    module_muk_web_client_refresh = fields.Boolean(
-        string="Web Refresh",
-        help="Define action rules to automatically refresh views.")
-    
-    module_muk_web_client_notification = fields.Boolean(
-        string="Web Notification",
-        help="Send instant messages to users in real time.")
-    
+class ImBus(models.Model):
+
+    _inherit = 'bus.bus'
+
+    @api.model
+    def poll(self, channels, last=0, options=None, force_status=False):
+        res = super(ImBus, self).poll(channels, last, options, force_status)
+        notifications = []
+        for notification in res:
+            if notification['channel'] == "notify":
+                ids = notification['message']['ids']
+                del notification['message']['ids']
+                if not ids:
+                    notifications.append(notification)
+                elif self.env.user.id in ids:
+                    notifications.append(notification)
+            else:
+                notifications.append(notification)
+        return notifications

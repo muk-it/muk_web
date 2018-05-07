@@ -17,17 +17,31 @@
 #
 ###################################################################################
 
-from odoo import fields, models
+import logging
 
-class ResConfigSettings(models.TransientModel):
+from odoo import _, api, models
 
-    _inherit = 'res.config.settings'
+_logger = logging.getLogger(__name__)
 
-    module_muk_web_client_refresh = fields.Boolean(
-        string="Web Refresh",
-        help="Define action rules to automatically refresh views.")
-    
-    module_muk_web_client_notification = fields.Boolean(
-        string="Web Notification",
-        help="Send instant messages to users in real time.")
-    
+class ResUsers(models.Model):
+
+    _inherit = 'res.users'
+
+    @api.multi
+    def _notify_channel(self, type, message, title=None, sticky=False):
+        self.env["bus.bus"].sendone("notify", {
+            "type": type,
+            "title": title,
+            "message": message,
+            "sticky": sticky,
+            "ids": self.mapped("id")})
+
+    @api.multi
+    def notify_info(self, message, title=None, sticky=False):
+        title = title or _('Information')
+        self._notify_channel("info", message, title, sticky)
+
+    @api.multi
+    def notify_warning(self, message, title=None, sticky=False):
+        title = title or _('Warning')
+        self._notify_channel("warning", message, title, sticky)
