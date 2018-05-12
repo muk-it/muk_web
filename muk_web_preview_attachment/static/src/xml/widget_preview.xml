@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<templates>
+	<t t-extend="FieldBinaryFileUploader.files">
+		<t t-jquery="a[target='_blank']" t-operation="before">
+			<t t-if="widget.mode === 'readonly'">
+				<button type="button" class="o_attachment_preview" aria-hidden="true" t-att-data-id="file.data.id">
+					<i class="fa fa-file-text-o" t-att-data-id="file.data.id"></i>
+				</button>
+			</t>
+		</t>
+		<t t-jquery=".o_image" t-operation="attributes">
+			<attribute name="t-att-data-id">widget.metadata[file.id] ? file.data.id : false</attribute>
+		</t>
+	</t>
+</templates>
+
+

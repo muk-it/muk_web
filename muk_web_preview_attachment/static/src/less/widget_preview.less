@@ -17,13 +17,17 @@
 *
 **********************************************************************************/
 
-.o_cp_sidebar {
-	.o_sidebar_preview_attachment {
-		right: -18px;
-		position: relative;
-	}
-
-	.open .dropdown-menu > li > a {
-		display: inline-block;
+.o_attachment_preview {
+	border: 0;
+	cursor: pointer;
+    padding: 0;
+	background: transparent;
+	-webkit-appearance: none;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	
+	&:hover , &:focus {
+		opacity: 1;
+		filter: alpha(opacity=100);
 	}
 }

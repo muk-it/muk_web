@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 #
 #    Copyright (C) 2017 MuK IT GmbH
@@ -21,11 +19,7 @@
 
 import os
 import base64
-import unittest
 
-from contextlib import closing
-
-from odoo import _
 from odoo.tests import common
 
 _path = os.path.dirname(os.path.dirname(__file__))
@@ -43,22 +37,22 @@ class AttachmentExtensionTestCase(common.TransactionCase):
         super(AttachmentExtensionTestCase, self).tearDown()
         
     def test_attachment_extension_filename(self):
-        with closing(open(os.path.join(_path, 'tests/data/sample.png'), 'rb')) as file:
-            self.sample = self.attachment_model.create({
+        with open(os.path.join(_path, 'tests/data/sample.png'), 'rb') as file:
+            sample = self.attachment_model.create({
                 'name': "test",
                 'datas_fname': "sample.png",
                 'datas': base64.b64encode(file.read()),
             })
-        self.assertEqual(self.sample.extension, ".png")
+        self.assertEqual(sample.extension, ".png")
         
     def test_attachment_extension_mimetype(self):
-        with closing(open(os.path.join(_path, 'tests/data/sample.png'), 'rb')) as file:
-            self.sample = self.attachment_model.create({
+        with open(os.path.join(_path, 'tests/data/sample.png'), 'rb') as file:
+            sample = self.attachment_model.create({
                 'name': "test",
                 'mimetype': "image/png",
                 'datas': base64.b64encode(file.read()),
             })
-        self.assertEqual(self.sample.extension, ".png")
+        self.assertEqual(sample.extension, ".png")
         
         
     

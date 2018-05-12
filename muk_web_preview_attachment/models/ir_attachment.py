@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 #
 #    Copyright (C) 2017 MuK IT GmbH
@@ -19,13 +17,10 @@
 #
 ###################################################################################
 
-import base64
-import collections
 import logging
 import mimetypes
 import os.path
 
-from odoo import _
 from odoo import models, api, fields
 
 _logger = logging.getLogger(__name__)

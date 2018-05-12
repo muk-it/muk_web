@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,16 +20,11 @@
 {
     "name": "MuK Preview Attachment",
     "summary": """Attachment Preview Dialog""",
-    "description": """ 
-        Adds a button to the Attachment Sidebar to
-        preview the content directly in the browser.
-        The module also enables the possibility to
-        preview attachment in the Odoo Chat Widgets.
-    """,
-    "version": "11.0.1.0.6",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -44,8 +37,6 @@
     "data": [
         "template/assets.xml",
         "views/ir_attachment_view.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",

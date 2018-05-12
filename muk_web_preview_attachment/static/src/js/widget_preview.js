@@ -17,13 +17,32 @@
 *
 **********************************************************************************/
 
-.o_cp_sidebar {
-	.o_sidebar_preview_attachment {
-		right: -18px;
-		position: relative;
-	}
+odoo.define('muk_preview_attachment.WidgetPreview', function (require) {
+"use strict";
 
-	.open .dropdown-menu > li > a {
-		display: inline-block;
-	}
-}
+var core = require('web.core');
+var session = require('web.session');
+var fields = require('web.relational_fields');
+
+var PreviewHelper = require('muk_preview_attachment.PreviewHelper');
+
+var QWeb = core.qweb;
+var _t = core._t;
+
+fields.FieldMany2ManyBinaryMultiFiles.include({
+	init: function() {
+		this._super.apply(this, arguments);
+		this.events = _.extend(this.events, {
+            'click .oe_attachment .o_image': '_preview',
+            'click .o_attachment_preview': '_preview',
+        });
+	},
+	_preview: function(e) {
+    	e.preventDefault();
+        e.stopPropagation();
+        PreviewHelper.createAttachmentPreview(
+        		$(e.currentTarget).data('id'), this);
+    },
+});
+
+});
