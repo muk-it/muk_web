@@ -49,17 +49,10 @@ PreviewHandler
 	
 	var ImageHandler = PreviewHandler.BaseHandler.extend({
 		checkExtension: function(extension) {
-			return ['.cod', '.ras', '.fif', '.gif', '.ief', '.jpeg', '.jpg', '.jpe', '.png', '.tiff',
-		        '.tif', '.mcf', '.wbmp', '.fh4', '.fh5', '.fhc', '.ico', '.pnm', '.pbm', '.pgm',
-		        '.ppm', '.rgb', '.xwd', '.xbm', '.xpm', 'cod', 'ras', 'fif', 'gif', 'ief', 'jpeg',
-		        'jpg', 'jpe', 'png', 'tiff', '.tif', 'mcf', 'wbmp', 'fh4', 'fh5', 'fhc', 'ico',
-		        'pnm', 'pbm', 'pgm', '.ppm', 'rgb', 'xwd', 'xbm', 'xpm'].includes(extension);
+			return ['.cod', '.ras', '.fif', '.gif', ...].includes(extension);
 	    },
 	    checkType: function(mimetype) {
-			return ['image/cis-cod', 'image/cmu-raster', 'image/fif', 'image/gif', 'image/ief', 'image/jpeg',
-				'image/png', 'image/tiff', 'image/vasa', 'image/vnd.wap.wbmp', 'image/x-freehand', 'image/x-icon',
-				'image/x-portable-anymap', 'image/x-portable-bitmap', 'image/x-portable-graymap', 'image/x-portable-pixmap',
-				'image/x-rgb', 'image/x-windowdump', 'image/x-xbitmap', 'image/x-xpixmap'].includes(mimetype);
+			return ['image/cis-cod', 'image/fif', ...].includes(mimetype);
 	    },
 	    createHtml: function(url, mimetype, extension, title) {
 	    	var result = $.Deferred();
