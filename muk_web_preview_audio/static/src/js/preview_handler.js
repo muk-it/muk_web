@@ -32,7 +32,7 @@ var AudioHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
     ],
     jsLibs: [
-        '/muk_web_preview_audio/static/lib/visualizer/visualizer.js',
+        '/muk_web_utils/static/lib/visualizer/visualizer.js',
     ],
 	mimetypeMap: {
 		'.wav': 'audio/wav', '.ogg': 'audio/ogg', '.mp3': 'audio/mpeg',
@@ -61,6 +61,6 @@ var AudioHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	AudioHandler: AudioHandler,
-}
+};
 
 });
