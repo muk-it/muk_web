@@ -32,7 +32,7 @@ var MarkdownHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
     ],
     jsLibs: [
-        '/muk_web_preview_markdown/static/lib/showdown/showdown.js',
+        '/muk_web_utils/static/lib/showdown/showdown.js',
     ],
 	checkExtension: function(extension) {
 		return ['.md', 'md'].includes(extension);
@@ -64,6 +64,6 @@ var MarkdownHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	MarkdownHandler: MarkdownHandler,
-}
+};
 
 });
