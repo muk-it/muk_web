@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,12 +20,7 @@
 {
     "name": "MuK Preview Vector",
     "summary": """Vector Preview""",
-    "description": """ 
-        Extendes the Preview Dialog to support vector graphics.
-        Currently the following vector graphic extensions are supported:
-            - Scalable Vector Graphics (*.svg, image/svg+xml)
-    """,
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -40,8 +33,6 @@
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",

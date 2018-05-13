@@ -32,7 +32,7 @@ var VectorHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
     ],
     jsLibs: [
-        '/muk_web_preview_vector/static/lib/svg-pan-zoom/svg-pan-zoom.js',
+        '/muk_web_utils/static/lib/svg-pan-zoom/svg-pan-zoom.js',
     ],
 	checkExtension: function(extension) {
 		return ['.svg', 'svg'].includes(extension);
@@ -63,13 +63,13 @@ var VectorHandler = PreviewHandler.BaseHandler.extend({
 			    	    panFactor: 100, 
 			    	});
 			    	$content.find('.zoom-plus').click(function(){
-			    		svgPanZoom.zoomIn()
+			    		svgPanZoom.zoomIn();
 			    	});
 			    	$content.find('.zoom-minus').click(function(){
-			    		svgPanZoom.zoomOut()
+			    		svgPanZoom.zoomOut();
 			    	});
 			    	$content.find('.zoom-reset').click(function(){
-			    		svgPanZoom.reset()
+			    		svgPanZoom.reset();
 			    	});
 			    },
 			    error: function(request, status, error) {
@@ -84,6 +84,6 @@ var VectorHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	VectorHandler: VectorHandler,
-}
+};
 
 });
