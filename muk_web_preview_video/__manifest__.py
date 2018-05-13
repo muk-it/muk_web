@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,17 +20,11 @@
 {
     "name": "MuK Preview Video",
     "summary": """Video Preview""",
-    "description": """ 
-        Extendes the Preview Dialog to support videos.
-        Currently the following video extensions are supported:
-            - WebM (*.webm, video/webm)
-            - Ogg Theora Vorbis (*.ogg, video/ogg)
-            - MP4 (*.mp4, video/mp4)
-    """,
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
@@ -42,8 +34,6 @@
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",

@@ -55,6 +55,6 @@ var VideoHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	VideoHandler: VideoHandler,
-}
+};
 
 });
