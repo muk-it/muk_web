@@ -1,15 +1,3 @@
-.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
-   :target: https://www.gnu.org/licenses/agpl
-   :alt: License: AGPL-3
-   
-.. image:: https://gitlab.mukit.at/web/muk_web_preview_text/badges/11.0/pipeline.svg
-   :target: https://gitlab.mukit.at/web/muk_web_preview_text/commits/11.0
-   :alt: Pipeline status
-   
-.. image:: https://gitlab.mukit.at/web/muk_web_preview_text/badges/11.0/coverage.svg
-   :target: https://gitlab.mukit.at/web/muk_web_preview_text/commits/11.0
-   :alt: Coverage report
-
 ================
 MuK Preview Text
 ================
