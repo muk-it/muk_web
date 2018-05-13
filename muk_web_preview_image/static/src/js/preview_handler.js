@@ -30,10 +30,10 @@ var _t = core._t;
 
 var ImageHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
-		'/muk_web_preview_image/static/lib/imageviewer/imageviewer.css',
+		'/muk_web_utils/static/lib/imageviewer/imageviewer.css',
     ],
     jsLibs: [
-        '/muk_web_preview_image/static/lib/imageviewer/imageviewer.js',
+        '/muk_web_utils/static/lib/imageviewer/imageviewer.js',
     ],
 	checkExtension: function(extension) {
 		return ['.cod', '.ras', '.fif', '.gif', '.ief', '.jpeg', '.jpg', '.jpe', '.png', '.tiff',
@@ -57,12 +57,12 @@ var ImageHandler = PreviewHandler.BaseHandler.extend({
     	    });
             result.resolve($content);
     	});
-    	return result
+    	return result;
     },
 });
 
 return {
 	ImageHandler: ImageHandler,
-}
+};
 
 });
