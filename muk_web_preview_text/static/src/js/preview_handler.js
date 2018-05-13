@@ -30,11 +30,11 @@ var _t = core._t;
 
 var TextHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
-		'/muk_web_preview_text/static/lib/highlight/styles/default.css',
+		'/muk_web_utils/static/lib/highlight/styles/default.css',
     ],
     jsLibs: [
-        '/muk_web_preview_text/static/lib/highlight/highlight.pack.js',
-        '/muk_web_preview_text/static/lib/highlight_line_numbers/highlight_line_numbers.js',
+        '/muk_web_utils/static/lib/highlight/highlight.pack.js',
+        '/muk_web_utils/static/lib/highlight_line_numbers/highlight_line_numbers.js',
     ],
 	checkExtension: function(extension) {
 		return ['.abc', '.acgi', '.aip', '.asm', '.asp', '.c', '.c', '.c++', '.cc', '.cc', '.com', '.conf',
@@ -117,6 +117,6 @@ var TextHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	TextHandler: TextHandler,
-}
+};
 
 });
