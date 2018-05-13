@@ -30,14 +30,14 @@ var _t = core._t;
 
 var CSVHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
-		'/muk_web_preview_csv/static/lib/pikaday/pikaday.css',
-		'/muk_web_preview_csv/static/lib/handsontable/handsontable.css',
+		'/muk_web_utils/static/lib/pikaday/pikaday.css',
+		'/muk_web_utils/static/lib/handsontable/handsontable.css',
     ],
     jsLibs: [
-        '/muk_web_preview_csv/static/lib/PapaParse/papaparse.js',
-        '/muk_web_preview_csv/static/lib/numbro/numbro.js',
-        '/muk_web_preview_csv/static/lib/pikaday/pikaday.js',
-        '/muk_web_preview_csv/static/lib/handsontable/handsontable.js',
+        '/muk_web_utils/static/lib/PapaParse/papaparse.js',
+        '/muk_web_utils/static/lib/numbro/numbro.js',
+        '/muk_web_utils/static/lib/pikaday/pikaday.js',
+        '/muk_web_utils/static/lib/handsontable/handsontable.js',
     ],
 	checkExtension: function(extension) {
 		return ['.csv', 'csv'].includes(extension);
@@ -74,6 +74,6 @@ var CSVHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	CSVHandler: CSVHandler,
-}
+};
 
 });

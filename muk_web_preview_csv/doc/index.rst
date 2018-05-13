@@ -1,13 +1,11 @@
-=================
-MuK Preview Audio
-=================
+===============
+MuK Preview CSV
+===============
 
-Extendes the Preview Dialog to support audio files. Currently the following audio extensions
-are supported:
+Extendes the Preview Dialog to support csv files. Currently the following
+extensions are supported:
 
-* Wav (\*.wav, audio/wav)
-* Ogg Theora Vorbis (\*.ogg, audio/ogg)
-* MP3 (\*.mp3, audio/mpeg)
+* CSV (\*.csv, text/csv)
 
 Installation
 ============
@@ -27,7 +25,7 @@ No additional configuration is needed to use this module.
 Usage
 =============
 
-Go to a binary that contains an audio file and open the preview dialog to view
+Go to a binary that contains a csv file and open the preview dialog to view
 the preview.
 	
 Credits
