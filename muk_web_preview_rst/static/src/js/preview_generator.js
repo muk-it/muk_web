@@ -17,15 +17,25 @@
 *
 **********************************************************************************/
 
-.o_preview_markdown {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	
-	.markdown-container {
-		display: none;
-		padding: 5px 10px;
-	}
-}
+odoo.define('muk_preview_rst.PreviewGenerator', function (require) {
+"use strict";
 
+var core = require('web.core');
+
+var PreviewGenerator = require('muk_preview.PreviewGenerator');
+var PreviewHandler = require('muk_preview_rst.PreviewHandler');
+
+var QWeb = core.qweb;
+var _t = core._t;
+
+PreviewGenerator.include({
+	textHandler: {},
+	init: function(widget, additional_handler) {
+		this._super(widget, additional_handler);
+		this.handler = _.extend(this.handler, {
+			"ReStructuredTextHandler": new PreviewHandler.ReStructuredTextHandler(widget)
+		});
+	},
+});
+
+});
