@@ -18,7 +18,7 @@ addons:
       
 env:
   global:
-  - VERSION="11.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
+  - VERSION="8.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
 
   matrix:
   - TESTS="1" ODOO_REPO="odoo/odoo"
