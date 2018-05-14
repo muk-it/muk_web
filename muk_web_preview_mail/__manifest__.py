@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,28 +20,25 @@
 {
     "name": "MuK Preview Mail",
     "summary": """Mail Preview""",
-    "description": """ 
-        Extendes the Extendes the Preview Dialog to support mails.
-        Currently the following mail extensions are supported:
-            - Microsoft Outlook Express Mail Message (*.eml, message/rfc822)
-    """,
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
     "depends": [
         "mail",
+        "muk_utils",
         "muk_web_preview",
     ],
     "data": [
         "template/assets.xml",
     ],
     "demo": [
-        "demo/preview_mail_demo.xml",
+        "demo/demo.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",
@@ -52,10 +47,7 @@
         'static/description/banner.png'
     ],
     "external_dependencies": {
-        "python": [
-            'requests',
-            'cachetools'
-        ],
+        "python": [],
         "bin": [],
     },
     "application": False,

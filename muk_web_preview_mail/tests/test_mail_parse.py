@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 #
 #    Copyright (C) 2017 MuK IT GmbH
@@ -20,20 +18,14 @@
 ###################################################################################
 
 import os
-import base64
 import logging
-import unittest
 
 from urllib.parse import urlunparse
 from urllib.parse import urlparse
 from urllib.parse import parse_qsl
 from urllib.parse import urlencode
-from contextlib import closing
 
-from odoo import _
 from odoo.tests import common
-
-from odoo.addons.muk_web_preview_mail.controllers import main
 
 _path = os.path.dirname(os.path.dirname(__file__))
 _logger = logging.getLogger(__name__)
@@ -53,9 +45,7 @@ class MailParseTestCase(common.HttpCase):
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
         url = "/web/preview/converter/mail"
-        params = {'url': "/web/content?id={}".format(
-           self.sample_mail_attachment.id
-        )}
+        params = {'url': "/web/content?id={}".format(self.sample_mail_attachment.id)}
         url_parts = list(urlparse(url))
         query = dict(parse_qsl(url_parts[4]))
         query.update(params)

@@ -41,7 +41,7 @@ var MailHandler = PreviewHandler.BaseHandler.extend({
     	var result = $.Deferred();
     	var $content = $(QWeb.render('MailHTMLContent'));
     	$.ajax({
-    		url: '/web/preview/converter/mail',
+    		url: '/web/preview/mail',
     		dataType: "json",
 		    data: {
 		    	url: url,
@@ -61,6 +61,7 @@ var MailHandler = PreviewHandler.BaseHandler.extend({
 	    	            },
 	        	    });
 	        	});
+	        	$content.find('.reply').toggle(!!self.widget.do_action);
 		    	$content.find('#subject').text(mail.subject);
 		    	$content.find('#meta-to').text(mail.to);
 		    	$content.find('#meta-cc').text(mail.cc);
@@ -127,6 +128,6 @@ var MailHandler = PreviewHandler.BaseHandler.extend({
 
 return {
 	MailHandler: MailHandler,
-}
+};
 
 });
