@@ -44,7 +44,7 @@ class ReStructuredTextParseTestCase(common.HttpCase):
         
     def test_rst(self):
         self.authenticate('admin', 'admin')
-        url = "/web/preview/converter/mail"
+        url = "/web/preview/rst"
         params = {'url': "/web/content?id={}".format(self.sample.id)}
         url_parts = list(urlparse(url))
         query = dict(parse_qsl(url_parts[4]))

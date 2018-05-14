@@ -44,7 +44,7 @@ class MailParseTestCase(common.HttpCase):
         
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
-        url = "/web/preview/converter/mail"
+        url = "/web/preview/mail"
         params = {'url': "/web/content?id={}".format(self.sample_mail_attachment.id)}
         url_parts = list(urlparse(url))
         query = dict(parse_qsl(url_parts[4]))
