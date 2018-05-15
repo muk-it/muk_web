@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'futura_book';
+    src: url('/fonts/futura_book.eot');
+    src: url('/fonts/futura_book.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/futura_book.woff') format('woff'),
+         url('/fonts/futura_book.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+#fullscreen {
+	display: none;
+}
+
+#download {
+	display: none;
+}
+
+#about {
+	display: none;
+}
+

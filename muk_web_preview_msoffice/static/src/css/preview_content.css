@@ -1,0 +1,73 @@
+.o_preview_excel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* Based on Bootstrap Line Tabs by @keenthemes, Licensed under MIT */
+}
+.o_preview_excel .excel-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 0 10px;
+}
+.o_preview_excel .excel-container .tab-line {
+  width: 100%;
+  height: 100%;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs {
+  height: 42px;
+  border: none;
+  margin: 0px;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li {
+  margin-right: 2px;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: red;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li > a > span {
+  padding-left: 5px;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li > a > i {
+  font-size: 15px;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li.open,
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid red;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li.open > a,
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li:hover > a {
+  border: 0;
+  color: red;
+  background: none ! important;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li.open .dropdown-menu,
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li.active {
+  position: relative;
+  border-bottom: 4px solid red;
+}
+.o_preview_excel .excel-container .tab-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: red;
+}
+.o_preview_excel .excel-container .tab-line > .tab-content {
+  position: absolute;
+  top: 45px;
+  border: 0;
+  border-top: 1px solid #eee;
+  margin-top: -3px;
+  padding: 3px 0 0 0;
+  height: calc(100% - 45px);
+  width: calc(100% - 20px);
+}
+.o_preview_excel .excel-container .table-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
