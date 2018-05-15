@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<templates>
+	<div t-name="ViewerJSFrame" class="o_preview_viewerjs">
+		<iframe allowfullscreen="allowfullscreen"
+			webkitallowfullscreen="webkitallowfullscreen" 
+			t-att-src="url">
+		</iframe>
+	</div>
+	
+	<div t-name="PDFjsFrame" class="o_preview_pdfjs">
+		<iframe allowfullscreen="allowfullscreen" 
+			webkitallowfullscreen="webkitallowfullscreen"
+			t-att-src="url">
+		</iframe>
+	</div>
+	
+	<div t-name="UnsupportedContent" class="o_preview_unsupported">
+		<div class="o_preview_unsupported_header">
+			<h3>Unsupported File Extension</h3>
+		</div>
+		<div class="o_preview_unsupported_body">
+			<div class="col-xs-12 o_preview_unsupported_info">
+				<p>
+				This file type is currently not supported. By installing further extension via the 
+				<a href="https://www.odoo.com/apps/modules/browse?author=MuK%20IT">Odoo App Store</a>
+				it is possible to improve the Preview.
+				</p>
+			</div>
+			<div class="col-xs-3 o_preview_unsupported_icon" align="center"> 
+            	<div class="o_image" t-att-data-mimetype="mimetype" />
+            </div>
+            <div class=" col-xs-9"> 
+            	<table class="table o_preview_unsupported_table">
+            		<tbody>
+	                     <tr>
+	                       <td>Filename:</td>
+	                       <td><t t-esc="title"/></td>
+	                     </tr>
+	                     <tr>
+	                       <td>Type:</td>
+	                       <td><t t-esc="mimetype"/></td>
+	                     </tr>
+	                     <tr>
+	                       <td>Extension:</td>
+	                       <td><t t-esc="extension"/></td>
+	                     </tr>
+                   </tbody>
+            	</table>
+        	</div>
+        	<div class="col-xs-12 o_preview_unsupported_download text-center">
+        		<a class="btn btn-primary" t-att-href="url">Download</a>
+        	</div>
+		</div>
+	</div>
+</templates>
