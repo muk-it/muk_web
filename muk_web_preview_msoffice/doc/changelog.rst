@@ -1,3 +1,9 @@
+`2.0.0`
+-------
+
+- Migrated to Python 3
+- Removed support for comtypes
+
 `1.1.0`
 -------
 

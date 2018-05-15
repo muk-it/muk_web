@@ -37,7 +37,7 @@ var WordHandler = PreviewHandler.PDFHandler.extend({
 			'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(mimetype);
     },
     createHtml: function(url, mimetype, extension, title) {
-    	var convertUrlTempalte = _.template('/web/preview/converter/msoffice?url=<%= url %>');
+    	var convertUrlTempalte = _.template('/web/preview/msoffice?url=<%= url %>');
     	return this._super(convertUrlTempalte({url: encodeURIComponent(url)}));
     },
 });
@@ -52,19 +52,19 @@ var PowerPointHandler = PreviewHandler.PDFHandler.extend({
 			'application/vnd.ms-powerpoint.presentation.macroEnabled.12'].includes(mimetype);
     },
     createHtml: function(url, mimetype, extension, title) {
-    	var convertUrlTempalte = _.template('/web/preview/converter/msoffice?url=<%= url %>');
+    	var convertUrlTempalte = _.template('/web/preview/msoffice?url=<%= url %>');
     	return this._super(convertUrlTempalte({url: encodeURIComponent(url)}));
     },
 });
 
 var ExcelHandler = PreviewHandler.BaseHandler.extend({
 	cssLibs: [
-		'/muk_web_preview_msoffice/static/lib/handsontable/handsontable.css',
+		'/muk_web_utils/static/lib/handsontable/handsontable.css',
     ],
     jsLibs: [
-        '/muk_web_preview_msoffice/static/lib/jQueryBinaryTransport/jquery-binarytransport.js',
-        '/muk_web_preview_msoffice/static/lib/SheetJS/xlsx.js',
-        '/muk_web_preview_msoffice/static/lib/handsontable/handsontable.js'
+        '/muk_web_utils/static/lib/jQueryBinaryTransport/jquery-binarytransport.js',
+        '/muk_web_utils/static/lib/SheetJS/xlsx.js',
+        '/muk_web_utils/static/lib/handsontable/handsontable.js'
     ],
 	checkExtension: function(extension) {
 		return ['.xls', '.xlsx', '.xlsm', '.xlsb', 'xls', 'xlsx', 'xlsm', 'xlsb'].includes(extension);
@@ -147,6 +147,6 @@ return {
 	ExcelHandler: ExcelHandler,
 	WordHandler: WordHandler,
 	PowerPointHandler: PowerPointHandler,
-}
+};
 
 });

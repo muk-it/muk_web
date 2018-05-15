@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -22,29 +20,25 @@
 {
     "name": "MuK Preview MS Office",
     "summary": """MS Office Preview""",
-    "description": """ 
-        Extendes the Preview Dialog to support MS Office files.
-        Currently the following file extensions are supported:
-            - Word (*.doc | *.docx, application/msword)
-            - Excel (*.xls | *.xlsx, application/msexcel)
-            - PowerPoint (*.ppt | *.pptx, application/mspowerpoint)
-    """,
-    "version": "11.0.1.1.0",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
     "depends": [
+        "muk_utils",
+        "muk_converter",
         "muk_web_preview",
     ],
     "data": [
         "template/assets.xml",
     ],
     "demo": [
-        "demo/preview_office_demo.xml",
+        "demo/demo.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",
@@ -53,11 +47,7 @@
         'static/description/banner.png'
     ],
     "external_dependencies": {
-        "python": [
-            'requests',
-            'cachetools',
-            'pdfconv'
-        ],
+        "python": [],
         "bin": [],
     },
     "application": False,

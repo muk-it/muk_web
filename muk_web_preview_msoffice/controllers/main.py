@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 # 
 #    Copyright (C) 2017 MuK IT GmbH
@@ -19,104 +17,47 @@
 #
 ###################################################################################
 
-import os
-import sys
-import json
 import uuid
-import base64
-import urllib
 import logging
-import tempfile
 import mimetypes
-import collections
 
-import werkzeug.exceptions
-from contextlib import closing
-from urllib.parse import urlparse
-from urllib.parse import parse_qsl
+import werkzeug
 
-from odoo import _
-from odoo import tools
-from odoo import http
+from odoo import _, http
 from odoo.http import request
-from odoo.http import Response
+
+from odoo.addons.muk_utils.http import get_response
+from odoo.addons.muk_utils.http import make_error_response
 
 _logger = logging.getLogger(__name__)
 
-try:
-    import requests
-except ImportError:
-    _logger.warn('Cannot `import requests`.')
+MIMETPYES = [
+    'application/msword', 'application/ms-word', 'application/vnd.ms-word.document.macroEnabled.12',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.mspowerpoint',
+    'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'application/vnd.ms-powerpoint.presentation.macroEnabled.12'
+]
 
-try:
-    from cachetools import TTLCache
-    pdf_cache = TTLCache(maxsize=25, ttl=1200)
-except ImportError:
-    _logger.warn('Cannot `import cachetools`.')
-
-try:
-    import pdfconv
-except ImportError:
-    _logger.warn('Cannot `import pdfconv`.')
-    
 class MSOfficeParserController(http.Controller):
     
-    @http.route('/web/preview/converter/msoffice', auth="user", type='http')
-    def convert_msoffice(self, url, export_filename=None, force_compute=False, **kw):    
-        try:
-            response = pdf_cache[url] if pdf_cache and not force_compute else None
-        except KeyError:
-            response = None
-        if not response:
-            return self._get_response(url, export_filename)
-        return response
-    
-    def _get_response(self, url, export_filename):
-        if not bool(urlparse(url).netloc):
-            method, params = self._get_route(url)
-            response = method(**params)
-            if not response.status_code == 200:
-                return self._make_error_response(response.status_code,response.description if hasattr(response, 'description') else _("Unknown Error"))
-            else:
-                content_type = response.headers['content-type']
-                data = response.data
+    @http.route('/web/preview/msoffice', auth="user", type='http')
+    def preview_msoffice(self, url, **kw):    
+        status, headers, content = get_response(url)
+        if status != 200:
+            return make_error_response(status, content or _("Unknown Error"))
+        elif headers['content-type'] not in MIMETPYES:
+            return werkzeug.exceptions.UnsupportedMediaType()
         else:
             try:
-                response = requests.get(url)
-                content_type = response.headers['content-type']
-                data = response.content
-            except requests.exceptions.RequestException as exception:
-                return self._make_error_response(exception.response.status_code, exception.response.reason or _("Unknown Error"))
-        try:
-            response = self._make_pdf_response(pdfconv.converter.convert_binary2pdf(data, content_type, None, format='binary'), export_filename or uuid.uuid4())
-            pdf_cache[url] = response
-            return response
-        except KeyError:
-            return werkzeug.exceptions.UnsupportedMediaType(_("The file couldn't be converted. Unsupported mine type."))
-        except (ImportError, IOError, OSError) as error:
-            _logger.error(error)
-            return werkzeug.exceptions.InternalServerError(_("An error occurred during the process. Please contact your system administrator."))
-
-    def _get_route(self, url):
-        url_parts = url.split('?')
-        path = url_parts[0]
-        query_string = url_parts[1] if len(url_parts) > 1 else None
-        router = request.httprequest.app.get_db_router(request.db).bind('')
-        match = router.match(path, query_args=query_string)
-        method = router.match(path, query_args=query_string)[0]
-        params = dict(parse_qsl(query_string))
-        if len(match) > 1:
-            params.update(match[1])
-        return method, params
-        
-    def _make_error_response(self, status, message):
-        exception = werkzeug.exceptions.HTTPException()
-        exception.code = status
-        exception.description = message
-        return exception
+                filename = "%s%s" % (uuid.uuid4(), mimetypes.guess_extension(headers['content-type']))
+                output = request.env['muk_converter.converter'].convert(filename, content)
+                return self._make_pdf_response(output, "%s.pdf" % filename)
+            except Exception:
+                _logger.exception("Error while convert the file.")
+                return werkzeug.exceptions.InternalServerError()
     
     def _make_pdf_response(self, file, filename):
         headers = [('Content-Type', 'application/pdf'),
-                   ('Content-Disposition', 'attachment;filename="{}";'.format(filename)),
+                   ('Content-Disposition', 'attachment; filename="{}";'.format(filename)),
                    ('Content-Length', len(file))]
         return request.make_response(file, headers)
