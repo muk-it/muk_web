@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###################################################################################
 #
 #    Copyright (C) 2017 MuK IT GmbH
@@ -19,33 +17,24 @@
 #
 ###################################################################################
 
-
 {
     "name": "MuK Bootstrap Glyphicons",
     'summary': """Bootstrap Glyphicons Support""",
-    'description':"""
-        Odoo does not natively support the Glyphicons from Bootstrap although 
-        it uses the framework. This module enables the Bootstrap Glyphicons.
-        
-        The Glyphicons from Font Awesome which are used by Odoo will still
-        be available.   
-    """,
-    "version": "11.0.1.0.0",
+    "version": "11.0.2.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
+    "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
         "Kerrim Abdelhamed <kerrim.adbelhamed@mukit.at>",
     ],
     "depends": [
-        "base",
+        "web_editor",
     ],
     "data": [
         "template/assets.xml",
-    ],
-    "demo": [
     ],
     "qweb": [
         "static/src/xml/*.xml",
