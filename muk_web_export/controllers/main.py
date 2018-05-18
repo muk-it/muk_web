@@ -33,6 +33,10 @@ class ExportController(http.Controller):
     def export_action(self, **kw):
         return request.env.ref("muk_web_export.view_converter_export_form").id
     
+    @http.route('/web/export_formats', type='json', auth="user")
+    def export_formats(self, **kw):
+        return converter.imports()
+    
     @http.route('/web/check_export', type='json', auth="user")
     def check_export(self, filename, **kw):
         if os.path.splitext(filename)[1][1:].strip().lower() in converter.imports():

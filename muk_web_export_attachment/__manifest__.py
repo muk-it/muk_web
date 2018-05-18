@@ -18,9 +18,9 @@
 ###################################################################################
 
 {
-    "name": "MuK Export",
-    "summary": """File Export Dialog""",
-    "version": "11.0.1.0.1",
+    "name": "MuK Export Attachment",
+    "summary": """Export Odoo Attachments""",
+    "version": "11.0.1.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -30,12 +30,10 @@
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
     "depends": [
-        "web",
-        "muk_converter",
-        "muk_web_utils",
+        "document",
+        "muk_web_export",
     ],
     "data": [
-        "views/convert.xml",
         "template/assets.xml",
     ],
     "qweb": [
