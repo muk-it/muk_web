@@ -30,7 +30,13 @@ var _t = core._t;
 Sidebar.include({
 	willStart: function() {
 		var self = this;
-        var export_formats = this._rpc({
+		var export_action = this._rpc({
+        	route: '/web/attachment/export_action',
+        }).then(function (result) {
+        	console.log(result);
+            self.export_action = result;
+        });
+		var export_formats = this._rpc({
         	route: '/web/export_formats',
         }).then(function (result) {
             self.export_formats = result;
@@ -62,8 +68,7 @@ Sidebar.include({
         	.click(this._on_attachment_export.bind(this));
     },
     _on_attachment_export: function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+        var self = this;
         var $target  = $(e.currentTarget);
         this.do_action({
     		'type': 'ir.actions.act_window',
@@ -74,11 +79,15 @@ Sidebar.include({
             'view_mode': 'form',
             'target': 'new',
             'context': {
+            	'default_res_id': self.env.activeIds[0],
+            	'default_res_model': self.env.model,
             	'default_type': "url",
             	'default_input_url': $target.data("url"),
             	'default_input_name': $target.data("name"),
             },
         }); 
+        e.preventDefault();
+        e.stopPropagation();
     }
 });
 

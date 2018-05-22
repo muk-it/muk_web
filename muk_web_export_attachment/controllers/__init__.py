@@ -1,5 +1,5 @@
 ###################################################################################
-# 
+#
 #    Copyright (C) 2017 MuK IT GmbH
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -17,37 +17,4 @@
 #
 ###################################################################################
 
-{
-    "name": "MuK Export Attachment",
-    "summary": """Export Odoo Attachments""",
-    "version": "11.0.1.1 .0",
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "website": "http://www.mukit.at",
-    "live_test_url": "https://demo.mukit.at/web/login",
-    "author": "MuK IT",
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "document",
-        "muk_web_export",
-    ],
-    "data": [
-        "template/assets.xml",
-        "views/convert.xml",
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-    
-}
+from . import main

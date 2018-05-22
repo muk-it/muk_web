@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<odoo>
+	
+	<record id="view_converter_export_form" model="ir.ui.view">
+		<field name="name">muk_converter_convert.form</field>
+		<field name="model">muk_converter.convert</field>
+	    <field name="mode">primary</field>
+	    <field name="inherit_id" ref="muk_web_export.view_converter_export_form"/>
+	    <field name="arch" type="xml">
+	        <xpath expr="//field[@name='format']" position="after">
+	        	<field name="res_name" />
+	        	<field name="res_model" invisible="1" />
+	        	<field name="res_id" invisible="1" />
+	        </xpath>
+	         <xpath expr="//button[@name='convert']" position="after">
+	        	<button name="convert_and_save" string="Convert and Save" type="object" 
+	        		class="btn-primary" attrs="{'invisible':[('res_name', '=', False)]}" />
+	        </xpath>
+	    </field>
+	</record>
+
+</odoo>
