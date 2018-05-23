@@ -20,7 +20,7 @@
 {
     "name": "MuK Web Utils",
     "summary": """Utility Features""",
-    "version": "11.0.2.0.9",
+    "version": "11.0.2.0.10",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
