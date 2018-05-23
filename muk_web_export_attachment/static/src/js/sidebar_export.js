@@ -33,7 +33,6 @@ Sidebar.include({
 		var export_action = this._rpc({
         	route: '/web/attachment/export_action',
         }).then(function (result) {
-        	console.log(result);
             self.export_action = result;
         });
 		var export_formats = this._rpc({
@@ -48,7 +47,7 @@ Sidebar.include({
     	var res = this._super.apply(this, arguments);
     	var exportable = false;
     	_.each(this.items.files ,function (attachment) {
-    		if(self.export_formats.includes((/(?:\.([^.]+))?$/).exec(attachment.name)[1])) {
+    		if(self.export_formats.includes((/(?:\.([^.]+))?$/).exec(attachment.name.replace(/\s\(\d+\)$/, ""))[1])) {
     			attachment.exportable = 'exportable';
     			exportable = true;
     		} else {
