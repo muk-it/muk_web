@@ -20,7 +20,7 @@
 {
     "name": "MuK Export Attachment",
     "summary": """Export Odoo Attachments""",
-    "version": "11.0.1.1 .0",
+    "version": "11.0.1.1.1",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

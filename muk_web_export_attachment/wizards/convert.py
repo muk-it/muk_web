@@ -25,7 +25,7 @@ import mimetypes
 
 from odoo import _, api, fields, models
 
-from odoo.addons.muk_utils.http import get_response
+from odoo.addons.muk_utils.tools.http import get_response
 from odoo.addons.muk_converter.tools import converter
 
 _logger = logging.getLogger(__name__)

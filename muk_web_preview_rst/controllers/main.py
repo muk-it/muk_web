@@ -21,9 +21,9 @@ import logging
 
 from odoo import _, http
 
-from odoo.addons.muk_utils.http import get_response
-from odoo.addons.muk_utils.http import make_error_response
-from odoo.addons.muk_utils.tools import parse_rst
+from odoo.addons.muk_utils.tools.http import get_response
+from odoo.addons.muk_utils.tools.http import make_error_response
+from odoo.addons.muk_utils.tools.parse_rst import rst2html
 
 _logger = logging.getLogger(__name__)
     
@@ -35,5 +35,5 @@ class ReStructuredTextController(http.Controller):
         if status != 200:
             return make_error_response(status, content or _("Unknown Error"))
         else:
-            return parse_rst.rst2html(content)
+            return rst2html(content)
     
