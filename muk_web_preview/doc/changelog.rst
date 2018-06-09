@@ -1,3 +1,8 @@
+`2.1.0`
+-------
+
+- Added Settings to install Extensions
+
 `2.0.0`
 -------
 

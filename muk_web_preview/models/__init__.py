@@ -1,5 +1,5 @@
 ###################################################################################
-# 
+#
 #    Copyright (C) 2017 MuK IT GmbH
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -17,41 +17,4 @@
 #
 ###################################################################################
 
-{
-    "name": "MuK Preview",
-    "summary": """File Preview Dialog""",
-    "version": "11.0.2.1.0",
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "website": "http://www.mukit.at",
-    "live_test_url": "https://demo.mukit.at/web/login",
-    "author": "MuK IT",
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "web",
-        "base_setup",
-        "muk_web_utils",
-    ],
-    "data": [
-        "template/assets.xml",
-        "views/res_config_settings_view.xml",
-    ],
-    "demo": [
-        "demo/preview_demo.xml",
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-    
-}
+from . import res_config_settings
