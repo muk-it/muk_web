@@ -25,15 +25,13 @@ var session = require('web.session');
 var config = require('web.config');	
 var bus = require('bus.bus');	
 
-var utils = require('muk_web_utils.common');
-
 WebClient.include({
 	start: function () {
 		var self = this;
 		var load_config = this._rpc({
             route: '/config/muk_web_client_refresh.refresh_delay',
         }).done(function(result) {
-            self.refresh_delay = result.refresh_delay;
+            self.refresh = _.throttle(self.refresh.bind(self), result.refresh_delay || 1000, true);
         });
 		return $.when(this._super.apply(this, arguments), load_config);
 	},
@@ -45,25 +43,20 @@ WebClient.include({
     refresh: function(message) {
     	var widget = this.action_manager && this.action_manager.inner_widget;
     	var active_view = widget ? widget.active_view : false;
-    	if (active_view && message.uid && session.uid !== message.uid) {
+    	if (active_view && session.uid !== message.uid) {
             var controller = this.action_manager.inner_widget.active_view.controller;
             if(controller.modelName === message.model && controller.mode === "readonly") {
             	if(active_view.type === "form" && message.ids.includes(widget.env.currentId)) {
-            		this.reload(controller);
+            		controller.reload();
             	} else if(active_view.type === "list" &&
             			(message.create || _.intersection(message.ids, widget.env.ids) >= 1)) {
-            		this.reload(controller);
+            		controller.reload();
             	} else if(active_view.type === "kanban" &&
             			(message.create || _.intersection(message.ids, widget.env.ids) >= 1)) {
-            		this.reload(controller);
+            		controller.reload();
             	}
             }
         }
-    },
-    reload: function(controller) {
-    	utils.delay(function() {
-    		controller.reload();
-	    }, this.refresh_delay || 1000);
     },
 });
 

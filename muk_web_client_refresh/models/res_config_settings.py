@@ -25,9 +25,11 @@ class ResConfigSettings(models.TransientModel):
 
     refresh_delay = fields.Integer(
         string="Delay",
-        help="""Delays the execution of refresh and thus prevents the view from being reloaded too often.
-            For example, a delay of 1000 (ms) would mean that the view cannot be reloaded more than once a second. """)
-        
+        help="""Prevents multiple executions of refresh in a certain timeframe to avoid the view from being
+            reloaded too often. For example, a delay of 1000 (ms) would mean that the view cannot be
+            reloaded more than once a second.""")
+    
+    @api.multi 
     def set_values(self):
         res = super(ResConfigSettings, self).set_values()
         param = self.env['ir.config_parameter'].sudo()

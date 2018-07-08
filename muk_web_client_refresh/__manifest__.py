@@ -20,7 +20,7 @@
 {
     "name": "MuK Web Refresh",
     "summary": """Web Client Refresh""",
-    "version": "11.0.2.1.0",
+    "version": "11.0.2.1.2",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -31,6 +31,7 @@
     ],
     "depends": [
         "base_automation",
+        "muk_automation_extension",
         "muk_web_client",
     ],
     "data": [
