@@ -17,35 +17,4 @@
 #
 ###################################################################################
 
-{
-    "name": "MuK Web Utils",
-    "summary": """Utility Features""",
-    "version": "11.0.2.0.16",
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "website": "http://www.mukit.at",
-    "live_test_url": "https://demo.mukit.at/web/login",
-    "author": "MuK IT",
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "web",
-        "web_editor",
-    ],
-    "data": [
-        "template/assets.xml",
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-}
+from . import backend

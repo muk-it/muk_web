@@ -23,6 +23,9 @@ odoo.define('muk_preview.PreviewWidgets', function (require) {
 var core = require('web.core');
 var utils = require('web.utils');
 var fields = require('web.basic_fields');
+var registry = require('web.field_registry');
+
+var AbstractField = require('web.AbstractField');
 
 var PreviewHandler = require('muk_preview.PreviewHandler');
 var PreviewGenerator = require('muk_preview.PreviewGenerator');
@@ -62,5 +65,44 @@ fields.FieldBinaryFile.include({
     	$wrapper.append($el);
     },
 });
+
+var FieldPreviewBinary = fields.FieldBinaryFile.extend({
+	events: _.extend({}, AbstractField.prototype.events, {
+		'change .o_input_file': 'on_file_change',
+        'click .o_select_file_button': function () {
+            this.$('.o_input_file').click();
+        },
+        'click .o_clear_file_button': 'on_clear',
+		'click .o_input': function () {
+            this.$('.o_input_file').click();
+        },
+    }),
+	template: 'FieldPreviewBinary',
+	_renderReadonly: function () {
+		var self = this;
+		if(utils.is_bin_size(this.value)) {
+	        var filename_fieldname = this.attrs.filename;
+	        var filename = this.recordData[filename_fieldname] || null;
+			var download_url = '/web/content?' + $.param({
+	            'model': self.model,
+	            'id': self.res_id,
+	            'field': self.name,
+	            'filename_field': filename_fieldname,
+	            'filename': filename,
+	            'download': true,
+	        });
+			PreviewGenerator.createPreview(this, download_url, false,
+					filename ? filename.split('.').pop() : false, filename).then(function($content) {
+				self.$el.html($content);
+			});
+		} else {
+			self.$el.html('<h2 class="text-center">No preview available!</h2>');
+		}
+	}
+});
+
+registry.add('preview_binary', FieldPreviewBinary);
+
+return FieldPreviewBinary;
 
 });

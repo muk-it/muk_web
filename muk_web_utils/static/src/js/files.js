@@ -52,7 +52,9 @@ var traverse_items = function(items, structure) {
                         	files.push({
                             	name: item.name,
                             	fullPath: item.fullPath,
-                            	files: result
+                            	files: result,
+                            	isDirectory: true,
+                            	isFile: false,
                             });
                         } else {
                         	files = _.union(files, result);
@@ -62,7 +64,10 @@ var traverse_items = function(items, structure) {
                 });
             }
         } else if (file) {
-            files.push(file);
+        	if(file.size) {
+        		file.isFileItem = !!file.size;
+                files.push(file);
+        	}
             $get.resolve();
         } else {
             console.warn("Your browser doesn't support Drag and Drop!");
@@ -77,6 +82,18 @@ var traverse_items = function(items, structure) {
     });
     return $result;
 };
+
+var count_files_in_structure = function(structure) {
+	var counter = 0;
+	_.each(structure, function(item, index, structure) {
+		if(item.isFile || item.isFileItem) {
+			counter++;
+		} else if(item.isDirectory) {
+			counter += count_files_in_structure(item.files);
+		}
+	});
+	return counter;
+}
 
 var get_file_list = function(items) {
 	return traverse_items(items, false);
@@ -104,6 +121,7 @@ var read_file = function(file, callback) {
 
 return {
 	traverse_items: traverse_items,
+	count_files_in_structure: count_files_in_structure,
 	get_file_list: get_file_list,
 	get_file_structure: get_file_structure,
 	load_file: load_file,

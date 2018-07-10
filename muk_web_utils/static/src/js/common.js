@@ -27,14 +27,6 @@ var utils = require('web.utils');
 var QWeb = core.qweb;
 var _t = core._t;
 
-var delay = (function(){
-    var timer = 0;
-    return function(callback, ms){
-    	clearTimeout (timer);
-    	timer = setTimeout(callback, ms);
-    };
-})();
-
 function format_number(value) {
 	if (value === false || typeof value !== "number") {
 	    return "";
@@ -81,7 +73,6 @@ function unique_id(prefix) {
 }
 
 return {
-	delay: delay,
 	format_number: format_number,
 	format_size: format_size,
 	unique_string: unique_string,
