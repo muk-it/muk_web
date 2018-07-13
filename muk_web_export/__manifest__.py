@@ -20,7 +20,7 @@
 {
     "name": "MuK Export",
     "summary": """File Export Dialog""",
-    "version": "11.0.1.0.1",
+    "version": "11.0.1.0.2",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

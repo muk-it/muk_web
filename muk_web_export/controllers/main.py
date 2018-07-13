@@ -39,7 +39,10 @@ class ExportController(http.Controller):
     
     @http.route('/web/check_export', type='json', auth="user")
     def check_export(self, filename, **kw):
-        if os.path.splitext(filename)[1][1:].strip().lower() in converter.imports():
-            return True
+        try:
+            if os.path.splitext(filename)[1][1:].strip().lower() in converter.imports():
+                return True
+        except Exception:
+            return False
         return False
             
