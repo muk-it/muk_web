@@ -45,7 +45,6 @@ fields.FieldBinaryFile.include({
     	$button.click(function(e) {
             e.preventDefault();
     		e.stopPropagation();
-            var value = self.get('value');
             var filename_fieldname = self.attrs.filename;
             var filename = self.recordData[filename_fieldname] || null;
             PreviewDialog.createPreviewDialog(self, '/web/content?' + $.param({
@@ -55,7 +54,7 @@ fields.FieldBinaryFile.include({
                 'filename_field': filename_fieldname,
                 'filename': filename,
                 'download': true,
-                'data': utils.is_bin_size(value) ? null : value,
+                'data': utils.is_bin_size(self.value) ? null : self.value,
             }), false, filename ? filename.split('.').pop() : false, filename);
     	});
 		$wrapper.addClass($el.attr('class'));
@@ -80,7 +79,7 @@ var FieldPreviewBinary = fields.FieldBinaryFile.extend({
 	template: 'FieldPreviewBinary',
 	_renderReadonly: function () {
 		var self = this;
-		if(utils.is_bin_size(this.value)) {
+		if(this.value) {
 	        var filename_fieldname = this.attrs.filename;
 	        var filename = this.recordData[filename_fieldname] || null;
 			var download_url = '/web/content?' + $.param({
@@ -90,6 +89,7 @@ var FieldPreviewBinary = fields.FieldBinaryFile.extend({
 	            'filename_field': filename_fieldname,
 	            'filename': filename,
 	            'download': true,
+	            'data': utils.is_bin_size(this.value) ? null : this.value,
 	        });
 			PreviewGenerator.createPreview(this, download_url, false,
 					filename ? filename.split('.').pop() : false, filename).then(function($content) {
