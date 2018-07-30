@@ -19,11 +19,7 @@
 
 import os
 import logging
-
-from urllib.parse import urlunparse
-from urllib.parse import urlparse
-from urllib.parse import parse_qsl
-from urllib.parse import urlencode
+import unittest
 
 from odoo.tests import common
 
@@ -42,13 +38,9 @@ class MSOfficeParseTestCase(common.HttpCase):
     def tearDown(self):
         super(MSOfficeParseTestCase, self).tearDown()
         
+    @unittest.skip("HTTP")
     def test_parse_msoffice(self):
         self.authenticate('admin', 'admin')
         url = "/web/preview/msoffice"
         params = {'url': "/web/content?id={}".format(self.sample_msoffice_attachment.id)}
-        url_parts = list(urlparse(url))
-        query = dict(parse_qsl(url_parts[4]))
-        query.update(params)
-        url_parts[4] = urlencode(query)
-        url = urlunparse(url_parts)
-        self.assertTrue(self.url_open(url))
+        self.assertTrue(self.url_open(url, data=params))

@@ -20,7 +20,7 @@
 {
     "name": "MuK Preview MS Office",
     "summary": """MS Office Preview""",
-    "version": "11.0.2.0.1",
+    "version": "11.0.2.0.2",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
