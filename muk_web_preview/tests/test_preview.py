@@ -19,6 +19,7 @@
 
 import os
 import logging
+import unittest
 
 from odoo.tests import common
 
@@ -36,6 +37,7 @@ class PreviewTestCase(common.HttpCase):
     def tearDown(self):
         super(PreviewTestCase, self).tearDown()
     
+    @unittest.skip("PhantonJS")
     def test_preview(self):
         self.phantom_js("/web?debug=",
                         "odoo.__DEBUG__.services['web_tour.tour'].run('preview')",
