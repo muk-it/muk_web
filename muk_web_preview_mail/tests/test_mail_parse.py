@@ -19,6 +19,7 @@
 
 import os
 import logging
+import unittest
 
 from urllib.parse import urlunparse
 from urllib.parse import urlparse
@@ -42,6 +43,7 @@ class MailParseTestCase(common.HttpCase):
     def tearDown(self):
         super(MailParseTestCase, self).tearDown()
         
+    @unittest.skip("HTTP")
     def test_parse_mail(self):
         self.authenticate('admin', 'admin')
         url = "/web/preview/mail"
