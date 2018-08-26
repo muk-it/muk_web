@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "3.6"
+  - "3.5"
  
 notifications:
   email: false
@@ -10,30 +10,25 @@ sudo: false
 cache: pip
 
 addons:
-  postgresql: "9.3"
   apt:
     packages:
       - expect-dev
-      - python-lxml
+      - python3-lxml
+      - python3-simplejson
+      - python3-serial
       
 env:
   global:
-  - VERSION="11.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
+  - VERSION="12.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
 
   matrix:
   - TESTS="1" ODOO_REPO="odoo/odoo"
 
 before_install:
- - sudo apt-get install -y unoconv
- - "export PATH=$PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH"
- - "if [ $(phantomjs --version) != '2.1.1' ]; then rm -rf $PWD/travis_phantomjs; mkdir -p $PWD/travis_phantomjs; fi"
- - "if [ $(phantomjs --version) != '2.1.1' ]; then wget https://assets.membergetmember.co/software/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2; fi"
- - "if [ $(phantomjs --version) != '2.1.1' ]; then tar -xvf $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis_phantomjs; fi"
- - "phantomjs --version"
+  - sudo apt-get install -y unoconv libav-tools ghostscript imagemagick
+  - pip install moviepy Wand unoconv lxml simplejson serial odfpy
 
 install:
-  - pip install cachetools
-  - pip install pdfconv
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
