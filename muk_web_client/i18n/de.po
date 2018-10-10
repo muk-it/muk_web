@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* muk_web_client
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-04 22:53+0000\n"
+"PO-Revision-Date: 2018-05-05 00:55+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: muk_web_client
+#: model:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
+msgid "<strong>Save</strong> this page and come back here to set up the feature."
+msgstr "<strong>Speichern</strong> diese Seite und kommen Sie hierher zurück, um das Feature einzurichten."
+
+#. module: muk_web_client
+#: model:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
+msgid "Automated Refresh"
+msgstr "Automatisches Neuladen"
+
+#. module: muk_web_client
+#: model:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
+msgid "Define action rules to automatically refresh views"
+msgstr "Definieren von Aktionsregeln zur automatischen Aktualisierung von Ansichten"
+
+#. module: muk_web_client
+#: model:ir.model.fields,help:muk_web_client.field_res_config_settings_module_muk_web_client_refresh
+msgid "Define action rules to automatically refresh views."
+msgstr "Definieren von Aktionsregeln zur automatischen Aktualisierung von Ansichten."
+
+#. module: muk_web_client
+#: model:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
+msgid "Web Client"
+msgstr "Web Client"
+
+#. module: muk_web_client
+#: model:ir.model.fields,field_description:muk_web_client.field_res_config_settings_module_muk_web_client_refresh
+msgid "Web Refresh"
+msgstr "Web Refresh"
+
+#. module: muk_web_client
+#: model:ir.model,name:muk_web_client.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"

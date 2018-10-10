@@ -1,0 +1,83 @@
+<section class="oe_container">
+	<div class="oe_row oe_spaced">
+		<h2 class="oe_slogan">Web Client</h2>
+		<h3 class="oe_slogan">Web Client Extension</h3>
+		<h4 class="oe_slogan" style="font-size: 23px;">MuK IT GmbH -
+			www.mukit.at</h4>
+	</div>
+</section>
+
+<section class="oe_container" style="padding-bottom: 50px;">
+	<div class="oe_row oe_spaced">
+		<div style="max-width: 84%; margin: 16px 8%;">
+			<h3 class="oe_slogan">Overview</h3>
+			<p class="oe_mt32" style="padding-bottom: 10px; text-align: justify;">
+				Extends the Odoo web client to include bus channels. Channels can be
+				created to listen to Odoo bus notifications. To add a channel
+				listener to the client just extend the web client and declare a new
+				bus channel.</p>
+			<pre>
+		    	<code>
+var WebClient = require('web.WebClient');
+var session = require('web.session');	
+
+WebClient.include({
+    show_application: function() {
+        var channel = 'mychannel';
+        this.bus_declare_channel(channel, this.doSomething);
+        return this._super.apply(this, arguments);
+    },
+	doSomething: function(message) {
+		...
+	}
+});
+		    	</code>
+			</pre>
+		</div>
+	</div>
+</section>
+
+<section class="oe_container oe_dark"
+	style="margin-bottom: 20px; border-top: 5px solid #797979; border-bottom: 5px solid #797979;">
+	<h3 class="oe_slogan" style="margin-bottom: 10px;">Demo</h3>
+	<div class="row" style="margin: auto; max-width: 200px;">
+		<div class="col-xs-6">
+			<h5 class="oe_slogan" style="font-size: 20px; margin: 2px;">User:</h5>
+		</div>
+		<div class="col-xs-6">
+			<h5 class="oe_slogan" style="font-size: 20px; margin: 2px;">apps</h5>
+		</div>
+		<div class="col-xs-6">
+			<h5 class="oe_slogan" style="font-size: 20px; margin: 2px;">Password:</h5>
+		</div>
+		<div class="col-xs-6">
+			<h5 class="oe_slogan" style="font-size: 20px; margin: 2px;">demo</h5>
+		</div>
+	</div>
+	<div class="oe_slogan" style="margin-top: 5px;">
+		<a class="btn btn-primary btn-lg mt8" href="https://demo.mukit.at/web/login"
+			style="position: relative; overflow: hidden;"><span
+			class="o_ripple"
+			style="height: 138px; width: 138px; top: -35.2969px; left: -8.17188px;"></span>
+			<i class="fa fa-video-camera"></i> Live Preview </a>
+	</div>
+</section>
+
+<section class="oe_container oe_dark">
+	<h3 class="oe_slogan">Help and Support</h3>
+	<h5 class="oe_slogan" style="font-size: 20px;">Feel free to
+		contact us, if you need any help with your Odoo integration or addiontal
+		features.</h5>
+	<div class="oe_slogan">
+		<a class="btn btn-primary btn-lg mt8" href="mailto:sale@mukit.at">
+			<i class="fa fa-envelope"></i> Email
+		</a> <a class="btn btn-primary btn-lg mt8"
+			href="https://mukit.at/page/contactus"> <i class="fa fa-phone"></i>
+			Contact
+		</a> <a class="btn btn-primary btn-lg mt8" href="mailto:support@mukit.at">
+			<i class="fa fa-life-ring"></i> Support
+		</a>
+	</div>
+	<img src="logo.png" style="width: 200px; margin-bottom: 20px;"
+		class="center-block">
+</section>
