@@ -20,7 +20,7 @@
 {
     "name": "MuK Web Client",
     "summary": """Odoo Web Client Extension""",
-    "version": "12.0.2.0.2",
+    "version": "12.0.2.0.3",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
