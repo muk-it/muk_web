@@ -24,6 +24,7 @@ var config = require('web.config');
 var session = require('web.session');		
 
 var WebClient = require('web.WebClient');
+var BusService = require('bus.BusService');
 
 WebClient.include({
 	start: function () {
@@ -31,12 +32,13 @@ WebClient.include({
 		var load_config = this._rpc({
             route: '/config/muk_web_client_refresh.refresh_delay',
         }).done(function(result) {
-            self.refresh = _.throttle(self.refresh.bind(self), result.refresh_delay || 1000, true);
+        	self.refresh_delay = result.refresh_delay;
+            self._reload = _.throttle(self._reload, self.refresh_delay || 1000);
         });
 		return $.when(this._super.apply(this, arguments), load_config);
 	},
 	show_application: function() {
-        this.bus_declare_channel('refresh', this.refresh);
+        this.bus_declare_channel('refresh', this.refresh.bind(this));
         return this._super.apply(this, arguments);
     },
     refresh: function(message) {
@@ -46,11 +48,14 @@ WebClient.include({
     			action && controller && controller.widget.modelName === message.model && 
     			controller.widget.mode === "readonly") {
     		if(controller.widget.isMultiRecord && (message.create || _.intersection(message.ids, action.env.ids) >= 1)) {
-        		controller.widget.reload();
+    			this._reload(message, controller);
         	} else if(!controller.widget.isMultiRecord && message.ids.includes(action.env.currentId)) {
-        		controller.widget.reload();
+        		this._reload(message, controller);
         	}
         }
+    },
+    _reload: function(controller) {
+    	controller.widget.reload();
     },
 });
 
