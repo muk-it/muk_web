@@ -47,7 +47,7 @@ class MailParserController(http.Controller):
             return werkzeug.exceptions.UnsupportedMediaType(
                 _("Unparsable message! The file has to be of type: message/rfc822"))
         else:
-            message = request.env['mail.thread'].message_parse(content.encode("latin-1"), False)
+            message = request.env['mail.thread'].message_parse(content.decode("latin-1").encode("utf8"), False)
             return self._make_parse_response(request.httprequest.url, message, attachment)
         
     def _set_query_parameter(self, url, param_name, param_value):
