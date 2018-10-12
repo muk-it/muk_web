@@ -20,7 +20,7 @@
 {
     "name": "MuK Preview Mail",
     "summary": """Mail Preview""",
-    "version": "11.0.2.0.2",
+    "version": "11.0.2.0.3",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
