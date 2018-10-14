@@ -31,7 +31,6 @@
     ],
     "depends": [
         "bus",
-        "base_setup",
         "muk_web_utils",
     ],
     "data": [
