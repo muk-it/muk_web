@@ -1,3 +1,15 @@
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
+   :alt: License: AGPL-3
+   
+.. image:: https://gitlab.mukit.at/web/muk_web_utils/badges/12.0/pipeline.svg
+   :target: https://gitlab.mukit.at/web/muk_web_utils/commits/12.0
+   :alt: Pipeline status
+   
+.. image:: https://gitlab.mukit.at/web/muk_web_utils/badges/12.0/coverage.svg
+   :target: https://gitlab.mukit.at/web/muk_web_utils/commits/12.0
+   :alt: Coverage report
+
 =============
 MuK Web Utils
 =============
@@ -92,6 +104,13 @@ Contributors
 ------------
 
 * Mathias Markl <mathias.markl@mukit.at>
+
+Images
+------------
+
+Some pictures are based on or inspired by the icon set of Font Awesome:
+
+* `Font Awesome <https://fontawesome.com>`_
 
 Author & Maintainer
 -------------------
