@@ -17,35 +17,5 @@
 #
 ###################################################################################
 
-{
-    "name": "MuK Web Utils",
-    "summary": """Utility Features""",
-    "version": "12.0.2.1.0",
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "author": "MuK IT",
-    "website": "http://www.mukit.at",
-    "live_test_url": "https://demo.mukit.at/web/login",
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "web_editor",
-        "muk_utils",
-    ],
-    "data": [
-        "template/assets.xml",
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-}
+from . import res_config_settings
+

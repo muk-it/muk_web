@@ -23,8 +23,11 @@
 		<xpath expr="//link[last()]" position="after">
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/variables.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/switch.scss" />
+			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/module.scss" />
 		</xpath>
 		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js"></script>
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js"></script>
 		</xpath>
 	</template>
 	

@@ -1,3 +1,8 @@
+`2.1.0`
+-------
+
+- Automatic labels on settings
+
 `2.0.0`
 -------
 
