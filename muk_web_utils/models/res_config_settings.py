@@ -40,7 +40,6 @@ class ResConfigSettings(models.TransientModel):
         ret_val = super(ResConfigSettings, self).fields_view_get(
             view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
         modules = self.env['ir.module.module'].sudo().search([]).mapped('name')
-        print(modules)
         document = etree.XML(ret_val['arch'])
         for field in ret_val['fields']:
             if field.startswith("module_") and field[len("module_"):] not in modules:
