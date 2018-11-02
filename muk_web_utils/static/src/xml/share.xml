@@ -20,7 +20,7 @@
 <templates id="template" xml:space="preserve">
 
 <t t-name="muk_web_utils.CharShare">
-	<div class="dropdown mk_share_dropdown">
+	<div class="btn-group mk_share_dropdown">
 		<button class="btn btn-sm btn-primary dropdown-toggle mk_share_button" type="button" data-toggle="dropdown">
 		    <span class="fa fa-share-alt"></span>
 		    <span>Share</span>
