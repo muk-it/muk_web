@@ -24,9 +24,12 @@
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/variables.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/switch.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/module.scss" />
+			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/share.scss" />
 		</xpath>
 		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/utils.js"></script>
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js"></script>
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/share.js"></script>
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js"></script>
 		</xpath>
 	</template>

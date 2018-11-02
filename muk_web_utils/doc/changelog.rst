@@ -1,6 +1,11 @@
 `2.1.0`
 -------
 
+- Added widget to share text fields
+
+`2.1.0`
+-------
+
 - Automatic labels on settings
 
 `2.0.0`
