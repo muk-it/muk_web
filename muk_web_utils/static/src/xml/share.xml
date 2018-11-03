@@ -19,8 +19,8 @@
 
 <templates id="template" xml:space="preserve">
 
-<t t-name="muk_web_utils.CharShare">
-	<div class="btn-group mk_share_dropdown">
+<t t-name="muk_web_utils.Share">
+	<div t-attf-class="btn-group mk_share_dropdown #{share_class}">
 		<button class="btn btn-sm btn-primary dropdown-toggle mk_share_button" type="button" data-toggle="dropdown">
 		    <span class="fa fa-share-alt"></span>
 		    <span>Share</span>
@@ -49,17 +49,29 @@
 	</div>
 </t>
 
+<t t-name="muk_web_utils.CharShare">
+    <t t-call="muk_web_utils.Share">
+     	<t t-set="share_class" t-value="'mk_share_char'"/>
+     </t>
+</t>
+
+<t t-name="muk_web_utils.TextShare">
+    <t t-call="muk_web_utils.Share">
+     	<t t-set="share_class" t-value="'mk_share_text'"/>
+	</t>
+</t>
+
 <t t-name="muk_web_utils.ShareMessage">
 	<div>
-	    <t t-if="values.url">
-	    	<p><span t-esc="values.name"/> shared a link with you!</p>
-	    	<a t-attf-href="#{values.url}" style="background-color: #875A7B; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 12px;">
+	    <t t-if="url">
+	    	<p><span t-esc="name"/> shared a link with you!</p>
+	    	<a t-attf-href="#{url}" style="background-color: #875A7B; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 12px;">
 	    		<strong>Open</strong>
 	    	</a>
 	    </t>
 	    <t t-else="">
-	    	<p><span t-esc="values.name"/> shared a message with you!</p>
-	    	<p t-esc="values.text" />
+	    	<p><span t-esc="name"/> shared a message with you!</p>
+	    	<p t-esc="value" />
 	    </t>
 	</div>
 </t>

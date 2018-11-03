@@ -17,17 +17,21 @@
 *
 **********************************************************************************/
 	
-.o_field_widget {
-	&.mk_field_share {
-		padding-left: 90px;
-		.mk_share_dropdown {
-            @include o-position-absolute($top: 0, $left: 0);
-            height: 100%;
-            .mk_share_button {
-            	@include o-position-absolute($top: 0, $left: 0);
-            	height: 100%;
-            	padding: 0 10px;
-            }
-        } 
+.o_field_widget.mk_field_share {
+	padding-left: 90px;
+	.mk_share_dropdown {
+		@include o-position-absolute($top: 0, $left: 0);
+		.mk_share_button {
+	        padding: 0 10px;
+	    }
+		&.mk_share_char {
+			height: 100%;
+			
+		}
+		&.mk_share_text {
+			.dropdown-menu {
+				line-height: 0.1
+	        }
+		}
 	}
 }

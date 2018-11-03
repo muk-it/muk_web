@@ -27,53 +27,56 @@ var registry = require('web.field_registry');
 
 var utils = require('muk_web_utils.utils');
 
+var AbstractField = require('web.AbstractField');
+
 var _t = core._t;
 var QWeb = core.qweb;
 
-var CharShare = fields.CharCopyClipboard.extend({
-    events: _.extend({}, fields.CharCopyClipboard.prototype.events, {
+var ShareMixin = {
+	fieldDependencies: _.extend({}, AbstractField.prototype.fieldDependencies, {
+		display_name: {type: 'char'},
+    }),
+    events: _.extend({}, fields.InputField.prototype.events, {
         'click .mk_share_dropdown_message': '_onShareMessageClick',
         'click .mk_share_dropdown_note': '_onShareNoteClick',
         'click .mk_share_dropdown_mail': '_onShareMailClick',
         'click .mk_share_dropdown_send': '_onShareSendClick',
     }),
-    init: function(parent, name, record) {
+	init: function(parent, name, record) {
         this._super.apply(this, arguments);
-        this.fields = record.fields;
         this.navigator = window.navigator.share;
         this.chatter = _.contains(odoo._modules, "mail");
+        this.shareOptions = _.defaults(this.nodeOptions, {
+        	subjectTemplate: _t("<%= name %> shared a message!"),
+        	textTemplate: _t("<%= value %>"),
+        	bodyTemplate: 'muk_web_utils.ShareMessage',
+        });
+        this.shareOptions = _.extend({}, this.shareOptions, {
+        	res_model: this.recordData[this.nodeOptions.res_model] || this.model,
+        	res_id: this.recordData[this.nodeOptions.res_id] || this.res_id,
+        });
     },
-    _render: function() {
-        this._super.apply(this, arguments);
-        this.$el.addClass('mk_field_share');
-        this.$el.prepend($(QWeb.render('muk_web_utils.CharShare', {
-        	navigator: !!this.navigator,
-        	chatter: !!this.chatter,
-        })));
-    },
-    _getShareMessage: function() {
+    getShareMessageValues: function(message) {
     	var values = {
     		name: session.partner_display_name,
+    		record: this.recordData.display_name,
     		url: utils.isUrl(this.value) && this.value,
-    		text: this.value,
+    		value: this.value,
     	};
-    	var message = QWeb.render('muk_web_utils.ShareMessage', {
-    		values: values,
-    	});
     	return {
-    		subject: values.name + _t(" shared a message!"),
-    		url: values.url,
-    		body: message,
+    		subject: _.template(this.shareOptions.subjectTemplate)(values),
+    		body: QWeb.render(this.shareOptions.bodyTemplate, values),
+    		text: _.template(this.shareOptions.textTemplate)(values),
     	}
     },
-    _openShareChat: function(note) {
-    	var values = this._getShareMessage();
+    openShareChat: function(note) {
+    	var values = this.getShareMessageValues();
     	var context = {
-            default_is_log: !!note,
+            default_is_log: note,
             default_body: values.body,
             default_subject: values.subject,
-            default_model: this.recordData[this.attrs.res_model] || this.model,
-            default_res_id: this.recordData[this.attrs.res_id] || this.res_id,
+            default_model: this.shareOptions.res_model,
+            default_res_id: this.shareOptions.res_id,
             mail_post_autofollow: false,
         };
         this.do_action({
@@ -89,40 +92,62 @@ var CharShare = fields.CharCopyClipboard.extend({
     _onShareMessageClick: function(event) {
     	event.preventDefault();
     	event.stopPropagation();
-    	this._openShareChat(false);
+    	this.openShareChat(false);
     },
     _onShareNoteClick: function(event) {
     	event.preventDefault();
     	event.stopPropagation();
-    	this._openShareChat(true);
+    	this.openShareChat(true);
     },
     _onShareMailClick: function(event) {
     	event.preventDefault();
     	event.stopPropagation();
-    	var values = this._getShareMessage();
-    	window.location.href = "mailto:?subject=" + values.subject + "&body=" + this.value;
+    	var values = this.getShareMessageValues();
+    	var subject = "subject=" + values.subject;
+    	var body = "&body=" + encodeURIComponent(values.text);
+    	window.location.href = "mailto:?" + subject + body;
     },
     _onShareSendClick: function(event) {
     	event.preventDefault();
     	event.stopPropagation();
-    	var values = this._getShareMessage();
-    	if (values.url) {
-    		navigator.share({
-    			title: values.subject,
-    			url: values.url,
-    		});
-    	} else {
-    		navigator.share({
-    			title: values.subject,
-    			text: this.value,
-    		});
-    	}
-    	
+    	var values = this.getShareMessageValues();
+    	navigator.share({
+    		title: values.subject,
+    		text: values.text,
+    		url: utils.isUrl(this.value) && this.value
+    	});
+    },
+};
+
+var CharShare = fields.CharCopyClipboard.extend(ShareMixin, {
+    _render: function() {
+        this._super.apply(this, arguments);
+        this.$el.addClass('mk_field_share');
+        this.$el.prepend($(QWeb.render('muk_web_utils.CharShare', {
+        	navigator: !!this.navigator,
+        	chatter: !!this.chatter,
+        })));
     },
 });
 
-registry.add('share', CharShare);
+var TextShare = fields.TextCopyClipboard.extend(ShareMixin, {
+    _render: function() {
+    	this._super.apply(this, arguments);
+        this.$el.addClass('mk_field_share');
+        this.$el.prepend($(QWeb.render('muk_web_utils.TextShare', {
+        	navigator: !!this.navigator,
+        	chatter: !!this.chatter,
+        })));
+    }
+});
 
-return CharShare;
+registry.add('share_char', CharShare);
+registry.add('share_text', TextShare);
+
+return {
+	ShareMixin: ShareMixin,
+	CharShare: CharShare,
+	TextShare: TextShare,
+};
 
 });
