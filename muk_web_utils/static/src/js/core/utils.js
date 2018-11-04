@@ -26,19 +26,11 @@ var _t = core._t;
 var QWeb = core.qweb;
 
 function isUrl(string) {
-	var protocolAndDomainRE = /^(?:\w+:)?\/\/(\S+)$/;
-	var localhostDomainRE = /^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/
-	var nonLocalhostDomainRE = /^[^\s\.]+\.\S{2,}$/;
-	var match = string.match(protocolAndDomainRE);
-	if (!match) {
-		return false;
-	}
-	var everythingAfterProtocol = match[1];
-	if (!everythingAfterProtocol) {
-		return false;
-	}
-	if (localhostDomainRE.test(everythingAfterProtocol) || nonLocalhostDomainRE.test(everythingAfterProtocol)) {
-		return true;
+	var protocol = string.match(/^(?:\w+:)?\/\/(\S+)$/);
+	if (protocol && protocol[1]) {
+		var localHost = (/^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/).test(protocol[1]);
+		var nonLocalHost = (/^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/).test(protocol[1]);
+		return !!(localHost || nonLocalHost);
 	}
 	return false;
 }
