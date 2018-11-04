@@ -1,4 +1,9 @@
-`2.1.0`
+`2.3.0`
+-------
+
+- Added custom colors to snippet options
+
+`2.2.0`
 -------
 
 - Added widget to share text fields
