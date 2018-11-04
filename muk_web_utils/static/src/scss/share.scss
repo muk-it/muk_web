@@ -18,20 +18,34 @@
 **********************************************************************************/
 	
 .o_field_widget.mk_field_share {
-	padding-left: 90px;
-	.mk_share_dropdown {
-		@include o-position-absolute($top: 0, $left: 0);
-		.mk_share_button {
-	        padding: 0 10px;
-	    }
-		&.mk_share_char {
-			height: 100%;
-			
+	&.o_field_copy {
+		padding-left: 90px;
+		.mk_share_dropdown {
+			@include o-position-absolute($top: 0, $left: 0);
+			.mk_share_button {
+		        padding: 0 10px;
+		    }
+			&.mk_share_char {
+				height: 100%;
+				
+			}
+			&.mk_share_text {
+				.dropdown-menu {
+					line-height: 0.1
+		        }
+			}
 		}
-		&.mk_share_text {
-			.dropdown-menu {
-				line-height: 0.1
-	        }
+	}
+	&.o_form_uri {
+		.mk_share_dropdown {
+			margin-left: 0.5rem;
+			.mk_share_button {
+		        padding: 0.25rem 0.4rem;
+			    font-size: 0.8rem;
+			    line-height: 0.5;
+			    border-radius: 0.2rem;
+			    margin-bottom: 0.12rem;
+		    }
 		}
 	}
 }
