@@ -20,7 +20,7 @@
 {
     "name": "MuK Web Refresh",
     "summary": """Web Client Refresh""",
-    "version": "12.0.2.1.6",
+    "version": "12.0.2.2.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -51,4 +51,6 @@
     },
     "application": False,
     "installable": True,
+    "post_init_hook": "_install_initialize_rules",
+    "uninstall_hook": "_uninstall_remove_rules",
 }

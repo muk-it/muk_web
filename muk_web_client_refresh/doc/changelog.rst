@@ -1,3 +1,8 @@
+`2.2.0`
+-------
+
+- Automatically initiate refresh rules
+
 `2.1.0`
 -------
 

@@ -19,4 +19,5 @@
 
 from . import base
 from . import ir_actions
+from . import base_automation
 from . import res_config_settings

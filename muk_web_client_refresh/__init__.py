@@ -17,5 +17,26 @@
 #
 ###################################################################################
 
+from odoo import api, SUPERUSER_ID
+
 from . import controllers
 from . import models
+
+REFRESH_RULE_MODELS = [
+    'account.bank.statement', 'account.invoice', 'account.journal', 
+    'account.move', 'crm.lead', 'event.event', 'fleet.vehicle', 'hr.contract',
+    'hr.department', 'hr.employee', 'hr.job', 'hr.leave', 'lunch.order',
+    'mrp.bom', 'mrp.document', 'mrp.workorder', 'product.category',
+    'product.template', 'project.project', 'project.task', 'purchase.order',
+    'repair.order', 'res.partner', 'res.users', 'sale.order', 'slide.slide',
+    'stock.inventory', 'stock.move', 'survey.page', 'survey.survey',
+]
+
+def _install_initialize_rules(cr, registry):
+    env = api.Environment(cr, SUPERUSER_ID, {})
+    for model_name in REFRESH_RULE_MODELS:
+        env['base.automation'].create_refresh_rules(model_name)
+        
+def _uninstall_remove_rules(cr, registry):
+    env = api.Environment(cr, SUPERUSER_ID, {})
+    env['base.automation'].search([('state', '=', 'refresh')]).unlink()
