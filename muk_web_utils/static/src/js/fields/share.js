@@ -17,7 +17,7 @@
 *
 **********************************************************************************/
 
-odoo.define('muk_web_utils.CharShare', function (require) {
+odoo.define('muk_web_utils.share', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -26,8 +26,7 @@ var fields = require('web.basic_fields');
 var registry = require('web.field_registry');
 
 var utils = require('muk_web_utils.utils');
-
-var AbstractField = require('web.AbstractField');
+var copy = require('muk_web_utils.copy');
 
 var _t = core._t;
 var QWeb = core.qweb;
@@ -165,7 +164,7 @@ var TextShare = fields.TextCopyClipboard.extend(ShareMixin, {
     }
 });
 
-var BinaryShare = fields.FieldBinaryFile.extend(ShareMixin, {
+var BinaryFileShare = copy.BinaryFileCopy.extend(ShareMixin, {
 	fieldDependencies: _.extend({}, fields.FieldBinaryFile.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
@@ -177,12 +176,6 @@ var BinaryShare = fields.FieldBinaryFile.extend(ShareMixin, {
     }),
 	init: function () {
         this._super.apply(this, arguments);
-        if (!this.field.attachment) {
-            throw _.str.sprintf(_t(
-        		"The field '%s' must be a binary field with an set " +
-        		"attachment flag for the share widget to work."
-            ), this.field.string);
-        }
         this.navigator = window.navigator.share;
         this.chatter = _.contains(odoo._modules, "mail");
         this.shareOptions = _.defaults(this.nodeOptions, {
@@ -194,10 +187,6 @@ var BinaryShare = fields.FieldBinaryFile.extend(ShareMixin, {
         	res_model: this.recordData[this.nodeOptions.res_model] || this.model,
         	res_id: this.recordData[this.nodeOptions.res_id] || this.res_id,
         });
-    },
-    willStart: function() {
-    	var def = this.value && this.res_id ? this._fetchShareUrl() : $.when();
-    	return $.when(this._super.apply(this, arguments), def);
     },
     getShareMessageValues: function() {
     	var values = {
@@ -213,37 +202,6 @@ var BinaryShare = fields.FieldBinaryFile.extend(ShareMixin, {
     		url: this.shareUrl,
     	}
     },
-    _fetchShareUrl: function() {
-    	var self = this;
-    	var def = $.Deferred();
-    	this._rpc({
-    		model: 'ir.attachment',
-    		method: 'search',
-            args: [[
-            	['res_id', '=', this.res_id],
-            	['res_field', '=', this.name],
-            	['res_model', '=', this.model],
-            ]],
-            kwargs: {
-            	context: session.user_context,
-            },
-    	}).then(function(attchments) {
-    		self._rpc({
-        		model: 'ir.attachment',
-        		method: 'generate_access_token',
-                args: attchments
-        	}).then(function(access_token) {
-        		self.shareUrl = session.url('/web/content', {
-        			model: self.model,
-        			field: self.name,
-        			id: self.res_id,
-        			access_token: access_token.shift(),
-        		});
-        		def.resolve();
-        	});
-    	});
-    	return def;
-    },
 	_renderReadonly: function () {
         this._super.apply(this, arguments);
         this.$el.addClass('mk_field_share');
@@ -257,13 +215,13 @@ var BinaryShare = fields.FieldBinaryFile.extend(ShareMixin, {
 
 registry.add('share_char', CharShare);
 registry.add('share_text', TextShare);
-registry.add('share_binary', BinaryShare);
+registry.add('share_binary', BinaryFileShare);
 
 return {
 	ShareMixin: ShareMixin,
 	CharShare: CharShare,
 	TextShare: TextShare,
-	BinaryShare: BinaryShare,
+	BinaryFileShare: BinaryFileShare,
 };
 
 });
