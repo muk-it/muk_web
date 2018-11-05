@@ -43,34 +43,6 @@ var BinaryFileCopy = fields.FieldBinaryFile.extend({
     	var def = this.value && this.res_id ? this._fetchShareUrl() : $.when();
     	return $.when(this._super.apply(this, arguments), def);
     },
-    start: function() {
-    	var self = this;
-    	var res = this._super.apply(this, arguments);
-    	var $clipboardBtn = this.$('.mk_copy_binary');
-        this.clipboard = new ClipboardJS($clipboardBtn[0], {
-            text: function (trigger) {
-                return self.shareUrl;
-            },
-            container: self.$el[0]
-        });
-        this.clipboard.on('success', function (event) {
-            _.defer(function () {
-                $clipboardBtn.tooltip('show');
-                _.delay(function () {
-                    $clipboardBtn.tooltip('hide');
-                }, 800);
-            });
-        });
-        $clipboardBtn.click(function(event) {
-        	event.stopPropagation();
-        });
-        $clipboardBtn.tooltip({
-        	title: _t('Link Copied!'),
-        	trigger: 'manual',
-        	placement: 'bottom'
-        });
-        return res;
-    },
     _fetchShareUrl: function() {
     	var self = this;
     	var def = $.Deferred();
@@ -111,14 +83,43 @@ var BinaryFileCopy = fields.FieldBinaryFile.extend({
     	}
     	return def;
     },
+    _setUpClipboad: function() {
+    	var self = this;
+    	var $clipboardBtn = this.$('.mk_copy_binary');
+        this.clipboard = new ClipboardJS($clipboardBtn[0], {
+            text: function (trigger) {
+                return self.shareUrl;
+            },
+            container: self.$el[0]
+        });
+        this.clipboard.on('success', function (event) {
+            _.defer(function () {
+                $clipboardBtn.tooltip('show');
+                _.delay(function () {
+                    $clipboardBtn.tooltip('hide');
+                }, 800);
+            });
+        });
+        $clipboardBtn.click(function(event) {
+        	event.stopPropagation();
+        });
+        $clipboardBtn.tooltip({
+        	title: _t('Link Copied!'),
+        	trigger: 'manual',
+        	placement: 'bottom'
+        });
+    },
 	_renderReadonly: function () {
         this._super.apply(this, arguments);
         this.$el.addClass('mk_field_copy');
         this.$el.append($(QWeb.render('muk_web_utils.BinaryFieldCopy')));
+        this._setUpClipboad();
     },
     destroy: function () {
         this._super.apply(this, arguments);
-        this.clipboard.destroy();
+        if (this.clipboard) {
+        	this.clipboard.destroy();
+        }
     },
 });
 
