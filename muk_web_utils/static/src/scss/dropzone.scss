@@ -54,7 +54,7 @@
 		&:after {
 			padding-top: 18rem;
 			font-size: 3rem;
-		    content: "Drop files here to upload!";
+		    content: attr(data-dropzone-text);
 		}
 	}
 }

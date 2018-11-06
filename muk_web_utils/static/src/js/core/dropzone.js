@@ -26,6 +26,7 @@ var _t = core._t;
 var QWeb = core.qweb;
 
 var DropzoneMixin = {
+	dropzoneData: {},
 	dropzoneClasses: 'mk_dropzone',
 	dropzoneEvents: {
 		'dragenter .o_form_sheet': '_dragenterDropzone',
@@ -42,7 +43,9 @@ var DropzoneMixin = {
             'dndHoverStart': this._hoverDropzoneEnter.bind(this),
             'dndHoverEnd': this._hoverDropzoneLeave.bind(this),
         });
-
+		_.each(this.dropzoneData, function(value, key) {
+			this.$dropzone.attr(key, value)
+		}, this);
 	},
 	_toggleDropzone: function(state) {
 		this.$dropzone.toggleClass(this.dropzoneClasses, state);
@@ -90,6 +93,9 @@ var DropzoneMixin = {
 };
 
 var FileDropzoneMixin = _.extend({}, DropzoneMixin, {
+	dropzoneData: {
+		'data-dropzone-text': _t("Drop files here to upload!"),
+	},
 	dropzoneClasses: DropzoneMixin.dropzoneClasses + ' mk_dropzone_file',
 	_checkDropzoneEvent: function(event) {
 		return window.File && window.FileReader && window.FileList && window.Blob;
