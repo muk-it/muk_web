@@ -33,6 +33,7 @@
 		<xpath expr="//link[last()]" position="after">
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/variables.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/switch.scss" />
+			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/dropzone.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/module.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/copy.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/share.scss" />

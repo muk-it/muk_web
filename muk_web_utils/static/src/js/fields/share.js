@@ -32,6 +32,12 @@ var _t = core._t;
 var QWeb = core.qweb;
 
 var ShareMixin = {
+	shareEvents: {
+    	'click .mk_share_dropdown_message': '_onShareMessageClick',
+        'click .mk_share_dropdown_note': '_onShareNoteClick',
+        'click .mk_share_dropdown_mail': '_onShareMailClick',
+        'click .mk_share_dropdown_send': '_onShareSendClick',
+    },
     getShareMessageValues: function(message) {
     	var values = {
     		name: session.partner_display_name,
@@ -100,12 +106,7 @@ var CharShare = fields.CharCopyClipboard.extend(ShareMixin, {
 	fieldDependencies: _.extend({}, fields.CharCopyClipboard.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, fields.CharCopyClipboard.events, {
-    	'click .mk_share_dropdown_message': '_onShareMessageClick',
-        'click .mk_share_dropdown_note': '_onShareNoteClick',
-        'click .mk_share_dropdown_mail': '_onShareMailClick',
-        'click .mk_share_dropdown_send': '_onShareSendClick',
-    }),
+    events: _.extend({}, fields.CharCopyClipboard.events, ShareMixin.shareEvents),
 	init: function(parent, name, record) {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;
@@ -134,12 +135,7 @@ var TextShare = fields.TextCopyClipboard.extend(ShareMixin, {
 	fieldDependencies: _.extend({}, fields.TextCopyClipboard.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, fields.TextCopyClipboard.events, {
-    	'click .mk_share_dropdown_message': '_onShareMessageClick',
-        'click .mk_share_dropdown_note': '_onShareNoteClick',
-        'click .mk_share_dropdown_mail': '_onShareMailClick',
-        'click .mk_share_dropdown_send': '_onShareSendClick',
-    }),
+    events: _.extend({}, fields.TextCopyClipboard.events, ShareMixin.shareEvents),
 	init: function(parent, name, record) {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;
@@ -168,12 +164,7 @@ var BinaryFileShare = copy.BinaryFileCopy.extend(ShareMixin, {
 	fieldDependencies: _.extend({}, fields.FieldBinaryFile.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, fields.FieldBinaryFile.events, {
-    	'click .mk_share_dropdown_message': '_onShareMessageClick',
-        'click .mk_share_dropdown_note': '_onShareNoteClick',
-        'click .mk_share_dropdown_mail': '_onShareMailClick',
-        'click .mk_share_dropdown_send': '_onShareSendClick',
-    }),
+    events: _.extend({}, copy.BinaryFileCopy, ShareMixin.shareEvents),
 	init: function () {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;

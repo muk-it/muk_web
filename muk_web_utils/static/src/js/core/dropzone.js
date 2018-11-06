@@ -26,6 +26,13 @@ var _t = core._t;
 var QWeb = core.qweb;
 
 var DropzoneMixin = {
+	dropzoneClasses: 'mk_dropzone',
+	dropzoneEvents: {
+		'dragenter .o_form_sheet': '_dragenterDropzone',
+		'dragover .o_form_sheet': '_dragoverDropzone',
+		'dragleave .o_form_sheet': '_dragleaveDropzone',
+		'drop .o_form_sheet': '_dropDropzone',
+    },
 	_checkDropzoneEvent: function(event) {
 		return true;
 	},
@@ -38,7 +45,7 @@ var DropzoneMixin = {
 
 	},
 	_toggleDropzone: function(state) {
-		this.$dropzone.toggleClass('mk_dropzone', state);
+		this.$dropzone.toggleClass(this.dropzoneClasses, state);
 	},
 	_hoverDropzoneEnter: function(event) {
 		if(this._checkDropzoneEvent(event)) {
@@ -65,7 +72,7 @@ var DropzoneMixin = {
     _dragoverDropzone: function(event) {
     	if(this._checkDropzoneEvent(event)) {
         	event.preventDefault();
-    		this._handleDrag();
+    		this._handleDrag(event);
     	}
     },
     _dragleaveDropzone: function(event) {
@@ -77,19 +84,20 @@ var DropzoneMixin = {
     	if(this._checkDropzoneEvent(event)) {
         	event.preventDefault();
     		event.stopPropagation();
-    		this._handleDrop();
+    		this._handleDrop(event);
     	}
     }
 };
 
-var FileDropzoneMixin = {
+var FileDropzoneMixin = _.extend({}, DropzoneMixin, {
+	dropzoneClasses: DropzoneMixin.dropzoneClasses + ' mk_dropzone_file',
 	_checkDropzoneEvent: function(event) {
 		return window.File && window.FileReader && window.FileList && window.Blob;
 	},
 	_handleDrag: function(event) {
 		event.originalEvent.dataTransfer.dropEffect = 'copy';
 	},
-};
+});
 
 return {
 	DropzoneMixin: DropzoneMixin,
