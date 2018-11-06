@@ -41,6 +41,7 @@
 		<xpath expr="//script[last()]" position="after">
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/libs/jquery.js"></script>
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/utils.js"></script>
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/files.js"></script>
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dropzone.js"></script>
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js"></script>
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/copy.js"></script>

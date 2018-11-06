@@ -29,10 +29,10 @@ var DropzoneMixin = {
 	dropzoneData: {},
 	dropzoneClasses: 'mk_dropzone',
 	dropzoneEvents: {
-		'dragenter .o_form_sheet': '_dragenterDropzone',
-		'dragover .o_form_sheet': '_dragoverDropzone',
-		'dragleave .o_form_sheet': '_dragleaveDropzone',
-		'drop .o_form_sheet': '_dropDropzone',
+		'dragenter .mk_dropzone': '_dragenterDropzone',
+		'dragover .mk_dropzone': '_dragoverDropzone',
+		'dragleave .mk_dropzone': '_dragleaveDropzone',
+		'drop .mk_dropzone': '_dropDropzone',
     },
 	_checkDropzoneEvent: function(event) {
 		return true;
@@ -97,8 +97,9 @@ var FileDropzoneMixin = _.extend({}, DropzoneMixin, {
 		'data-dropzone-text': _t("Drop files here to upload!"),
 	},
 	dropzoneClasses: DropzoneMixin.dropzoneClasses + ' mk_dropzone_file',
+	dropzoneCheck: window.File && window.FileReader && window.FileList && window.Blob,
 	_checkDropzoneEvent: function(event) {
-		return window.File && window.FileReader && window.FileList && window.Blob;
+		return this.dropzoneCheck;
 	},
 	_handleDrag: function(event) {
 	    if(event.originalEvent.dataTransfer) {

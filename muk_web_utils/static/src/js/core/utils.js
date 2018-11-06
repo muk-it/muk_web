@@ -25,7 +25,7 @@ var core = require('web.core');
 var _t = core._t;
 var QWeb = core.qweb;
 
-function isUrl(string) {
+var isUrl = function(string) {
 	var protocol = string.match(/^(?:\w+:)?\/\/(\S+)$/);
 	if (protocol && protocol[1]) {
 		var localHost = (/^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/).test(protocol[1]);
@@ -35,7 +35,7 @@ function isUrl(string) {
 	return false;
 }
 
-function parseText2Html(text) {
+var parseText2Html= function(text) {
     return text
         .replace(/((?:https?|ftp):\/\/[\S]+)/g,'<a href="$1">$1</a> ')
         .replace(/[\n\r]/g,'<br/>');
