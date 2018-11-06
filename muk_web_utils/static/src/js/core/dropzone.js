@@ -95,7 +95,9 @@ var FileDropzoneMixin = _.extend({}, DropzoneMixin, {
 		return window.File && window.FileReader && window.FileList && window.Blob;
 	},
 	_handleDrag: function(event) {
-		event.originalEvent.dataTransfer.dropEffect = 'copy';
+	    if(event.originalEvent.dataTransfer) {
+	    	event.originalEvent.dataTransfer.dropEffect = 'copy';
+    	}
 	},
 });
 
