@@ -24,7 +24,6 @@ var NotificationService = require('web.NotificationService');
 
 NotificationService.include({
 	progress: function (notificationId, progress) {
-		console.log(this)
         if(notificationId in this.notifications) {
 			var notification = this.notifications[notificationId];
 	        notification.updateProgress(progress.state, progress.text);

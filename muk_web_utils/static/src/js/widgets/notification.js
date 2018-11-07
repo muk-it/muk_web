@@ -34,12 +34,9 @@ Notification.include({
         this.progress = params.progress;
     },
     updateProgress: function(state, text) {
-    	console.log(state, text)
     	this.progress = {state: state, text: text};
-    	this.$(".progress-bar").animate({
-    		width: state + "%",
-    	}, 250);
     	this.$(".progress-bar").text(text);
+    	this.$(".progress-bar").width(state + "%");
     },
 });
 
