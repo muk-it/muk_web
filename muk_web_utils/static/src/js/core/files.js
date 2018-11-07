@@ -21,7 +21,6 @@ odoo.define('muk_web_utils.files', function (require) {
 "use strict";
 
 var core = require('web.core');
-var utils = require('web.utils');
 
 var QWeb = core.qweb;
 var _t = core._t;

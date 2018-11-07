@@ -37,16 +37,19 @@
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/module.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/copy.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/share.scss" />
+			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/notification.scss" />
 		</xpath>
 		<xpath expr="//script[last()]" position="after">
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/libs/jquery.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/utils.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/files.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dropzone.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/copy.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/share.js"></script>
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js"></script>
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/libs/jquery.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/utils.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/files.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dropzone.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/copy.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/share.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/widgets/notification.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/services/notification_service.js" />
 		</xpath>
 	</template>
 	
