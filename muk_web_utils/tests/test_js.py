@@ -17,37 +17,20 @@
 #
 ###################################################################################
 
-{
-    "name": "MuK Web Utils",
-    "summary": """Utility Features""",
-    "version": "12.0.2.4.6",
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "author": "MuK IT",
-    "website": "http://www.mukit.at",
-    "live_test_url": "https://demo.mukit.at/web/login",
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "web_editor",
-        "muk_utils",
-    ],
-    "data": [
-        "template/assets.xml",
-        "template/editor.xml",
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-    'auto_install': True,
-}
+import os
+import json
+import logging
+import requests
+
+from odoo import _, http, tools, SUPERUSER_ID
+from odoo.tests.common import HttpCase
+
+from odoo.addons.muk_utils.tools.json import RecordEncoder 
+
+_path = os.path.dirname(os.path.dirname(__file__))
+_logger = logging.getLogger(__name__)
+
+class WebSuite(HttpCase):
+
+    def test_js(self):
+        self.browser_js('/web/tests?module=muk_web_utils&failfast', "", "", login='admin', timeout=1800)

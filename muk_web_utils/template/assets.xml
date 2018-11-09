@@ -53,4 +53,10 @@
 		</xpath>
 	</template>
 	
+	<template id="qunit_suite" name="QUnit Assets" inherit_id="web.qunit_suite">
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_utils/static/tests/fields.js" />
+		</xpath>
+	</template>
+	
 </odoo>

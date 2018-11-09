@@ -164,7 +164,9 @@ var BinaryFileShare = copy.BinaryFileCopy.extend(ShareMixin, {
 	fieldDependencies: _.extend({}, fields.FieldBinaryFile.prototype.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, copy.BinaryFileCopy.prototype.events, ShareMixin.shareEvents),
+    events: _.extend({}, copy.BinaryFileCopy.prototype.events, ShareMixin.shareEvents, {
+    	'click .mk_share_button': '_onShareDropdownClick',
+    }),
 	init: function () {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;
@@ -201,6 +203,10 @@ var BinaryFileShare = copy.BinaryFileCopy.extend(ShareMixin, {
         	chatter: !!this.chatter,
         	share: !!this.shareUrl,
         })));
+    },
+    _onShareDropdownClick: function(event) {
+    	$(event.currentTarget).dropdown("toggle");
+    	event.stopPropagation();
     },
 });
 

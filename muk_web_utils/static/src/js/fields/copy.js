@@ -123,7 +123,7 @@ var BinaryFileCopy = fields.FieldBinaryFile.extend({
     },
 });
 
-registry.add('binary_copy', BinaryFileCopy);
+registry.add('copy_binary', BinaryFileCopy);
 
 return {
 	BinaryFileCopy: BinaryFileCopy,
