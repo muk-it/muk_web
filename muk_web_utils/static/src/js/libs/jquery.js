@@ -29,7 +29,7 @@ $.fn.dndHover = function(options) {
         var collection = $();
         self.on('dragenter', function(event) {
             if (collection.size() === 0) {
-                self.trigger('dndHoverStart');
+                self.trigger('dndHoverStart', [event]);
             }
             collection = collection.add(event.target);
         });
@@ -37,14 +37,14 @@ $.fn.dndHover = function(options) {
             setTimeout(function() {
                 collection = collection.not(event.target);
                 if (collection.size() === 0) {
-                    self.trigger('dndHoverEnd');
+                    self.trigger('dndHoverEnd', [event]);
                 }
             }, 1);
         });
         self.on('drop', function(event) {
             setTimeout(function() {
             	collection = $();
-            	self.trigger('dndHoverEnd');
+            	self.trigger('dndHoverEnd', [event]);
             }, 1);
         });
     });

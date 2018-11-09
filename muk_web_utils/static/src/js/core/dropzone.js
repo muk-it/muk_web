@@ -50,14 +50,14 @@ var DropzoneMixin = {
 	_toggleDropzone: function(state) {
 		this.$dropzone.toggleClass(this.dropzoneClasses, state);
 	},
-	_hoverDropzoneEnter: function(event) {
-		if(this._checkDropzoneEvent(event)) {
+	_hoverDropzoneEnter: function(event, originalEvent) {
+		if(this._checkDropzoneEvent(originalEvent)) {
 	    	this._toggleDropzone(true);
 	    	event.preventDefault();
 			return false;
     	}
 	},
-	_hoverDropzoneLeave: function(event) {
+	_hoverDropzoneLeave: function(event, originalEvent) {
     	this._toggleDropzone(false);
     	event.stopPropagation();
     	event.preventDefault();
@@ -99,12 +99,14 @@ var FileDropzoneMixin = _.extend({}, DropzoneMixin, {
 	dropzoneClasses: DropzoneMixin.dropzoneClasses + ' mk_dropzone_file',
 	dropzoneCheck: window.File && window.FileReader && window.FileList && window.Blob,
 	_checkDropzoneEvent: function(event) {
-		return this.dropzoneCheck;
+		var dataTransfer = event.originalEvent && event.originalEvent.dataTransfer;
+		var fileCheck = dataTransfer && _.some(dataTransfer.types, function(type) {
+			return type == "Files";
+		});
+		return this.dropzoneCheck && fileCheck;
 	},
 	_handleDrag: function(event) {
-	    if(event.originalEvent.dataTransfer) {
-	    	event.originalEvent.dataTransfer.dropEffect = 'copy';
-    	}
+		event.originalEvent.dataTransfer.dropEffect = 'copy';
 	},
 });
 

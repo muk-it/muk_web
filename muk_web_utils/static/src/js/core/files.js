@@ -43,7 +43,7 @@ var traverseItems = function(items, tree) {
     		});
     		defs.push(traverse);
     	} else {
-    		file = item.getAsFile();
+    		var file = item.getAsFile();
     		if(file) {
     			if(file.size) {
             		files.push(_.extend({}, file, {isFileItem: true}));
