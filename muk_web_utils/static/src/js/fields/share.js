@@ -103,10 +103,10 @@ var ShareMixin = {
 };
 
 var CharShare = fields.CharCopyClipboard.extend(ShareMixin, {
-	fieldDependencies: _.extend({}, fields.CharCopyClipboard.fieldDependencies, {
+	fieldDependencies: _.extend({}, fields.CharCopyClipboard.prototype.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, fields.CharCopyClipboard.events, ShareMixin.shareEvents),
+    events: _.extend({}, fields.CharCopyClipboard.prototype.events, ShareMixin.shareEvents),
 	init: function(parent, name, record) {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;
@@ -132,10 +132,10 @@ var CharShare = fields.CharCopyClipboard.extend(ShareMixin, {
 });
 
 var TextShare = fields.TextCopyClipboard.extend(ShareMixin, {
-	fieldDependencies: _.extend({}, fields.TextCopyClipboard.fieldDependencies, {
+	fieldDependencies: _.extend({}, fields.TextCopyClipboard.prototype.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, fields.TextCopyClipboard.events, ShareMixin.shareEvents),
+    events: _.extend({}, fields.TextCopyClipboard.prototype.events, ShareMixin.shareEvents),
 	init: function(parent, name, record) {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;
@@ -161,10 +161,10 @@ var TextShare = fields.TextCopyClipboard.extend(ShareMixin, {
 });
 
 var BinaryFileShare = copy.BinaryFileCopy.extend(ShareMixin, {
-	fieldDependencies: _.extend({}, fields.FieldBinaryFile.fieldDependencies, {
+	fieldDependencies: _.extend({}, fields.FieldBinaryFile.prototype.fieldDependencies, {
 		display_name: {type: 'char'},
     }),
-    events: _.extend({}, copy.BinaryFileCopy, ShareMixin.shareEvents),
+    events: _.extend({}, copy.BinaryFileCopy.prototype.events, ShareMixin.shareEvents),
 	init: function () {
         this._super.apply(this, arguments);
         this.navigator = window.navigator.share;
