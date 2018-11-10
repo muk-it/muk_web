@@ -44,12 +44,12 @@
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/utils.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/files.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dropzone.js" />
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/services/notification_service.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/widgets/notification.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/copy.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/share.js" />
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/widgets/notification.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js" />
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/services/notification_service.js" />
 		</xpath>
 	</template>
 	
