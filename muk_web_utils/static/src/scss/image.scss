@@ -19,7 +19,7 @@
 	
 .o_field_widget.o_field_image {
 	.mk_form_image_controls {
-		@include o-position-absolute($left: 0, $bottom: 10px);
+		@include o-position-absolute($left: 0, $bottom: 0);
         width: 100%;
         color: white;
         background-color: $o-brand-primary;
@@ -50,4 +50,18 @@
 		    }
 		}
 	}
+}
+
+.o_field_widget.o_field_image.oe_avatar {
+	.mk_form_image_controls {
+		@include o-position-absolute($left: 0, $bottom: 10px);
+	}
+    img {
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        max-width: $o-avatar-size;
+        max-height: $o-avatar-size;
+        vertical-align: top;
+        margin-bottom: 10px;
+        border: none;
+    }
 }
