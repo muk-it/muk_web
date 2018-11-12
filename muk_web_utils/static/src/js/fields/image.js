@@ -55,12 +55,8 @@ fields.FieldBinaryImage.include({
 			this.nodeOptions.size[0] : this.attrs.width;
         var height = this.nodeOptions.size ? 
         	this.nodeOptions.size[1] : this.attrs.height;
-		if(width) {
-			$wrapper.css('min-width', width + 'px');
-        }
-        if(height) {
-        	$wrapper.css('min-height', height + 'px');
-        }
+        $wrapper.css('min-width', (width || 50) + 'px');
+        $wrapper.css('min-height', (height || 50) + 'px');
 	},
 });
 
