@@ -57,6 +57,10 @@ var PreviewDialog = Widget.extend({
     open: function() {
         var self = this;
         $('.tooltip').remove();
+        this.$modal.draggable({
+            handle: '.modal-header',
+            helper: false
+        });        
         this.replace(this.$modal.find(".modal-body")).then(function() {
             self.$modal.modal('show');
             self._opened.resolve();
@@ -97,6 +101,10 @@ var PreviewDialog = Widget.extend({
     	}
     },
     close: function() {
+        var draggable = this.$modal.draggable( "instance" );
+        if (draggable) {
+            this.$modal.draggable("destroy");
+        }	    
         this.$modal.modal('hide');
     },
     destroy: function(reason) {
