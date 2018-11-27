@@ -64,4 +64,12 @@
         margin-bottom: 10px;
         border: none;
     }
+   	@include media-breakpoint-down(xs, $o-extra-grid-breakpoints) {
+		.mk_form_image_controls{
+		    position: initial;
+		    > .fa{
+		        background: $o-brand-secondary;
+		    }
+		}
+	}
 }
