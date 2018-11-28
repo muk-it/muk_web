@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2018 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<odoo>
+	
+	<template id="assets_common" name="Common Assets" inherit_id="web_editor.assets_common">
+		<xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fonts.scss"/>
+		</xpath>
+		<xpath expr="//script[last()]" position="after">
+		</xpath>
+	</template>
+	
+	<template id="assets_editor" name="Editor Assets" inherit_id="web_editor.assets_editor">
+		<xpath expr="//link[last()]" position="after">
+		</xpath>
+		<xpath expr="//script[last()]" position="after">
+		</xpath>
+	</template>
+
+	<template id="_assets_primary_variables" name="Colors" inherit_id="web._assets_primary_variables" priority="15">
+        <xpath expr="//link[@href='/web/static/src/scss/primary_variables.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/colors.scss"/>
+        </xpath>
+    </template>
+    
+	<template id="_assets_backend_helpers" name="Variables" inherit_id="web._assets_backend_helpers" priority="15">
+        <xpath expr="//link[@href='/web/static/src/scss/bootstrap_overridden.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/variables.scss"/>
+        </xpath>
+    </template>
+
+	<template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
+		<xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/libs/simplebar/simplebar.css" />
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/libs/jquery-bootstrap-scrolling-tabs/jquery-bootstrap-scrolling-tabs.css" />
+		</xpath>
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_theme/static/libs/simplebar/simplebar.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/libs/jquery-bootstrap-scrolling-tabs/jquery-bootstrap-scrolling-tabs.js" />
+		</xpath>
+		<xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/mixins.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/layout.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/navbar.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/apps.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/appsbar.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/control_panel.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/list_view.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/form_view.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fields.scss"/>
+		</xpath>
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/menu.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/apps.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/appsbar.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/sidebar.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/fields/status.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/search_view.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/form_renderer.js" />
+		</xpath>
+	</template>
+	
+</odoo>

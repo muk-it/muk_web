@@ -1,0 +1,47 @@
+/**********************************************************************************
+* 
+*    Copyright (C) 2017 MuK IT GmbH
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Affero General Public License as
+*    published by the Free Software Foundation, either version 3 of the
+*    License, or (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Affero General Public License for more details.
+*
+*    You should have received a copy of the GNU Affero General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+$font-path: '../fonts';
+
+@mixin mk-font-face($name, $weight, $style) {
+    @font-face {
+        font-family: 'Roboto';
+        src: url('#{$font-path}/Roboto-#{$name}-webfont.eot');
+        src: local('Roboto #{$name}'), local('Roboto-#{$name}'),
+        	 url('#{$font-path}/Roboto-#{$name}-webfont.eot?#iefix') format('embedded-opentype'),
+             url('#{$font-path}/Roboto-#{$name}-webfont.woff') format('woff'),
+             url('#{$font-path}/Roboto-#{$name}-webfont.ttf') format('truetype'),
+             url('#{$font-path}/Roboto-#{$name}-webfont.svg#Roboto') format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@include mk-font-face('Thin', 100, normal);
+@include mk-font-face('ThinItalic', 100, italic);
+@include mk-font-face('Light', 300, normal);
+@include mk-font-face('LightItalic', 300, italic);
+@include mk-font-face('Regular', 400, normal);
+@include mk-font-face('Italic', 400, italic);
+@include mk-font-face('Medium', 500, normal);
+@include mk-font-face('MediumItalic', 500, italic);
+@include mk-font-face('Bold', 700, normal);
+@include mk-font-face('BoldItalic', 700, italic);
+@include mk-font-face('Black', 900, normal);
+@include mk-font-face('BlackItalic', 900, italic);

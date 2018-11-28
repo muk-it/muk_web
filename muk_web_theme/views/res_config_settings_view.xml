@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--     
+	Copyright (C) 2017 MuK IT GmbH
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+
+<odoo>
+
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+	    <field name="name">res.config.settings.view.form</field>
+	    <field name="model">res.config.settings</field>
+	    <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+	    <field name="arch" type="xml">
+	        <div id="business_documents" position="after">
+	            <h2>Backend Theme</h2>
+	            <div class="row mt16 o_settings_container" name="web_client">
+	                <div class="col-12 col-lg-6 o_setting_box">
+	                    <div class="o_setting_left_pane">
+	                    </div>
+	                    <div class="o_setting_right_pane">
+	                        <span class="o_form_label">Background Image</span>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Set the background image for the apps menu
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                    <field name="theme_background_image" widget="image" class="ml-4" required="1"/>
+                                </div>
+                            </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </field>
+	</record>
+	
+</odoo>
