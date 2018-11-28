@@ -47,7 +47,7 @@
     ],
     "images": [
         'static/description/banner.png',
-        'static/description/theme.png'
+        'static/description/screenshot.png'
     ],
     "external_dependencies": {
         "python": [],
