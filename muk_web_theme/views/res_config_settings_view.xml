@@ -43,6 +43,25 @@
                             </div>
 	                    </div>
 	                </div>
+	                <div class="col-12 col-lg-6 o_setting_box">
+	                    <div class="o_setting_left_pane">
+	                    </div>
+	                    <div class="o_setting_right_pane">
+	                        <span class="o_form_label">Theme Colors</span>
+                            <div class="text-muted">
+                                Set the main theme colors
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                	<label for="theme_color_brand" string="Brand" class="col-lg-3 o_light_label"/>
+                                    <field name="theme_color_brand" widget="color" class="oe_inline"/>
+                                    <div class="w-100"></div>
+                                	<label for="theme_color_primary" string="Primary" class="col-lg-3 o_light_label"/>
+                                    <field name="theme_color_primary" widget="color" class="oe_inline"/>
+                                </div>
+                            </div>
+	                    </div>
+	                </div>
 	            </div>
 	        </div>
 	    </field>
