@@ -111,7 +111,7 @@ class ResConfigSettings(models.TransientModel):
             })
             view_to_xpath = self.env["ir.ui.view"].get_related_views(
                 XML_ID, bundles=True
-            ).filtered(lambda v: v.arch.find(url) >= 0)
+            ).filtered(lambda v: v.arch.find(SCSS_URL) >= 0)
             self.env["ir.ui.view"].create({
                 'name': custom_url,
                 'key': 'web_editor.scss_%s' % str(uuid.uuid4())[:6],
