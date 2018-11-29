@@ -1,3 +1,8 @@
+`2.5.0`
+-------
+
+- Added color field widget
+
 `2.4.0`
 -------
 

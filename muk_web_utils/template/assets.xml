@@ -35,6 +35,7 @@
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/switch.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/dropzone.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/module.scss" />
+			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/color.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/image.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/copy.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/share.scss" />
@@ -48,6 +49,7 @@
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dialog.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/services/notification_service.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/widgets/notification.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/color.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/image.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/copy.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/share.js" />
