@@ -126,7 +126,7 @@ class ResConfigSettings(models.TransientModel):
                 """ % {
                     'inherit_xml_id': view_to_xpath.xml_id,
                     'name': custom_url,
-                    'url_to_replace': url,
+                    'url_to_replace': SCSS_URL,
                     'new_url': custom_url,
                 }
             })
