@@ -28,12 +28,16 @@ var colorpicker = require('web.colorpicker');
 var _t = core._t;
 var QWeb = core.qweb;
 
-var FieldColor = fields.DebouncedField.extend({
-	events: _.extend({}, fields.FieldChar.prototype.events, {
+var FieldColor = fields.InputField.extend({
+	events: _.extend({}, fields.InputField.prototype.events, {
 		"click .mk_field_color_button": "_onCustomColorButtonClick",
     }),
     template: "muk_web_utils.FieldColor",
     supportedFieldTypes: ['char'],
+    start: function() {
+    	this.$input = this.$('.mk_field_color_input');
+    	return this._super.apply(this, arguments);
+    },
     _renderEdit: function () {
         this.$('.mk_field_color_input').val(this._formatValue(this.value));
     },
@@ -42,9 +46,11 @@ var FieldColor = fields.DebouncedField.extend({
     },
     _onCustomColorButtonClick: function () {
         var ColorpickerDialog = new colorpicker(this, {
-        	dialogClass: 'mk_field_color_picker'
+        	dialogClass: 'mk_field_color_picker',
+        	defaultColor: this._getValue(),
         });
         ColorpickerDialog.on('colorpicker:saved', this, function (event) {
+        	this.$input.val(event.data.hex);
         	this._setValue(event.data.hex);
         });
         ColorpickerDialog.open();
