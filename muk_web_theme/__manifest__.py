@@ -20,7 +20,7 @@
 {
     "name": "MuK Backend Theme",
     "summary": "Odoo 12.0 community backend theme",
-    "version": "12.0.1.1.0",
+    "version": "12.0.1.1.1",
     "category": "Themes/Backend",
     "license": "AGPL-3",
     "author": "MuK IT",
