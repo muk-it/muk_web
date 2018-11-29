@@ -75,8 +75,8 @@ class ResConfigSettings(models.TransientModel):
         custom_attachment = self._get_custom_attachment(custom_url)
         if custom_attachment.exists():
             content = str(base64.b64decode(custom_attachment.datas))
-            brand = re.match( r'o-brand-odoo\:?\s(.*?);', content)
-            primary = re.match( r'o-brand-primary\:?\s(.*?);', content)
+            brand = re.search( r'o-brand-odoo\:?\s(.*?);', content)
+            primary = re.search( r'o-brand-primary\:?\s(.*?);', content)
             return {
                 'theme_color_brand': brand and brand.group(1) or "#243742",
                 'theme_color_primary': primary and primary.group(1) or "#5D8DA8",
