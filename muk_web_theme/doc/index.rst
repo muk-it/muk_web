@@ -85,7 +85,7 @@ No additional configuration is needed to use this module.
 Usage
 =============
 
-TODO
+After the module is installed, the design is adjusted accordingly.
 
 Credits
 =======
