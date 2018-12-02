@@ -39,10 +39,32 @@ var FieldColor = fields.InputField.extend({
     	return this._super.apply(this, arguments);
     },
     _renderEdit: function () {
-        this.$('.mk_field_color_input').val(this._formatValue(this.value));
+        this.$('.mk_field_color_input').val(
+        	this._formatValue(this.value)
+        );
+        this.$('.mk_field_color_input').css({
+        	'background-color': this._formatValue(this.value),
+        });
     },
     _renderReadonly: function () {
         this.$el.text(this._formatValue(this.value));
+        this.$el.css({'color': this._formatValue(this.value)});
+    },
+    _doAction: function() {
+    	this._super.apply(this, arguments);
+    	this.$('.mk_field_color_input').css({
+        	'background-color': this._getValue(),
+        });
+    },
+    _formatValue: function (value) {
+    	return value;
+    },
+    _parseValue: function (value) {
+    	if((/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i).test(value)) {
+    		return value;
+    	} else {
+    		throw new Error(_.str.sprintf(core._t("'%s' is not a correct color value"), value));
+    	}
     },
     _onCustomColorButtonClick: function () {
         var ColorpickerDialog = new colorpicker(this, {
@@ -51,7 +73,7 @@ var FieldColor = fields.InputField.extend({
         });
         ColorpickerDialog.on('colorpicker:saved', this, function (event) {
         	this.$input.val(event.data.hex);
-        	this._setValue(event.data.hex);
+        	this._doAction();
         });
         ColorpickerDialog.open();
     },
