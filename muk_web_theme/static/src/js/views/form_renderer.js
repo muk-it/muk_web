@@ -40,10 +40,6 @@ FormRenderer.include({
         }
         return $buttons;
     },
-    _updateView: function () {
-    	this._super.apply(this, arguments);
-    	this.$('.nav-tabs').scrollingTabs();
-    },
 });
 
 });

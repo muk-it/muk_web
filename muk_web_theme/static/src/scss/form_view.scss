@@ -31,8 +31,19 @@
         	.btn.oe_stat_button > .o_button_icon {
         		color: $o-brand-odoo; 
         	}
+        	.btn.oe_stat_button > .o_stat_info {
+        		padding-right: 3px; 
+        	}
         }
         .o_notebook {
+            .nav-tabs {
+                overflow-x : auto;
+    			overflow-y: hidden;
+                flex-flow: nowrap;
+                .nav-item {
+                    white-space: nowrap;
+                }
+            }
         	.table-responsive {
         		overflow-x: inherit;
         	}
@@ -74,6 +85,11 @@
 	            margin: 0;
 	        }
 	    }
+	    .o_notebook .nav-tabs {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
 	}
 	@include media-breakpoint-down(xs) {
 	    .oe_button_box {
