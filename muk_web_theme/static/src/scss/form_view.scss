@@ -124,15 +124,18 @@
             flex-flow: row nowrap;
             height: 100%;
             .o_form_sheet_bg {
-                flex: 1 1 65%;
+                flex: 1 1 auto;
                 overflow: auto;
             }
             .o_chatter {
                 border-left: 1px solid gray('400');
-                flex: 1 1 35%;
-                max-width: 40%;
-                min-width: 30%;
+			    min-width: $mk-chatter-width;
+			    max-width: 30%;
+                flex: 1 1 auto;
                 overflow: auto;
+                .o_followers_title_box {
+                	margin-left: 0;
+                }
             }
         }
     }
