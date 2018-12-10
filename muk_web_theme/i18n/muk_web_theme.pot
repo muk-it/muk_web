@@ -1,0 +1,152 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* muk_web_theme
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-10 17:00+0000\n"
+"PO-Revision-Date: 2018-12-10 17:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Background Image</span>\n"
+"                            <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Theme Colors</span>"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:26
+#, python-format
+msgid "Actions"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_company__background_image
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_background_image
+msgid "Apps Menu Background Image"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Backend Theme"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Brand"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_brand
+msgid "Brand Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_users__chatter_position
+msgid "Chatter Position"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model,name:muk_web_theme.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model,name:muk_web_theme.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.users,sidebar_type:0
+msgid "Invisible"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.users,sidebar_type:0
+msgid "Large"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.users,chatter_position:0
+msgid "Normal"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Primary"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_primary
+msgid "Primary Color"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/js/views/search_view.js:34
+#, python-format
+msgid "Search"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:39
+#, python-format
+msgid "Search menus..."
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Set the background image for the apps menu"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Set the main theme colors"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_users__sidebar_type
+msgid "Sidebar Type"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.users,chatter_position:0
+msgid "Sided"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.users,sidebar_type:0
+msgid "Small"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_users_preferences
+msgid "Theme Preferences"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model,name:muk_web_theme.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:28
+#, python-format
+msgid "fa fa-th"
+msgstr ""
+
