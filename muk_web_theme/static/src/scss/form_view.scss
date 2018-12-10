@@ -118,19 +118,20 @@
 }
 
 .mk_chatter_position_sided {
-    @include media-breakpoint-up(xl) {
+	@include media-breakpoint-up(xxl, $o-extra-grid-breakpoints) {
         .o_form_view:not(.o_form_nosheet) {
             display: flex;
             flex-flow: row nowrap;
             height: 100%;
             .o_form_sheet_bg {
+			    min-width: $mk-form-min-width;
                 flex: 1 1 auto;
                 overflow: auto;
             }
             .o_chatter {
                 border-left: 1px solid gray('400');
-			    min-width: $mk-chatter-width;
-			    max-width: 30%;
+			    min-width: $mk-chatter-min-width;
+			    max-width: $mk-chatter-max-width;
                 flex: 1 1 auto;
                 overflow: auto;
                 .o_followers_title_box {
