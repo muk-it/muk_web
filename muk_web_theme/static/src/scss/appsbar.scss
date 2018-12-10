@@ -89,15 +89,22 @@
 	}
 }
 
-@include media-breakpoint-down(md) {
-	.mk_apps_sidebar_panel {
-		width: $mk-sidebar-small-width;
-		.mk_apps_sidebar_name {
-			display: none;
+@include media-breakpoint-only(md) {
+	.mk_sidebar_type_large, .mk_sidebar_type_small {
+		.mk_apps_sidebar_panel {
+			width: $mk-sidebar-small-width;
+			.mk_apps_sidebar_name {
+				display: none;
+			}
+		}
+		.o_main {
+			padding-left: $mk-sidebar-small-width;
 		}
 	}
-	.o_main {
-		padding-left: $mk-sidebar-small-width;
+	.mk_sidebar_type_invisible {
+		.mk_apps_sidebar_panel {
+			display: none;
+		}
 	}
 }
 
