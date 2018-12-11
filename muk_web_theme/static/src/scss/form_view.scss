@@ -44,9 +44,6 @@
                     white-space: nowrap;
                 }
             }
-        	.table-responsive {
-        		overflow-x: inherit;
-        	}
         }
     }
    	@include media-breakpoint-down(sm) {

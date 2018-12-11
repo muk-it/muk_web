@@ -17,6 +17,10 @@
 *
 **********************************************************************************/
 
+.o_list_view.table {
+	overflow: hidden;
+}
+
 .o_list_view.table,
 .o_list_view.table thead,
 .o_list_view.table tfoot,
