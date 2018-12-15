@@ -16,11 +16,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###################################################################################
-
 {
     "name": "MuK Backend Theme",
     "summary": "Odoo 12.0 community backend theme",
-    "version": "12.0.1.1.9",
+    "version": "12.0.1.1.10",
     "category": "Themes/Backend",
     "license": "AGPL-3",
     "author": "MuK IT",
