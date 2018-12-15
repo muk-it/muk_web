@@ -55,7 +55,9 @@ WebClient.include({
         }
     },
     _reload: function(message, controller) {
-    	controller.widget.reload();
+		if(controller && controller.widget) {
+    		controller.widget.reload();
+		}
     },
 });
 
