@@ -45,7 +45,7 @@ WebClient.include({
     	var active_view = widget ? widget.active_view : false;
     	if (active_view && session.uid !== message.uid) {
             var controller = this.action_manager.inner_widget.active_view.controller;
-            if(controller.modelName === message.model && controller.mode === "readonly") {
+            if(controller && controller.modelName === message.model && controller.mode === "readonly") {
             	if(active_view.type === "form" && message.ids.includes(widget.env.currentId)) {
             		controller.reload();
             	} else if(active_view.type === "list" &&
