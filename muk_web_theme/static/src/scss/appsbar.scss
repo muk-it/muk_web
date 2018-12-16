@@ -18,7 +18,7 @@
 **********************************************************************************/
 
 .mk_apps_sidebar_panel {
-    height: height: calc(100% - #{$o-navbar-height});   
+    height: calc(100% - #{$o-navbar-height}); 
 	position: fixed; 
     overflow-y: auto;	
     top: $o-navbar-height;
