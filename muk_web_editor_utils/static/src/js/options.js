@@ -72,7 +72,6 @@ options.registry.colorpicker.include({
     	this._super.apply(this, arguments);
     	var isCustomColor = $(event.target).hasClass('mk_custom_color');
     	this.$target.toggleClass('mk_custom_background', isCustomColor);
-//        this._renderPickedColors();
     },
     _onCustomColorButtonClick: function () {
         var ColorpickerDialog = new colorpicker(this, {});
