@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/muk-it/muk_web.svg?branch=12.0)](https://travis-ci.org/muk-it/muk_web)
 [![codecov](https://codecov.io/gh/muk-it/muk_web/branch/12.0/graph/badge.svg)](https://codecov.io/gh/muk-it/muk_web)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/eff47569926c435d98a3187623615bc4)](https://www.codacy.com/app/keshrath/muk_web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muk-it/muk_web&amp;utm_campaign=Badge_Grade)
-[![Demo](https://img.shields.io/badge/demo-Try%20me-243742.svg)](https://demo.mukit.at/)
+[![Demo](https://img.shields.io/badge/demo-Try%20me-243742.svg)](https://mukit.at/r/SgN)
 
 # MuK Odoo Web Modules
 
