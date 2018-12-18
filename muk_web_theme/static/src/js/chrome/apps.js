@@ -90,6 +90,8 @@ AppsMenu.include({
     _searchFocus: function () {
         if (!config.device.isMobile) {
             this.$search_input.focus();
+        } else {
+        	this.$search_input.blur();
         }
     },
     _searchReset: function () {
