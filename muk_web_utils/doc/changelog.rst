@@ -1,3 +1,8 @@
+`2.6.0`
+-------
+
+- Moved editor features to separate module
+
 `2.5.0`
 -------
 

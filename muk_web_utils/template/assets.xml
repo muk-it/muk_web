@@ -19,16 +19,6 @@
 
 <odoo>
 	
-	<template id="assets_editor" name="Editor Assets" inherit_id="web_editor.assets_editor">
-		<xpath expr="//link[last()]" position="after">
-			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/variables.scss" />
-			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/editor.scss" />
-		</xpath>
-		<xpath expr="//script[last()]" position="after">
-			<script type="text/javascript" src="/muk_web_utils/static/src/js/editor/snippets/options.js" />
-		</xpath>
-	</template>
-	
 	<template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
 		<xpath expr="//link[last()]" position="after">
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/variables.scss" />
