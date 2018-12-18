@@ -92,18 +92,28 @@
 	    .oe_button_box {
 	        float: none;
 	    	display: block;
+            border-radius: 0;
 	    	text-align: right;
         	margin-top: -17px;
         	margin-bottom: $o-sheet-vpadding;
 	    	margin-left: -$o-horizontal-padding;
             width: calc(100% + #{$o-horizontal-padding*2});
+            border-top: 1px solid $o-form-lightsecondary;
+            border-bottom: 1px solid $o-form-lightsecondary;
         	> .btn.oe_stat_button {
+			    border: none;
+			    background: none;
 	            flex: 0 0 auto !important;
 	            width: percentage(1/3) !important;
+			    border-right: 1px solid $o-form-lightsecondary;
             }
-            > .btn.o_button_more, > .o_dropdown_more {
+            > .btn.o_button_more {
+	            flex: 1 1 auto !important;
+	            border-right: none;
+            }
+            > .o_dropdown_more {
 	            flex: 0 0 auto !important;
-	            width: calc(#{percentage(1/3)} + 3px) !important;
+	            width: percentage(1/3) !important;
             }
         	&, & + .oe_avatar {
 	            + .oe_title {
