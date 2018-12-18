@@ -24,7 +24,7 @@
     "license": "AGPL-3",
     "author": "MuK IT",
     "website": "http://www.mukit.at",
-    "live_test_url": "https://demo.mukit.at/web/login",
+    'live_test_url': 'https://mukit.at/r/SgN',
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
     ],
