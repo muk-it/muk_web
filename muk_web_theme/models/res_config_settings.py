@@ -61,31 +61,14 @@ class ResConfigSettings(models.TransientModel):
         res.update(self._get_scss_values())
         return res
     
-    def _get_custom_scss_url(self, url, xmlid):
-        return self._build_custom_scss_url(url.rsplit(".", 1), xmlid)
-    
-    def _build_custom_scss_url(self, url_parts, xmlid):
-        return "%s.custom.%s.%s" % (url_parts[0], xmlid, url_parts[1])
-    
-    def _get_custom_attachment(self, url):
-        return self.env["ir.attachment"].search([("url", '=', url)])
-    
     def _get_scss_values(self):
-        custom_url = self._get_custom_scss_url(SCSS_URL, XML_ID)
-        custom_attachment = self._get_custom_attachment(custom_url)
-        if custom_attachment.exists():
-            content = str(base64.b64decode(custom_attachment.datas))
-            brand = re.search( r'o-brand-odoo\:?\s(.*?);', content)
-            primary = re.search( r'o-brand-primary\:?\s(.*?);', content)
-            return {
-                'theme_color_brand': brand and brand.group(1) or "#243742",
-                'theme_color_primary': primary and primary.group(1) or "#5D8DA8",
-            }
-        else:
-            return {
-                'theme_color_brand': "#243742",
-                'theme_color_primary': "#5D8DA8",
-            }
+        colors = self.env['muk_utils.scss_editor'].get_value(
+            SCSS_URL, XML_ID, ['o-brand-odoo', 'o-brand-primary']
+        )
+        return {
+            'theme_color_brand': colors['o-brand-odoo'],
+            'theme_color_primary': colors['o-brand-primary'],
+        }
     
     def _build_custom_scss_template(self):
         return TEMPLATE.format(
@@ -94,40 +77,6 @@ class ResConfigSettings(models.TransientModel):
         )
     
     def _save_scss_values(self):
-        custom_url = self._get_custom_scss_url(SCSS_URL, XML_ID)
-        custom_attachment = self._get_custom_attachment(custom_url)
-        custom_content = self._build_custom_scss_template()
-        datas = base64.b64encode((custom_content).encode("utf-8"))
-        if custom_attachment:
-            custom_attachment.write({"datas": datas})
-        else:
-            self.env["ir.attachment"].create({
-                'name': custom_url,
-                'type': "binary",
-                'mimetype': "text/scss",
-                'datas': datas,
-                'datas_fname': SCSS_URL.split("/")[-1],
-                'url': custom_url,
-            })
-            view_to_xpath = self.env["ir.ui.view"].get_related_views(
-                XML_ID, bundles=True
-            ).filtered(lambda v: v.arch.find(SCSS_URL) >= 0)
-            self.env["ir.ui.view"].create({
-                'name': custom_url,
-                'key': 'web_editor.scss_%s' % str(uuid.uuid4())[:6],
-                'mode': "extension",
-                'inherit_id': view_to_xpath.id,
-                'arch': """
-                    <data inherit_id="%(inherit_xml_id)s" name="%(name)s">
-                        <xpath expr="//link[@href='%(url_to_replace)s']" position="attributes">
-                            <attribute name="href">%(new_url)s</attribute>
-                        </xpath>
-                    </data>
-                """ % {
-                    'inherit_xml_id': view_to_xpath.xml_id,
-                    'name': custom_url,
-                    'url_to_replace': SCSS_URL,
-                    'new_url': custom_url,
-                }
-            })
-        self.env["ir.qweb"].clear_caches()
+        self.env['muk_utils.scss_editor'].replace_content(
+            SCSS_URL, XML_ID, self._build_custom_scss_template()
+        )
