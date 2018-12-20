@@ -26,14 +26,6 @@ from odoo import api, fields, models
 XML_ID = "muk_web_theme._assets_primary_variables"
 SCSS_URL = "/muk_web_theme/static/src/scss/colors.scss"
 
-TEMPLATE = """
-    $o-brand-odoo: {0};
-    $o-brand-primary: {1};
-    
-    $mk-brand-gradient-start: lighten($o-brand-odoo, 10%);
-    $mk-brand-gradient-end: lighten($o-brand-odoo, 20%);
-"""
-
 class ResConfigSettings(models.TransientModel):
 
     _inherit = 'res.config.settings'
@@ -52,31 +44,23 @@ class ResConfigSettings(models.TransientModel):
     @api.multi 
     def set_values(self):
         res = super(ResConfigSettings, self).set_values()
-        self._save_scss_values()
+        variables = [
+            {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#243742"},
+            {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#5D8DA8"},
+        ]
+        self.env['muk_utils.scss_editor'].replace_values(
+            SCSS_URL, XML_ID, variables
+        )
         return res
 
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
-        res.update(self._get_scss_values())
-        return res
-    
-    def _get_scss_values(self):
-        colors = self.env['muk_utils.scss_editor'].get_value(
+        colors = self.env['muk_utils.scss_editor'].get_values(
             SCSS_URL, XML_ID, ['o-brand-odoo', 'o-brand-primary']
         )
-        return {
+        res.update({
             'theme_color_brand': colors['o-brand-odoo'],
             'theme_color_primary': colors['o-brand-primary'],
-        }
-    
-    def _build_custom_scss_template(self):
-        return TEMPLATE.format(
-            self.theme_color_brand or "#243742",
-            self.theme_color_primary or "#5D8DA8"
-        )
-    
-    def _save_scss_values(self):
-        self.env['muk_utils.scss_editor'].replace_content(
-            SCSS_URL, XML_ID, self._build_custom_scss_template()
-        )
+        })
+        return res
