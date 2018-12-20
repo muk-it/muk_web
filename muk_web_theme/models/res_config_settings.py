@@ -44,13 +44,19 @@ class ResConfigSettings(models.TransientModel):
     @api.multi 
     def set_values(self):
         res = super(ResConfigSettings, self).set_values()
-        variables = [
-            {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#243742"},
-            {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#5D8DA8"},
-        ]
-        self.env['muk_utils.scss_editor'].replace_values(
-            SCSS_URL, XML_ID, variables
+        colors = self.env['muk_utils.scss_editor'].get_values(
+            SCSS_URL, XML_ID, ['o-brand-odoo', 'o-brand-primary']
         )
+        brand_changed = self.theme_color_brand != colors['o-brand-odoo']
+        primary_changed = self.theme_color_primary != colors['o-brand-primary']
+        if(brand_changed or primary_changed):
+            variables = [
+                {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#243742"},
+                {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#5D8DA8"},
+            ]
+            self.env['muk_utils.scss_editor'].replace_values(
+                SCSS_URL, XML_ID, variables
+            )
         return res
 
     @api.model
