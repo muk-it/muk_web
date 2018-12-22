@@ -18,21 +18,6 @@
 -->
 
 <odoo>
-	
-	<template id="assets_common" name="Common Assets" inherit_id="web_editor.assets_common">
-		<xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fonts.scss"/>
-		</xpath>
-		<xpath expr="//script[last()]" position="after">
-		</xpath>
-	</template>
-	
-	<template id="assets_editor" name="Editor Assets" inherit_id="web_editor.assets_editor">
-		<xpath expr="//link[last()]" position="after">
-		</xpath>
-		<xpath expr="//script[last()]" position="after">
-		</xpath>
-	</template>
 
 	<template id="_assets_primary_variables" name="Colors" inherit_id="web._assets_primary_variables" priority="15">
         <xpath expr="//link[@href='/web/static/src/scss/primary_variables.scss']" position="after">
@@ -45,6 +30,14 @@
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/variables.scss"/>
         </xpath>
     </template>
+    
+	<template id="assets_common" name="Common Assets" inherit_id="web_editor.assets_common">
+		<xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fonts.scss"/>
+		</xpath>
+		<xpath expr="//script[last()]" position="after">
+		</xpath>
+	</template>
 
 	<template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
 		<xpath expr="//link[last()]" position="after">
