@@ -36,10 +36,10 @@ class ResConfigSettings(models.TransientModel):
         required=True)
     
     theme_color_brand = fields.Char(
-        string="Brand Color")
+        string="Theme Brand Color")
     
     theme_color_primary = fields.Char(
-        string="Primary Color")
+        string="Theme Primary Color")
     
     @api.multi 
     def set_values(self):
