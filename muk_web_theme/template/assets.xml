@@ -19,13 +19,13 @@
 
 <odoo>
 
-	<template id="_assets_primary_variables" name="Colors" inherit_id="web._assets_primary_variables" priority="15">
-        <xpath expr="//link[@href='/web/static/src/scss/primary_variables.scss']" position="after">
+	<template id="_assets_primary_variables" name="Colors" inherit_id="web._assets_primary_variables" priority="10">
+        <xpath expr="//link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/colors.scss"/>
         </xpath>
     </template>
     
-	<template id="_assets_backend_helpers" name="Variables" inherit_id="web._assets_backend_helpers" priority="15">
+	<template id="_assets_backend_helpers" name="Variables" inherit_id="web._assets_backend_helpers" priority="10">
         <xpath expr="//link[@href='/web/static/src/scss/bootstrap_overridden.scss']" position="after">
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/variables.scss"/>
         </xpath>
