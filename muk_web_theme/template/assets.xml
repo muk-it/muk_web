@@ -39,7 +39,6 @@
     
 	<template id="assets_common" name="Common Assets" inherit_id="web_editor.assets_common">
 		<xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/mixins.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fonts.scss"/>
 		</xpath>
 	</template>
