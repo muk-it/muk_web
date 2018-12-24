@@ -58,6 +58,9 @@
                                     <div class="w-100"></div>
                                 	<label for="theme_color_primary" string="Primary" class="col-lg-3 o_light_label"/>
                                     <field name="theme_color_primary" widget="color" class="oe_inline"/>
+                                    <div class="w-100"></div>
+                                	<label for="theme_color_appbar" string="AppBar" class="col-lg-3 o_light_label"/>
+                                    <field name="theme_color_appbar" widget="color" class="oe_inline"/>
                                 </div>
                             </div>
 	                    </div>

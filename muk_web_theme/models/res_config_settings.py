@@ -41,18 +41,28 @@ class ResConfigSettings(models.TransientModel):
     theme_color_primary = fields.Char(
         string="Theme Primary Color")
     
+    theme_color_appbar = fields.Char(
+        string="Theme AppBar Color")
+    
     @api.multi 
     def set_values(self):
         res = super(ResConfigSettings, self).set_values()
+        variables = [
+            'o-brand-odoo',
+            'o-brand-primary',
+            'mk-appbar-background'
+        ]
         colors = self.env['muk_utils.scss_editor'].get_values(
-            SCSS_URL, XML_ID, ['o-brand-odoo', 'o-brand-primary']
+            SCSS_URL, XML_ID, variables
         )
         brand_changed = self.theme_color_brand != colors['o-brand-odoo']
         primary_changed = self.theme_color_primary != colors['o-brand-primary']
-        if(brand_changed or primary_changed):
+        appbar_changed = self.theme_color_appbar != colors['mk-appbar-background']
+        if(brand_changed or primary_changed or appbar_changed):
             variables = [
                 {'name': 'o-brand-odoo', 'value': self.theme_color_brand or "#243742"},
                 {'name': 'o-brand-primary', 'value': self.theme_color_primary or "#5D8DA8"},
+                {'name': 'mk-appbar-background', 'value': self.theme_color_appbar or "#000000"},
             ]
             self.env['muk_utils.scss_editor'].replace_values(
                 SCSS_URL, XML_ID, variables
@@ -62,11 +72,17 @@ class ResConfigSettings(models.TransientModel):
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
+        variables = [
+            'o-brand-odoo',
+            'o-brand-primary',
+            'mk-appbar-background'
+        ]
         colors = self.env['muk_utils.scss_editor'].get_values(
-            SCSS_URL, XML_ID, ['o-brand-odoo', 'o-brand-primary']
+            SCSS_URL, XML_ID, variables
         )
         res.update({
             'theme_color_brand': colors['o-brand-odoo'],
             'theme_color_primary': colors['o-brand-primary'],
+            'theme_color_appbar': colors['mk-appbar-background'],
         })
         return res

@@ -1,3 +1,8 @@
+`1.2.0`
+-------
+
+- Added AppBar Color Options
+
 `1.1.0`
 -------
 
