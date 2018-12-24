@@ -33,6 +33,7 @@
     
 	<template id="assets_common" name="Common Assets" inherit_id="web_editor.assets_common">
 		<xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/mixins.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fonts.scss"/>
 		</xpath>
 		<xpath expr="//script[last()]" position="after">
@@ -47,7 +48,6 @@
 			<script type="text/javascript" src="/muk_web_theme/static/libs/simplebar/simplebar.js" />
 		</xpath>
 		<xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/mixins.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/layout.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/navbar.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/apps.scss"/>
