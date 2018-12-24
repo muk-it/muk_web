@@ -50,7 +50,7 @@
         "python": [],
         "bin": [],
     },
-    "auto_install": False,
+    'auto_install': True,
     "application": False,
     "installable": True,
 }
