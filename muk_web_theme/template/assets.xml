@@ -18,6 +18,12 @@
 -->
 
 <odoo>
+	
+	<template id="_assets_utils" name="Mixins" inherit_id="web._assets_utils" priority="10">
+		<xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/mixins.scss"/>
+		</xpath>
+    </template>
 
 	<template id="_assets_primary_variables" name="Colors" inherit_id="web._assets_primary_variables" priority="10">
         <xpath expr="//link[last()]" position="after">
@@ -35,8 +41,6 @@
 		<xpath expr="//link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/mixins.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fonts.scss"/>
-		</xpath>
-		<xpath expr="//script[last()]" position="after">
 		</xpath>
 	</template>
 
