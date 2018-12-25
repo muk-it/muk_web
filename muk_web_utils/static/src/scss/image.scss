@@ -21,6 +21,7 @@
 	@include media-breakpoint-up(sm, $o-extra-grid-breakpoints) {
 		.mk_form_image_wrapper {
 			min-height: 60px;
+			min-width: 80px;
 		}
 	}
 	.mk_form_image_controls {
