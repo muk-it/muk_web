@@ -18,7 +18,7 @@
 ###################################################################################
 {
     "name": "MuK Backend Theme",
-    "summary": "Odoo 12.0 community backend theme",
+    "summary": "Odoo Community Backend Theme",
     "version": "12.0.1.2.1",
     "category": "Themes/Backend",
     "license": "AGPL-3",
