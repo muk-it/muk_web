@@ -1,3 +1,8 @@
+`2.7.0`
+-------
+
+- Added color index field widget
+
 `2.6.0`
 -------
 
