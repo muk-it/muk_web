@@ -30,10 +30,37 @@ _logger = logging.getLogger(__name__)
 class ResConfigSettings(models.TransientModel):
 
     _inherit = 'res.config.settings'
-
+    
+    #----------------------------------------------------------
+    # Database
+    #----------------------------------------------------------
+    
+    binary_max_size = fields.Integer(
+        string='File Size Limit',
+        required=True,
+        default=25,
+        help="""Maximum allowed file size in megabytes. Note that this setting only adjusts
+            the binary widgets accordingly. The maximum file size on your server can probably
+            be restricted in several places. Note that a large file size limit and therefore
+            large files in your system can significantly limit performance.""")
+    
     #----------------------------------------------------------
     # Functions
     #----------------------------------------------------------
+    
+    @api.multi 
+    def set_values(self):
+        res = super(ResConfigSettings, self).set_values()
+        param = self.env['ir.config_parameter'].sudo()
+        param.set_param('muk_web_utils.binary_max_size', self.binary_max_size)
+        return res
+
+    @api.model
+    def get_values(self):
+        res = super(ResConfigSettings, self).get_values()
+        params = self.env['ir.config_parameter'].sudo()
+        res.update(binary_max_size=int(params.get_param('muk_web_utils.binary_max_size', 25)))
+        return res
     
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):

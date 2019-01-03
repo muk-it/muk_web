@@ -20,7 +20,7 @@
 { 
     "name": "MuK Web Utils",
     "summary": """Utility Features""",
-    "version": "12.0.2.8.0",
+    "version": "12.0.2.8.1",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "author": "MuK IT",
@@ -35,6 +35,7 @@
     ],
     "data": [
         "template/assets.xml",
+        "views/res_config_settings_view.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",
