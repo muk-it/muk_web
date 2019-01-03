@@ -119,6 +119,9 @@ var FieldColorIndex = AbstractField.extend({
 registry.add('color', FieldColor);
 registry.add('color_index', FieldColorIndex);
 
-return FieldColor;
+return {
+	FieldColor: FieldColor,
+	FieldColorIndex: FieldColorIndex,
+};
 
 });

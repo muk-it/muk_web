@@ -108,6 +108,9 @@ var FieldPathJson = fields.FieldText.extend({
 registry.add('path_names', FieldPathNames);
 registry.add('path_json', FieldPathJson);
 
-return FieldColor;
+return {
+	FieldPathNames: FieldPathNames,
+	FieldPathJson: FieldPathJson,
+};
 
 });
