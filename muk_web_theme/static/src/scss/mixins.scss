@@ -30,3 +30,11 @@
     top: $o-navbar-height !important;
     transform: none !important;
 }
+
+@mixin mk-container-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      width: $container-max-width;
+    }
+  }
+}
