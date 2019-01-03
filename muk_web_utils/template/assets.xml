@@ -43,6 +43,7 @@
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/image.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/copy.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/share.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/path.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js" />
 		</xpath>

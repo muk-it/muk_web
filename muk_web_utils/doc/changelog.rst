@@ -1,3 +1,8 @@
+`2.8.0`
+-------
+
+- Added path field widgets
+
 `2.7.0`
 -------
 
