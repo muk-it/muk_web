@@ -22,7 +22,9 @@ odoo.define('muk_web_utils.binary', function(require) {
 
 var core = require('web.core');
 var session = require('web.session');
+var utils = require('web.field_utils');
 var fields = require('web.basic_fields');
+var registry = require('web.field_registry');
 
 var _t = core._t;
 var QWeb = core.qweb;
@@ -48,5 +50,32 @@ fields.FieldBinaryImage.include({
 		return this._super.apply(this, arguments);
     },
 });
+
+var FieldBinarySize = fields.FieldFloat.extend({
+	init: function(parent, name, record) {
+        this._super.apply(this, arguments);
+        this.units = this.nodeOptions.si ? 
+        	['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] :
+        	['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+        this.thresh = this.nodeOptions.si ? 1000 : 1024;
+    },
+   _formatValue: function (value) {
+   		if(Math.abs(value) < this.thresh) {
+	        return this._super.call(this, value) + ' B';
+	    }
+   		var unit = -1;
+	    do {
+	    	value /= this.thresh;
+	        ++unit;
+	    } while(Math.abs(value) >= this.thresh && unit < this.units.length - 1);
+	    return this._super.call(this, value) + ' ' + this.units[unit];
+   },
+});
+
+registry.add('binary_size', FieldBinarySize);
+
+return {
+	FieldBinarySize: FieldBinarySize,
+};
 
 });
