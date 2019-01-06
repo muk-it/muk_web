@@ -30,5 +30,5 @@ class BackendController(http.Controller):
     def max_upload_size(self, **kw):
         params = request.env['ir.config_parameter'].sudo()
         return {
-            'max_upload_size': int(params.get_param("muk_dms.max_upload_size", default=25))
+            'max_upload_size': int(params.get_param("muk_web_utils.max_upload_size", default=25))
         }
