@@ -31,7 +31,6 @@ function formatBinarySize(value, field, options) {
 	options = _.defaults(options || {}, {
     	si: true,
     });
-	console.log(options)
 	var thresh = options.si ? 1000 : 1024;
     if(Math.abs(value) < thresh) {
         return utils.format['float'](value, field, options) + ' B';
