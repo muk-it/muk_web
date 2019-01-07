@@ -24,28 +24,37 @@ $.fn.textWidth = function(text, font) {
 };
 
 $.fn.dndHover = function(options) {
-    return this.each(function() {
+	return this.each(function() {
         var self = $(this);
         var collection = $();
-        self.on('dragenter', function(event) {
+        var dragenter = function(event) {
             if (collection.size() === 0) {
                 self.trigger('dndHoverStart', [event]);
             }
             collection = collection.add(event.target);
-        });
-        self.on('dragleave', function(event) {
+        };
+        var dragleave = function(event) {
             setTimeout(function() {
                 collection = collection.not(event.target);
                 if (collection.size() === 0) {
                     self.trigger('dndHoverEnd', [event]);
                 }
             }, 1);
-        });
-        self.on('drop', function(event) {
+        };
+        var drop = function(event) {
             setTimeout(function() {
             	collection = $();
             	self.trigger('dndHoverEnd', [event]);
             }, 1);
-        });
+        };
+        if(options && options === 'destroy') {
+        	self.off('dragenter.dnd_hover');
+	        self.off('dragleave.dnd_hover');
+	        self.off('drop.dnd_hover');
+        } else {
+        	self.on('dragenter.dnd_hover', dragenter);
+	        self.on('dragleave.dnd_hover', dragleave);
+	        self.on('drop.dnd_hover', drop);
+        }
     });
 };

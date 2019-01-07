@@ -27,10 +27,10 @@
 		align-items: center;
 		justify-content: center;
 		width: #{"calc(100% - 20px)"};
-		height: #{"calc(100% - 10px)"};
+		height: #{"calc(100% - 20px)"};
 		border: 2px dashed gray('700');
 		@include gradient-y($white, gray('100'));
-		@include o-position-absolute(0, 0, 0, 10px);
+		@include o-position-absolute(10px, 0, 0, 10px);
 	}
 	&:after {
 		display:flex;

@@ -27,28 +27,39 @@ var QWeb = core.qweb;
 
 var DropzoneMixin = {
 	dropzoneData: {},
-	dropzoneClasses: 'mk_dropzone',
-	dropzoneEvents: {
-		'dragenter .mk_dropzone': '_dragenterDropzone',
-		'dragover .mk_dropzone': '_dragoverDropzone',
-		'dragleave .mk_dropzone': '_dragleaveDropzone',
-		'drop .mk_dropzone': '_dropDropzone',
-    },
+	dropzoneClasses: ['mk_dropzone'],
 	_checkDropzoneEvent: function(event) {
 		return true;
 	},
-	_renderDropzone: function($dropzone) {
+	_startDropzone: function($dropzone) {
+		if(this.$dropzone) {
+			this._destroyDropzone();
+		}
 		this.$dropzone = $dropzone;
 		this.$dropzone.dndHover().on({
-            'dndHoverStart': this._hoverDropzoneEnter.bind(this),
-            'dndHoverEnd': this._hoverDropzoneLeave.bind(this),
+            'dndHoverStart.dropzone': this._hoverDropzoneEnter.bind(this),
+            'dndHoverEnd.dropzone': this._hoverDropzoneLeave.bind(this),
         });
+		this.$dropzone.on('dragenter.dropzone', this._dragenterDropzone.bind(this));
+		this.$dropzone.on('dragover.dropzone', this._dragoverDropzone.bind(this));
+		this.$dropzone.on('dragleave.dropzone', this._dragleaveDropzone.bind(this));
+		this.$dropzone.on('drop.dropzone', this._dropDropzone.bind(this));
 		_.each(this.dropzoneData, function(value, key) {
 			this.$dropzone.attr(key, value)
 		}, this);
 	},
+	_destroyDropzone: function() {
+		if(this.$dropzone) {
+			this.$dropzone.off('.dropzone');
+			this.$dropzone.dndHover('destroy');
+			_.each(this.dropzoneData, function(value, key) {
+				this.$dropzone.removeAttr(key)
+			}, this);
+			this.$dropzone = false;
+		}
+	},
 	_toggleDropzone: function(state) {
-		this.$dropzone.toggleClass(this.dropzoneClasses, state);
+		this.$dropzone.toggleClass(this.dropzoneClasses.join(" "), state);
 	},
 	_hoverDropzoneEnter: function(event, originalEvent) {
 		if(this._checkDropzoneEvent(originalEvent)) {
@@ -96,7 +107,7 @@ var FileDropzoneMixin = _.extend({}, DropzoneMixin, {
 	dropzoneData: {
 		'data-dropzone-text': _t("Drop files here to upload!"),
 	},
-	dropzoneClasses: DropzoneMixin.dropzoneClasses + ' mk_dropzone_file',
+	dropzoneClasses: DropzoneMixin.dropzoneClasses.concat(['mk_dropzone_file']),
 	dropzoneCheck: window.File && window.FileReader && window.FileList && window.Blob,
 	_checkDropzoneEvent: function(event) {
 		var dataTransfer = event.originalEvent && event.originalEvent.dataTransfer;
