@@ -54,21 +54,17 @@ fields.FieldBinaryImage.include({
 var FieldBinarySize = fields.FieldFloat.extend({
 	init: function(parent, name, record) {
         this._super.apply(this, arguments);
-        this.units = this.nodeOptions.si ? 
-        	['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] :
-        	['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
-        this.thresh = this.nodeOptions.si ? 1000 : 1024;
+        this.nodeOptions = _.defaults(this.nodeOptions, {
+        	si: true,
+        });
     },
    _formatValue: function (value) {
-   		if(Math.abs(value) < this.thresh) {
-	        return this._super.call(this, value) + ' B';
-	    }
-   		var unit = -1;
-	    do {
-	    	value /= this.thresh;
-	        ++unit;
-	    } while(Math.abs(value) >= this.thresh && unit < this.units.length - 1);
-	    return this._super.call(this, value) + ' ' + this.units[unit];
+	   	var options = _.extend({},
+	   		this.nodeOptions,
+	   		{ data: this.recordData },
+	   		this.formatOptions,
+	   	);
+   		return utils.format['binary_size'](value, this.field, options)
    },
 });
 
