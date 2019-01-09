@@ -27,14 +27,14 @@ var QWeb = core.qweb;
 
 var syncLoop = function(items, func, callback) {
 	items.reduce(function(promise, item) {
-	    return promise.then(func);
+	    return promise.then(func.bind(this, item));
 	}, $.Deferred().resolve()).then(callback);
 };
 
 var syncProgress = function(items, func, callback, update) {
 	var progress = 0;
 	items.reduce(function(promise, item) {
-	    return promise.then(function() {
+	    return promise.done(function() {
 	    	update(++progress / items.length);
 	    	return func(item);
 	    });
