@@ -42,7 +42,7 @@ Menu.include({
         this.$menu_apps_sidebar = this.$('.mk_apps_sidebar_panel');
         this._appsBar = new AppsBar(this, this.menu_data);
         this._appsBar.appendTo(this.$menu_apps_sidebar);
-        new SimpleBar(this.$menu_apps_sidebar[0]);
+        this.$menu_apps_sidebar.renderScrollBar();
         return this._super.apply(this, arguments);
     },
     _hideMobileSubmenus: function () {
