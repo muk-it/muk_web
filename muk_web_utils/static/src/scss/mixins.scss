@@ -17,8 +17,20 @@
 *
 **********************************************************************************/
 	
-@mixin mk-flex ($grow: 1, $shrink: 1, $basis: auto, $direction: column) {
+@mixin mk-flex-container ($direction: row, $wrap: nowrap, $justify: flex-start, $items: stretch, $content: stretch) {
 	display: flex;
-	flex: $grow $shrink $basis;
+	flex-wrap: $wrap;
 	flex-direction: $direction;
+	justify-content: $justify;
+	align-content: $content;
+	align-items: $items;
 }
+
+@mixin mk-flex-child ($grow: 0, $shrink: 1, $basis: auto, $order: 0) {
+	flex-grow: $grow;
+	flex-shrink: $shrink;
+	flex-basis: $basis;
+	order: $order;
+}
+
+
