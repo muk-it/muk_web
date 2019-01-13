@@ -27,6 +27,7 @@
 }
 
 @mixin mk-flex-child ($grow: 0, $shrink: 1, $basis: auto, $order: 0) {
+	display: flex;
 	flex-grow: $grow;
 	flex-shrink: $shrink;
 	flex-basis: $basis;
