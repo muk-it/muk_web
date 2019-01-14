@@ -19,7 +19,7 @@
 {
     "name": "MuK Backend Theme",
     "summary": "Odoo Community Backend Theme",
-    "version": "12.0.1.2.3",
+    "version": "12.0.1.2.4",
     "category": "Themes/Backend",
     "license": "AGPL-3",
     "author": "MuK IT",
@@ -55,4 +55,5 @@
     "application": False,
     "installable": True,
     "auto_install": False,
+    "uninstall_hook": "_uninstall_reset_changes",
 }
