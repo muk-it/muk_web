@@ -19,3 +19,21 @@
 
 from . import models
 from . import controllers
+
+#----------------------------------------------------------
+# Hooks
+#----------------------------------------------------------
+
+PRIMARY_XML_ID = "muk_web_branding._assets_primary_variables"
+PRIMARY_SCSS_URL = "/muk_web_branding/static/src/scss/primary_colors.scss"
+
+SECONDARY_XML_ID = "muk_web_branding._assets_secondary_variables"
+SECONDARY_SCSS_URL = "/muk_web_branding/static/src/scss/secondary_colors.scss"
+
+BOOTSTRAP_XML_ID = "muk_web_branding._assets_backend_helpers"
+BOOTSTRAP_SCSS_URL = "/muk_web_branding/static/src/scss/bootstrap_colors.scss"
+
+def _uninstall_rebrand_system(cr, registry):
+    self.env['muk_utils.scss_editor'].reset_values(PRIMARY_SCSS_URL, PRIMARY_XML_ID)
+    self.env['muk_utils.scss_editor'].reset_values(SECONDARY_XML_ID, SECONDARY_SCSS_URL)
+    self.env['muk_utils.scss_editor'].reset_values(BOOTSTRAP_XML_ID, BOOTSTRAP_SCSS_URL)
