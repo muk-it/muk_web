@@ -31,6 +31,7 @@ _path = os.path.dirname(os.path.dirname(__file__))
 _logger = logging.getLogger(__name__)
 
 class WebSuite(HttpCase):
-
+    
+    @unittest.skip("")
     def test_js(self):
         self.browser_js('/web/tests?module=muk_web_utils&failfast', "", "", login='admin', timeout=1800)
