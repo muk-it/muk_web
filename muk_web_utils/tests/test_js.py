@@ -21,6 +21,7 @@ import os
 import json
 import logging
 import requests
+import unittest
 
 from odoo import _, http, tools, SUPERUSER_ID
 from odoo.tests.common import HttpCase
