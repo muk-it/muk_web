@@ -34,6 +34,7 @@ BOOTSTRAP_XML_ID = "muk_web_branding._assets_backend_helpers"
 BOOTSTRAP_SCSS_URL = "/muk_web_branding/static/src/scss/bootstrap_colors.scss"
 
 def _uninstall_rebrand_system(cr, registry):
-    self.env['muk_utils.scss_editor'].reset_values(PRIMARY_SCSS_URL, PRIMARY_XML_ID)
-    self.env['muk_utils.scss_editor'].reset_values(SECONDARY_SCSS_URL, SECONDARY_XML_ID)
-    self.env['muk_utils.scss_editor'].reset_values(BOOTSTRAP_SCSS_URL, BOOTSTRAP_XML_ID)
+    env = api.Environment(cr, SUPERUSER_ID, {})
+    env['muk_utils.scss_editor'].reset_values(PRIMARY_SCSS_URL, PRIMARY_XML_ID)
+    env['muk_utils.scss_editor'].reset_values(SECONDARY_SCSS_URL, SECONDARY_XML_ID)
+    env['muk_utils.scss_editor'].reset_values(BOOTSTRAP_SCSS_URL, BOOTSTRAP_XML_ID)

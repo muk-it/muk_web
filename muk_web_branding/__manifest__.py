@@ -20,7 +20,7 @@
 {
     "name": "MuK Web Branding",
     "summary": """Branding Features""",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
