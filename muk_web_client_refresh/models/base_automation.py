@@ -35,7 +35,7 @@ class BaseAutomation(models.Model):
     def create_refresh_rules(self, model_name):
         model = self.env['ir.model'].search(
             [('model', '=', model_name)], limit=1)
-        if model_name in self.env and model.exists():
+        if model_name in self.env and len(model):
             triggers = [
                 ('on_create', 'Creation'),
                 ('on_write', 'Update'),
@@ -46,7 +46,7 @@ class BaseAutomation(models.Model):
                     ('model_id', '=', model.id),
                     ('trigger', '=', trigger[0])
                 ], limit=1)
-                if refresh_rules.exists():
+                if len(refresh_rules) > 0:
                     refresh_rules.write({
                         'active': True
                     })
