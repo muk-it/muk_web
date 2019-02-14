@@ -18,17 +18,18 @@
 **********************************************************************************/
 	
 @mixin mk-full-screen-sections {
-    border: none;
-    box-shadow: none;
+    width: 100vw;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     height: calc(100vh - #{$o-navbar-height});
     max-height: calc(100vh - #{$o-navbar-height});
-    position: fixed;
-    width: 100vw;
-    z-index: 100;
     top: $o-navbar-height !important;
     transform: none !important;
+    position: fixed !important;
+    box-shadow: none;
+	overflow: auto;
+    border: none;
 }
 
 @mixin mk-container-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {

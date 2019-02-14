@@ -37,7 +37,7 @@
 				@include mk-full-screen-sections();
 			}
 		}
-		.o_user_menu {
+		.o_user_menu, .o_switch_company_menu {
 			> .dropdown-toggle {
 				padding: 0 10px;
 				white-space: nowrap;
