@@ -19,8 +19,8 @@
 
 {
     "name": "MuK Web Branding",
-    "summary": """Branding Features""",
-    "version": "12.0.1.0.2",
+    "summary": """Branding and Debranding""",
+    "version": "12.0.1.0.3",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
