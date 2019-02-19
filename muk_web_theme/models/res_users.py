@@ -30,7 +30,7 @@ class ResUsers(models.Model):
             ('large', 'Large')
         ], 
         string="Sidebar Type",
-        default='large',
+        default='small',
         required=True)
     
     chatter_position = fields.Selection(
