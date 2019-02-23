@@ -19,7 +19,7 @@
 	
 .o_field_widget.o_field_image {
 	@include media-breakpoint-up(sm, $o-extra-grid-breakpoints) {
-		.mk_form_image_wrapper {
+		.mk_field_image_wrapper {
 			min-height: 60px;
 			min-width: 80px;
 		}

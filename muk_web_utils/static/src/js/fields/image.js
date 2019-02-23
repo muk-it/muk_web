@@ -44,13 +44,20 @@ var _t = core._t;
 var QWeb = core.qweb;
 
 fields.FieldBinaryImage.include({
+	willStart: function () {
+		var def = this._rpc({
+            route: '/params/muk_web_utils.binary_max_size',
+        }).done(function(result) {
+        	this.max_upload_size = result.max_upload_size * 1024 * 1024;
+        }.bind(this));
+		return this._super.apply(this, arguments);
+    },
 	_render: function () {
 		this._super.apply(this, arguments);
-		this.$('.mk_form_image_wrapper').remove();
 		this.$('img').wrap($('<div/>', {
-			class: "mk_form_image_wrapper"
+			class: "mk_field_image_wrapper"
 		}));
-		var $wrapper = $('.mk_form_image_wrapper');
+		var $wrapper = $('.mk_field_image_wrapper');
 		var width = this.nodeOptions.size ? 
 			this.nodeOptions.size[0] : this.attrs.width;
         var height = this.nodeOptions.size ? 
