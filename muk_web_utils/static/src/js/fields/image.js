@@ -54,6 +54,7 @@ fields.FieldBinaryImage.include({
     },
 	_render: function () {
 		this._super.apply(this, arguments);
+		this.$('.mk_field_image_wrapper').remove();
 		this.$('img').wrap($('<div/>', {
 			class: "mk_field_image_wrapper"
 		}));
