@@ -59,6 +59,7 @@ Menu.include({
     	event.preventDefault();
     	event.stopPropagation();
     	var $section = $(event.currentTarget);
+    	console.log($section)
     	if ($section.hasClass('show')) {
     		$section.removeClass('show');
     		$section.find('.show').removeClass('show');
@@ -67,8 +68,8 @@ Menu.include({
     	} else {
     		$section.addClass('show');
     		$section.find('ul:first').addClass('show');
-    		$section.find('.fa-chevron-down').show();
-    		$section.find('.fa-chevron-right').hide();
+    		$section.find('.fa-chevron-down:first').show();
+    		$section.find('.fa-chevron-right:first').hide();
     	}
     },
 });

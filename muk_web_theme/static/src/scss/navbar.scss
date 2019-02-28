@@ -103,7 +103,8 @@
 		            min-width: auto;
 				    box-shadow: none;
 				    background: none;
-				    position: initial;
+				    position: static;
+				    overflow: visible;
 		        }
 			    @for $index from 1 through 5 {
 	                .o_menu_entry_lvl_#{$index} {
