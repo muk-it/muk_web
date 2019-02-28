@@ -53,14 +53,37 @@
             width: auto;
             flex: 1 1 auto;
         }
+       .breadcrumb-item {
+            &:not(.active) {
+                padding-left: 0;
+            }
+            &::before {
+                content: none;
+                padding-right: 0;
+            }
+            &:nth-last-of-type(1n+3) {
+                display: none;
+            }
+            &:nth-last-of-type(2) {
+                &::before {
+                    content: "\f053";
+                    cursor: pointer;
+                    color: $o-brand-primary;
+                    font-family: FontAwesome;
+                }
+                a {
+                    display: none;
+                }
+            }
+        }
         .o_cp_buttons .btn.d-block:not(.d-none) {
             display: inline-block !important;
         }
         .o_cp_switch_buttons.show {
             .dropdown-menu {
-                align-content: center;
                 display: flex;
                 flex-direction: row;
+                align-content: center;
                 justify-content: space-around;
                 padding: 0;
                 .btn {

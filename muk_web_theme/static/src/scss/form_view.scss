@@ -145,6 +145,19 @@
                 .o_followers_title_box {
                 	margin-left: 0;
                 }
+                .o_chatter_topbar,
+                .o_thread_composer {
+                    position: sticky;
+                }
+                .o_chatter_topbar {
+                    top: -1px;
+                    z-index: 2;
+                    background-color: $o-view-background-color;
+                }
+                .o_thread_composer {
+                    top: $o-statusbar-height;
+                    z-index: 1;
+                }
             }
         }
     }

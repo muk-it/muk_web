@@ -62,13 +62,13 @@ Menu.include({
     	if ($section.hasClass('show')) {
     		$section.removeClass('show');
     		$section.find('.show').removeClass('show');
-    		$section.find('.fa-chevron-down').show();
-    		$section.find('.fa-chevron-right').hide();
+    		$section.find('.fa-chevron-down:first').hide();
+    		$section.find('.fa-chevron-right:first').show();
     	} else {
     		$section.addClass('show');
     		$section.find('ul:first').addClass('show');
-    		$section.find('.fa-chevron-down:first').hide();
-    		$section.find('.fa-chevron-right:first').show();
+    		$section.find('.fa-chevron-down').show();
+    		$section.find('.fa-chevron-right').hide();
     	}
     },
 });
