@@ -59,7 +59,6 @@ Menu.include({
     	event.preventDefault();
     	event.stopPropagation();
     	var $section = $(event.currentTarget);
-    	console.log($section)
     	if ($section.hasClass('show')) {
     		$section.removeClass('show');
     		$section.find('.show').removeClass('show');
