@@ -53,6 +53,10 @@ AppsMenu.include({
         this.$search_results = this.$(".mk_search_results");
         return this._super.apply(this, arguments);
     },
+    _onAppsMenuItemClicked: function (event) {
+    	this._super.apply(this, arguments);
+    	event.preventDefault();
+    },
     _findNames: function (memo, menu) {
         if (menu.action) {
             var key = menu.parent_id ? menu.parent_id[1] + "/" : "";

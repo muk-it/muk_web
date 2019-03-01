@@ -58,8 +58,13 @@ var AppsBar = Widget.extend({
         var $target = $(ev.currentTarget);
         var actionID = $target.data('action-id');
         var menuID = $target.data('menu-id');
-        var app = _.findWhere(this._apps, { actionID: actionID, menuID: menuID });
+        var app = _.findWhere(this._apps, {
+        	actionID: actionID,
+        	menuID: menuID 
+        });
         this._openApp(app);
+        ev.preventDefault();
+        $target.blur();
     },
 });
 

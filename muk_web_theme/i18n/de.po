@@ -69,12 +69,12 @@ msgstr ""
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Unternehmen"
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Konfiguration "
 
 #. module: muk_web_theme
 #: selection:res.users,sidebar_type:0
@@ -158,7 +158,7 @@ msgstr ""
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 #. module: muk_web_theme
 #. openerp-web

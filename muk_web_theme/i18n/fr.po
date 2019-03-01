@@ -1,30 +1,32 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* muk_web_theme
+#	* muk_web_theme
 #
-# Translators:
-# Fabien BOURGEOIS <fabien@yaltik.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 12.0-20190128\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-10 17:00+0000\n"
-"PO-Revision-Date: 2018-12-10 18:07+0100\n"
+"POT-Creation-Date: 2019-03-01 10:05+0000\n"
+"PO-Revision-Date: 2019-03-01 10:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: fr\n"
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:25
+#, python-format
+msgid "#menu_id=#{app.menuID}&action_id=#{app.actionID}"
+msgstr ""
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
-msgid ""
-"<span class=\"o_form_label\">Background Image</span>\n"
+msgid "<span class=\"o_form_label\">Background Image</span>\n"
 "                            <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
-"<span class=\"o_form_label\">Image de fond</span>\n"
+msgstr "<span class=\"o_form_label\">Image de fond</span>\n"
 "                            <span class=\"fa fa-lg fa-building-o\" title=\"Les valeurs ici sont spécifiques à chaque société.\" aria-label=\"Les valeurs ici sont spécifiques à chaque société.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: muk_web_theme
@@ -37,7 +39,12 @@ msgstr "<span class=\"o_form_label\">Couleurs du thème</span>"
 #: code:addons/muk_web_theme/static/src/xml/views.xml:26
 #, python-format
 msgid "Actions"
-msgstr "Actions"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "AppBar"
+msgstr ""
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_company__background_image
@@ -48,17 +55,12 @@ msgstr "Image de fond du menu d'applications"
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Backend Theme"
-msgstr "Backend Theme"
+msgstr ""
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Brand"
 msgstr "Marque"
-
-#. module: muk_web_theme
-#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_brand
-msgid "Brand Color"
-msgstr "Couleur de la marque"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__chatter_position
@@ -78,17 +80,17 @@ msgstr "Paramètres de config"
 #. module: muk_web_theme
 #: selection:res.users,sidebar_type:0
 msgid "Invisible"
-msgstr "Invisible"
+msgstr ""
 
 #. module: muk_web_theme
 #: selection:res.users,sidebar_type:0
 msgid "Large"
-msgstr "Large"
+msgstr ""
 
 #. module: muk_web_theme
 #: selection:res.users,chatter_position:0
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
@@ -96,20 +98,15 @@ msgid "Primary"
 msgstr "Principal"
 
 #. module: muk_web_theme
-#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_primary
-msgid "Primary Color"
-msgstr "Couleur principale"
-
-#. module: muk_web_theme
 #. openerp-web
 #: code:addons/muk_web_theme/static/src/js/views/search_view.js:34
 #, python-format
 msgid "Search"
-msgstr "Recherche"
+msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:39
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:42
 #, python-format
 msgid "Search menus..."
 msgstr "Menus de recherche..."
@@ -140,9 +137,24 @@ msgid "Small"
 msgstr "Petit"
 
 #. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar
+msgid "Theme AppBar Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_brand
+msgid "Theme Brand Color"
+msgstr ""
+
+#. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_users_preferences
 msgid "Theme Preferences"
 msgstr "Préférences du thème"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_primary
+msgid "Theme Primary Color"
+msgstr ""
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_users
@@ -151,7 +163,8 @@ msgstr "Utilisateurs"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:28
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:31
 #, python-format
 msgid "fa fa-th"
 msgstr ""
+

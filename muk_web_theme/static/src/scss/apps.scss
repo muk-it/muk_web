@@ -50,7 +50,7 @@
 		    @include media-breakpoint-up(md) {
 		        width: percentage(1/6);
 		    }
-		    &:hover, &:active, &.active {
+		    &:hover, &:focus, &:active, &.active {
 				background: none;
 				.o-app-icon {
 					box-shadow: 0 8px 15px -10px black;
