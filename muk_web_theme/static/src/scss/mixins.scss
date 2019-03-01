@@ -27,8 +27,9 @@
     top: $o-navbar-height !important;
     transform: none !important;
     position: fixed !important;
+    overflow-x: hidden;
+    overflow-y: auto;
     box-shadow: none;
-	overflow: auto;
     border: none;
 }
 
