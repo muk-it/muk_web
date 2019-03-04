@@ -46,7 +46,7 @@ FormRenderer.include({
     _renderNode: function (node) {
         if (node.tag === 'div' && node.attrs.class === 'mk_preview_sidebar') {
         	this.$previewSidebar = $('<div>', {
-        		'class': 'mk_preview_sidebar mk_sidebar_field',
+        		'class': 'mk_preview_sidebar',
         		'width': this.previewSidebarWidth || '600px',
         	});
 			var childs = _.each(node.children, function (child) {
