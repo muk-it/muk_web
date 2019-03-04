@@ -1,0 +1,71 @@
+/**********************************************************************************
+* 
+*    Copyright (C) 2017 MuK IT GmbH
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Affero General Public License as
+*    published by the Free Software Foundation, either version 3 of the
+*    License, or (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Affero General Public License for more details.
+*
+*    You should have received a copy of the GNU Affero General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+.mk_preview_manager {
+	height: 100%;
+	@include mk-flex-container(column);
+	.mk_preview_manager_body {
+		@include mk-flex-child(1, 1, auto);
+	}
+	.mk_preview_manager_header,
+	.mk_preview_manager_footer {
+		@include mk-flex-child(0, 0, auto);
+		background: gray('900');
+	}
+	.mk_preview_manager_header {
+		justify-content: flex-end;
+		.mk_preview_actions {
+			padding: 0.25rem 0.8rem;
+			a {
+				color: gray('300');
+				padding: 0 0.5rem;
+				&:hover {
+					color: gray('500');
+				}
+			}
+			&:empty {
+			   display: none;
+			}
+		}
+	}
+	.mk_preview_manager_footer {
+		justify-content: center;
+		.pagination {
+			margin: 0;
+			.page-item .page-link {
+			    background-color: gray('900');
+			    color: gray('300');
+			    border: none;
+			    &:focus, &:hover {
+			    	box-shadow: none;
+				    background-color: gray('300');
+				    color: gray('900');
+			    }
+			}
+			.page-item.disabled .page-link {
+			    color: gray('500');
+			}
+			.page-item.active .page-link {
+			    background-color: gray('300');
+			    color: gray('900');
+			}
+
+		}
+	}
+}
