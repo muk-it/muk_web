@@ -114,6 +114,9 @@ var FieldBinaryPreview = fields.FieldBinaryFile.extend({
         );
     	manager.appendTo(this.$('.mk_field_preview_container'));
     },
+    on_save_as: function (event) {
+    	event.stopPropagation();
+    },
 });
 
 registry.add('binary_preview', FieldBinaryPreview);
