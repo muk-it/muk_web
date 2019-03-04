@@ -36,6 +36,12 @@ var AbstractPreviewContent = Widget.extend({
         this.filename = filename || "Unknown";
         this.url = url;
     },
+	willStart: function() { 
+		return $.when(
+			this._super.apply(this, arguments),
+			ajax.loadLibs(this)
+		);
+    },
 	start: function () {
 		return $.when(
 			this._super.apply(this, arguments),
