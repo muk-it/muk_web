@@ -30,7 +30,8 @@ var FormRenderer = require('web.FormRenderer');
 FormRenderer.include({
 	_renderView: function () {
         return this._super.apply(this, arguments).then(function () {
-        	if (!this.$previewSidebar || config.device.size_class < config.device.SIZES.XXL) {
+        	if (!this.$previewSidebar || config.device.size_class < config.device.SIZES.XXL || 
+        		(this.$previewSidebar && this.$previewSidebar.hasClass('o_invisible_modifier'))) {
                 this.$el.removeClass("mk_preview_sidebar_active");
             } else {
             	var $sheet = this.$('.o_form_sheet_bg');
@@ -45,7 +46,7 @@ FormRenderer.include({
     _renderNode: function (node) {
         if (node.tag === 'div' && node.attrs.class === 'mk_preview_sidebar') {
         	this.$previewSidebar = $('<div>', {
-        		'class': 'mk_preview_sidebar',
+        		'class': 'mk_preview_sidebar mk_sidebar_field',
         		'width': this.previewSidebarWidth || '600px',
         	});
 			var childs = _.each(node.children, function (child) {
