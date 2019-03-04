@@ -136,7 +136,7 @@
                 flex: 1 1 auto;
                 overflow: auto;
             }
-            .o_chatter {
+            > .o_chatter {
                 border-left: 1px solid gray('400');
 			    min-width: $mk-chatter-min-width;
 			    max-width: $mk-chatter-max-width;
