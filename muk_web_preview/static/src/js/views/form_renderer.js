@@ -38,6 +38,7 @@ FormRenderer.include({
                 this.$previewSidebar.insertAfter($sheet);
                 if (this.chatter) {
                     this.chatter.$el.appendTo($sheet);
+                    this.chatterPositionChanged = true;
                 }
                 this.$el.addClass("mk_preview_sidebar_active");
             }
