@@ -30,7 +30,6 @@ var FormRenderer = require('web.FormRenderer');
 FormRenderer.include({
 	_renderView: function () {
         return this._super.apply(this, arguments).then(function () {
-        	
         	if (!this.$previewSidebar || config.device.size_class < config.device.SIZES.XXL) {
                 this.$el.removeClass("mk_preview_sidebar_active");
             } else {
