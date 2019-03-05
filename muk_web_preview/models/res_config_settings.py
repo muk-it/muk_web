@@ -51,10 +51,6 @@ class ResConfigSettings(models.TransientModel):
         string="Preview Open Document",
         help="Extendes the Preview Dialog to support open document files.")
     
-    module_muk_web_preview_cad = fields.Boolean(
-        string="Preview CAD",
-        help="Extendes the Preview Dialog to support CAD files.")
-    
     module_muk_web_preview_rst = fields.Boolean(
         string="Preview ReStructuredText",
         help="Extendes the Preview Dialog to support reStructuredText.")
@@ -62,10 +58,6 @@ class ResConfigSettings(models.TransientModel):
     module_muk_web_preview_text = fields.Boolean(
         string="Preview Text",
         help="Extendes the Preview Dialog to support text files.")
-    
-    module_muk_web_preview_vector = fields.Boolean(
-        string="Preview Vector",
-        help="Extendes the Preview Dialog to support vector files.")
     
     module_muk_web_preview_video = fields.Boolean(
         string="Preview Video",
