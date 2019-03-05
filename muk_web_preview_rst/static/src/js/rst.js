@@ -74,6 +74,6 @@ registry.add('rst', PreviewContentReStructuredText);
 registry.add('.rst', PreviewContentReStructuredText);
 registry.add('text/x-rst', PreviewContentReStructuredText);
 
-return PreviewContentMarkdown;
+return PreviewContentReStructuredText;
 
 });

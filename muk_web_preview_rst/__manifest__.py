@@ -20,7 +20,7 @@
 {
     "name": "MuK Preview ReStructuredText",
     "summary": """ReStructuredText Preview""",
-    "version": "12.0.1.0.2",
+    "version": "12.0.1.0.3",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
