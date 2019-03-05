@@ -53,7 +53,7 @@ var AbstractPreviewContent = Widget.extend({
     },
     adaptResize: function() {
     	return;
-    }
+    },
     printable: false,
     downloadable: false,
 	contentActions: function() {
