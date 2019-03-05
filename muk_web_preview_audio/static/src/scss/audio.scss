@@ -17,36 +17,33 @@
 *
 **********************************************************************************/
 
-.o_preview_audio {
-	position: absolute;
+.mk_preview_audio {
 	width: 100%;
 	height: 100%;
-	
+	position: absolute;
 	.visualizer-wrapper {
-		position: absolute;
-		height: 100%;
 		width: 100%;
+		height: 100%;
+		position: absolute;
 		background: -webkit-gradient(radial, center center, 0, center center, 460, from(#333333), to(#000000));
 		background: -webkit-radial-gradient(circle, #333333, #000000);
 		background: -moz-radial-gradient(circle, #333333, #000000);
 		background: -ms-radial-gradient(circle, #333333, #000000);
 	}
-
 	.visualizer {
-		position: absolute;
-		width: 75%;
-		height: 80%;
 		top: 50%;
 		left: 50%;
+		width: 75%;
+		height: 80%;
+		position: absolute;
 		transform: translate(-50%, -50%);
 		background: transparent;
 		box-shadow: none;
 	}
-
 	audio {
-		position: absolute;
 		bottom: 0;
 		width: 100%;
+		position: absolute;
 	}
 }
 

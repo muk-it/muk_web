@@ -18,15 +18,21 @@
 -->
 
 <templates>
-	<div t-name="AudioHTMLContent" class="o_preview_audio">
-		<div class="visualizer-wrapper">			
-			<div class="visualizer">
-				<canvas width="685" height="360" />
+
+	<t t-name="muk_preview.PreviewContentAudio">
+		<t t-call="muk_preview.PreviewContent">
+			<div class="mk_preview_audio">
+				<div class="visualizer-wrapper">			
+					<div class="visualizer">
+						<canvas width="685" height="360" />
+					</div>
+					<audio t-att-data-title="widget.filename" controls="controls">
+						<source t-att-src="widget.url" t-att-type="widget.mimetype" />
+						Your browser does not support the audio element.
+					</audio>
+				</div>
 			</div>
-			<audio t-att-data-title="title" controls="controls">
-				<source t-att-src="url" t-att-type="type" />
-				Your browser does not support the audio element.
-			</audio>
-		</div>
-	</div>
+		</t>
+	</t>
+	
 </templates>
