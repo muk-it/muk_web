@@ -26,17 +26,17 @@
 	.mk_preview_manager_header,
 	.mk_preview_manager_footer {
 		@include mk-flex-child(0, 0, auto);
-		background: gray('900');
+		background: gray('700');
 	}
 	.mk_preview_manager_header {
 		justify-content: flex-end;
 		.mk_preview_actions {
-			padding: 0.25rem 0.8rem;
+			padding: 0.6rem 0.8rem;
 			a {
-				color: gray('300');
+				color: gray('200');
 				padding: 0 0.5rem;
 				&:hover {
-					color: gray('500');
+					color: gray('400');
 				}
 			}
 			&:empty {
@@ -49,21 +49,21 @@
 		.pagination {
 			margin: 0;
 			.page-item .page-link {
-			    background-color: gray('900');
-			    color: gray('300');
+			    background-color: gray('700');
+			    color: gray('200');
 			    border: none;
 			    &:focus, &:hover {
 			    	box-shadow: none;
-				    background-color: gray('300');
-				    color: gray('900');
+				    background-color: gray('200');
+				    color: gray('700');
 			    }
 			}
 			.page-item.disabled .page-link {
-			    color: gray('500');
+			    color: gray('400');
 			}
 			.page-item.active .page-link {
-			    background-color: gray('300');
-			    color: gray('900');
+			    background-color: gray('200');
+			    color: gray('700');
 			}
 
 		}

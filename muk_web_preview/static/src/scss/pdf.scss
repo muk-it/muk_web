@@ -19,6 +19,7 @@
 
 .mk_preview_content .mk_preview_pdf {
 	height: 100%;
+	overflow: hidden;
 	iframe {
 		border: none;
 		width: 100%;
