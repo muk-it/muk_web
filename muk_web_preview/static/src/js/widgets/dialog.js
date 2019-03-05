@@ -49,21 +49,20 @@ var PreviewDialog = PreviewManager.extend({
         this.$el.remove();
         return this._super.apply(this, arguments);
     },
-    
     _renderPreview: function (element) {
     	this._super.apply(this, arguments);
     	this.$('.modal-title').text(this.activeFile.filename || "Preview");
     },
-    
-
     _onDestroy: function () {
         this.destroy();
     },
     _onMaximizeClick: function(event) {
     	this.$('.mk_preview_dialog').addClass("mk_preview_maximize");
+		this._notifyPreviewResize();
     },
     _onMinimizeClick: function(event) {
     	this.$('.mk_preview_dialog').removeClass("mk_preview_maximize");
+		this._notifyPreviewResize();
     },
 });
 

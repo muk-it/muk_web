@@ -20,7 +20,7 @@
 {
     "name": "MuK Preview",
     "summary": """File Preview Dialog""",
-    "version": "12.0.2.3.9",
+    "version": "12.0.2.3.10",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

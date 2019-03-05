@@ -200,6 +200,11 @@ var PreviewManager = Widget.extend({
 		}
 		this.activePreview = undefined;
     },
+    _notifyPreviewResize: function () {
+		if (this.activePreview) {
+			this.activePreview.adaptResize();
+		}
+    },
     _onPreviousClick: function(event) {
     	if (this.index > 0) {
     		this.index = this.index - 1;
