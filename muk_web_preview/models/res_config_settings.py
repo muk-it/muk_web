@@ -51,9 +51,9 @@ class ResConfigSettings(models.TransientModel):
         string="Preview Open Document",
         help="Extendes the Preview Dialog to support open document files.")
     
-    module_muk_web_preview_rtf = fields.Boolean(
-        string="Preview RTF",
-        help="Extendes the Preview Dialog to support RTF files.")
+    module_muk_web_preview_cad = fields.Boolean(
+        string="Preview CAD",
+        help="Extendes the Preview Dialog to support CAD files.")
     
     module_muk_web_preview_rst = fields.Boolean(
         string="Preview ReStructuredText",
