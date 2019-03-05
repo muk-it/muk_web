@@ -58,11 +58,9 @@ var PreviewDialog = PreviewManager.extend({
     },
     _onMaximizeClick: function(event) {
     	this.$('.mk_preview_dialog').addClass("mk_preview_maximize");
-		this._notifyPreviewResize();
     },
     _onMinimizeClick: function(event) {
     	this.$('.mk_preview_dialog').removeClass("mk_preview_maximize");
-		this._notifyPreviewResize();
     },
 });
 

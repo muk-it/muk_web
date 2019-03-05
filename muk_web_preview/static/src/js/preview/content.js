@@ -51,9 +51,6 @@ var AbstractPreviewContent = Widget.extend({
 	renderPreviewContent: function() {
     	return $.when();
     },
-    adaptResize: function() {
-    	return;
-    },
     printable: false,
     downloadable: false,
 	contentActions: function() {
