@@ -45,6 +45,7 @@
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/async.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/files.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dropzone.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/mimetype.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dialog.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/services/notification_service.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/widgets/notification.js" />
