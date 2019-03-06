@@ -43,10 +43,11 @@ var PreviewContentImage = AbstractPreviewContent.extend({
     ],
     renderPreviewContent: function() {
     	this.$('img').viewer({
-			inline: true,
+			backdrop: false,
 			button: false,
 			navbar: false,
 			title: false,
+			inline: true,
 			toolbar: {
 			    zoomIn: 1,
 			    zoomOut: 1,
