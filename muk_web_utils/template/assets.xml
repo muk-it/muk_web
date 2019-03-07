@@ -27,6 +27,7 @@
 			<script type="text/javascript" src="/muk_web_utils/static/libs/simplebar/simplebar.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/libs/jquery.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/libs/scrollbar.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/libs/underscore.js" />
 		</xpath>
 		<xpath expr="//link[last()]" position="after">
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/variables.scss" />
