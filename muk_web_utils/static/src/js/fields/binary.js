@@ -36,7 +36,7 @@ fields.FieldBinaryFile.include({
         }).done(function(result) {
         	this.max_upload_size = result.max_upload_size * 1024 * 1024;
         }.bind(this));
-		return this._super.apply(this, arguments);
+		return $.when(this._super.apply(this, arguments), def);
     },
     _renderReadonly: function () {
 		this._super.apply(this, arguments);
