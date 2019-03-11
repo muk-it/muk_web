@@ -137,26 +137,13 @@
                 overflow: auto;
             }
             > .o_chatter {
-                border-left: 1px solid gray('400');
-			    min-width: $mk-chatter-min-width;
-			    max-width: $mk-chatter-max-width;
-                flex: 1 1 auto;
-                overflow: auto;
+				flex: 1 1 auto;
+				overflow: auto;
+				min-width: $mk-chatter-min-width;
+				max-width: $mk-chatter-max-width;
+				border-left: 1px solid gray('400');
                 .o_followers_title_box {
                 	margin-left: 0;
-                }
-                .o_chatter_topbar,
-                .o_thread_composer {
-                    position: sticky;
-                }
-                .o_chatter_topbar {
-                    top: -1px;
-                    z-index: 2;
-                    background-color: $o-view-background-color;
-                }
-                .o_thread_composer {
-                    top: $o-statusbar-height;
-                    z-index: 1;
                 }
             }
         }
