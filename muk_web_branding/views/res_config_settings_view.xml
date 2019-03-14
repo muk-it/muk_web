@@ -26,7 +26,7 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
 	    <field name="arch" type="xml">
 	        <xpath expr="//div[@data-key='muk_branding']" position="inside">
-	    		<h2>Brand Colors</h2>
+	    		<h2 id="branding_brand_colors_title">Brand Colors</h2>
 	            <div class="row mt16 o_settings_container" name="branding_brand_colors">
 	                <div class="col-12 col-lg-6 o_setting_box">
 	                    <div class="o_setting_left_pane">
