@@ -255,6 +255,68 @@
 	                    </div>
 	                </div>
 		     	</div>
+		     	<h2>Gray Palette</h2>
+	            <div class="row mt16 o_settings_container" name="branding_component_colors">
+	                <div class="col-12 col-lg-6 o_setting_box">
+	                    <div class="o_setting_left_pane">
+	                    </div>
+	                    <div class="o_setting_right_pane">
+	                        <span class="o_form_label">Palette</span>
+                            <div class="text-muted">
+                                Set the color palette
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                	<label for="branding_color_white" string="White" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_white" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_100" string="Gray 100" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_100" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_200" string="Gray 200" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_200" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_300" string="Gray 300" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_300" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_400" string="Gray 400" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_400" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_500" string="Gray 500" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_500" widget="color" class="oe_inline"/>
+                                </div>
+                            </div>
+	                    </div>
+	                </div>
+	                <div class="col-12 col-lg-6 o_setting_box">
+	                    <div class="o_setting_left_pane">
+	                    </div>
+	                    <div class="o_setting_right_pane">
+	                        <span class="o_form_label">Palette</span>
+                            <div class="text-muted">
+                                Set the color palette
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                	<label for="branding_color_gray_600" string="Gray 600" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_600" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_700" string="Gray 700" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_700" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_800" string="Gray 800" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_800" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_gray_900" string="Gray 900" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_gray_900" widget="color" class="oe_inline"/>
+	                                <div class="w-100"></div>
+                                	<label for="branding_color_black" string="Black" class="col-lg-3 o_light_label"/>
+                                    <field name="branding_color_black" widget="color" class="oe_inline"/>
+                                </div>
+                            </div>
+	                    </div>
+	                </div>
+		     	</div>
 	    	</xpath>
 	    </field>
 	</record>

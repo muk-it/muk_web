@@ -119,6 +119,39 @@ class ResConfigSettings(models.TransientModel):
     
     branding_color_dark = fields.Char(
         string="Dark Color")
+
+    branding_color_white = fields.Char(
+        string="White Color")
+    
+    branding_color_black = fields.Char(
+        string="Black Color")
+    
+    branding_color_gray_100 = fields.Char(
+        string="Gray 100 Color")
+    
+    branding_color_gray_200 = fields.Char(
+        string="Gray 200 Color")
+    
+    branding_color_gray_300 = fields.Char(
+        string="Gray 300 Color")
+    
+    branding_color_gray_400 = fields.Char(
+        string="Gray 400 Color")
+    
+    branding_color_gray_500 = fields.Char(
+        string="Gray 500 Color")
+    
+    branding_color_gray_600 = fields.Char(
+        string="Gray 600 Color")
+    
+    branding_color_gray_700 = fields.Char(
+        string="Gray 700 Color")
+    
+    branding_color_gray_800 = fields.Char(
+        string="Gray 800 Color")
+    
+    branding_color_gray_900 = fields.Char(
+        string="Gray 900 Color")
     
     #----------------------------------------------------------
     # Helper
@@ -212,6 +245,17 @@ class ResConfigSettings(models.TransientModel):
             'danger',
             'light',
             'dark',
+            'white',
+            'black',
+            'gray-100',
+            'gray-200',
+            'gray-300',
+            'gray-400',
+            'gray-500',
+            'gray-600',
+            'gray-700',
+            'gray-800',
+            'gray-900',
         ]
         colors = self.env['muk_utils.scss_editor'].get_values(
             BOOTSTRAP_SCSS_URL, BOOTSTRAP_XML_ID, variables
@@ -222,7 +266,17 @@ class ResConfigSettings(models.TransientModel):
             'branding_color_warning': colors['warning'],
             'branding_color_danger': colors['danger'],
             'branding_color_light': colors['light'],
-            'branding_color_dark': colors['dark'],
+            'branding_color_white': colors['white'],
+            'branding_color_black': colors['black'],
+            'branding_color_gray_100': colors['gray-100'],
+            'branding_color_gray_200': colors['gray-200'],
+            'branding_color_gray_300': colors['gray-300'],
+            'branding_color_gray_400': colors['gray-400'],
+            'branding_color_gray_500': colors['gray-500'],
+            'branding_color_gray_600': colors['gray-600'],
+            'branding_color_gray_700': colors['gray-700'],
+            'branding_color_gray_800': colors['gray-800'],
+            'branding_color_gray_900': colors['gray-900'],
         }
         
     def _check_branding_colors(self, colors, variables):
@@ -360,6 +414,50 @@ class ResConfigSettings(models.TransientModel):
             'name': 'dark',
             'field': 'branding_color_dark',
             'value': self.branding_color_dark or "#343a40"
+        }, {
+            'name': 'white',
+            'field': 'branding_color_white',
+            'value': self.branding_color_white or "#ffffff"
+        }, {
+            'name': 'black',
+            'field': 'branding_color_black',
+            'value': self.branding_color_black or "#000000"
+        }, {
+            'name': 'gray-100',
+            'field': 'branding_color_gray_100',
+            'value': self.branding_color_gray_100 or "#f8f9fa"
+        }, {
+            'name': 'gray-200',
+            'field': 'branding_color_gray_200',
+            'value': self.branding_color_gray_200 or "#e9ecef"
+        }, {
+            'name': 'gray-300',
+            'field': 'branding_color_gray_300',
+            'value': self.branding_color_gray_300 or "#dee2e6"
+        }, {
+            'name': 'gray-400',
+            'field': 'branding_color_gray_400',
+            'value': self.branding_color_gray_400 or "#ced4da"
+        }, {
+            'name': 'gray-500',
+            'field': 'branding_color_gray_500',
+            'value': self.branding_color_gray_500 or "#adb5bd"
+        }, {
+            'name': 'gray-600',
+            'field': 'branding_color_gray_600',
+            'value': self.branding_color_gray_600 or "#6c757d"
+        }, {
+            'name': 'gray-700',
+            'field': 'branding_color_gray_700',
+            'value': self.branding_color_gray_700 or "#495057"
+        }, {
+            'name': 'gray-800',
+            'field': 'branding_color_gray_800',
+            'value': self.branding_color_gray_800 or "#343a40"
+        }, {
+            'name': 'gray-900',
+            'field': 'branding_color_gray_900',
+            'value': self.branding_color_gray_900 or "#212529"
         }]
         colors = self._get_branding_bootstrap_colors()
         if self._check_branding_colors(colors, variables):
