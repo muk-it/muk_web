@@ -77,6 +77,11 @@ AppsMenu.include({
             "background-size": "cover",
             "background-image": "url(" + url + ")"
         });
+        if (session.muk_web_theme_background_blend_mode) {
+        	this.$('.o-app-name').css({
+        		"mix-blend-mode": session.muk_web_theme_background_blend_mode,
+        	});
+        }
     },
     _menuInfo: function (key) {
         var original = this._searchableMenus[key];

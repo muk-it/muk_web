@@ -1,8 +1,12 @@
+`1.4.0`
+-------
+
+- Background Blend Mode
+
 `1.3.0`
 -------
 
 - Default Preferences
-
 
 `1.2.0`
 -------

@@ -31,6 +31,28 @@ class ResCompany(models.Model):
         string="Apps Menu Background Image",
         attachment=True)
     
+    background_blend_mode = fields.Selection(
+        selection=[
+            ('normal', 'Normal'),
+            ('multiply', 'Multiply'),
+            ('screen', 'Screen'),
+            ('overlay', 'Overlay'),
+            ('hard-light', 'Hard-light'),
+            ('darken', 'Darken'),
+            ('lighten', 'Lighten'),
+            ('color-dodge', 'Color-dodge'),
+            ('color-burn', 'Color-burn'),
+            ('hard-light', 'Hard-light'),
+            ('difference', 'Difference'),
+            ('exclusion', 'Exclusion'),
+            ('hue', 'Hue'),
+            ('saturation', 'Saturation'),
+            ('color', 'Color'),
+            ('luminosity', 'Luminosity'),
+        ], 
+        string="Apps Menu Background Blend Mode",
+        default='normal')
+    
     default_sidebar_preference = fields.Selection(
         selection=[
             ('invisible', 'Invisible'),

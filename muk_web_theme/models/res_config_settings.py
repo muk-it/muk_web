@@ -38,7 +38,11 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.background_image",
         readonly=False,
         required=True)
-
+    
+    theme_background_blend_mode = fields.Selection(
+        related="company_id.background_blend_mode",
+        readonly=False)
+    
     theme_default_sidebar_preference = fields.Selection(
         related="company_id.default_sidebar_preference",
         readonly=False)
@@ -69,6 +73,7 @@ class ResConfigSettings(models.TransientModel):
     @api.multi 
     def set_values(self):
         res = super(ResConfigSettings, self).set_values()
+        param = self.env['ir.config_parameter'].sudo()
         variables = [
             'o-brand-odoo',
             'o-brand-primary',
@@ -96,11 +101,13 @@ class ResConfigSettings(models.TransientModel):
             self.env['muk_utils.scss_editor'].replace_values(
                 SCSS_URL, XML_ID, variables
             )
+        param.set_param('muk_web_theme.background_blend_mode', self.theme_background_blend_mode)
         return res
 
     @api.model
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
+        params = self.env['ir.config_parameter'].sudo()
         variables = [
             'o-brand-odoo',
             'o-brand-primary',
@@ -117,5 +124,6 @@ class ResConfigSettings(models.TransientModel):
             'theme_color_menu': colors['mk-apps-color'],
             'theme_color_appbar_color': colors['mk-appbar-color'],
             'theme_color_appbar_background': colors['mk-appbar-background'],
+            'theme_background_blend_mode': params.get_param('muk_web_theme.background_blend_mode', 'normal'),
         })
         return res
