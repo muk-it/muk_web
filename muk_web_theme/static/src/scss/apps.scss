@@ -67,7 +67,8 @@
 		    width: 100%;
 		}
 		.o-app-name {
-			color: $gray-100; 
+			color: $gray-100;
+			mix-blend-mode: difference;
 		}
 		.form-row {
 		    width: 100%;
