@@ -266,6 +266,7 @@ class ResConfigSettings(models.TransientModel):
             'branding_color_warning': colors['warning'],
             'branding_color_danger': colors['danger'],
             'branding_color_light': colors['light'],
+            'branding_color_dark': colors['dark'],
             'branding_color_white': colors['white'],
             'branding_color_black': colors['black'],
             'branding_color_gray_100': colors['gray-100'],
