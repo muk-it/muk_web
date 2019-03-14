@@ -1,3 +1,14 @@
+`1.3.0`
+-------
+
+- Default Preferences
+
+
+`1.2.0`
+-------
+
+- Added Menu Color Options
+
 `1.2.0`
 -------
 

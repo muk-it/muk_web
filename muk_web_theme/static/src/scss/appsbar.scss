@@ -41,12 +41,12 @@
 		            display: block;
 		            cursor: pointer;
 		            font-size: 13px;
+		            font-weight: 300;
+		            overflow: hidden;
 		            padding: 8px 11px;
 		            position: relative;
 		            text-decoration: none;
-		            font-weight: 300;
-		            color: gray('300');
-		            overflow: hidden;
+		            color: $mk-appbar-color;
 		            text-overflow: ellipsis;
 		            .mk_apps_sidebar_icon {
 					    width: 22px;

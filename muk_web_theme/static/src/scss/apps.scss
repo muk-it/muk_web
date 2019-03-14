@@ -67,7 +67,7 @@
 		    width: 100%;
 		}
 		.o-app-name {
-			color: $gray-100; 
+			color: $mk-apps-color; 
 		}
 		.form-row {
 		    width: 100%;
@@ -99,7 +99,7 @@
 	            	    white-space: nowrap;
 					    overflow: hidden;
 					    text-overflow: ellipsis;
-		            	color: $gray-100;
+		            	color: $mk-apps-color;
 		            	&:hover, &:active, &.active {
 		            		background-color: rgba(255, 255, 255, 0.05);
 		            	} 

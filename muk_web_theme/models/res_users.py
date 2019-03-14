@@ -17,11 +17,27 @@
 #
 ###################################################################################
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 class ResUsers(models.Model):
     
     _inherit = 'res.users'
+    
+    #----------------------------------------------------------
+    # Defaults
+    #----------------------------------------------------------
+    
+    @api.model
+    def _default_sidebar_type(self):
+        return self.env.user.company_id.default_sidebar_preference or 'small'
+    
+    @api.model
+    def _default_chatter_position(self):
+        return self.env.user.company_id.default_chatter_preference or 'sided'
+    
+    #----------------------------------------------------------
+    # Database
+    #----------------------------------------------------------
     
     sidebar_type = fields.Selection(
         selection=[
@@ -29,18 +45,18 @@ class ResUsers(models.Model):
             ('small', 'Small'),
             ('large', 'Large')
         ], 
+        required=True,
         string="Sidebar Type",
-        default='small',
-        required=True)
+        default=lambda self: self._default_sidebar_type())
     
     chatter_position = fields.Selection(
         selection=[
             ('normal', 'Normal'),
             ('sided', 'Sided'),
         ], 
+        required=True,
         string="Chatter Position", 
-        default='sided',
-        required=True)
+        default=lambda self: self._default_chatter_position())
 
     def __init__(self, pool, cr):
         init_res = super(ResUsers, self).__init__(pool, cr)
