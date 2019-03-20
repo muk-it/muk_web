@@ -20,7 +20,7 @@
 {
     'name': 'MuK Search Panel',
     'summary': 'Kanban Search Panel',
-    'version': '12.0.1.0.1',
+    'version': '12.0.1.0.2',
     'category': 'Extra Tools',
     'license': 'AGPL-3',
     'author': 'MuK IT',
