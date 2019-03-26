@@ -57,6 +57,10 @@ class ResUsers(models.Model):
         required=True,
         string="Chatter Position", 
         default=lambda self: self._default_chatter_position())
+    
+    #----------------------------------------------------------
+    # Setup
+    #----------------------------------------------------------
 
     def __init__(self, pool, cr):
         init_res = super(ResUsers, self).__init__(pool, cr)
