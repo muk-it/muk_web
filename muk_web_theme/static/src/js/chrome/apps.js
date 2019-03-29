@@ -152,10 +152,10 @@ AppsMenu.include({
             this._searchMenusSchedule();
             return;
         }
-        var all = this.$search_results.find(".mk_menu_search_result"),
-            pre_focused = all.filter(".active") || $(all[0]),
-            offset = all.index(pre_focused),
-            key = event.key;
+        var all = this.$search_results.find(".mk_menu_search_result");
+        var key = event.key || String.fromCharCode(event.which);
+        var pre_focused = all.filter(".active") || $(all[0]);
+        var offset = all.index(pre_focused);
         if (key === "Tab") {
             event.preventDefault();
             key = event.shiftKey ? "ArrowUp" : "ArrowDown";
@@ -171,9 +171,7 @@ AppsMenu.include({
 	            offset++;
 	            break;
 	        default:
-	        	if (key.length === 1 || key === "Backspace") {
-	        		this._searchMenusSchedule();
-                }
+	        	this._searchMenusSchedule();
             return;
         }
         if (offset < 0) {
