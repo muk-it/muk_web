@@ -37,6 +37,20 @@
         padding: $o-searchpanel-p-small $o-searchpanel-p-small $o-searchpanel-p*2 $o-searchpanel-p;
         border-right: 1px solid $gray-300;
         background-color: white;
+        position: relative;
+
+		.o_search_panel_loading {
+		    position: absolute;
+		    margin-top: -30px;
+		    margin-left: -30px;
+		    margin-bottom: 0;
+		    margin-right: 0;
+		    font-size: 60px;
+		    height: 60px;
+			width: 60px;
+		    left: 50%;
+		    top: 50%;
+		}
 
         .o_search_panel_category .o_search_panel_section_icon {
             color: $o-searchpanel-category-default-color;

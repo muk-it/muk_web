@@ -60,16 +60,41 @@ var SearchPanel = Widget.extend({
         this.fields = params.fields;
         this.model = params.model;
         this.searchDomain = params.searchDomain;
+        
+        this.loadProm = $.Deferred();
+        this.loadPromLazy = true;
     },
     willStart: function () {
         var self = this;
-        var loadProm = this._fetchCategories().then(function () {
-            return self._fetchFilters();
+        var loading = $.Deferred();
+        var loadPromTimer = setTimeout(function () {
+        	if(loading.state() !== 'resolved') {
+        		loading.resolve();
+        	}
+        }, this.loadPromMaxTime || 250);
+        this._fetchCategories().then(function () {
+            self._fetchFilters().then(function () {
+            	if(loading.state() !== 'resolved') {
+                	clearTimeout(loadPromTimer);
+                	self.loadPromLazy = false;
+                	loading.resolve();
+            	}
+            	self.loadProm.resolve();
+            });
         });
-        return $.when(loadProm, this._super.apply(this, arguments));
+        return $.when(loading, this._super.apply(this, arguments));
     },
     start: function () {
-        this._render();
+        var self = this;
+        if(this.loadProm.state() !== 'resolved') {
+        	this.$el.html($("<div/>", {
+        		'class': "o_search_panel_loading",
+        		'html': "<i class='fa fa-spinner fa-pulse' />"
+        	}));
+    	}
+        this.loadProm.then(function() {
+    		self._render();
+    	});
         return this._super.apply(this, arguments);
     },
 
@@ -93,15 +118,18 @@ var SearchPanel = Widget.extend({
      * @returns {$.Promise}
      */
     update: function (params) {
-        var currentSearchDomainStr = JSON.stringify(this.searchDomain);
-        var newSearchDomainStr = JSON.stringify(params.searchDomain);
-        var def;
-        if (this.needReload || (currentSearchDomainStr !== newSearchDomainStr)) {
-            this.needReload = false;
-            this.searchDomain = params.searchDomain;
-            def = this._fetchFilters();
+        if(this.loadProm.state() === 'resolved') {
+        	var newSearchDomainStr = JSON.stringify(params.searchDomain);
+            var currentSearchDomainStr = JSON.stringify(this.searchDomain);
+            if (this.needReload || (currentSearchDomainStr !== newSearchDomainStr)) {
+                this.needReload = false;
+                this.searchDomain = params.searchDomain;
+                this._fetchFilters().then(this._render.bind(this));
+            } else {
+                this._render();
+            }
         }
-        return $.when(def).then(this._render.bind(this));
+        return $.when();
     },
 
     //--------------------------------------------------------------------------
@@ -138,26 +166,30 @@ var SearchPanel = Widget.extend({
             var value = category.values[valueId];
             return value.parentId === false;
         });
-
-        // set active value
-        var validValues = _.pluck(category.values, 'id').concat([false]);
-        // set active value from context
-        var value = this.defaultCategoryValues[category.fieldName];
-        // if not set in context, or set to an unknown value, set active value
-        // from localStorage
-        if (!_.contains(validValues, value)) {
-            var storageKey = this._getLocalStorageKey(category);
-            value = this.call('local_storage', 'getItem', storageKey);
-        }
-        // if not set in localStorage either, select 'All'
-        category.activeValueId = _.contains(validValues, value) ? value : false;
-
-        // unfold ancestor values of active value to make it is visible
-        if (category.activeValueId) {
-            var parentValueIds = this._getAncestorValueIds(category, category.activeValueId);
-            parentValueIds.forEach(function (parentValue) {
-                category.values[parentValue].folded = false;
-            });
+        category.activeValueId = false;
+        
+        if(!this.loadPromLazy) {
+	        // set active value
+	        var validValues = _.pluck(category.values, 'id').concat([false]);
+	        // set active value from context
+	        var value = this.defaultCategoryValues[category.fieldName];
+	        // if not set in context, or set to an unknown value, set active value
+	        // from localStorage
+	        if (!_.contains(validValues, value)) {
+	            var storageKey = this._getLocalStorageKey(category);
+	            value = this.call('local_storage', 'getItem', storageKey);
+	        }
+	        
+	        // if not set in localStorage either, select 'All'
+	        category.activeValueId = _.contains(validValues, value) ? value : false;
+	        
+	        // unfold ancestor values of active value to make it is visible
+	        if (category.activeValueId) {
+	            var parentValueIds = this._getAncestorValueIds(category, category.activeValueId);
+	            parentValueIds.forEach(function (parentValue) {
+	                category.values[parentValue].folded = false;
+	            });
+	        }
         }
     },
     /**
@@ -246,6 +278,8 @@ var SearchPanel = Widget.extend({
                         filter_domain: filterDomain,
                         search_domain: self.searchDomain,
                     },
+                }, {
+                	shadow: true,
                 }).then(function (result) {
                     category.parentField = result.parent_field;
                     return result.values;
@@ -287,6 +321,8 @@ var SearchPanel = Widget.extend({
                     group_by: filter.groupBy || false,
                     search_domain: self.searchDomain,
                 },
+            }, {
+            	shadow: true,
             }).then(function (values) {
                 self._createFilterTree(filterId, values);
             });
@@ -305,6 +341,11 @@ var SearchPanel = Widget.extend({
             var category = self.categories[categoryId];
             if (category.activeValueId) {
                 domain.push([category.fieldName, '=', category.activeValueId]);
+            } else if(self.loadPromLazy && self.loadProm.state() !== 'resolved') {
+            	var value = self.defaultCategoryValues[category.fieldName];
+            	if (value) {
+            		domain.push([category.fieldName, '=', value]);
+            	}
             }
             return domain;
         }
@@ -447,7 +488,6 @@ var SearchPanel = Widget.extend({
      */
     _notifyDomainUpdated: function () {
         this.needReload = true;
-        console.log(this)
         this.trigger_up('search_panel_domain_updated', {
             domain: this.getDomain(),
         });
