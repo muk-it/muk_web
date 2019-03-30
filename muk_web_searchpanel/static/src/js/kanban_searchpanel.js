@@ -71,7 +71,7 @@ var SearchPanel = Widget.extend({
         	if(loading.state() !== 'resolved') {
         		loading.resolve();
         	}
-        }, this.loadPromMaxTime || 250);
+        }, this.loadPromMaxTime || 1000);
         this._fetchCategories().then(function () {
             self._fetchFilters().then(function () {
             	if(loading.state() !== 'resolved') {
