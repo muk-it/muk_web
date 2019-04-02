@@ -91,16 +91,16 @@
                             </div>
                             <div class="content-group">
                                 <div class="mt16 row">
-                                	<label for="theme_color_appbar_color" string="Color" class="col-3 o_light_label"/>
+                                	<label for="theme_color_appbar_color" string="Menu Color" class="col-3 o_light_label"/>
                                     <field name="theme_color_appbar_color" widget="color" class="oe_inline"/>
                                     <div class="w-100"></div>
                                 	<label for="theme_color_appbar_background" string="Background" class="col-3 o_light_label"/>
                                     <field name="theme_color_appbar_background" widget="color" class="oe_inline"/>
                                     <div class="w-100"></div>
-                                	<label for="theme_color_menu" string="Menu" class="col-3 o_light_label"/>
+                                	<label for="theme_color_menu" string="Apps Color" class="col-3 o_light_label"/>
                                     <field name="theme_color_menu" widget="color" class="oe_inline"/>
                                     <div class="w-100"></div>
-                                	<label for="theme_background_blend_mode" string="Blend" class="col-3 o_light_label"/>
+                                	<label for="theme_background_blend_mode" string="Apps Blend" class="col-3 o_light_label"/>
                                     <field name="theme_background_blend_mode" class="col-5"/>
                                 </div>
                             </div>
