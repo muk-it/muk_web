@@ -31,9 +31,7 @@ var QWeb = core.qweb;
 
 AbstractWebClient.include({
 	_getAllUsedAccessKeys: function () {
-        var usedAccessKeys = this._super.apply(this, arguments);
-        console.log("usedAccessKeys", _.union(usedAccessKeys, ['M', 'T']))
-        return _.union(usedAccessKeys, ['M', 'T']);
+        return _.union(this._super.apply(this, arguments), ['M', 'T']);
     },
 });
 
