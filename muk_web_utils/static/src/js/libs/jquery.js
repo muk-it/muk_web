@@ -58,3 +58,44 @@ $.fn.dndHover = function(options) {
         }
     });
 };
+
+$.ajaxTransport("+binary", function(options, originalOptions, jqXHR) {
+    if (window.FormData && ((options.dataType && (options.dataType == 'binary')) || 
+    		(options.data && ((window.ArrayBuffer && options.data instanceof ArrayBuffer) ||
+    		(window.Blob && options.data instanceof Blob))))) {
+		return {
+			send: function(headers, callback){
+				var xhr = new XMLHttpRequest();
+				var url = options.url,
+					type = options.type,
+					async = options.async || true,
+					dataType = options.responseType || 'blob',
+					data = options.data || null,
+					username = options.username,
+					password = options.password;
+				xhr.addEventListener('load', function(){
+					var data = {};
+					data[options.dataType] = xhr.response;
+					callback(xhr.status, xhr.statusText, data, xhr.getAllResponseHeaders());
+				});
+				xhr.open(type, url, async, username, password);
+				for (var i in headers ) {
+					xhr.setRequestHeader(i, headers[i] );
+				}
+				if (options.xhrFields) {
+					for (var key in options.xhrFields) {
+						if (key in xhr) {
+							xhr[key] = options.xhrFields[key];
+						}
+					}
+				}
+				xhr.responseType = dataType;
+				xhr.send(data);
+			},
+			abort: function(){
+				jqXHR.abort();
+			}
+		};
+	}
+});
+
