@@ -18,12 +18,13 @@
 **********************************************************************************/
 
 .mk_preview_msoffice {
-	overflow: auto;
-	width: 100%;
+	overflow: hidden;
     height: 100%;
-    iframe {
-    	width: 100%;
-    	height: 100%;
-    }
+	width: 100%;
+}
+
+.mk_preview_msoffice iframe {
+	height: 100%;
+	width: 100%;
 }
 

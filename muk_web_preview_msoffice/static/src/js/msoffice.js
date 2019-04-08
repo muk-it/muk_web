@@ -47,7 +47,20 @@ var PreviewContentMSOffice = AbstractPreviewContent.extend({
     renderPreviewContent: function() {
     	var viewer = 'https://view.officeapps.live.com/op/embed.aspx?src=';
     	this.$('iframe').attr('src', viewer + encodeURIComponent(this.attachment.url));
-    	return this._super.apply(this, arguments);
+        return this._super.apply(this, arguments);
+    },
+    destroy: function () {
+        if (this.attachment) {
+        	this._rpc({
+                model: 'ir.attachment',
+                method: 'unlink',
+                args: [this.attachment.id],
+                context: session.user_context,
+            }, {
+            	shadow: true,
+            });
+        }
+        return this._super.apply(this, arguments);
     },
     _downloadFile: function() {
 		return $.ajax({
@@ -59,6 +72,7 @@ var PreviewContentMSOffice = AbstractPreviewContent.extend({
     },
     _createAttachment: function(file) {
     	var form = new FormData();
+		form.append('temporary', true);
 		form.append('ufile', file, this.filename);
 		form.append('csrf_token', core.csrf_token);
 		return $.ajax({
