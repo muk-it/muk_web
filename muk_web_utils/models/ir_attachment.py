@@ -16,39 +16,28 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###################################################################################
- 
-{ 
-    "name": "MuK Web Utils",
-    "summary": """Utility Features""",
-    "version": "12.0.2.9.0", 
-    "category": "Extra Tools",
-    "license": "AGPL-3",
-    "author": "MuK IT",
-    "website": "http://www.mukit.at",
-    'live_test_url': 'https://mukit.at/r/SgN',
-    "contributors": [
-        "Mathias Markl <mathias.markl@mukit.at>",
-    ],
-    "depends": [
-        "web_editor",
-        "muk_autovacuum",
-    ],
-    "data": [
-        "template/assets.xml",
-        "views/res_config_settings_view.xml",
-        "data/autovacuum.xml",
-    ],
-    "qweb": [
-        "static/src/xml/*.xml",
-    ],
-    "images": [
-        'static/description/banner.png'
-    ],
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
-    "application": False,
-    "installable": True,
-    'auto_install': False,
-} 
+
+import base64
+import logging
+import mimetypes
+
+from odoo import api, models, fields, _
+from odoo.exceptions import AccessError
+from odoo.tools.mimetypes import guess_mimetype
+
+_logger = logging.getLogger(__name__)
+
+class IrAttachment(models.Model):
+    
+    _inherit = 'ir.attachment'
+    
+    #----------------------------------------------------------
+    # Database
+    #----------------------------------------------------------
+    
+    temporary = fields.Boolean(
+        string="Temporary",
+        default=False,
+        help="Attachments will be deleted by Autovacuum.",
+    )
+    

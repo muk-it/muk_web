@@ -46,7 +46,7 @@ var QWeb = core.qweb;
 fields.FieldBinaryImage.include({
 	willStart: function () {
 		var def = this._rpc({
-            route: '/params/muk_web_utils.binary_max_size',
+            route: '/config/muk_web_utils.binary_max_size',
         }).done(function(result) {
         	this.max_upload_size = result.max_upload_size * 1024 * 1024;
         }.bind(this));

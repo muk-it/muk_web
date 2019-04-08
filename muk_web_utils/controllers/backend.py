@@ -26,7 +26,7 @@ _logger = logging.getLogger(__name__)
 
 class BackendController(http.Controller):
     
-    @http.route('/params/muk_web_utils.binary_max_size', type='json', auth="user")
+    @http.route('/config/muk_web_utils.binary_max_size', type='json', auth="user")
     def max_upload_size(self, **kw):
         params = request.env['ir.config_parameter'].sudo()
         return {
