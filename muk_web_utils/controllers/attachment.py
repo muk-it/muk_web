@@ -32,6 +32,7 @@ class AttachmentController(http.Controller):
     @http.route('/utils/attachment/add', type='http', auth="user", methods=['POST'])
     def add_attachment(self, ufile, temporary=False, **kw):
         tmp = temporary and str2bool(temporary) or False
+        name = "Access Attachment: %s" % ufile.filename
         attachment = request.env['ir.attachment'].create({
             'name': tmp and "%s (Temporary)" % name or name,
             'datas': base64.b64encode(ufile.read()),
