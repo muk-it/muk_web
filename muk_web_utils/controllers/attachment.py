@@ -45,8 +45,4 @@ class AttachmentController(http.Controller):
         result = attachment.read(['name', 'datas_fname', 'mimetype', 'checksum', 'access_token'])[0]
         result['url'] = '%s/web/content/%s?access_token=%s' % (base_url, attachment.id, attachment.access_token)
         return json.dumps(result)
-    
-    @http.route('/utils/attachment/remove', type='http', auth="user", methods=['DELETE'])
-    def remove_attachment(self, id, **kw):
-        return json.dumps(request.env['ir.attachment'].browse(id).unlink())
         
