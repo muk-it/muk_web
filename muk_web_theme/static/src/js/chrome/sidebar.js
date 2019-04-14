@@ -37,7 +37,7 @@ Sidebar.include({
 					element.icon = 'fa fa-print';
 				}
 				if(element.name === 'other') {
-					element.icon = 'fa fa-magic';
+					element.icon = 'fa fa-cogs';
 				}
 			});
 		}
