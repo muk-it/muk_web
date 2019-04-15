@@ -47,14 +47,21 @@
             }
         }
     }
-   	@include media-breakpoint-down(sm) {
+   	@include media-breakpoint-down(sm) {			
 	    .o_form_sheet, .oe_chatter {
 	        min-width: 100% !important;
     		max-width: 100% !important;
 	    }
-	    .o_group_col_6 {
-	        width: 100%;
-	    }
+		.o_group {
+			@for $i from 1 through $o-form-group-cols {
+				.o_group_col_#{$i} {
+					width: 100% !important;
+				}
+			}
+			.o_field_widget.o_text_overflow {
+				width: auto !important;
+			}
+		}
 	    .o_statusbar_buttons_dropdown {
 	        border: {
 	            bottom: 0;
