@@ -29,6 +29,7 @@ var QWeb = core.qweb;
 
 var DisableMixin = {
 	_render: function () {
+		this._super.apply(this, arguments);
 		var $container = this.$el.parent().parent();
 		if ($container.hasClass('o_setting_box')) {
 			$container.addClass('o_hidden');
