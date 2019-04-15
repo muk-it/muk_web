@@ -31,7 +31,7 @@ var DisableMixin = {
 	_render: function () {
 		var $container = this.$el.parent().parent();
 		if ($container.hasClass('o_setting_box')) {
-			$container.remove();
+			$container.addClass('o_hidden');
 		}
 	},
 }

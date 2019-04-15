@@ -32,8 +32,9 @@ settings.Renderer.include({
 	_render: function () {
         var res = this._super.apply(this, arguments);
         $.each(this.$('.o_settings_container'), function() {
-        	if($(this).children().length == 0) {
-            	$(this).prev().remove();
+        	if($(this).children(':not(.o_hidden)').length === 0) {
+            	$(this).prev().addClass('o_hidden');
+            	$(this).addClass('o_hidden');
         	}
 		});
         return res;
