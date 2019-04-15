@@ -60,6 +60,7 @@
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/apps.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/appsbar.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/sidebar.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/pager.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/fields/status.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/search_view.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/form_renderer.js" />

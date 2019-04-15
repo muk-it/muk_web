@@ -19,6 +19,8 @@
 
 @include media-breakpoint-down(sm) {
     .o_control_panel {
+    	padding-left: $o-horizontal-padding /2;
+    	padding-right: $o-horizontal-padding /2;
         .breadcrumb, .o_cp_buttons, .o_cp_left, .o_cp_right, .o_cp_searchview {
             flex: 1 1 100%;
             @include media-breakpoint-up(md) {
@@ -49,9 +51,22 @@
 		    	}
 		    }
         }
-       .o_cp_left, .o_cp_right {
-            width: auto;
-            flex: 1 1 auto;
+        .o_cp_left {
+			flex-basis: 50%;
+            white-space: nowrap;       
+		}
+       	.o_cp_right {
+            flex-basis: 10%;
+        }
+        .o_cp_pager {
+            white-space: nowrap;
+            .o_pager_counter {
+            	max-width: 60px;
+            	@include o-text-overflow;
+            }
+            .o_pager_previous, .o_pager_next {
+           		border: none;
+        	}
         }
        .breadcrumb-item {
             &:not(.active) {
@@ -87,11 +102,7 @@
                 justify-content: space-around;
                 padding: 0;
                 .btn {
-                    border: {
-                        bottom: 0;
-                        radius: 0;
-                        top: 0;
-                    }
+                    border: none;
                 }
             }
         }
