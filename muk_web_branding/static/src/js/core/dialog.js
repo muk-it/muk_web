@@ -32,23 +32,30 @@ Dialog.include({
     init: function(parent, options) {
         this._super(parent, this._debrandOptions(options || {}));
     },
-    _debrandOptions: function(options) {
-    	if (options.title && options.title.replace){
-            options.title = options.title.replace(/Odoo/ig, session.muk_branding_system_name);
-        } else {
-            options.title = session.muk_branding_system_name;
-        }
-        if (options.$content){
-            if (!(options.$content instanceof $)){
-                options.$content = $(options.$content);
-            }
-            var content_html = options.$content.html();
-            content_html = content_html.replace(/Odoo.com/ig, session.muk_branding_website);
-            content_html = content_html.replace(/Odoo/ig, session.muk_branding_system_name);
-            options.$content.html(content_html);
-        }
-        return options;
-    }
+    _debrandOptions : function(options) {
+		if (options.title && options.title.replace) {
+			options.title = options.title.replace(/Odoo/ig,
+					session.muk_branding_system_name);
+		} else {
+			options.title = session.muk_branding_system_name;
+		}
+		if (options.$content) {
+			if (!(options.$content instanceof $)) {
+				options.$content = $(options.$content);
+			}
+			options.$content.each(function() {
+				var content = $(this).html();
+				if (content) {
+					content.replace(/Odoo.com/ig,
+							session.muk_branding_website);
+					content.replace(/Odoo/ig,
+							session.muk_branding_system_name);
+					$(this).html(content);
+				}
+			});
+		}
+		return options;
+	}
 });
 
 });
