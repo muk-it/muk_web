@@ -97,12 +97,15 @@
         .o_cp_switch_buttons.show {
             .dropdown-menu {
                 display: flex;
+                min-width: 0px;
                 flex-direction: row;
                 align-content: center;
                 justify-content: space-around;
                 padding: 0;
                 .btn {
+                    margin: 5px;
                     border: none;
+    				font-size: 1.25rem;
                 }
             }
         }
