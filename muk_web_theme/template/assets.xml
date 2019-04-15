@@ -54,6 +54,7 @@
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/form_view.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fields.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/notification.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/settings.scss"/>
 		</xpath>
 		<xpath expr="//script[last()]" position="after">
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/chrome/menu.js" />

@@ -17,29 +17,19 @@
 *
 **********************************************************************************/
 
-odoo.define('muk_web_theme.FormRenderer', function (require) {
-"use strict";
-
-var dom = require('web.dom');
-var core = require('web.core');
-var config = require("web.config");
-
-var FormRenderer = require('web.FormRenderer');
-
-var _t = core._t;
-var QWeb = core.qweb;
-
-FormRenderer.include({
-	_renderHeaderButtons: function () {
-        var $buttons = this._super.apply(this, arguments);
-        if (config.device.isMobile && this.state.model !== "res.config.settings") {
-            var $dropdown = $(QWeb.render('muk_web_theme.MenuStatusbarButtons'));
-            $buttons.addClass("dropdown-menu").appendTo($dropdown);
-            $buttons.children().addClass("dropdown-item");
-            return $dropdown;
-        }
-        return $buttons;
-    },
-});
-
-});
+@include media-breakpoint-down(sm) {
+	.o_base_settings .o_statusbar_buttons {
+		.btn {
+			width: auto !important;
+		   	border: solid 1px transparent; 
+			margin: 4px 3px 4px 0 !important;
+		   	padding: $btn-padding-y-sm $btn-padding-x-sm !important;
+		}
+		.btn-primary {
+			border-color: $o-brand-primary;
+		}
+		.btn-secondary {
+			border-color: $border-color;
+		}
+	}	
+}	
