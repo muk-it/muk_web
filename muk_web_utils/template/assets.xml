@@ -58,6 +58,7 @@
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/path.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/binary.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/module.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/domain.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/views/form/renderer.js" />
 		</xpath>
 	</template>
