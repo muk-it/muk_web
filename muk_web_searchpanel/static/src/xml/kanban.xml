@@ -123,4 +123,22 @@
     </li>
 </t>
 
+<t t-name="SearchPanel.MobileSummary">
+    <t t-set="emptySelection" t-value="!categories.length &amp; !filterValues.length"/>
+    <summary class="d-flex align-items-center">
+        <div class="text-truncate font-italic ml-2 mr-auto">
+            <t t-if="emptySelection">Filters...</t>
+            <span t-foreach="categories" t-as="category" class="o_search_panel_category mr-1">
+                <i t-if="category.icon" t-attf-class="o_search_panel_section_icon fa fa-w #{category.icon}" t-attf-style="#{category.color ? ('color: ' + category.color) : undefined}"/>
+                <t t-esc="category.breadcrumb.join(separator)"/>
+            </span>
+            <span t-foreach="filterValues" t-as="filterValue" class="o_search_panel_filter mr-1">
+                <i t-if="filterValue.icon" t-attf-class="o_search_panel_section_icon fa fa-w #{filterValue.icon}" t-attf-style="#{filterValue.color ? ('color: ' + filterValue.color) : undefined}"/>
+                <t t-esc="filterValue.name"/>
+            </span>
+        </div>
+        <i class="fa fa-fw fa-chevron-left"/>
+    </summary>
+</t>
+
 </templates>

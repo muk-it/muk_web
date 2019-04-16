@@ -121,3 +121,46 @@
         }
     }
 }
+
+@include media-breakpoint-down(sm) {
+	.o_kanban_with_searchpanel {
+        flex-direction: column;
+
+        details.o_search_panel {
+            flex-basis: auto;
+            height: auto;
+            width: 100%;
+            padding: 0;
+
+            > summary {
+                padding: $o-searchpanel-p-small;
+                // Hide the caret. For details see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+                list-style-type: none;
+                &::-webkit-details-marker {
+                    display: none
+                }
+
+                .badge {
+                    font-size: 100%;
+                    background-color: white;
+                }
+            }
+
+            > .o_search_panel_section {
+                margin: 0 $o-searchpanel-p-small 0 $o-searchpanel-p;
+            }
+
+            &[open] {
+                z-index: $zindex-dropdown;
+
+                > summary {
+                    background-color: $list-group-action-active-bg;
+                }
+
+                .fa-chevron-left:before {
+                    content: "\f078";
+                }
+            }
+        }
+    }
+}

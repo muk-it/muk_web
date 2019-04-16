@@ -21,6 +21,7 @@ odoo.define('web.SearchPanel', function (require) {
 "use strict";
 
 var core = require('web.core');
+var config = require('web.config');
 var Domain = require('web.Domain');
 var Widget = require('web.Widget');
 
@@ -580,6 +581,66 @@ var SearchPanel = Widget.extend({
         this._render();
     },
 });
+
+if (config.device.isMobile) {
+    SearchPanel.include({
+        tagName: 'details',
+
+        _getCategorySelection: function () {
+            var self = this;
+            return Object.keys(this.categories).reduce(function (selection, categoryId) {
+                var category = self.categories[categoryId];
+                console.log('category', category);
+                if (category.activeValueId) {
+                    var ancestorIds = [category.activeValueId].concat(self._getAncestorValueIds(category, category.activeValueId));
+                    var breadcrumb = ancestorIds.map(function (valueId) {
+                        return category.values[valueId].display_name;
+                    });
+                    selection.push({ breadcrumb: breadcrumb, icon: category.icon, color: category.color});
+                }
+                console.log('selection', selection);
+                return selection;
+            }, []);
+        },
+
+        _getFilterSelection: function () {
+            var self = this;
+            return Object.keys(this.filters).reduce(function (selection, filterId) {
+                var filter = self.filters[filterId];
+                console.log('filter', filter);
+                if (filter.groups) {
+                    Object.keys(filter.groups).forEach(function (groupId) {
+                        var group = filter.groups[groupId];
+                        Object.keys(group.values).forEach(function (valueId) {
+                            var value = group.values[valueId];
+                            if (value.checked) {
+                                selection.push({name: value.name, icon: filter.icon, color: filter.color});
+                            }
+                        });
+                    });
+                } else if (filter.values) {
+                    Object.keys(filter.values).forEach(function (valueId) {
+                        var value = filter.values[valueId];
+                        if (value.checked) {
+                            selection.push({name: value.name, icon: filter.icon, color: filter.color});
+                        }
+                    });
+                }
+                console.log('selection', selection);
+                return selection;
+            }, []);
+        },
+
+        _render: function () {
+            this._super.apply(this, arguments);
+            this.$el.prepend(qweb.render('SearchPanel.MobileSummary', {
+                categories: this._getCategorySelection(),
+                filterValues: this._getFilterSelection(),
+                separator: ' / ',
+            }));
+        },
+    });
+}
 
 return SearchPanel;
 
