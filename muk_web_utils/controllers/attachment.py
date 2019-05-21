@@ -40,11 +40,15 @@ class AttachmentController(http.Controller):
             'type': 'binary',
             'public': False,
             'temporary': tmp,
-            'mimetype': ufile.mimetype if ufile.mimetype and ufile.mimetype != 'application/octet-stream' else None,
         })
         attachment.generate_access_token()
+        if ufile.mimetype and ufile.mimetype != 'application/octet-stream': 
+            attachment.sudo().write({
+                'mimetype': ufile.mimetype,
+            })
         base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
         result = attachment.read(['name', 'datas_fname', 'mimetype', 'checksum', 'access_token'])[0]
         result['url'] = '%s/web/content/%s?access_token=%s' % (base_url, attachment.id, attachment.access_token)
+        print(result)
         return json.dumps(result)
         
