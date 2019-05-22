@@ -49,6 +49,5 @@ class AttachmentController(http.Controller):
         base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
         result = attachment.read(['name', 'datas_fname', 'mimetype', 'checksum', 'access_token'])[0]
         result['url'] = '%s/web/content/%s?access_token=%s' % (base_url, attachment.id, attachment.access_token)
-        print(result)
         return json.dumps(result)
         
