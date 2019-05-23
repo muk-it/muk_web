@@ -7,20 +7,23 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0-20190128\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 10:05+0000\n"
-"PO-Revision-Date: 2019-03-01 10:05+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2019-05-12 17:18+0000\n"
+"Last-Translator: Manuel Marklo <manuel.marklo@mukit.at>\n"
+"Language-Team: German <http://https://weblate.mukit.at/projects/web-12/"
+"muk_web_theme/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: muk_web_theme
 #. openerp-web
 #: code:addons/muk_web_theme/static/src/xml/apps.xml:25
 #, python-format
 msgid "#menu_id=#{app.menuID}&action_id=#{app.actionID}"
-msgstr ""
+msgstr "#menu_id=#{app.menuID}&action_id=#{app.actionID}"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
@@ -38,33 +41,33 @@ msgstr ""
 #: code:addons/muk_web_theme/static/src/xml/views.xml:26
 #, python-format
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "AppBar"
-msgstr ""
+msgstr "Applikationsleiste"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_company__background_image
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_background_image
 msgid "Apps Menu Background Image"
-msgstr ""
+msgstr "Applikationsmenü Hintergrundbild"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Backend Theme"
-msgstr ""
+msgstr "Backendmotiv"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Brand"
-msgstr ""
+msgstr "Markenzeichen"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__chatter_position
 msgid "Chatter Position"
-msgstr ""
+msgstr "Chatter Position"
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_company
@@ -79,81 +82,81 @@ msgstr "Konfiguration "
 #. module: muk_web_theme
 #: selection:res.users,sidebar_type:0
 msgid "Invisible"
-msgstr ""
+msgstr "Unsichtbar"
 
 #. module: muk_web_theme
 #: selection:res.users,sidebar_type:0
 msgid "Large"
-msgstr ""
+msgstr "Groß"
 
 #. module: muk_web_theme
 #: selection:res.users,chatter_position:0
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Primary"
-msgstr ""
+msgstr "Primär"
 
 #. module: muk_web_theme
 #. openerp-web
 #: code:addons/muk_web_theme/static/src/js/views/search_view.js:34
 #, python-format
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #. module: muk_web_theme
 #. openerp-web
 #: code:addons/muk_web_theme/static/src/xml/apps.xml:42
 #, python-format
 msgid "Search menus..."
-msgstr ""
+msgstr "Suche Menüs..."
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the background image for the apps menu"
-msgstr ""
+msgstr "Setzt das Hintergrundbild für das App-Menü."
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the main theme colors"
-msgstr ""
+msgstr "Legen Sie die Farben des Hauptthemas fest"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__sidebar_type
 msgid "Sidebar Type"
-msgstr ""
+msgstr "Typ der Seitenleiste"
 
 #. module: muk_web_theme
 #: selection:res.users,chatter_position:0
 msgid "Sided"
-msgstr ""
+msgstr "Seitlich"
 
 #. module: muk_web_theme
 #: selection:res.users,sidebar_type:0
 msgid "Small"
-msgstr ""
+msgstr "Klein"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar
 msgid "Theme AppBar Color"
-msgstr ""
+msgstr "Motiv AppBar Farbe"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_brand
 msgid "Theme Brand Color"
-msgstr ""
+msgstr "Motiv Markenfarbe"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_users_preferences
 msgid "Theme Preferences"
-msgstr ""
+msgstr "Motivvorgaben"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_primary
 msgid "Theme Primary Color"
-msgstr ""
+msgstr "Motivhauptfarbe"
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_users
@@ -165,5 +168,4 @@ msgstr "Benutzer"
 #: code:addons/muk_web_theme/static/src/xml/apps.xml:31
 #, python-format
 msgid "fa fa-th"
-msgstr ""
-
+msgstr "fa fa-th"
