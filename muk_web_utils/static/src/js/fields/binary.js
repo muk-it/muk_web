@@ -49,6 +49,12 @@ fields.FieldBinaryFile.include({
     	$wrapper.append(this.$el);
     	this.setElement($wrapper);
     },
+    _renderEdit: function () {
+        this._super.apply(this, arguments);
+        if (this.nodeOptions && this.nodeOptions.accept) {
+        	this.$('input[name="ufile"]').prop("accept", this.nodeOptions.accept);
+        }
+    },
 });
 
 var FieldBinarySize = fields.FieldFloat.extend({

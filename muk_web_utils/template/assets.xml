@@ -36,6 +36,7 @@
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/dropzone.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/module.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/color.scss" />
+			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/binary.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/image.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/copy.scss" />
 			<link rel="stylesheet" type="text/scss" href="/muk_web_utils/static/src/scss/share.scss" />
