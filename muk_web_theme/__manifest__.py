@@ -19,8 +19,8 @@
 {
     "name": "MuK Backend Theme", 
     "summary": "Odoo Community Backend Theme",
-    "version": "12.0.1.5.3",
-    "category": "Themes/Backend",
+    "version": "12.0.1.5.4",
+    "category": "Themes/Backend", 
     "license": "AGPL-3",
     "author": "MuK IT",
     "website": "http://www.mukit.at",
