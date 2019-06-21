@@ -19,7 +19,7 @@
 	
 @mixin mk-full-screen-sections {
     width: 100vw;
-    z-index: 100;
+    z-index: 1002;
     display: flex;
     flex-direction: column;
     height: calc(100vh - #{$o-navbar-height});
