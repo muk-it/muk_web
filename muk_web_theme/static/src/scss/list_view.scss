@@ -18,7 +18,7 @@
 **********************************************************************************/
 
 .o_list_view.table {
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .o_list_view.table,
@@ -61,7 +61,6 @@
 }
 
 .o_list_view tfoot {
-    background-color: $o-brand-odoo;
     color: white;
     cursor: default;
     font-weight: normal;
@@ -72,11 +71,14 @@
 	    overflow-x: initial;
 	    > .o_list_view {
 	        thead, thead tr:nth-child(1) th {
+	        	border-bottom: solid 1px gray('300');
+	    		background-color: white;
 	            position: sticky;
 	            z-index: 1;
 	            top: 0;
 	        }
 	        tfoot, tfoot tr:nth-child(1) td {
+    			background-color: $o-list-footer-bg-color;
 	            position: sticky;
 	            bottom: 0;
 	        }
