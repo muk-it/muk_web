@@ -56,3 +56,13 @@ $mk-brand-gradient: linear-gradient(to right bottom, $mk-brand-gradient-start, $
 .o_content, .modal-content {
     max-width: 100%;
 }
+
+//----------------------------------------------------------
+// Tooltips
+//----------------------------------------------------------
+
+.o_tooltip {
+  &.o_animated {
+    display: none;
+  }
+}
