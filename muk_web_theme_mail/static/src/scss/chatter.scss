@@ -47,7 +47,8 @@
                 flex-wrap: wrap-reverse;
                	margin-top: $grid-gutter-width*  0.25;
                 > .o_topbar_right_area {
-                    max-width: 100%; 
+                    max-width: 100%;    
+                    min-width: 100%; 
 				    flex-basis: 100%;
 				    display: flex;
                     flex: 1 0 auto;
@@ -82,7 +83,8 @@
                 background-color: $o-view-background-color;  
                	margin-top: $grid-gutter-width*  0.25;
                 > .o_topbar_right_area {
-                    max-width: 100%; 
+                    max-width: 100%;     
+                    min-width: 100%;
 				    flex-basis: 100%;
 				    display: flex;
                     flex: 1 0 auto;
@@ -91,6 +93,7 @@
                 	border-bottom: 1px solid gray('300');
                     .o_followers {
     					margin-bottom: 0;
+    					min-width: 100px;
                     }
             	}
                 > .o_active {
