@@ -33,6 +33,43 @@
 *
 **********************************************************************************/
 
+.o_form_view {
+	@include media-breakpoint-down(sm) {
+		 .o_chatter {
+            .o_thread_composer {
+                padding-left: $o-mail-thread-avatar-size * 0.5;
+                .o_chatter_avatar {
+                	display: none;
+                }
+            }
+            .o_chatter_topbar {
+                height: auto;
+                flex-wrap: wrap-reverse;
+               	margin-top: $grid-gutter-width*  0.25;
+                > .o_topbar_right_area {
+                    max-width: 100%; 
+				    flex-basis: 100%;
+				    display: flex;
+                    flex: 1 0 auto;
+                    flex-wrap: wrap;   
+                	justify-content: space-between;
+                	border-bottom: 1px solid gray('300');
+                    .o_followers {
+                        display: initial !important;
+    					margin-bottom: 0;
+                    }
+            	}
+                > .o_active {
+               		border-top: none;
+                }
+                .o_chatter_button_attachment {
+               		margin-right: 5px;
+                }
+            }
+        }
+	}
+}
+
 .mk_chatter_position_sided {
 	@include media-breakpoint-up(xxl, $o-extra-grid-breakpoints) {
         .o_form_view:not(.o_form_nosheet) > .o_chatter {
@@ -44,9 +81,29 @@
                 top: -1px;
             }
             .o_chatter_topbar {
-               	.o_followers_title_box {
-                	margin-left: 0;
+            	height: auto;
+                flex-wrap: wrap-reverse;
+               	margin-top: $grid-gutter-width*  0.25;
+                > .o_topbar_right_area {
+                    max-width: 100%; 
+				    flex-basis: 100%;
+				    display: flex;
+                    flex: 1 0 auto;
+                    flex-wrap: wrap;   
+                	justify-content: space-between;
+                	border-bottom: 1px solid gray('300');
+                    .o_followers {
+                        display: initial !important;
+    					margin-bottom: 0;
+                    }
+            	}
+                > .o_active {
+               		border-top: none;
                 }
+               	> .btn-link {
+               		border-top: none;
+				    border-bottom: none;
+               	}
                 .o_chatter_button_attachment {
                		margin-right: 5px;
                 }
@@ -56,9 +113,10 @@
                	}
             }
             .o_thread_composer {
+            	border: 1px solid gray('300');
                 top: $o-statusbar-height;
                 z-index: 1;
             }
         }
-    }
+    } 
 }
