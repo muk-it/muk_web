@@ -65,6 +65,7 @@
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/fields/status.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/search_view.js" />
 			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/form_renderer.js" />
+			<script type="text/javascript" src="/muk_web_theme/static/src/js/views/list_renderer.js" />
 		</xpath>
 	</template>
 	
