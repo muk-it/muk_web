@@ -28,13 +28,39 @@
             box-shadow: 0 5px 20px -15px black;
             max-width: calc(100% - #{$o-horizontal-padding*2});
         }
-       	.oe_button_box {
+        .o_form_statusbar {
+            position: sticky;
+            z-index: 1;
+            top: 0;
+        }
+        .oe_button_box {
         	.btn.oe_stat_button > .o_button_icon {
         		color: $o-brand-odoo; 
         	}
         	.btn.oe_stat_button > .o_stat_info {
         		padding-right: 3px; 
         	}
+		    &, & + .oe_avatar {
+		        + .oe_title {
+		            max-width: calc(100% - 420px);
+		            width: initial !important;
+		        }
+		    }
+       	}
+        .oe_title {
+            max-width: 100%;
+            width: initial;
+            
+            span {
+                max-width: 100%;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: initial;
+            }
+            span:active {
+                white-space: normal;
+            }
         }
         .o_notebook {
             .nav-tabs {

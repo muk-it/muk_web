@@ -66,3 +66,20 @@
     cursor: default;
     font-weight: normal;
 }
+
+.o_content, .modal-content {
+	 > div > .table-responsive {
+	    overflow-x: initial;
+	    > .o_list_view {
+	        thead, thead tr:nth-child(1) th {
+	            position: sticky;
+	            z-index: 1;
+	            top: 0;
+	        }
+	        tfoot, tfoot tr:nth-child(1) td {
+	            position: sticky;
+	            bottom: 0;
+	        }
+	    }
+	}
+}
