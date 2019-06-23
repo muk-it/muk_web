@@ -33,8 +33,9 @@ AppsMenu.include({
     events: _.extend({}, AppsMenu.prototype.events, {
         "keydown .mk_search_input input": "_onSearchResultsNavigate",
         "click .mk_menu_search_result": "_onSearchResultChosen",
-        "shown.bs.dropdown": "_onMenuShow",
-        "hidden.bs.dropdown": "_onMenuHide",
+        "shown.bs.dropdown": "_onMenuShown",
+        "hidden.bs.dropdown": "_onMenuHidden",
+        "hide.bs.dropdown": "_onMenuHide",
     }),
     init: function (parent, menuData) {
         this._super.apply(this, arguments);
@@ -53,48 +54,11 @@ AppsMenu.include({
         this.$search_results = this.$(".mk_search_results");
         return this._super.apply(this, arguments);
     },
-    _onAppsMenuItemClicked: function (event) {
-    	this._super.apply(this, arguments);
-    	event.preventDefault();
-    },
-    _findNames: function (memo, menu) {
-        if (menu.action) {
-            var key = menu.parent_id ? menu.parent_id[1] + "/" : "";
-            memo[key + menu.name] = menu;
-        }
-        if (menu.children.length) {
-            _.reduce(menu.children, this._findNames.bind(this), memo);
-        }
-        return memo;
-    },
-    _setBackgroundImage: function () {
-    	var url = session.url('/web/image', {
-            model: 'res.company',
-            id: session.company_id,
-            field: 'background_image',
-        });
-        this.$('.dropdown-menu').css({
-            "background-size": "cover",
-            "background-image": "url(" + url + ")"
-        });
-        if (session.muk_web_theme_background_blend_mode) {
-        	this.$('.o-app-name').css({
-        		"mix-blend-mode": session.muk_web_theme_background_blend_mode,
-        	});
-        }
-    },
     _menuInfo: function (key) {
         var original = this._searchableMenus[key];
         return _.extend({
             action_id: parseInt(original.action.split(',')[1], 10),
         }, original);
-    },
-    _onMenuShow: function(event) {
-    	this._searchFocus();
-    },
-    _onMenuHide: function(event) {
-    	this._searchReset();
-    	
     },
     _searchFocus: function () {
         if (!config.device.isMobile) {
@@ -187,6 +151,45 @@ AppsMenu.include({
                 top: this.$search_results.height() * -0.5,
             },
         });
+    },
+    _onAppsMenuItemClicked: function (event) {
+    	this._super.apply(this, arguments);
+    	event.preventDefault();
+    },
+    _findNames: function (memo, menu) {
+        if (menu.action) {
+            var key = menu.parent_id ? menu.parent_id[1] + "/" : "";
+            memo[key + menu.name] = menu;
+        }
+        if (menu.children.length) {
+            _.reduce(menu.children, this._findNames.bind(this), memo);
+        }
+        return memo;
+    },
+    _setBackgroundImage: function () {
+    	var url = session.url('/web/image', {
+            model: 'res.company',
+            id: session.company_id,
+            field: 'background_image',
+        });
+        this.$('.dropdown-menu').css({
+            "background-size": "cover",
+            "background-image": "url(" + url + ")"
+        });
+        if (session.muk_web_theme_background_blend_mode) {
+        	this.$('.o-app-name').css({
+        		"mix-blend-mode": session.muk_web_theme_background_blend_mode,
+        	});
+        }
+    },
+    _onMenuShown: function(event) {
+    	this._searchFocus();
+    },
+    _onMenuHidden: function(event) {
+    	this._searchReset();
+    },
+    _onMenuHide: function(event) {
+    	return $('.oe_wait').length === 0 && !this.$('input').is(':focus');
     },
 });
 

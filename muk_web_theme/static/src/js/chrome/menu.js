@@ -34,6 +34,7 @@ Menu.include({
     	"click .mk_menu_mobile_section": "_onMobileSectionClick",
         "click .o_menu_sections [role=menuitem]": "_hideMobileSubmenus",
         "show.bs.dropdown .o_menu_systray, .o_menu_apps": "_hideMobileSubmenus",
+        "hide.bs.dropdown .o_menu_sections": "_hideMenuSection",
     }),
     menusTemplate: config.device.isMobile ? 
     		'muk_web_theme.MobileMenu.sections' : Menu.prototype.menusTemplate,
@@ -46,9 +47,13 @@ Menu.include({
         return this._super.apply(this, arguments);
     },
     _hideMobileSubmenus: function () {
-        if (this.$menu_toggle.is(":visible") && this.$section_placeholder.is(":visible")) {
+        if (this.$menu_toggle.is(":visible") && $('.oe_wait').length === 0 && 
+        		this.$section_placeholder.is(":visible")) {
             this.$section_placeholder.collapse("hide");
         }
+    },
+    _hideMenuSection: function () {
+        return $('.oe_wait').length === 0;
     },
     _updateMenuBrand: function () {
         if (!config.device.isMobile) {
