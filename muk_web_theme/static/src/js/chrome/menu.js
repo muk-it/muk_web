@@ -31,6 +31,7 @@ var QWeb = core.qweb;
 
 Menu.include({
     events: _.extend({}, Menu.prototype.events, {
+    	"click .o_menu_apps a[data-toggle=dropdown]": "_onAppsMenuClick",
     	"click .mk_menu_mobile_section": "_onMobileSectionClick",
         "click .o_menu_sections [role=menuitem]": "_hideMobileSubmenus",
         "show.bs.dropdown .o_menu_systray, .o_menu_apps": "_hideMobileSubmenus",
@@ -58,6 +59,18 @@ Menu.include({
     _updateMenuBrand: function () {
         if (!config.device.isMobile) {
             return this._super.apply(this, arguments);
+        }
+    },
+    _onAppsMenuClick: function(event, checkedCanBeRemoved) {
+    	var action_manager = this.getParent().action_manager;
+    	var controller = action_manager.getCurrentController();
+    	if (controller && !checkedCanBeRemoved) {
+    		controller.widget.canBeRemoved().done(function () {
+    			$(event.currentTarget).trigger('click', [true]);
+    			$(event.currentTarget).off('.bs.dropdown');
+            });
+        	event.stopPropagation();
+        	event.preventDefault();
         }
     },
     _onMobileSectionClick: function (event) {
