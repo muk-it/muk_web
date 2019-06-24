@@ -21,7 +21,7 @@
     "summary": "Odoo Community Backend Theme",
     "version": "12.0.1.5.13",
     "category": "Themes/Backend", 
-    "license": "AGPL-3",
+    "license": "AGPL-3", 
     "author": "MuK IT",
     "website": "http://www.mukit.at",
     'live_test_url': 'https://mukit.at/r/SgN',

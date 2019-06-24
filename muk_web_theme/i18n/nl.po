@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0-20190128\n"
+"Project-Id-Version: Odoo Server 12.0-20190522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 10:06+0000\n"
-"PO-Revision-Date: 2019-03-01 10:06+0000\n"
+"POT-Creation-Date: 2019-06-24 22:01+0000\n"
+"PO-Revision-Date: 2019-06-24 22:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,16 @@ msgstr ""
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Default Preferences</span>"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Menu Colors</span>"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Theme Colors</span>"
 msgstr ""
 
@@ -41,8 +51,27 @@ msgid "Actions"
 msgstr ""
 
 #. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:28
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
+#, python-format
+msgid "Alt"
+msgstr ""
+
+#. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
-msgid "AppBar"
+msgid "Apps Blend"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Apps Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_company__background_blend_mode
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_background_blend_mode
+msgid "Apps Menu Background Blend Mode"
 msgstr ""
 
 #. module: muk_web_theme
@@ -58,12 +87,39 @@ msgstr ""
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Background"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Brand"
 msgstr ""
 
 #. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Chatter"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_company__default_chatter_preference
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_default_chatter_preference
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__chatter_position
 msgid "Chatter Position"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Color-burn"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Color-dodge"
 msgstr ""
 
 #. module: muk_web_theme
@@ -77,23 +133,137 @@ msgid "Config Settings"
 msgstr "Configuratie instellingen"
 
 #. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
+#, python-format
+msgid "Control"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:47
+#: code:addons/muk_web_theme/static/src/xml/views.xml:68
+#, python-format
+msgid "Create"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Darken"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Difference"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:59
+#: code:addons/muk_web_theme/static/src/xml/views.xml:82
+#, python-format
+msgid "Discard"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:41
+#, python-format
+msgid "Edit"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Exclusion"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model,name:muk_web_theme.model_ir_http
+msgid "HTTP Routing"
+msgstr "HTTP routing"
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Hard-light"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Hue"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,default_sidebar_preference:0
 #: selection:res.users,sidebar_type:0
 msgid "Invisible"
 msgstr ""
 
 #. module: muk_web_theme
+#: selection:res.company,default_sidebar_preference:0
 #: selection:res.users,sidebar_type:0
 msgid "Large"
 msgstr ""
 
 #. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Lighten"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Luminosity"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Menu Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Multiply"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+#: selection:res.company,default_chatter_preference:0
 #: selection:res.users,chatter_position:0
 msgid "Normal"
 msgstr ""
 
 #. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:26
+#, python-format
+msgid "Open the apps menu"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Overlay"
+msgstr ""
+
+#. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Primary"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Saturation"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:53
+#: code:addons/muk_web_theme/static/src/xml/views.xml:75
+#, python-format
+msgid "Save"
+msgstr ""
+
+#. module: muk_web_theme
+#: selection:res.company,background_blend_mode:0
+msgid "Screen"
 msgstr ""
 
 #. module: muk_web_theme
@@ -117,32 +287,61 @@ msgstr ""
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Set the default theme preferences"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Set the main menu colors"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the main theme colors"
 msgstr ""
 
 #. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Sidebar"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_company__default_sidebar_preference
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_default_sidebar_preference
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__sidebar_type
 msgid "Sidebar Type"
 msgstr ""
 
 #. module: muk_web_theme
+#: selection:res.company,default_chatter_preference:0
 #: selection:res.users,chatter_position:0
 msgid "Sided"
 msgstr ""
 
 #. module: muk_web_theme
+#: selection:res.company,default_sidebar_preference:0
 #: selection:res.users,sidebar_type:0
 msgid "Small"
 msgstr ""
 
 #. module: muk_web_theme
-#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar_background
+msgid "Theme AppBar Background"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar_color
 msgid "Theme AppBar Color"
 msgstr ""
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_brand
 msgid "Theme Brand Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_menu
+msgid "Theme Menu Color"
 msgstr ""
 
 #. module: muk_web_theme
