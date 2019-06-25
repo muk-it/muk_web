@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0-20190522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 13:43+0000\n"
-"PO-Revision-Date: 2019-06-25 13:43+0000\n"
+"POT-Creation-Date: 2019-06-25 13:44+0000\n"
+"PO-Revision-Date: 2019-06-25 13:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,12 +20,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__action_id
 #, python-format
 msgid "Action"
-msgstr ""
+msgstr "Actie"
 
 #. module: muk_web_client_notification
 #: model_terms:ir.ui.view,arch_db:muk_web_client_notification.send_notifications_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #. module: muk_web_client_notification
 #: code:addons/muk_web_client_notification/wizards/send_notifications.py:86
@@ -37,22 +37,22 @@ msgstr ""
 #. module: muk_web_client_notification
 #: model:ir.model,name:muk_web_client_notification.model_bus_bus
 msgid "Communication Bus"
-msgstr ""
+msgstr "Communicatiebus"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__id
@@ -79,22 +79,22 @@ msgstr ""
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__message
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 #. module: muk_web_client_notification
 #: model_terms:ir.ui.view,arch_db:muk_web_client_notification.res_config_settings_view_form
@@ -120,18 +120,18 @@ msgstr ""
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__title
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__type
 msgid "Type"
-msgstr ""
+msgstr "Soort"
 
 #. module: muk_web_client_notification
 #: model:ir.model,name:muk_web_client_notification.model_res_users
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__user_ids
 msgid "Users"
-msgstr ""
+msgstr "Gebruikers"
 
 #. module: muk_web_client_notification
 #: code:addons/muk_web_client_notification/models/res_users.py:61

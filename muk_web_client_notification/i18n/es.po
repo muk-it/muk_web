@@ -20,12 +20,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__action_id
 #, python-format
 msgid "Action"
-msgstr ""
+msgstr "Acción"
 
 #. module: muk_web_client_notification
 #: model_terms:ir.ui.view,arch_db:muk_web_client_notification.send_notifications_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: muk_web_client_notification
 #: code:addons/muk_web_client_notification/wizards/send_notifications.py:86
@@ -42,17 +42,17 @@ msgstr ""
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__id
@@ -79,22 +79,22 @@ msgstr ""
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__message
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #. module: muk_web_client_notification
 #: model_terms:ir.ui.view,arch_db:muk_web_client_notification.res_config_settings_view_form
@@ -120,18 +120,18 @@ msgstr ""
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__title
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #. module: muk_web_client_notification
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__type
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: muk_web_client_notification
 #: model:ir.model,name:muk_web_client_notification.model_res_users
 #: model:ir.model.fields,field_description:muk_web_client_notification.field_muk_web_client_notification_send_notifications__user_ids
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #. module: muk_web_client_notification
 #: code:addons/muk_web_client_notification/models/res_users.py:61
