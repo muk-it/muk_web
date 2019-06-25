@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0-20190522\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 13:38+0000\n"
-"PO-Revision-Date: 2019-06-25 13:38+0000\n"
+"POT-Creation-Date: 2019-06-25 13:39+0000\n"
+"PO-Revision-Date: 2019-06-25 13:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. module: muk_web_client
 #: model_terms:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
 msgid "<strong>Save</strong> this page and come back here to set up the feature."
-msgstr ""
+msgstr "<strong>Bewaar</strong> deze pagina en kom terug naar deze pagina om de optie op te zetten."
 
 #. module: muk_web_client
 #: model_terms:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
@@ -28,7 +28,7 @@ msgstr ""
 #. module: muk_web_client
 #: model:ir.model,name:muk_web_client.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Configuratie instellingen"
 
 #. module: muk_web_client
 #: model_terms:ir.ui.view,arch_db:muk_web_client.res_config_settings_view_form
