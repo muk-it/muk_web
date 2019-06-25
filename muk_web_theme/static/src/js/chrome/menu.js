@@ -35,26 +35,32 @@ Menu.include({
     	"click .mk_menu_mobile_section": "_onMobileSectionClick",
         "click .o_menu_sections [role=menuitem]": "_hideMobileSubmenus",
         "show.bs.dropdown .o_menu_systray, .o_menu_apps": "_hideMobileSubmenus",
-        "hide.bs.dropdown .o_menu_sections": "_hideMenuSection",
     }),
     menusTemplate: config.device.isMobile ? 
     		'muk_web_theme.MobileMenu.sections' : Menu.prototype.menusTemplate,
     start: function () {
+    	var res = this._super.apply(this, arguments);
         this.$menu_toggle = this.$(".mk_menu_sections_toggle");
         this.$menu_apps_sidebar = this.$('.mk_apps_sidebar_panel');
         this._appsBar = new AppsBar(this, this.menu_data);
         this._appsBar.appendTo(this.$menu_apps_sidebar);
         this.$menu_apps_sidebar.renderScrollBar();
-        return this._super.apply(this, arguments);
+        if (config.device.isMobile) {
+            var menu_ids = _.keys(this.$menu_sections);
+            for (var i = 0; i < menu_ids.length; i++) {
+            	var $section = this.$menu_sections[menu_ids[i]];
+            	$section.on('click', 'a[data-menu]', this, function(ev) {
+                	ev.stopPropagation();
+                });
+            }
+        } 
+        return res;
     },
     _hideMobileSubmenus: function () {
         if (this.$menu_toggle.is(":visible") && $('.oe_wait').length === 0 && 
         		this.$section_placeholder.is(":visible")) {
             this.$section_placeholder.collapse("hide");
         }
-    },
-    _hideMenuSection: function () {
-        return $('.oe_wait').length === 0;
     },
     _updateMenuBrand: function () {
         if (!config.device.isMobile) {

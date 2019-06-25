@@ -35,7 +35,6 @@ ActionManager.include({
     _hideMenusByAction: function (action) {
         var unique_selection = '[data-action-id=' + action.id + ']';
         $(_.str.sprintf('.o_menu_apps .dropdown:has(.dropdown-menu.show:has(%s)) > a', unique_selection)).dropdown('toggle');
-        $(_.str.sprintf('.o_menu_sections li.show:has(%s) .dropdown-toggle', unique_selection)).dropdown('toggle');
         $(_.str.sprintf('.o_menu_sections.show:has(%s)', unique_selection)).collapse('hide');
     },
 });

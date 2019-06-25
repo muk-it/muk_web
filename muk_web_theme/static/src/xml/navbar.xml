@@ -49,7 +49,7 @@
             </li>
 	    </t>
 	    <t t-else="">
-	   		<li class="mk_menu_mobile_section">
+	   		<li class="mk_menu_mobile_section clearfix">
                 <a role="button" href="#" t-attf-class="dropdown-toggle o-no-caret o_menu_header_lvl_#{depth}" 
 						t-att-data-menu-xmlid="menu.xmlid" data-toggle="dropdown" aria-expanded="false">
                     <span>
