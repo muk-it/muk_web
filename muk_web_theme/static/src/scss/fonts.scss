@@ -20,15 +20,15 @@
 $font-path-noto: '../fonts/Noto';
 $font-path-roboto: '../fonts/Roboto';
 
-@mixin mk-font-face($name, $weight, $style) {
+@mixin mk-roboto-font-face($name, $weight, $style) {
 	@font-face {
         font-family: 'Noto';
-        src: url('#{$font-path-noto}/Roboto-#{$name}.eot');
+        src: url('#{$font-path-noto}/Noto-#{$name}.eot');
         src: local('Noto #{$name}'), local('Noto-#{$name}'),
-        	 url('#{$font-path-noto}/Roboto-#{$name}.eot?#iefix') format('embedded-opentype'),
-             url('#{$font-path-noto}/Roboto-#{$name}.woff') format('woff'),
-             url('#{$font-path-noto}/Roboto-#{$name}.ttf') format('truetype'),
-             url('#{$font-path-noto}/Roboto-#{$name}.svg#Roboto') format('svg');
+        	 url('#{$font-path-noto}/Noto-#{$name}.eot?#iefix') format('embedded-opentype'),
+             url('#{$font-path-noto}/Noto-#{$name}.woff') format('woff'),
+             url('#{$font-path-noto}/Noto-#{$name}.ttf') format('truetype'),
+             url('#{$font-path-noto}/Noto-#{$name}.svg#Noto') format('svg');
         font-weight: $weight;
         font-style: $style;
     }
@@ -45,15 +45,15 @@ $font-path-roboto: '../fonts/Roboto';
     }
 }
 
-@include mk-font-face('Thin', 100, normal);
-@include mk-font-face('ThinItalic', 100, italic);
-@include mk-font-face('Light', 300, normal);
-@include mk-font-face('LightItalic', 300, italic);
-@include mk-font-face('Regular', 400, normal);
-@include mk-font-face('Italic', 400, italic);
-@include mk-font-face('Medium', 500, normal);
-@include mk-font-face('MediumItalic', 500, italic);
-@include mk-font-face('Bold', 700, normal);
-@include mk-font-face('BoldItalic', 700, italic);
-@include mk-font-face('Black', 900, normal);
-@include mk-font-face('BlackItalic', 900, italic);
+@include mk-roboto-font-face('Thin', 100, normal);
+@include mk-roboto-font-face('ThinItalic', 100, italic);
+@include mk-roboto-font-face('Light', 300, normal);
+@include mk-roboto-font-face('LightItalic', 300, italic);
+@include mk-roboto-font-face('Regular', 400, normal);
+@include mk-roboto-font-face('Italic', 400, italic);
+@include mk-roboto-font-face('Medium', 500, normal);
+@include mk-roboto-font-face('MediumItalic', 500, italic);
+@include mk-roboto-font-face('Bold', 700, normal);
+@include mk-roboto-font-face('BoldItalic', 700, italic);
+@include mk-roboto-font-face('Black', 900, normal);
+@include mk-roboto-font-face('BlackItalic', 900, italic);
