@@ -61,6 +61,9 @@
                                     <div class="w-100"></div>
                                 	<label for="theme_color_primary" string="Primary" class="col-3 o_light_label"/>
                                     <field name="theme_color_primary" widget="color" class="oe_inline"/>
+                                    <div class="w-100"></div>
+                                	<label for="theme_color_required" string="Required" class="col-3 o_light_label"/>
+                                    <field name="theme_color_required" widget="color" class="oe_inline"/>
                                 </div>
                             </div>
 	                    </div>

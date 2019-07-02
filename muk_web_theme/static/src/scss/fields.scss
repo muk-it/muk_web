@@ -25,6 +25,6 @@
 
 .o_required_modifier {
     &.o_input, .o_input {
-        background-color: lighten($o-brand-primary, 35%) ! important;
+        background-color: $mk-required-color !important;
     }
 }
