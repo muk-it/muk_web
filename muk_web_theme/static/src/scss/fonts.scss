@@ -24,8 +24,7 @@ $font-path-roboto: '../fonts/Roboto';
 	@font-face {
         font-family: 'Noto';
         src: url('#{$font-path-noto}/Noto-#{$name}.eot');
-        src: local('Noto #{$name}'), local('Noto-#{$name}'),
-        	 url('#{$font-path-noto}/Noto-#{$name}.eot?#iefix') format('embedded-opentype'),
+        src: url('#{$font-path-noto}/Noto-#{$name}.eot?#iefix') format('embedded-opentype'),
              url('#{$font-path-noto}/Noto-#{$name}.woff') format('woff'),
              url('#{$font-path-noto}/Noto-#{$name}.ttf') format('truetype'),
              url('#{$font-path-noto}/Noto-#{$name}.svg#Noto') format('svg');
@@ -35,8 +34,7 @@ $font-path-roboto: '../fonts/Roboto';
     @font-face {
         font-family: 'Roboto';
         src: url('#{$font-path-roboto}/Roboto-#{$name}.eot');
-        src: local('Roboto #{$name}'), local('Roboto-#{$name}'),
-        	 url('#{$font-path-roboto}/Roboto-#{$name}.eot?#iefix') format('embedded-opentype'),
+        src: url('#{$font-path-roboto}/Roboto-#{$name}.eot?#iefix') format('embedded-opentype'),
              url('#{$font-path-roboto}/Roboto-#{$name}.woff') format('woff'),
              url('#{$font-path-roboto}/Roboto-#{$name}.ttf') format('truetype'),
              url('#{$font-path-roboto}/Roboto-#{$name}.svg#Roboto') format('svg');
