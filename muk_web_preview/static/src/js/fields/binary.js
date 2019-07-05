@@ -49,6 +49,7 @@ fields.FieldBinaryFile.include({
     _onPreviewButtonClick: function(event) {
         var filename_fieldname = this.attrs.filename;
         var last_update =  this.recordData.__last_update;
+        var mimetype = this.recordData['mimetype'] || null;
         var filename = this.recordData[filename_fieldname] || null;
         var unique = last_update && field_utils.format.datetime(last_update);
         var binary_url = session.url('/web/content', {
@@ -65,7 +66,7 @@ fields.FieldBinaryFile.include({
     		this, [{
     			url: binary_url,
     			filename: filename,
-    			mimetype: undefined,
+    			mimetype: mimetype,
     		}], 0
         );
         preview.appendTo($('body'));
