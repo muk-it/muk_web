@@ -34,6 +34,14 @@ class ResConfigSettings(models.TransientModel):
     # Database
     #----------------------------------------------------------
     
+    module_muk_web_theme_branding = fields.Boolean(
+        string="Theme Branding",
+        help="Customize the theme according to your needs.")
+    
+    module_muk_web_theme_website = fields.Boolean(
+        string="Theme Website",
+        help="Add theme styled website navigation.")
+    
     theme_background_image = fields.Binary(
         related="company_id.background_image",
         readonly=False,
