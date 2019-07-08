@@ -34,6 +34,10 @@ class ResConfigSettings(models.TransientModel):
     # Database
     #----------------------------------------------------------
     
+    module_muk_web_theme_mail = fields.Boolean(
+        string="Theme Mail",
+        help="Optimizes the mail chatter for the theme.")
+    
     module_muk_web_theme_branding = fields.Boolean(
         string="Theme Branding",
         help="Customize the theme according to your needs.")
@@ -42,10 +46,13 @@ class ResConfigSettings(models.TransientModel):
         string="Theme Website",
         help="Add theme styled website navigation.")
     
+    module_muk_web_theme_mobile = fields.Boolean(
+        string="Theme Mobile",
+        help="Allow Odoo to be used as a PWA app.")
+    
     theme_background_image = fields.Binary(
         related="company_id.background_image",
-        readonly=False,
-        required=True)
+        readonly=False)
     
     theme_background_blend_mode = fields.Selection(
         related="company_id.background_blend_mode",
