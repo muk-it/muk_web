@@ -21,7 +21,7 @@
     .o_control_panel {
     	padding-left: $o-horizontal-padding /2;
     	padding-right: $o-horizontal-padding /2;
-        .breadcrumb, .o_cp_buttons, .o_cp_left, .o_cp_right, .o_cp_searchview {
+        .breadcrumb, .o_cp_left, .o_cp_right, .o_cp_searchview {
             flex: 1 1 100%;
             @include media-breakpoint-up(md) {
                 flex-basis: 50%;
@@ -53,7 +53,10 @@
         }
         .o_cp_left {
 			flex-basis: 50%;
-            white-space: nowrap;       
+            white-space: nowrap;      
+           	.o_cp_buttons, .o_cp_sidebar {
+            	flex: 1 1 100%;
+           	}
 		}
        	.o_cp_right {
             flex-basis: 10%;
