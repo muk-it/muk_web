@@ -121,6 +121,12 @@
                 display: none;
             }
         }
+        .o_cp_buttons {
+            width: 100%;
+            div, .o-kanban-button-new {
+                width: 100%;
+            }
+        }
 	}
 	@include media-breakpoint-down(xs) {
 	    .oe_button_box {

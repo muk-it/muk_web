@@ -16,22 +16,36 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 **********************************************************************************/
-	
-.o_field_widget {
-    &.o_field_many2one .o_external_button {
-        color: $o-brand-odoo
-    }
-}
 
-.o_required_modifier {
-    &.o_input, .o_input {
-        background-color: $mk-required-color !important;
-    }
-}
+odoo.define('muk_web_theme.FormView', function (require) {
+"use strict";
 
-@include media-breakpoint-down(sm) {
-    .o_form_view .mk_mobile_add {
-		margin-left: 0 !important;
-        margin-bottom: 10px !important;
-	}
-}
+var dom = require('web.dom');
+var core = require('web.core');
+var config = require("web.config");
+
+var FormView = require('web.FormView');
+var QuickCreateFormView = require('web.QuickCreateFormView');
+
+var _t = core._t;
+var QWeb = core.qweb;
+
+FormView.include({
+    init: function () {
+        this._super.apply(this, arguments);
+        if (config.device.isMobile) {
+            this.controllerParams.disableAutofocus = true;
+        }
+    },
+});
+
+QuickCreateFormView.include({
+    init: function () {
+        this._super.apply(this, arguments);
+        if (config.device.isMobile) {
+            this.controllerParams.disableAutofocus = true;
+        }
+    },
+});
+
+});

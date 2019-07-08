@@ -17,7 +17,7 @@
 *
 **********************************************************************************/
 
-odoo.define('muk_web_theme.FieldStatus', function (require) {
+odoo.define('muk_web_theme.RelationalFields', function (require) {
 "use strict";
 
 var core = require('web.core');
@@ -36,6 +36,30 @@ fields.FieldStatus.include({
             });
         }
     },
+});
+
+fields.FieldOne2Many.include({
+    _renderButtons: function () {
+        var result = this._super.apply(this, arguments);
+        if (config.device.isMobile && this.$buttons) {
+        	var $buttons = this.$buttons.find('.btn-secondary');
+        	$buttons.addClass('btn-primary mk_mobile_add');
+            $buttons.removeClass('btn-secondary');
+        }
+        return result;
+    }
+});
+
+fields.FieldMany2Many.include({
+    _renderButtons: function () {
+        var result = this._super.apply(this, arguments);
+        if (config.device.isMobile && this.$buttons) {
+        	var $buttons = this.$buttons.find('.btn-secondary');
+        	$buttons.addClass('btn-primary mk_mobile_add');
+            $buttons.removeClass('btn-secondary');
+        }
+        return result;
+    }
 });
 
 });
