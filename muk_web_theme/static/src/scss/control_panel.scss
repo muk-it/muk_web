@@ -114,3 +114,18 @@
         }
     }
 }
+
+.o_modal_header {
+	.o_searchview, .o_pager {
+		display: inline-block;
+	}
+	.o_searchview {
+		padding: 0;
+		border: none;
+		button {
+    		background-color: $white;
+			border-color: $border-color;
+			color: $gray-600;
+		}
+	}
+}
