@@ -17,7 +17,7 @@
 *
 **********************************************************************************/
 
-odoo.define('muk_web_theme.RelationalFields', function (require) {
+odoo.define('muk_web_theme.relational_fields', function (require) {
 "use strict";
 
 var core = require('web.core');
