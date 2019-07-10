@@ -36,21 +36,7 @@ BusService.include({
         this._super(title, content, callback);
     },
     _sendNativeNotification: function (title, content, callback) {
-        var notification = new Notification(title, {
-        	body: content,
-        	icon: '/web/binary/company_logo?company_id=' + session.company_id
-        });
-        notification.onclick = function () {
-            window.focus();
-            if (this.cancel) {
-                this.cancel();
-            } else if (this.close) {
-                this.close();
-            }
-            if (callback) {
-                callback();
-            }
-        };
+    	this.do_notify(title, content); // Android Issue
     },
 });
 
