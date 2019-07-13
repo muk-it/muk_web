@@ -25,9 +25,6 @@
 	    <field name="mode">primary</field>
 	    <field name="inherit_id" ref="muk_converter.view_converter_convert_form"/>
 	    <field name="arch" type="xml">
-	    	<xpath expr="//field[@name='format']" position="attributes">
-	        	<attribute name="readonly">1</attribute>
-	        </xpath>
 	        <xpath expr="//field[@name='input_name']" position="attributes">
 	        	<attribute name="readonly">1</attribute>
 	        </xpath>
