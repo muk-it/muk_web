@@ -35,12 +35,12 @@ class ExportController(http.Controller):
     
     @http.route('/web/export_formats', type='json', auth="user")
     def export_formats(self, **kw):
-        return converter.imports()
+        return converter.formats()
     
     @http.route('/web/check_export', type='json', auth="user")
     def check_export(self, filename, **kw):
         try:
-            if os.path.splitext(filename)[1][1:].strip().lower() in converter.imports():
+            if os.path.splitext(filename)[1][1:].strip().lower() in converter.formats():
                 return True
         except Exception:
             return False
