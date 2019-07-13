@@ -1,6 +1,9 @@
 ###################################################################################
-# 
-#    Copyright (C) 2017 MuK IT GmbH
+#
+#    Copyright (c) 2017-2019 MuK IT GmbH.
+#
+#    This file is part of MuK Web Refresh 
+#    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -13,14 +16,14 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###################################################################################
 
 {
     "name": "MuK Web Refresh",
     "summary": """Web Client Refresh""",
-    "version": "12.0.2.2.2",
+    "version": "12.0.3.0.0",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",

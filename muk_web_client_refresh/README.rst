@@ -1,5 +1,5 @@
 ======================
-MuK Web Client Refresh
+MuK Web Client Refresh 
 ======================
 
 Adds a channel called "refresh" to the web client, which can be used to trigger
