@@ -1,5 +1,5 @@
 ==============
-MuK Web Client
+MuK Web Client 
 ==============
 
 Extends the Odoo web client to include bus channels. Channels can be created to
