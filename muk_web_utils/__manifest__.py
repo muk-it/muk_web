@@ -20,7 +20,7 @@
 {
     "name": "MuK Web Utils",
     "summary": """Utility Features""",
-    "version": "11.0.2.0.17",
+    "version": "11.0.2.0.19",
     "category": "Extra Tools",
     "license": "AGPL-3",
     "website": "http://www.mukit.at",
@@ -28,6 +28,7 @@
     "author": "MuK IT",
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
+        "Kerrim Abd El-Hamed <kerrim.abdelhamed@mukit.at>",
     ],
     "depends": [
         "web",
