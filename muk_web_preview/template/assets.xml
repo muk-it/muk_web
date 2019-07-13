@@ -28,6 +28,7 @@
 			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/variables.scss" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/sidebar.scss" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/binary.scss" />
+			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/image.scss" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/content.scss" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/pdf.scss" />
 			<link rel="stylesheet" href="/muk_web_preview/static/src/scss/loading.scss" />
@@ -43,6 +44,7 @@
 			<script type="text/javascript" src="/muk_web_preview/static/src/js/views/form_renderer.js"/>
 			<script type="text/javascript" src="/muk_web_preview/static/src/js/chrome/sidebar.js"/>
 			<script type="text/javascript" src="/muk_web_preview/static/src/js/fields/binary.js"/>
+			<script type="text/javascript" src="/muk_web_preview/static/src/js/fields/image.js"/>
 			<script type="text/javascript" src="/muk_web_preview/static/src/js/preview/pdf.js"/>
 			<script type="text/javascript" src="/muk_web_preview/static/src/js/preview/unsupported.js"/>
 		</xpath>
