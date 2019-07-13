@@ -117,19 +117,6 @@ var ExcelHandler = PreviewHandler.BaseHandler.extend({
 		    			var $pane = $('<div/>');
 		    			$pane.addClass('tab-pane table-container');
 		    			$pane.attr('id', 'sheet-' + index);
-					var maximum_arrs = 1;
-					sheet.forEach(function (arr) {
-						if(arr.length>maximum_arrs){
-							maximum_arrs = arr.length;
-						}
-					});
-					sheet.forEach(function (arr) {
-						if(arr.length<maximum_arrs){
-							for (var i = arr.length; i < maximum_arrs; i++) {
-								arr.push("");
-							}
-						}
-					});
 		    			$pane.handsontable({
 						    data: sheet,
 						    rowHeaders: true,

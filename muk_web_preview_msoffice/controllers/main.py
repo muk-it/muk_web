@@ -50,7 +50,7 @@ class MSOfficeParserController(http.Controller):
         else:
             try:
                 filename = "%s%s" % (uuid.uuid4(), mimetypes.guess_extension(headers['content-type']))
-                output = request.env['muk_converter.converter'].convert(filename, content)
+                output = request.env['muk_converter.converter'].convert_raw(filename, content)
                 return self._make_pdf_response(output, "%s.pdf" % filename)
             except Exception:
                 _logger.exception("Error while convert the file.")
