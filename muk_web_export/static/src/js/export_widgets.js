@@ -62,10 +62,10 @@ fields.FieldBinaryFile.include({
 	    	$button.click(function(e) {
 	            e.preventDefault();
 	    		e.stopPropagation();
-	    		var value = self.get('value');
+	    		var value = self.value;
 	            var filename_fieldname = self.attrs.filename;
 	            var filename = self.recordData[filename_fieldname] || null;
-	            var url = '/web/content?' + $.param({
+				var url = '/web/content?' + $.param({
 	                'model': self.model,
 	                'id': self.res_id,
 	                'field': self.name,
@@ -74,6 +74,7 @@ fields.FieldBinaryFile.include({
 	                'download': true,
 	                'data': utils.is_bin_size(value) ? null : value,
 	            });
+
 	            self.do_action({
             		'type': 'ir.actions.act_window',
  	                'res_model': "muk_converter.convert",
@@ -83,8 +84,8 @@ fields.FieldBinaryFile.include({
 	                'view_mode': 'form',
 	                'target': 'new',
 	                'context': {
-	                	'default_type': "url",
-	                	'default_input_url': url,
+	                	'default_input_url': utils.is_bin_size(value) ? url : null,
+	                	'default_input_binary': utils.is_bin_size(value) ? null : value,
 	                	'default_input_name': filename,
 	                },
                 }); 
