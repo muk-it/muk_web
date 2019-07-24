@@ -1,4 +1,4 @@
-/**********************************************************************************
+ /**********************************************************************************
 *
 *    Copyright (c) 2017-2019 MuK IT GmbH.
 *
@@ -100,6 +100,10 @@
                 background-color: $o-view-background-color; 
                 z-index: 1; 
                 top: 68px;
+                .o_composer_mention_dropdown > .dropdown-menu.show {
+                	top: 100%;
+    				bottom: auto;
+                }
             }
         }
     } 

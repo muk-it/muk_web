@@ -22,7 +22,7 @@
 {
     "name": "MuK Backend Theme Mail", 
     "summary": "Backend Theme Mail",
-    "version": "12.0.2.0.0",
+    "version": "12.0.2.0.1",
     'category': 'Extra Tools',
     "license": "LGPL-3",
     "author": "MuK IT",
