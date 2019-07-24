@@ -38,36 +38,17 @@ var _t = core._t;
 var PreviewContentImage = AbstractPreviewContent.extend({
 	template: "muk_preview.PreviewContentImage",    
 	cssLibs: [
-		'/muk_web_preview_image/static/lib/viewer/viewer.css',
     ],
     jsLibs: [
-        '/muk_web_preview_image/static/lib/viewer/viewer.js',
-        '/muk_web_preview_image/static/lib/viewer/jquery-viewer.js',
     ],
     renderPreviewContent: function() {
-    	this.$('img').viewer({
-			backdrop: false,
-			button: false,
-			navbar: false,
-			title: false,
-			inline: true,
-			toolbar: {
-			    zoomIn: 1,
-			    zoomOut: 1,
-			    oneToOne: 1,
-			    reset: 1,
-			    prev: 0,
-			    next: 0,
-			    play: {
-			      show: 1,
-			      size: 'large',
-			    },
-			    rotateLeft: 1,
-			    rotateRight: 1,
-			    flipHorizontal: 1,
-			    flipVertical: 1,
-			},
-		});
+    	this.$('.mk_preview_image').css({
+            "background-size": "contain",
+            "background-repeat": "no-repeat",
+            "background-attachment": "fixed",
+            "background-position": "center",
+            "background-image": "url(" + this.url + ")"
+        });
     },
     downloadable: true,
     printable: true,

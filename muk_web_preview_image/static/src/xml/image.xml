@@ -27,7 +27,6 @@
 	<t t-name="muk_preview.PreviewContentImage">
 		<t t-call="muk_preview.PreviewContent">
 			<div class="mk_preview_image">
-				<img t-att-src="widget.url" t-att-alt="widget.filename" />
 			</div>
 		</t>
 	</t>

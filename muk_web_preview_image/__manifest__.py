@@ -23,7 +23,7 @@
 {
     "name": "MuK Preview Image",
     "summary": """Image Preview""",
-    "version": "12.0.3.0.0",
+    "version": "12.0.3.0.1",
     "category": "Extra Tools",
     "license": "LGPL-3",
     "website": "http://www.mukit.at",

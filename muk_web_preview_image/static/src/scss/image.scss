@@ -23,20 +23,5 @@
 .mk_preview_image {
     width: 100%;
     height: 100%;
-	.viewer-container {
-	    width: 100% ! important;
-	    height: 100% ! important;
-	}
-	img {
-	    display: none;
-	}
-}
-
-@media print {
-	.mk_preview_image {
-		img {
-		    display: block;
-		}
-	}	
 }
 
