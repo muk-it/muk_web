@@ -53,16 +53,12 @@
         .oe_title {
             max-width: 100%;
             width: initial;
-            
-            span {
+            span.o_field_widget {
                 max-width: 100%;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
                 width: initial;
-            }
-            span:active {
-                white-space: normal;
             }
         }
         .o_notebook {

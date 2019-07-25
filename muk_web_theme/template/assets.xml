@@ -59,6 +59,7 @@
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/appsbar.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/control_panel.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/list_view.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/kanban_view.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/form_view.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/fields.scss"/>
             <link rel="stylesheet" type="text/scss" href="/muk_web_theme/static/src/scss/notification.scss"/>
