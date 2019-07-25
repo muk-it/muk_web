@@ -20,7 +20,7 @@
 *
 **********************************************************************************/
 	
-.o_field_widget.o_field_image {
+.o_field_widget.o_field_image .mk_field_image_wrapper:not(.mk_no_preview) {
 	&:hover {
         cursor: zoom-in;
     }

@@ -39,8 +39,14 @@ fields.FieldBinaryImage.include({
 	events: _.extend({}, fields.FieldBinaryImage.prototype.events, {
         'click img': 'onImagePreview',
     }),
+    _render: function () {
+    	this._super.apply(this, arguments);
+    	if (this.nodeOptions.no_preview) {
+    		this.$('.mk_field_image_wrapper').addClass('mk_no_preview');
+    	}
+    },
     onImagePreview: function () {
-        if (this.mode === "readonly") {
+        if (this.mode === "readonly" && !this.nodeOptions.no_preview) {
             var last_update =  this.recordData.__last_update;
             var unique = last_update && field_utils.format.datetime(last_update);
             var binary_url = session.url('/web/content', {
