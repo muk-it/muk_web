@@ -100,7 +100,7 @@ var DropzoneMixin = {
     _dropDropzone: function(event) {
     	if(this._checkDropzoneEvent(event)) {
         	event.preventDefault();
-    		event.stopPropagation();
+//    		event.stopPropagation();
     		this._handleDrop(event);
     	}
     }
