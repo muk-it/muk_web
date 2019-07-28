@@ -43,11 +43,12 @@ class ServerActions(models.Model):
         
     @api.model
     def run_action_refresh_multi(self, action, eval_context={}):
-        record = eval_context.get('record', None)
-        records = eval_context.get('records', None)
-        self.env['bus.bus'].sendone('refresh', {
-            'uid': self.env.uid,
-            'model': action.model_name,
-            'ids': list(set().union(record and record.ids or [], records and records.ids or [])),
-            'create': record and record.exists() and record.create_date == record.write_date,
-        })
+        if not self.env.context.get('refresh_disable', False):
+            record = eval_context.get('record', None)
+            records = eval_context.get('records', None)
+            self.env['bus.bus'].sendone('refresh', {
+                'uid': self.env.uid,
+                'model': action.model_name,
+                'ids': list(set().union(record and record.ids or [], records and records.ids or [])),
+                'create': record and record.exists() and record.create_date == record.write_date,
+            })
