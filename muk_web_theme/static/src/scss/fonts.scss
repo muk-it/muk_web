@@ -26,11 +26,11 @@ $font-path-roboto: '../fonts/Roboto';
 @mixin mk-roboto-font-face($name, $weight, $style) {
 	@font-face {
         font-family: 'Noto';
-        src: url('#{$font-path-noto}/Noto-#{$name}.eot');
-        src: url('#{$font-path-noto}/Noto-#{$name}.eot?#iefix') format('embedded-opentype'),
-             url('#{$font-path-noto}/Noto-#{$name}.woff') format('woff'),
-             url('#{$font-path-noto}/Noto-#{$name}.ttf') format('truetype'),
-             url('#{$font-path-noto}/Noto-#{$name}.svg#Noto') format('svg');
+        src: url('#{$font-path-noto}/NotoSans-#{$name}.eot');
+        src: url('#{$font-path-noto}/NotoSans-#{$name}.eot?#iefix') format('embedded-opentype'),
+             url('#{$font-path-noto}/NotoSans-#{$name}.woff') format('woff'),
+             url('#{$font-path-noto}/NotoSans-#{$name}.ttf') format('truetype'),
+             url('#{$font-path-noto}/NotoSans-#{$name}.svg#Noto') format('svg');
         font-weight: $weight;
         font-style: $style;
     }
