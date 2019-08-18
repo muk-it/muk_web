@@ -44,6 +44,11 @@ fields.FieldDomain.include({
             disable_multiple_selection: true,
         }).open();
     },
+    isValid: function () {
+        return (
+        		this._isValid && (!this.domainSelector || this.domainSelector.isValid())
+        );
+    },
 });
 
 });
