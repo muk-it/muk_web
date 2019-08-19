@@ -71,7 +71,7 @@ var FieldBinarySize = fields.FieldFloat.extend({
 	   	var options = _.extend({},
 	   		this.nodeOptions,
 	   		{ data: this.recordData },
-	   		this.formatOptions,
+	   		this.formatOptions
 	   	);
    		return utils.format['binary_size'](value, this.field, options)
    },
