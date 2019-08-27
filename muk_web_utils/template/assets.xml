@@ -56,6 +56,7 @@
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/core/dialog.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/services/notification_service.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/widgets/notification.js" />
+			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/abstract.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/utils.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/color.js" />
 			<script type="text/javascript" src="/muk_web_utils/static/src/js/fields/image.js" />
