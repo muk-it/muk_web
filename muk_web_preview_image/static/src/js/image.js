@@ -45,7 +45,6 @@ var PreviewContentImage = AbstractPreviewContent.extend({
     	this.$('.mk_preview_image').css({
             "background-size": "contain",
             "background-repeat": "no-repeat",
-            "background-attachment": "fixed",
             "background-position": "center",
             "background-image": "url(" + this.url + ")"
         });
