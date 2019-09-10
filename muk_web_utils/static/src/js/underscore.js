@@ -17,7 +17,7 @@
 *
 **********************************************************************************/
 
-__.mixin({
+_.mixin({
 	memoizeDebounce: function(func, wait, options) {
 		wait = (typeof wait !== 'undefined') ? wait : 0;
 		options = (typeof options !== 'undefined') ? options : {};
