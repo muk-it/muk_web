@@ -80,6 +80,9 @@
 			.mk_apps_sidebar_name {
 				display: none;
 			}
+			.mk_apps_sidebar_icon {
+				margin: 0;
+			}
 		}
 		.o_main {
 			padding-left: $mk-sidebar-small-width;
@@ -98,6 +101,9 @@
 			width: $mk-sidebar-small-width;
 			.mk_apps_sidebar_name {
 				display: none;
+			}
+			.mk_apps_sidebar_icon {
+				margin: 0;
 			}
 		}
 		.o_main {
