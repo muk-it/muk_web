@@ -16,13 +16,13 @@
 #    GNU Lesser General Public License for more details.
 #
 #    You should have received a copy of the GNU Lesser General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>. 
 #
 ###################################################################################
 {
     "name": "MuK Backend Theme", 
     "summary": "Odoo Community Backend Theme",
-    "version": "12.0.2.0.5",
+    "version": "12.0.2.0.6",
     "category": "Themes/Backend", 
     "license": "LGPL-3", 
     "author": "MuK IT",
