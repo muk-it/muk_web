@@ -60,4 +60,5 @@ class Base(models.AbstractModel):
                 'create': create,
                 'model': model or self._name,
                 'uid': user and user.id or False if ids else self.env.user.id,
-                'ids': ids or self.mapped('id')})
+                'ids': ids or self.mapped('id')
+            })

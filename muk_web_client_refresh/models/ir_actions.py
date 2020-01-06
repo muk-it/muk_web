@@ -50,5 +50,5 @@ class ServerActions(models.Model):
                 'uid': self.env.uid,
                 'model': action.model_name,
                 'ids': list(set().union(record and record.ids or [], records and records.ids or [])),
-                'create': record and record.exists() and record.create_date == record.write_date,
+                'create': record and record._log_access and record.exists() and record.create_date == record.write_date,
             })
