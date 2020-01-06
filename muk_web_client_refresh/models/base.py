@@ -52,8 +52,12 @@ class Base(models.AbstractModel):
         """
         if self.exists() or ids:
             record = next(iter(self)) if len(self) > 1 else self
+            
+            if not ids and self._log_access:
+                create = record.exists() and record.create_date == record.write_date or False
+
             self.env['bus.bus'].sendone('refresh', {
-                'create': create if ids else record.exists() and record.create_date == record.write_date or False,
+                'create': create,
                 'model': model or self._name,
                 'uid': user and user.id or False if ids else self.env.user.id,
                 'ids': ids or self.mapped('id')})
