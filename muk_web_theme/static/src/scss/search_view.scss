@@ -37,3 +37,11 @@
 		}
 	}
 }
+
+@include media-breakpoint-between(sm, lg, $o-extra-grid-breakpoints) {
+	.o_search_options {
+		.mk_dropdown_text {
+			display: none;
+		}
+	}
+}

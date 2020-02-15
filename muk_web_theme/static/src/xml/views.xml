@@ -96,5 +96,13 @@
             </t>
         </t>
     </t>
+    
+    <t t-extend="SearchView.FavoriteMenu">
+		<t t-jquery="button[data-toggle='dropdown']" t-operation="inner">
+	        <span class="fa fa-star"/> 
+	        <span class="mk_dropdown_text">Favorites</span>
+	        <span t-if="widget.isMobile" class="fa fa-chevron-right float-right mt4"/>
+	    </t>
+    </t>
 
 </templates>
