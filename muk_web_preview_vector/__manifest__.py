@@ -22,7 +22,7 @@
     "summary": """Vector Preview""",
     "version": "11.0.2.0.1",
     "category": "Extra Tools",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "website": "http://www.mukit.at",
     "author": "MuK IT",
     "contributors": [
