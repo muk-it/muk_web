@@ -22,7 +22,7 @@
     "summary": """Web Client Refresh""",
     "version": "11.0.2.1.4",
     "category": "Extra Tools",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "website": "http://www.mukit.at",
     "live_test_url": "https://demo.mukit.at/web/login",
     "author": "MuK IT",
