@@ -25,7 +25,7 @@
     "summary": """Web Client Refresh""",
     "version": "12.0.3.0.2",
     "category": "Extra Tools",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "website": "http://www.mukit.at",
     'live_test_url': 'https://mukit.at/r/SgN',
     "author": "MuK IT",
