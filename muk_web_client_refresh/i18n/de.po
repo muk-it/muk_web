@@ -38,11 +38,6 @@ msgid "Configure Actions"
 msgstr "Aktionen konfigurieren"
 
 #. module: muk_web_client_refresh
-#: model:ir.model.fields,field_description:muk_web_client_refresh.field_res_config_settings_refresh_delay
-msgid "Delay"
-msgstr "Verzögerung"
-
-#. module: muk_web_client_refresh
 #: model:ir.model.fields,help:muk_web_client_refresh.field_res_config_settings_refresh_delay
 msgid ""
 "Delays the execution of refresh and thus prevents the view from being reloaded too often.\n"
