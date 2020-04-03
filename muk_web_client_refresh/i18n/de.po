@@ -18,7 +18,6 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: muk_web_client_refresh
-#: model:ir.actions.act_window,name:muk_web_client_refresh.action_client_refresh_actions
 #: model:ir.ui.menu,name:muk_web_client_refresh.menu_client_refresh_actions
 msgid "Automated Refresh"
 msgstr "Automatisches Neuladen"
@@ -40,7 +39,6 @@ msgstr "Aktionen konfigurieren"
 
 #. module: muk_web_client_refresh
 #: model:ir.model.fields,field_description:muk_web_client_refresh.field_res_config_settings_refresh_delay
-#: model:ir.ui.view,arch_db:muk_web_client_refresh.res_config_settings_view_form
 msgid "Delay"
 msgstr "Verzögerung"
 
@@ -58,7 +56,4 @@ msgstr ""
 msgid "e.g. Refresh Users on Create"
 msgstr "z.B. Benutzer beim Anlegen neuladen"
 
-#. module: muk_web_client_refresh
-#: model:ir.model,name:muk_web_client_refresh.model_res_config_settings
-msgid "res.config.settings"
-msgstr "res.config.settings"
+
