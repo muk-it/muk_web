@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0-20190522\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 13:35+0000\n"
-"PO-Revision-Date: 2019-06-25 13:35+0000\n"
+"POT-Creation-Date: 2020-04-11 04:39+0000\n"
+"PO-Revision-Date: 2020-04-11 04:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,42 +18,42 @@ msgstr ""
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Brand</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Marca</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Layout</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Diseño</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Notifications</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Notificaciones</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Palette</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Paleta</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Primary</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Primario</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Secondary</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Secundario</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Text</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Texto</span>"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Background"
-msgstr ""
+msgstr "Fondo"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
@@ -63,32 +63,32 @@ msgstr ""
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Black"
-msgstr ""
+msgstr "Negro"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_black
 msgid "Black Color"
-msgstr ""
+msgstr "Color Negro"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Brand"
-msgstr ""
+msgstr "Marca"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_brand
 msgid "Brand Color"
-msgstr ""
+msgstr "Color de Marca"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Brand Colors"
-msgstr ""
+msgstr "Colores de Marca"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Client Colors"
-msgstr ""
+msgstr "Colores del Cliente"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_01
@@ -165,12 +165,12 @@ msgstr ""
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Color Palette"
-msgstr ""
+msgstr "Color Paleta"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Component Colors"
-msgstr ""
+msgstr "Colores Componentes"
 
 #. module: muk_web_branding
 #: model:ir.model,name:muk_web_branding.model_res_config_settings
@@ -180,44 +180,44 @@ msgstr "Opciones de Configuración"
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Danger"
-msgstr ""
+msgstr "Peligro (Danger)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_danger
 msgid "Danger Color"
-msgstr ""
+msgstr "Color Peligro (Danguer)"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro (Dark)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_dark
 msgid "Dark Color"
-msgstr ""
+msgstr "Color Oscuro (Dark)"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/xml/menu.xml:26
+#: code:addons/muk_web_branding/static/src/xml/menu.xml:31
 #, python-format
 msgid "Developer mode"
-msgstr ""
+msgstr "Modo Desarrollador"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/xml/menu.xml:29
+#: code:addons/muk_web_branding/static/src/xml/menu.xml:34
 #, python-format
 msgid "Developer mode (assets)"
-msgstr ""
+msgstr "Modo Desarrollador (Activos)"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/js/chrome/menu.js:48
-#: code:addons/muk_web_branding/static/src/js/chrome/menu.js:54
+#: code:addons/muk_web_branding/static/src/js/chrome/menu.js:51
+#: code:addons/muk_web_branding/static/src/js/chrome/menu.js:57
 #, python-format
 msgid "Developer mode is already activated"
-msgstr ""
+msgstr "El modo desarrollador ya está activado"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
@@ -227,285 +227,285 @@ msgstr ""
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_background
 msgid "Form Color"
-msgstr ""
+msgstr "Color Formulario"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 100"
-msgstr ""
+msgstr "Gris 100"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_100
 msgid "Gray 100 Color"
-msgstr ""
+msgstr "Color Gris 100"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 200"
-msgstr ""
+msgstr "Gris 200"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_200
 msgid "Gray 200 Color"
-msgstr ""
+msgstr "Color Gris 200"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 300"
-msgstr ""
+msgstr "Gris 300"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_300
 msgid "Gray 300 Color"
-msgstr ""
+msgstr "Color Gris 300"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 400"
-msgstr ""
+msgstr "Gris 400"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_400
 msgid "Gray 400 Color"
-msgstr ""
+msgstr "Color Gris 400"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 500"
-msgstr ""
+msgstr "Gris 500"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_500
 msgid "Gray 500 Color"
-msgstr ""
+msgstr "Color Gris 500"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 600"
-msgstr ""
+msgstr "Gris 600"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_600
 msgid "Gray 600 Color"
-msgstr ""
+msgstr "Color Gris 600"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 700"
-msgstr ""
+msgstr "Gris 700"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_700
 msgid "Gray 700 Color"
-msgstr ""
+msgstr "Color Gris 700"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 800"
-msgstr ""
+msgstr "Gris 800"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_800
 msgid "Gray 800 Color"
-msgstr ""
+msgstr "Color Gris 800"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray 900"
-msgstr ""
+msgstr "Gris 900"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_gray_900
 msgid "Gray 900 Color"
-msgstr ""
+msgstr "Color Gris 900"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Gray Palette"
-msgstr ""
+msgstr "Paleta Gris"
 
 #. module: muk_web_branding
 #: model:ir.model,name:muk_web_branding.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "Ruta HTTP "
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/js/views/dashboard.js:50
+#: code:addons/muk_web_branding/static/src/js/views/dashboard.js:53
 #, python-format
 msgid "I am using #%s - Awesome open source business apps."
-msgstr ""
+msgstr "Estoy usando #%s - impresionantes aplicaciones empresariales de código abierto."
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Info"
-msgstr ""
+msgstr "Información (Info)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_info
 msgid "Info Color"
-msgstr ""
+msgstr "Color Información (Info)"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Light"
-msgstr ""
+msgstr "Claro (Ligth)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_light
 msgid "Light Color"
-msgstr ""
+msgstr "Color Claro (Ligth)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_lightsecondary
 msgid "Light Secondary Color"
-msgstr ""
+msgstr "Color Claro Secundario"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/js/views/dashboard.js:54
+#: code:addons/muk_web_branding/static/src/js/views/dashboard.js:57
 #, python-format
 msgid "Mantained by %s"
-msgstr ""
+msgstr "Mantenido por %s"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Muted"
-msgstr ""
+msgstr "Apagado"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_muted
 msgid "Muted Color"
-msgstr ""
+msgstr "Color Apagado"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_notification_error
 msgid "Notification Error Color"
-msgstr ""
+msgstr "Color de Notificación de Error"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_notification_info
 msgid "Notification Info Color"
-msgstr ""
+msgstr "Color de Notificación Info"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/js/chrome/bus.js:33
+#: code:addons/muk_web_branding/static/src/js/chrome/bus.js:36
 #, python-format
 msgid "Permission denied"
-msgstr ""
+msgstr "Permiso denegado"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Primary"
-msgstr ""
+msgstr "Primario"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_primary
 msgid "Primary Color"
-msgstr ""
+msgstr "Color Primario"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_secondary
 msgid "Secondary Color"
-msgstr ""
+msgstr "Color Secundario"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Set the brand color"
-msgstr ""
+msgstr "Establecer el color de la marca"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Set the color palette"
-msgstr ""
+msgstr "Establecer el color de la paleta"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Set the layout colors"
-msgstr ""
+msgstr "Establecer los colores del diseño"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Set the primary color"
-msgstr ""
+msgstr "Establecer el color primario"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Set the secondary colors"
-msgstr ""
+msgstr "Establecer el color secundario"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Set the text colors"
-msgstr ""
+msgstr "Establecer el color del texto"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Success"
-msgstr ""
+msgstr "Completado (Success)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_success
 msgid "Success Color"
-msgstr ""
+msgstr "Color Completado (Success)"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "System Colors"
-msgstr ""
+msgstr "Colores del Sistema"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_text
 msgid "Text Color"
-msgstr ""
+msgstr "Color del Texto"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/xml/dashboard.xml:26
+#: code:addons/muk_web_branding/static/src/xml/dashboard.xml:31
 #, python-format
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "View"
-msgstr "Ver"
+msgstr "Vista"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_view
 msgid "View Color"
-msgstr ""
+msgstr "Color Vista"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "Warning"
-msgstr ""
+msgstr "Advertencia (Warning)"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_warning
 msgid "Warning Color"
-msgstr ""
+msgstr "Color Advertencia (Warning)"
 
 #. module: muk_web_branding
 #: model_terms:ir.ui.view,arch_db:muk_web_branding.res_config_settings_view_form
 msgid "White"
-msgstr ""
+msgstr "Blanco"
 
 #. module: muk_web_branding
 #: model:ir.model.fields,field_description:muk_web_branding.field_res_config_settings__branding_color_white
 msgid "White Color"
-msgstr ""
+msgstr "Color Blanco"
 
 #. module: muk_web_branding
 #. openerp-web
-#: code:addons/muk_web_branding/static/src/js/chrome/bus.js:33
+#: code:addons/muk_web_branding/static/src/js/chrome/bus.js:36
 #, python-format
 msgid "Yay, push notifications are enabled!"
-msgstr ""
+msgstr "¡Sí, las notificaciones push están habilitadas!"
 
