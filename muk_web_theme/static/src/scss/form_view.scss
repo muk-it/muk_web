@@ -21,6 +21,11 @@
 **********************************************************************************/
 
 .o_form_view {
+
+	 .o_form_label {
+         margin-bottom: 5px;
+     }
+
     .o_form_sheet_bg {
         background: $o-webclient-background-color;
         border-bottom: 1px solid gray('300');
