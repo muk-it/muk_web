@@ -26,9 +26,14 @@ from odoo import api, models, fields
 
 _logger = logging.getLogger(__name__)
 
+REFRESH_BEAT = 55
+
 class ServerActions(models.Model):
     
     _inherit = 'ir.actions.server'
+    
+    _last_refresh_timestamp = defaultdict(lambda: None)
+    _in_memory_refresh = defaultdict(lambda: defaultdict(lambda: defaultdict(set)))
 
     #----------------------------------------------------------
     # Database
@@ -40,15 +45,39 @@ class ServerActions(models.Model):
     #----------------------------------------------------------
     # Functions
     #----------------------------------------------------------
-        
+    
     @api.model
     def run_action_refresh_multi(self, action, eval_context={}):
-        if not self.env.context.get('refresh_disable', False):
+        if not self.env.context.get('refresh_disable', False) and \
+                self.env.recompute and self.env.context.get('recompute', True):
+            
+            cls = type(self)
+            dbname = self.env.cr.dbname
+            now_timestamp = datetime.now()
+            now_delta = now_timestamp - timedelta(seconds=REFRESH_BEAT)
+            old_timestamp = cls._last_refresh_timestamp[dbname]
+            
             record = eval_context.get('record', None)
             records = eval_context.get('records', None)
-            self.env['bus.bus'].sendone('refresh', {
-                'uid': self.env.uid,
-                'model': action.model_name,
-                'ids': list(set().union(record and record.ids or [], records and records.ids or [])),
-                'create': record and record._log_access and record.exists() and record.create_date == record.write_date,
-            })
+
+            if record and record._log_access and record.create_date == record.write_date:
+                cls._in_memory_refresh[dbname][action.model_name][self.env.uid].add(True)
+            else:
+                cls._in_memory_refresh[dbname][action.model_name][self.env.uid].update(record and record.ids or [])
+                cls._in_memory_refresh[dbname][action.model_name][self.env.uid].update(records and records.ids or [])
+            
+            if not old_timestamp or old_timestamp < now_delta:
+                cls._last_refresh_timestamp[dbname] = now_timestamp
+                for model, data in cls._in_memory_refresh[dbname].items():
+                    for user, ids in data.items():
+                        create = False
+                        if True in ids:
+                            ids.remove(True)
+                            create = True
+                        self.env['bus.bus'].sendone('refresh', {
+                            'uid': user,
+                            'model': model,
+                            'ids': list(ids),
+                            'create': create,
+                        })
+                cls._in_memory_refresh = defaultdict(lambda: defaultdict(lambda: defaultdict(set)))
