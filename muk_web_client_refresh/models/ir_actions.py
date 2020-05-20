@@ -22,6 +22,9 @@
 
 import logging
 
+from datetime import datetime, timedelta
+from collections import defaultdict
+
 from odoo import api, models, fields
 
 _logger = logging.getLogger(__name__)
