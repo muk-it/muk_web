@@ -49,10 +49,10 @@ WebClient.include({
             	if(active_view.type === "form" && message.ids.includes(widget.env.currentId)) {
             		controller.reload();
             	} else if(active_view.type === "list" &&
-            			(message.create || _.intersection(message.ids, widget.env.ids) >= 1)) {
+            			(message.create || _.intersection(message.ids, widget.env.ids).length > 0)) {
             		controller.reload();
             	} else if(active_view.type === "kanban" &&
-            			(message.create || _.intersection(message.ids, widget.env.ids) >= 1)) {
+            			(message.create || _.intersection(message.ids, widget.env.ids).length > 0)) {
             		controller.reload();
             	}
             }
