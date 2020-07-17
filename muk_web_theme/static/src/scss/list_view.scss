@@ -76,13 +76,13 @@
 	        thead, thead tr:nth-child(1) th {
 	        	border-bottom: solid 1px gray('300');
 	    		background-color: white;
-	            position: sticky;
+	            position: sticky !important;
 	            z-index: 1;
 	            top: 0;
 	        }
 	        tfoot, tfoot tr:nth-child(1) td {
     			background-color: $o-list-footer-bg-color;
-	            position: sticky;
+	            position: sticky !important;
 	            bottom: 0;
 	        }
 	    }
