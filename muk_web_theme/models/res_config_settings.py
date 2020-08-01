@@ -53,6 +53,10 @@ class ResConfigSettings(models.TransientModel):
         string="Theme Mobile",
         help="Allow Odoo to be used as a PWA app.")
     
+    theme_favicon = fields.Binary(
+        related="company_id.favicon",
+        readonly=False)
+    
     theme_background_image = fields.Binary(
         related="company_id.background_image",
         readonly=False)
