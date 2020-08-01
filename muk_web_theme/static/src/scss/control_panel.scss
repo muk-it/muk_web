@@ -20,6 +20,7 @@
 *
 **********************************************************************************/
 
+
 @include media-breakpoint-down(sm) {
     .o_control_panel {
     	padding-left: $o-horizontal-padding /2;
@@ -38,21 +39,28 @@
             text-overflow: ellipsis;
         }
         .o_cp_searchview {
-	        overflow: hidden;
-		    max-width: 20%;
-		    min-width: 20%;
-		    text-align: right;
-		    .o_searchview {
-		    	border: none;
-		    	padding: 3.5px 5px;
-		    	.o_enable_searchview {
-		    		margin-left: 0;
-		    		box-shadow: none;
-		    		&:before {
-		    			padding-right: 5px;
-		    		}
-		    	}
-		    }
+            min-height: 35px;
+            &.o_searchview_quick {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                .o_searchview {
+		    		border: none;
+                    display: flex;
+                    flex: 1 1 auto;
+                    align-items: center;
+                    .o_searchview_input_container {
+                        flex: 1 1 auto;
+                    }
+                    .o_enable_searchview {
+		    			margin-left: 0;
+                        padding-left: 0;
+                        &:before {
+			    			padding-right: 5px;
+			    		}
+                    }
+                }
+            }
         }
         .o_cp_left {
 			flex-basis: 50%;

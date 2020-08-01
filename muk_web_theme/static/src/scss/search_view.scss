@@ -20,21 +20,28 @@
 *
 **********************************************************************************/
 
+.o_searchview {
+	padding: 0;
+	border: none;
+	width: 100%;
+    margin-bottom: 5px;
+	button {
+		background-color: $white;
+		border-color: $border-color;
+		color: $gray-600;
+		border: none;
+	}
+	.o_enable_searchview {
+    	float: right;
+	}
+	.o_searchview_input_container {
+	    border-bottom: 1px solid $o-brand-secondary;
+	}
+}
+
 .o_modal_header {
 	.o_searchview, .o_pager {
 		display: inline-block;
-	}
-	.o_searchview {
-		padding: 0;
-		border: none;
-		width: 100%;
-	    margin-bottom: 5px;
-	    border-bottom: 1px solid $o-brand-secondary;
-		button {
-    		background-color: $white;
-			border-color: $border-color;
-			color: $gray-600;
-		}
 	}
 }
 

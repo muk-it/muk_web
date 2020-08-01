@@ -40,15 +40,6 @@
         	.btn.oe_stat_button > .o_button_icon {
         		color: $o-brand-odoo; 
         	}
-        	.btn.oe_stat_button > .o_stat_info {
-        		padding-right: 3px; 
-        	}
-		    &, & + .oe_avatar {
-		        + .oe_title {
-		            max-width: calc(100% - 420px);
-		            width: initial !important;
-		        }
-		    }
        	}
         .oe_title {
             max-width: 100%;
@@ -129,36 +120,6 @@
         }
 	}
 	@include media-breakpoint-down(xs) {
-	    .oe_button_box {
-	        float: none;
-	    	display: block;
-            border-radius: 0;
-	    	text-align: right;
-        	margin-top: -17px;
-        	margin-bottom: $o-sheet-vpadding;
-	    	margin-left: -$o-horizontal-padding;
-            width: calc(100% + #{$o-horizontal-padding*2});
-        	> .btn.oe_stat_button {
-			    border: none;
-			    background: none;
-	            flex: 0 0 auto !important;
-	            width: percentage(1/3) !important;
-			    border-right: 1px solid $o-form-lightsecondary;
-            }
-            > .btn.o_button_more {
-	            flex: 1 1 auto !important;
-	            border-right: none;
-            }
-            > .o_dropdown_more {
-	            flex: 0 0 auto !important;
-	            width: percentage(1/3) !important;
-            }
-        	&, & + .oe_avatar {
-	            + .oe_title {
-	                width: 100%;
-	            }
-	        }
-	    }
     	.oe_title {
            	width: 100% !important;
             max-width: 100% !important;
