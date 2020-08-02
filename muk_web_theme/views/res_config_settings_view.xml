@@ -62,7 +62,7 @@
                             </div>
                             <div class="content-group">
                                 <div class="mt16 row">
-                                    <field name="theme_favicon_backend" widget="image" class="ml-4 oe_avatar" required="1"/>
+                                    <field name="theme_favicon" widget="image" class="ml-4 oe_avatar" required="1"/>
                                 </div>
                             </div>
 	                    </div>
