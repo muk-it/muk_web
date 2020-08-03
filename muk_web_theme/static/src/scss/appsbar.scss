@@ -26,6 +26,11 @@
     overflow-y: auto;	
     top: $o-navbar-height;
     background-color: $mk-appbar-background;
+    &::-webkit-scrollbar {
+	  display: none;
+	}
+	-ms-overflow-style: none;
+	scrollbar-width: none;
     .mk_apps_sidebar {
 	    padding: 0;
 	    white-space: nowrap;
