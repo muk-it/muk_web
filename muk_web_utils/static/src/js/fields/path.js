@@ -26,7 +26,6 @@ odoo.define('muk_web_utils.path', function (require) {
 var core = require('web.core');
 var fields = require('web.basic_fields');
 var registry = require('web.field_registry');
-var colorpicker = require('web.colorpicker');
 
 var AbstractField = require('web.AbstractField');
 

@@ -26,8 +26,8 @@ odoo.define('muk_web_utils.color', function (require) {
 var core = require('web.core');
 var fields = require('web.basic_fields');
 var registry = require('web.field_registry');
-var colorpicker = require('web.colorpicker');
 
+var ColorpickerDialog = require('web.ColorpickerDialog');
 var AbstractField = require('web.AbstractField');
 
 var _t = core._t;
@@ -72,7 +72,7 @@ var FieldColor = fields.InputField.extend({
     	}
     },
     _onCustomColorButtonClick: function () {
-        var ColorpickerDialog = new colorpicker(this, {
+        var ColorpickerDialog = new ColorpickerDialog(this, {
         	dialogClass: 'mk_field_color_picker',
         	defaultColor: this._getValue(),
         });
