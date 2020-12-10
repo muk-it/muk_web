@@ -1,8 +1,8 @@
 ###################################################################################
 #
-#    Copyright (c) 2017-2019 MuK IT GmbH.
+#    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Backend Theme 
+#    This file is part of MuK Grid Snippets
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -24,14 +24,10 @@ from odoo import api, SUPERUSER_ID
 
 from . import models
 
-#----------------------------------------------------------
-# Hooks
-#----------------------------------------------------------
-
-
 XML_ID = "muk_web_theme._assets_primary_variables"
 SCSS_URL = "/muk_web_theme/static/src/scss/colors.scss"
 
+
 def _uninstall_reset_changes(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
-    env['muk_utils.scss_editor'].reset_values(SCSS_URL, XML_ID)
+    env['muk_web_theme.scss_editor'].reset_values(SCSS_URL, XML_ID)

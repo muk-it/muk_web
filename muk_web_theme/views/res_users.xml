@@ -2,9 +2,9 @@
 
 <!--
 
-    Copyright (c) 2017-2019 MuK IT GmbH.
+    Copyright (c) 2017-today MuK IT GmbH.
 
-    This file is part of MuK Backend Theme 
+    This file is part of MuK Grid Snippets
     (see https://mukit.at).
 
     This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@
         <field name="inherit_id" ref="base.view_users_form_simple_modif" />
         <field name="arch" type="xml">
              <xpath expr="//group[@name='preferences']" position="after">
-	            <group string="Theme Preferences" name="preference_theme">
+	            <group name="preference_theme">
 	                <group >
 	                    <field name="sidebar_type" readonly="0"/>
 	                </group>

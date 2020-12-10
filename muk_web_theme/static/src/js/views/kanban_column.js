@@ -20,19 +20,22 @@
 *
 **********************************************************************************/
 
-odoo.define('muk_web_theme.ActionManager', function (require) {
+odoo.define('muk_web_theme.KanbanColumn', function (require) {
 "use strict";
 
-const ActionManager = require('web.ActionManager');
+const config = require('web.config');
 
-ActionManager.include({
-    _handleAction(action) {
-        return this._super(...arguments).then($.proxy(this, '_hideMenusByAction', action));
-    },
-    _hideMenusByAction(action) {
-        const unique_selection = '[data-action-id=' + action.id + ']';
-        $(_.str.sprintf('.o_menu_apps .dropdown:has(.dropdown-menu.show:has(%s)) > a', unique_selection)).dropdown('toggle');
-        $(_.str.sprintf('.o_menu_sections.show:has(%s)', unique_selection)).collapse('hide');
+const KanbanColumn = require('web.KanbanColumn');
+
+if (!config.device.isMobile) {
+    return;
+}
+
+KanbanColumn.include({
+    init() {
+        this._super(...arguments);
+        this.recordsDraggable = false;
+        this.canBeFolded = false;
     },
 });
 

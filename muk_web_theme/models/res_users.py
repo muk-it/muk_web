@@ -1,8 +1,8 @@
 ###################################################################################
 #
-#    Copyright (c) 2017-2019 MuK IT GmbH.
+#    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Backend Theme 
+#    This file is part of MuK Grid Snippets
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,6 +21,7 @@
 ###################################################################################
 
 from odoo import models, fields, api
+
 
 class ResUsers(models.Model):
     
@@ -50,7 +51,8 @@ class ResUsers(models.Model):
         ], 
         required=True,
         string="Sidebar Type",
-        default=lambda self: self._default_sidebar_type())
+        default=lambda self: self._default_sidebar_type()
+    )
     
     chatter_position = fields.Selection(
         selection=[
@@ -59,7 +61,8 @@ class ResUsers(models.Model):
         ], 
         required=True,
         string="Chatter Position", 
-        default=lambda self: self._default_chatter_position())
+        default=lambda self: self._default_chatter_position()
+    )
     
     #----------------------------------------------------------
     # Setup
@@ -67,10 +70,11 @@ class ResUsers(models.Model):
 
     def __init__(self, pool, cr):
         init_res = super(ResUsers, self).__init__(pool, cr)
-        type(self).SELF_WRITEABLE_FIELDS = list(self.SELF_WRITEABLE_FIELDS)
-        type(self).SELF_WRITEABLE_FIELDS.extend(['sidebar_type'])
-        type(self).SELF_WRITEABLE_FIELDS.extend(['chatter_position'])
-        type(self).SELF_READABLE_FIELDS = list(self.SELF_READABLE_FIELDS)
-        type(self).SELF_READABLE_FIELDS.extend(['sidebar_type'])
-        type(self).SELF_READABLE_FIELDS.extend(['chatter_position'])
+        theme_fields = ['sidebar_type', 'chatter_position']
+        readable_fields = list(self.SELF_READABLE_FIELDS)
+        writeable_fields = list(self.SELF_WRITEABLE_FIELDS)
+        readable_fields.extend(theme_fields)
+        writeable_fields.extend(theme_fields)
+        type(self).SELF_READABLE_FIELDS = readable_fields
+        type(self).SELF_WRITEABLE_FIELDS = writeable_fields
         return init_res

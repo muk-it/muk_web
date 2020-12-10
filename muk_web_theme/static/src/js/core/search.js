@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -23,17 +23,15 @@
 odoo.define('muk_web_theme.MenuSearchMixin', function (require) {
 "use strict";
 
-var core = require('web.core');
-var config = require("web.config");
-var session = require("web.session");
+const core = require('web.core');
+const config = require("web.config");
 
-var _t = core._t;
-var QWeb = core.qweb;
+const QWeb = core.qweb;
 
-var MenuSearchMixin = {
-    _findNames: function (memo, menu) {
+const MenuSearchMixin = {
+    _findNames(memo, menu) {
         if (menu.action) {
-            var key = menu.parent_id ? menu.parent_id[1] + "/" : "";
+            const key = menu.parent_id ? menu.parent_id[1] + "/" : "";
             memo[key + menu.name] = menu;
         }
         if (menu.children.length) {
@@ -41,38 +39,38 @@ var MenuSearchMixin = {
         }
         return memo;
     },
-    _menuInfo: function (key) {
-        var original = this._searchableMenus[key];
+    _menuInfo(key) {
+        const original = this._searchableMenus[key];
         return _.extend({
             action_id: parseInt(original.action.split(',')[1], 10),
         }, original);
     },
-    _searchFocus: function () {
+    _searchFocus() {
         if (!config.device.isMobile) {
             this.$search_input.focus();
         } else {
         	this.$search_input.blur();
         }
     },
-    _searchReset: function () {
+    _searchReset() {
         this.$search_container.removeClass("has-results");
         this.$search_results.empty();
         this.$search_input.val("");
     },
-    _searchMenusSchedule: function () {
+    _searchMenusSchedule() {
         this._search_def.reject();
         this._search_def = $.Deferred();
         setTimeout(this._search_def.resolve.bind(this._search_def), 50);
         this._search_def.then(this._searchMenus.bind(this));
     },
-    _searchMenus: function () {
-        var query = this.$search_input.val();
+    _searchMenus() {
+        const query = this.$search_input.val();
         if (query === "") {
             this.$search_container.removeClass("has-results");
             this.$search_results.empty();
             return;
         }
-        var results = fuzzy.filter(query, _.keys(this._searchableMenus), {
+        const results = fuzzy.filter(query, _.keys(this._searchableMenus), {
             pre: "<b>",
             post: "</b>",
         });
@@ -82,15 +80,15 @@ var MenuSearchMixin = {
             widget: this,
         }));
     },
-    _onSearchResultsNavigate: function (event) {
+    _onSearchResultsNavigate(event) {
         if (this.$search_results.html().trim() === "") {
             this._searchMenusSchedule();
             return;
         }
-        var all = this.$search_results.find(".mk_menu_search_result");
-        var key = event.key || String.fromCharCode(event.which);
-        var pre_focused = all.filter(".active") || $(all[0]);
-        var offset = all.index(pre_focused);
+        const all = this.$search_results.find(".mk_menu_search_result");
+        const key = event.key || String.fromCharCode(event.which);
+        const pre_focused = all.filter(".active") || $(all[0]);
+        const offset = all.index(pre_focused);
         if (key === "Tab") {
             event.preventDefault();
             key = event.shiftKey ? "ArrowUp" : "ArrowDown";
@@ -114,7 +112,7 @@ var MenuSearchMixin = {
         } else if (offset >= all.length) {
             offset -= all.length;
         }
-        var new_focused = $(all[offset]);
+        const new_focused = $(all[offset]);
         pre_focused.removeClass("active");
         new_focused.addClass("active");
         this.$search_results.scrollTo(new_focused, {
@@ -123,10 +121,10 @@ var MenuSearchMixin = {
             },
         });
     },
-    _onMenuShown: function(event) {
+    _onMenuShown(event) {
     	this._searchFocus();
     },
-    _onMenuHidden: function(event) {
+    _onMenuHidden(event) {
     	this._searchReset();
     },
 };

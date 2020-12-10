@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -23,18 +23,14 @@
 odoo.define('muk_web_theme.relational_fields', function (require) {
 "use strict";
 
-var core = require('web.core');
-var config = require("web.config");
-var fields = require('web.relational_fields');
-
-var _t = core._t;
-var QWeb = core.qweb;
+const config = require("web.config");
+const fields = require('web.relational_fields');
 
 fields.FieldStatus.include({
-    _setState: function () {
-        this._super.apply(this, arguments);
+    _setState() {
+        this._super(...arguments);
         if (config.device.isMobile) {
-            _.map(this.status_information, function (value) {
+            _.map(this.status_information, (value) => {
                 value.fold = true;
             });
         }
@@ -42,10 +38,10 @@ fields.FieldStatus.include({
 });
 
 fields.FieldOne2Many.include({
-    _renderButtons: function () {
-        var result = this._super.apply(this, arguments);
+    _renderButtons() {
+        const result = this._super(...arguments);
         if (config.device.isMobile && this.$buttons) {
-        	var $buttons = this.$buttons.find('.btn-secondary');
+        	const $buttons = this.$buttons.find('.btn-secondary');
         	$buttons.addClass('btn-primary mk_mobile_add');
             $buttons.removeClass('btn-secondary');
         }
@@ -54,10 +50,10 @@ fields.FieldOne2Many.include({
 });
 
 fields.FieldMany2Many.include({
-    _renderButtons: function () {
-        var result = this._super.apply(this, arguments);
+    _renderButtons() {
+        const result = this._super(...arguments);
         if (config.device.isMobile && this.$buttons) {
-        	var $buttons = this.$buttons.find('.btn-secondary');
+        	const $buttons = this.$buttons.find('.btn-secondary');
         	$buttons.addClass('btn-primary mk_mobile_add');
             $buttons.removeClass('btn-secondary');
         }

@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -23,45 +23,38 @@
 odoo.define('muk_web_theme.AppsBar', function (require) {
 "use strict";
 
-var core = require('web.core');
-var config = require("web.config");
+const Widget = require('web.Widget');
 
-var Widget = require('web.Widget');
-
-var _t = core._t;
-var QWeb = core.qweb;
-
-var AppsBar = Widget.extend({
+const AppsBar = Widget.extend({
 	events: _.extend({}, Widget.prototype.events, {
         'click .nav-link': '_onAppsMenuItemClicked',
     }),
 	template: "muk_web_theme.AppsBarMenu",
-	init: function (parent, menu) {
-        this._super.apply(this, arguments);
-        this._apps = _.map(menu.children, function (app) {
-            return {
+	init(parent, menu) {
+        this._super(...arguments);
+        this._apps = _.map(menu.children, (app) => ({
                 actionID: parseInt(app.action.split(',')[1]),
                 web_icon_data: app.web_icon_data,
                 menuID: app.id,
                 name: app.name,
                 xmlID: app.xmlid,
-            };
-        });
+            })
+        );
     },
-    getApps: function () {
+    getApps() {
         return this._apps;
     },
-    _openApp: function (app) {
+    _openApp(app) {
         this.trigger_up('app_clicked', {
             action_id: app.actionID,
             menu_id: app.menuID,
         });
     },
-    _onAppsMenuItemClicked: function (ev) {
-        var $target = $(ev.currentTarget);
-        var actionID = $target.data('action-id');
-        var menuID = $target.data('menu-id');
-        var app = _.findWhere(this._apps, {
+    _onAppsMenuItemClicked(ev) {
+        const $target = $(ev.currentTarget);
+        const actionID = $target.data('action-id');
+        const menuID = $target.data('menu-id');
+        const app = _.findWhere(this._apps, {
         	actionID: actionID,
         	menuID: menuID 
         });

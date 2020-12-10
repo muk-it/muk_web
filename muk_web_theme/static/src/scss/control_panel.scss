@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -20,67 +20,70 @@
 *
 **********************************************************************************/
 
-
 @include media-breakpoint-down(sm) {
     .o_control_panel {
     	padding-left: $o-horizontal-padding /2;
     	padding-right: $o-horizontal-padding /2;
-        .breadcrumb, .o_cp_left, .o_cp_right, .o_cp_searchview {
-            flex: 1 1 100%;
-            @include media-breakpoint-up(md) {
-                flex-basis: 50%;
+        .o_cp_top {
+            justify-content: space-between;
+            .o_cp_top_left {
+                max-width: 35%;
+                .breadcrumb {
+                    overflow: hidden;
+                    display: block;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
             }
+            .o_cp_top_right {
+            	min-height: 35px;
+            	min-width: 65%;
+            	flex-grow: 1;
+        	}
         }
-        .breadcrumb {
-            max-width: 80%;
-            overflow: hidden;
-		    display: block;
-		    white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        .o_cp_searchview {
-            min-height: 35px;
-            &.o_searchview_quick {
-                width: 100%;
-                display: flex;
-                align-items: flex-start;
-                .o_searchview {
-		    		border: none;
-                    display: flex;
-                    flex: 1 1 auto;
-                    align-items: center;
-                    .o_searchview_input_container {
-                        flex: 1 1 auto;
+        .o_cp_bottom {
+            justify-content: space-between;
+            .o_cp_bottom_left {
+                flex-grow: 1;
+                .o_cp_action_menus, .o_cp_buttons {
+                    flex: 1 1 100%;
+                }
+                .o_cp_action_menus .o_dropdown .o_dropdown_toggler_btn {
+                    .o_dropdown_title {
+                        display: none;
                     }
-                    .o_enable_searchview {
-		    			margin-left: 0;
-                        padding-left: 0;
-                        &:before {
-			    			padding-right: 5px;
-			    		}
+                    i:last-of-type{
+                        display: none;
+                    }
+                    &::after{
+                        display: inline-block;
+                        width: 0;
+                        height: 0;
+                        margin-left: 0.255em;
+                        vertical-align: 0.255em;
+                        content: "";
+                        border-top: 0.3em solid;
+                        border-right: 0.3em solid transparent;
+                        border-bottom: 0;
+                        border-left: 0.3em solid transparent;
                     }
                 }
             }
-        }
-        .o_cp_left {
-			flex-basis: 50%;
-            white-space: nowrap;      
-           	.o_cp_buttons, .o_cp_sidebar {
-            	flex: 1 1 100%;
-           	}
-		}
-       	.o_cp_right {
-            flex-basis: 10%;
-        }
-        .o_cp_pager {
-            white-space: nowrap;
-            .o_pager_counter {
-            	max-width: 60px;
-            	@include o-text-overflow;
+            .o_cp_bottom_right {
+                .o_cp_pager {
+                    white-space: nowrap;
+                    .o_pager_counter {
+                        max-width: 60px;
+                        @include o-text-overflow;
+                    }
+                    .o_pager_previous, .o_pager_next {
+                           border: none;
+                    }
+                }
+                .o_search_options {
+                    display: none;
+                }
             }
-            .o_pager_previous, .o_pager_next {
-           		border: none;
-        	}
         }
        .breadcrumb-item {
             &:not(.active) {
@@ -108,8 +111,8 @@
         .o_cp_buttons .btn.d-block:not(.d-none) {
             display: inline-block !important;
         }
-        .o_cp_switch_buttons.show {
-            .dropdown-menu {
+        .o_cp_switch_buttons {
+            &.show > .dropdown-menu {
                 display: flex;
                 min-width: 0px;
                 flex-direction: row;
@@ -123,5 +126,8 @@
                 }
             }
         }
+    }
+	.o_controller_with_searchpanel .o_search_panel {
+   		display: none;
     }
 }

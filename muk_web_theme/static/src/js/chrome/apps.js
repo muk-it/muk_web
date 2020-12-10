@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -23,15 +23,11 @@
 odoo.define('muk_web_theme.AppsMenu', function (require) {
 "use strict";
 
-var core = require('web.core');
-var config = require("web.config");
-var session = require("web.session");
+const core = require('web.core');
+const session = require("web.session");
 
-var AppsMenu = require("web.AppsMenu");
-var MenuSearchMixin = require("muk_web_theme.MenuSearchMixin");
-
-var _t = core._t;
-var QWeb = core.qweb;
+const AppsMenu = require("web.AppsMenu");
+const MenuSearchMixin = require("muk_web_theme.MenuSearchMixin");
 
 AppsMenu.include(_.extend({}, MenuSearchMixin, {
     events: _.extend({}, AppsMenu.prototype.events, {
@@ -41,9 +37,9 @@ AppsMenu.include(_.extend({}, MenuSearchMixin, {
         "hidden.bs.dropdown": "_onMenuHidden",
         "hide.bs.dropdown": "_onMenuHide",
     }),
-    init: function (parent, menuData) {
-        this._super.apply(this, arguments);
-        for (var n in this._apps) {
+    init(parent, menuData) {
+        this._super(...arguments);
+        for (let n in this._apps) {
             this._apps[n].web_icon_data = menuData.children[n].web_icon_data;
         }
         this._searchableMenus = _.reduce(
@@ -51,16 +47,16 @@ AppsMenu.include(_.extend({}, MenuSearchMixin, {
         );
         this._search_def = $.Deferred();
     },
-    start: function () {
+    start() {
         this._setBackgroundImage();
         this.$search_container = this.$(".mk_search_container");
         this.$search_input = this.$(".mk_search_input input");
         this.$search_results = this.$(".mk_search_results");
-        return this._super.apply(this, arguments);
+        return this._super(...arguments);
     },
-    _onSearchResultChosen: function (event) {
+    _onSearchResultChosen(event) {
         event.preventDefault();
-        var $result = $(event.currentTarget),
+        const $result = $(event.currentTarget),
             text = $result.text().trim(),
             data = $result.data(),
             suffix = ~text.indexOf("/") ? "/" : "";
@@ -69,17 +65,15 @@ AppsMenu.include(_.extend({}, MenuSearchMixin, {
             id: data.menuId,
             previous_menu_id: data.parentId,
         });
-        var app = _.find(this._apps, function (_app) {
-            return text.indexOf(_app.name + suffix) === 0;
-        });
+        const app = _.find(this._apps, (_app) => text.indexOf(_app.name + suffix) === 0);
         core.bus.trigger("change_menu_section", app.menuID);
     },
-    _onAppsMenuItemClicked: function (event) {
-    	this._super.apply(this, arguments);
+    _onAppsMenuItemClicked(event) {
+    	this._super(...arguments);
     	event.preventDefault();
     },
-    _setBackgroundImage: function () {
-    	var url = session.url('/web/image', {
+    _setBackgroundImage() {
+    	const url = session.url('/web/image', {
             model: 'res.company',
             id: session.company_id,
             field: 'background_image',
@@ -94,7 +88,7 @@ AppsMenu.include(_.extend({}, MenuSearchMixin, {
         	});
         }
     },
-    _onMenuHide: function(event) {
+    _onMenuHide(event) {
     	return $('.oe_wait').length === 0 && !this.$('input').is(':focus');
     },
 }));

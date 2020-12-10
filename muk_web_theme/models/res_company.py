@@ -1,8 +1,8 @@
 ###################################################################################
 #
-#    Copyright (c) 2017-2019 MuK IT GmbH.
+#    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Backend Theme 
+#    This file is part of MuK Grid Snippets
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@
 
 from odoo import models, fields
 
+
 class ResCompany(models.Model):
     
     _inherit = 'res.company'
@@ -32,7 +33,8 @@ class ResCompany(models.Model):
     
     background_image = fields.Binary(
         string="Apps Menu Background Image",
-        attachment=True)
+        attachment=True
+    )
     
     background_blend_mode = fields.Selection(
         selection=[
@@ -54,7 +56,8 @@ class ResCompany(models.Model):
             ('luminosity', 'Luminosity'),
         ], 
         string="Apps Menu Background Blend Mode",
-        default='normal')
+        default='normal'
+    )
     
     default_sidebar_preference = fields.Selection(
         selection=[
@@ -63,7 +66,8 @@ class ResCompany(models.Model):
             ('large', 'Large')
         ], 
         string="Sidebar Type",
-        default='small')
+        default='small'
+    )
     
     default_chatter_preference = fields.Selection(
         selection=[
@@ -71,4 +75,5 @@ class ResCompany(models.Model):
             ('sided', 'Sided'),
         ], 
         string="Chatter Position", 
-        default='sided')
+        default='sided'
+    )

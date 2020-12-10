@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -61,10 +61,13 @@
                     white-space: nowrap;
                 }
             }
+           	> .tab-content > .tab-pane > :first-child {
+           		margin-top: 0;
+           	}
         }
     }
    	@include media-breakpoint-down(sm) {			
-	    .o_form_sheet, .oe_chatter {
+	    .o_form_sheet {
 	        min-width: 100% !important;
     		max-width: 100% !important;
 			margin-top: 15px !important;
@@ -138,7 +141,7 @@
                 flex: 1 1 auto;
                 overflow: auto;
             }
-            > .o_chatter {
+            > .o_FormRenderer_chatterContainer {
 				flex: 1 1 auto;
 				overflow: auto;
 				min-width: $mk-chatter-min-width;

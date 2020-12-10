@@ -1,9 +1,7 @@
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
-[![Build Status](https://travis-ci.org/muk-it/muk_web.svg?branch=13.0)](https://travis-ci.org/muk-it/muk_web)
-[![codecov](https://codecov.io/gh/muk-it/muk_web/branch/13.0/graph/badge.svg)](https://codecov.io/gh/muk-it/muk_web)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eff47569926c435d98a3187623615bc4)](https://www.codacy.com/app/keshrath/muk_web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muk-it/muk_web&amp;utm_campaign=Badge_Grade)
-[![Weblate](https://weblate.mukit.at/widgets/web-13/-/svg-badge.svg)](https://weblate.mukit.at/projects/web-13/)
-[![Demo](https://img.shields.io/badge/demo-Try%20me-243742.svg)](https://mukit.at/r/SgN)
+[![Nexus](https://img.shields.io/badge/Nexus-Install%20me-5d8da8.svg)](https://nexus.mukit.at/#browse/browse:odoo)
+[![Weblate](https://img.shields.io/badge/Weblate-Translate%20me-0094E9.svg)](https://weblate.mukit.at)
+[![Website](https://img.shields.io/badge/Website-Open%20me-243742.svg)](https://mukit.at/)
 
 # MuK Odoo Web Modules
 
@@ -36,7 +34,7 @@ underscores are replaced by a dash.
 
 **Example:**
 
-`sudo -H pip3 install --extra-index-url https://nexus.mukit.at/repository/odoo/simple odoo11-addon-muk-utils`
+`sudo -H pip3 install --extra-index-url https://nexus.mukit.at/repository/odoo/simple odoo13-addon-muk-utils`
 
 Once the installation has been successfully completed, the app is
 already in the correct folder. Log on to your Odoo server and go to the

@@ -1,8 +1,8 @@
 ###################################################################################
 #
-#    Copyright (c) 2017-2019 MuK IT GmbH.
+#    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Backend Theme 
+#    This file is part of MuK Grid Snippets
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,14 @@
 #    GNU Lesser General Public License for more details.
 #
 #    You should have received a copy of the GNU Lesser General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>. 
-#  
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
 ###################################################################################
+
 {
     "name": "MuK Backend Theme", 
     "summary": "Odoo Community Backend Theme",
-    "version": "13.0.1.0.6", 
+    "version": "14.0.1.0.0", 
     "category": "Themes/Backend", 
     "license": "LGPL-3", 
     "author": "MuK IT",
@@ -30,10 +31,9 @@
     'live_test_url': 'https://mukit.at/r/SgN',
     "contributors": [
         "Mathias Markl <mathias.markl@mukit.at>",
-        "Benedikt Jilek <benedikt.jilek@mukit.at>",
     ],
     "depends": [
-        "muk_web_utils",
+        "web_editor",
     ],
     "excludes": [
         "web_enterprise",
@@ -46,6 +46,7 @@
         "data/res_company.xml",
     ],
     "qweb": [
+        "static/src/components/control_panel.xml",
         "static/src/xml/*.xml",
     ],
     "images": [

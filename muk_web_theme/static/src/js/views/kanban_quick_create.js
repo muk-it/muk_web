@@ -20,35 +20,25 @@
 *
 **********************************************************************************/
 
-.o_searchview {
-	padding: 0;
-	border: none;
-	width: 100%;
-    margin-bottom: 5px;
-	button {
-		background-color: $white;
-		border-color: $border-color;
-		color: $gray-600;
-		border: none;
-	}
-	.o_enable_searchview {
-    	float: right;
-	}
-	.o_searchview_input_container {
-	    border-bottom: 1px solid $o-brand-secondary;
-	}
-}
+odoo.define('muk_web_theme.kanban_column_quick_create', function (require) {
+"use strict";
 
-.o_modal_header {
-	.o_searchview, .o_pager {
-		display: inline-block;
-	}
-}
+const config = require('web.config');
 
-@include media-breakpoint-between(sm, lg, $o-extra-grid-breakpoints) {
-	.o_search_options {
-		.mk_dropdown_text {
-			display: none;
-		}
-	}
-}
+const KanbanRenderer = require('web.kanban_column_quick_create');
+
+KanbanRenderer.include({
+    init() {
+        this._super(...arguments);
+        this.isMobile = config.device.isMobile;
+    },
+    _cancel() {
+    	if (!config.device.isMobile) {
+    		this._super(...arguments);
+    	} else if (!this.folded) {
+            this.$input.val('');
+        }
+    },
+});
+
+});

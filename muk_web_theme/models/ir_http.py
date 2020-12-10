@@ -1,8 +1,8 @@
 ###################################################################################
 #
-#    Copyright (c) 2017-2019 MuK IT GmbH.
+#    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Backend Theme 
+#    This file is part of MuK Grid Snippets
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ class IrHttp(models.AbstractModel):
 
     def session_info(self):
         result = super(IrHttp, self).session_info()
-        params = request.env['ir.config_parameter'].with_user(self.env.ref('base.user_admin'))
+        params = request.env['ir.config_parameter'].sudo()
         blend_mode = params.get_param('muk_web_theme.background_blend_mode')
         result.update(muk_web_theme_background_blend_mode=blend_mode or 'normal')
         return result

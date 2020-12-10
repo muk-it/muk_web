@@ -1,8 +1,8 @@
 /**********************************************************************************
 *
-*    Copyright (c) 2017-2019 MuK IT GmbH.
+*    Copyright (c) 2017-today MuK IT GmbH.
 *
-*    This file is part of MuK Backend Theme 
+*    This file is part of MuK Grid Snippets
 *    (see https://mukit.at).
 *
 *    This program is free software: you can redistribute it and/or modify
@@ -23,19 +23,14 @@
 odoo.define('muk_web_theme.FormView', function (require) {
 "use strict";
 
-var dom = require('web.dom');
-var core = require('web.core');
-var config = require("web.config");
+const config = require("web.config");
 
-var FormView = require('web.FormView');
-var QuickCreateFormView = require('web.QuickCreateFormView');
-
-var _t = core._t;
-var QWeb = core.qweb;
+const FormView = require('web.FormView');
+const QuickCreateFormView = require('web.QuickCreateFormView');
 
 FormView.include({
-    init: function () {
-        this._super.apply(this, arguments);
+    init() {
+        this._super(...arguments);
         if (config.device.isMobile) {
             this.controllerParams.disableAutofocus = true;
         }
@@ -43,8 +38,8 @@ FormView.include({
 });
 
 QuickCreateFormView.include({
-    init: function () {
-        this._super.apply(this, arguments);
+    init() {
+        this._super(...arguments);
         if (config.device.isMobile) {
             this.controllerParams.disableAutofocus = true;
         }
