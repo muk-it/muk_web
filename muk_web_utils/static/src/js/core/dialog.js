@@ -40,7 +40,7 @@ Dialog.input = function (owner, title, options) {
 	$content.append($input);
 	var confirm = function(event) {
 		if(options && options.confirm_callback) {
-			options.confirm_callback.call(self, event, $input.val());
+			options.confirm_callback.call(this, event, this.$("input").val());
 		}
 	}
 	var buttons = [
