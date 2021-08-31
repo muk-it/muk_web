@@ -48,7 +48,12 @@
     ],
     "qweb": [
         "static/src/components/control_panel.xml",
-        "static/src/xml/*.xml",
+        "static/src/xml/apps.xml",
+        "static/src/xml/appsbar.xml",
+        "static/src/xml/base.xml",
+        "static/src/xml/navbar.xml",
+        "static/src/xml/shortcuts.xml",
+        "static/src/xml/views.xml",
     ],
     "images": [
         'static/description/banner.png',
