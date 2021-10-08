@@ -20,28 +20,28 @@ msgstr ""
 #: model:ir.model.fields,field_description:muk_web_client_refresh.field_ir_actions_server__state
 #: model:ir.model.fields,field_description:muk_web_client_refresh.field_ir_cron__state
 msgid "Action To Do"
-msgstr ""
+msgstr "Acción a realizar"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Add Followers"
-msgstr ""
+msgstr "Añadir seguidores"
 
 #. module: muk_web_client_refresh
 #: model:ir.model,name:muk_web_client_refresh.model_base_automation
 msgid "Automated Action"
-msgstr ""
+msgstr "Acción automatizada"
 
 #. module: muk_web_client_refresh
 #: model:ir.actions.act_window,name:muk_web_client_refresh.action_client_refresh_automation
 #: model:ir.ui.menu,name:muk_web_client_refresh.menu_client_refresh_automation
 msgid "Automated Refresh"
-msgstr ""
+msgstr "Actualización automatizada"
 
 #. module: muk_web_client_refresh
 #: model_terms:ir.actions.act_window,help:muk_web_client_refresh.action_client_refresh_automation
 msgid "Automatically updates the views belonging to the model."
-msgstr ""
+msgstr "Actualiza automáticamente las vistas que pertenecen al modelo."
 
 #. module: muk_web_client_refresh
 #: model:ir.model,name:muk_web_client_refresh.model_base
@@ -51,83 +51,85 @@ msgstr ""
 #. module: muk_web_client_refresh
 #: model:ir.model,name:muk_web_client_refresh.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Opciones de Configuración"
 
 #. module: muk_web_client_refresh
 #: model_terms:ir.ui.view,arch_db:muk_web_client_refresh.res_config_settings_view_form
 msgid "Configure Actions"
-msgstr ""
+msgstr "Configurar acciones"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Create Next Activity"
-msgstr ""
+msgstr "Crear nueva actividad"
 
 #. module: muk_web_client_refresh
 #: model_terms:ir.actions.act_window,help:muk_web_client_refresh.action_client_refresh_automation
 msgid "Create a new Automated Refresh"
-msgstr ""
+msgstr "Crear una nueva actualización automatizada"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Create a new Record"
-msgstr ""
+msgstr "Crear un nuevo registro"
 
 #. module: muk_web_client_refresh
 #: model:ir.model.fields,field_description:muk_web_client_refresh.field_res_config_settings__refresh_delay
 #: model_terms:ir.ui.view,arch_db:muk_web_client_refresh.res_config_settings_view_form
 msgid "Delay"
-msgstr ""
+msgstr "Retrasar"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Execute Python Code"
-msgstr ""
+msgstr "Ejecutar el código Python"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Execute several actions"
-msgstr ""
+msgstr "Ejecutar varias acciones"
 
 #. module: muk_web_client_refresh
 #: model:ir.model.fields,help:muk_web_client_refresh.field_res_config_settings__refresh_delay
 msgid "Prevents multiple executions of refresh in a certain timeframe to avoid the view from being\n"
 "            reloaded too often. For example, a delay of 1000 (ms) would mean that the view cannot be\n"
 "            reloaded more than once a second."
-msgstr ""
+msgstr "Evita múltiples ejecuciones de actualización en un determinado período de tiempo para evitar\n"
+"            que la vista se vuelva a cargar con demasiada frecuencia. Por ejemplo, un retraso de\n"
+"            1000 (ms) significaría que la vista no se puede volver a cargar más de una vez por segundo."
 
 #. module: muk_web_client_refresh
 #: model:base.automation,name:muk_web_client_refresh.base_automation_refresh_partner_on_create
 #: model:ir.actions.server,name:muk_web_client_refresh.base_automation_refresh_partner_on_create_ir_actions_server
 msgid "Refresh Partner on Creation"
-msgstr ""
+msgstr "Actualizar socio en creación"
 
 #. module: muk_web_client_refresh
 #: model:base.automation,name:muk_web_client_refresh.base_automation_refresh_partner_on_unlink
 #: model:ir.actions.server,name:muk_web_client_refresh.base_automation_refresh_partner_on_unlink_ir_actions_server
 msgid "Refresh Partner on Deletion"
-msgstr ""
+msgstr "Actualizar socio en eliminación"
 
 #. module: muk_web_client_refresh
 #: model:base.automation,name:muk_web_client_refresh.base_automation_refresh_partner_on_write
 #: model:ir.actions.server,name:muk_web_client_refresh.base_automation_refresh_partner_on_write_ir_actions_server
 msgid "Refresh Partner on Update"
-msgstr ""
+msgstr "Actualizar socio en actualización"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Refresh Views"
-msgstr ""
+msgstr "Actualizar vistas"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Send Email"
-msgstr ""
+msgstr "Enviar correo electrónico"
 
 #. module: muk_web_client_refresh
 #: model:ir.model,name:muk_web_client_refresh.model_ir_actions_server
 msgid "Server Action"
-msgstr ""
+msgstr "Acción del servidor"
 
 #. module: muk_web_client_refresh
 #: model:ir.model.fields,help:muk_web_client_refresh.field_base_automation__state
@@ -141,15 +143,22 @@ msgid "Type of server action. The following values are available:\n"
 "- 'Send Email': automatically send an email (Discuss)\n"
 "- 'Add Followers': add followers to a record (Discuss)\n"
 "- 'Create Next Activity': create an activity (Discuss)"
-msgstr ""
+msgstr "Tipo de acción de servidor. Están disponibles los siguientes valores:\n"
+"- 'Ejecutar código Python': un bloque de código Python que será ejecutado\n"
+"- 'Crear o duplicar un nuevo registro': crea un nuevo registro con nuevos valores, o duplica uno existente en la base de datos\n"
+"- 'Actualizar un registro': actualiza los valores de un registro\n"
+"- 'Ejecutar varias acciones': define una acción que lanza varias otras acciones de servidor\n"
+"- 'Enviar un correo electrónico': envía automáticamente un correo electrónico (Conversaciones)\n"
+"- 'Añadir seguidores': añade seguidores a un registro (Conversaciones)\n"
+"- 'Crear próxima actividad': crea una actividad (Conversaciones)"
 
 #. module: muk_web_client_refresh
 #: selection:ir.actions.server,state:0
 msgid "Update the Record"
-msgstr ""
+msgstr "Actualizar el registro"
 
 #. module: muk_web_client_refresh
 #: model_terms:ir.ui.view,arch_db:muk_web_client_refresh.view_client_refresh_automation_form
 msgid "e.g. Refresh Users on Create"
-msgstr ""
+msgstr "p.ej. Actualizar usuarios en Crear"
 

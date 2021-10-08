@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0-20190522\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 22:00+0000\n"
-"PO-Revision-Date: 2019-06-24 22:00+0000\n"
+"POT-Creation-Date: 2020-04-11 04:46+0000\n"
+"PO-Revision-Date: 2020-04-11 04:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:25
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:30
 #, python-format
 msgid "#menu_id=#{app.menuID}&action_id=#{app.actionID}"
 msgstr ""
@@ -45,15 +45,35 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:26
+#: code:addons/muk_web_theme/static/src/xml/views.xml:31
 #, python-format
 msgid "Actions"
 msgstr ""
 
 #. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Add theme styled website navigation"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_website
+msgid "Add theme styled website navigation."
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Allow Odoo to be used as a PWA app"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_mobile
+msgid "Allow Odoo to be used as a PWA app."
+msgstr ""
+
+#. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:28
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:33
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:36
 #, python-format
 msgid "Alt"
 msgstr ""
@@ -83,6 +103,11 @@ msgstr ""
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Backend Theme"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Backend Theme Extensions"
 msgstr ""
 
 #. module: muk_web_theme
@@ -134,17 +159,27 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:36
 #, python-format
 msgid "Control"
 msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:47
-#: code:addons/muk_web_theme/static/src/xml/views.xml:68
+#: code:addons/muk_web_theme/static/src/xml/views.xml:52
+#: code:addons/muk_web_theme/static/src/xml/views.xml:73
 #, python-format
 msgid "Create"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Customize the theme according to your needs"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_branding
+msgid "Customize the theme according to your needs."
 msgstr ""
 
 #. module: muk_web_theme
@@ -159,15 +194,15 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:59
-#: code:addons/muk_web_theme/static/src/xml/views.xml:82
+#: code:addons/muk_web_theme/static/src/xml/views.xml:64
+#: code:addons/muk_web_theme/static/src/xml/views.xml:87
 #, python-format
 msgid "Discard"
 msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:41
+#: code:addons/muk_web_theme/static/src/xml/views.xml:46
 #, python-format
 msgid "Edit"
 msgstr ""
@@ -175,6 +210,13 @@ msgstr ""
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Exclusion"
+msgstr ""
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:104
+#, python-format
+msgid "Favorites"
 msgstr ""
 
 #. module: muk_web_theme
@@ -233,9 +275,19 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:26
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
 #, python-format
 msgid "Open the apps menu"
+msgstr ""
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Optimizes the mail chatter for the theme"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_mail
+msgid "Optimizes the mail chatter for the theme."
 msgstr ""
 
 #. module: muk_web_theme
@@ -249,14 +301,19 @@ msgid "Primary"
 msgstr ""
 
 #. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Required"
+msgstr ""
+
+#. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Saturation"
 msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:53
-#: code:addons/muk_web_theme/static/src/xml/views.xml:75
+#: code:addons/muk_web_theme/static/src/xml/views.xml:58
+#: code:addons/muk_web_theme/static/src/xml/views.xml:80
 #, python-format
 msgid "Save"
 msgstr ""
@@ -268,14 +325,14 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/js/views/search_view.js:34
+#: code:addons/muk_web_theme/static/src/js/views/search_view.js:37
 #, python-format
 msgid "Search"
 msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:42
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:47
 #, python-format
 msgid "Search menus..."
 msgstr ""
@@ -340,8 +397,23 @@ msgid "Theme Brand Color"
 msgstr ""
 
 #. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_branding
+msgid "Theme Branding"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_mail
+msgid "Theme Mail"
+msgstr ""
+
+#. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_menu
 msgid "Theme Menu Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_mobile
+msgid "Theme Mobile"
 msgstr ""
 
 #. module: muk_web_theme
@@ -355,13 +427,23 @@ msgid "Theme Primary Color"
 msgstr ""
 
 #. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_required
+msgid "Theme Required Color"
+msgstr ""
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_website
+msgid "Theme Website"
+msgstr ""
+
+#. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_users
 msgid "Users"
 msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:31
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:36
 #, python-format
 msgid "fa fa-th"
 msgstr ""

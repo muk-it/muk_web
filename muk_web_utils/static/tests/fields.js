@@ -59,7 +59,6 @@ QUnit.module('fields', {
                     },
                     long: {
                     	string: "Long",
-                    	string: "txt",
                     	type: "text",
                     },
                     document: {

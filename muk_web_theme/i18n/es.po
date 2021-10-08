@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0-20190522\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 22:00+0000\n"
-"PO-Revision-Date: 2019-06-24 22:00+0000\n"
+"POT-Creation-Date: 2020-04-11 04:46+0000\n"
+"PO-Revision-Date: 2020-04-11 04:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:25
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:30
 #, python-format
 msgid "#menu_id=#{app.menuID}&action_id=#{app.actionID}"
 msgstr ""
@@ -26,34 +26,55 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Background Image</span>\n"
 "                            <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Imagen de fondo</span>\n"
+"                            <span class=\"fa fa-lg fa-building-o\" title=\"Los valores establecidos aquí son específicos de la empresa.\" aria-label=\"Los valores establecidos aquí son específicos de la empresa.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Default Preferences</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Preferencias predeterminadas</span>"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Menu Colors</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Colores del menú</span>"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">Theme Colors</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Colores del Tema</span>"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:26
+#: code:addons/muk_web_theme/static/src/xml/views.xml:31
 #, python-format
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Add theme styled website navigation"
+msgstr "Agregar tema de navegación del sitio web con estilo"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_website
+msgid "Add theme styled website navigation."
+msgstr "Agregar tema de navegación del sitio web con estilo."
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Allow Odoo to be used as a PWA app"
+msgstr "Permitir que el sistema se use como una aplicación PWA (Aplicación Web Progresiva)"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_mobile
+msgid "Allow Odoo to be used as a PWA app."
+msgstr "Permitir que el sistema se use como una aplicación PWA (Aplicación Web Progresiva)."
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:28
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:33
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:36
 #, python-format
 msgid "Alt"
 msgstr ""
@@ -61,7 +82,7 @@ msgstr ""
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Apps Blend"
-msgstr ""
+msgstr "Apps Mezcla"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
@@ -72,28 +93,33 @@ msgstr ""
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_company__background_blend_mode
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_background_blend_mode
 msgid "Apps Menu Background Blend Mode"
-msgstr ""
+msgstr "Modo de fusión de fondo del menú de aplicaciones"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_company__background_image
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_background_image
 msgid "Apps Menu Background Image"
-msgstr ""
+msgstr "Imagen de fondo del menú de aplicaciones"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Backend Theme"
-msgstr ""
+msgstr "Tema de fondo"
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Backend Theme Extensions"
+msgstr "Extensiones de tema de fondo"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Background"
-msgstr ""
+msgstr "Fondo"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Brand"
-msgstr ""
+msgstr "Marca"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
@@ -105,7 +131,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_default_chatter_preference
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__chatter_position
 msgid "Chatter Position"
-msgstr ""
+msgstr "Posición del Chatter"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
@@ -125,7 +151,7 @@ msgstr ""
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_company
 msgid "Companies"
-msgstr "Compañías"
+msgstr "Empresas"
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_config_settings
@@ -134,63 +160,80 @@ msgstr "Opciones de Configuración"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:36
 #, python-format
 msgid "Control"
 msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:47
-#: code:addons/muk_web_theme/static/src/xml/views.xml:68
+#: code:addons/muk_web_theme/static/src/xml/views.xml:52
+#: code:addons/muk_web_theme/static/src/xml/views.xml:73
 #, python-format
 msgid "Create"
-msgstr ""
+msgstr "Crear"
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Customize the theme according to your needs"
+msgstr "Personaliza el tema según tus necesidades"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_branding
+msgid "Customize the theme according to your needs."
+msgstr "Personaliza el tema según tus necesidades."
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Darken"
-msgstr ""
+msgstr "Oscurecer"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Difference"
-msgstr ""
+msgstr "Diferencia"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:59
-#: code:addons/muk_web_theme/static/src/xml/views.xml:82
+#: code:addons/muk_web_theme/static/src/xml/views.xml:64
+#: code:addons/muk_web_theme/static/src/xml/views.xml:87
 #, python-format
 msgid "Discard"
-msgstr ""
+msgstr "Descartar"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:41
+#: code:addons/muk_web_theme/static/src/xml/views.xml:46
 #, python-format
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Exclusion"
-msgstr ""
+msgstr "Exclusión"
+
+#. module: muk_web_theme
+#. openerp-web
+#: code:addons/muk_web_theme/static/src/xml/views.xml:104
+#, python-format
+msgid "Favorites"
+msgstr "Favoritos"
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "Enrutamiento HTTP "
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Hard-light"
-msgstr ""
+msgstr "Luz dura"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Hue"
-msgstr ""
+msgstr "Matiz"
 
 #. module: muk_web_theme
 #: selection:res.company,default_sidebar_preference:0
@@ -202,27 +245,27 @@ msgstr ""
 #: selection:res.company,default_sidebar_preference:0
 #: selection:res.users,sidebar_type:0
 msgid "Large"
-msgstr ""
+msgstr "Largo"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Lighten"
-msgstr ""
+msgstr "Iluminado"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Luminosity"
-msgstr ""
+msgstr "Luminosidad"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Menu Color"
-msgstr ""
+msgstr "Color Menu"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Multiply"
-msgstr ""
+msgstr "Multiplicar"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
@@ -233,126 +276,166 @@ msgstr ""
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:26
+#: code:addons/muk_web_theme/static/src/xml/shortcuts.xml:31
 #, python-format
 msgid "Open the apps menu"
-msgstr ""
+msgstr "Abre el menú de aplicaciones"
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Optimizes the mail chatter for the theme"
+msgstr "Optimiza la conversación por correo para el tema."
+
+#. module: muk_web_theme
+#: model:ir.model.fields,help:muk_web_theme.field_res_config_settings__module_muk_web_theme_mail
+msgid "Optimizes the mail chatter for the theme."
+msgstr "Optimiza la conversación por correo para el tema."
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Overlay"
-msgstr ""
+msgstr "Cubrir"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Primary"
-msgstr ""
+msgstr "Primario"
+
+#. module: muk_web_theme
+#: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
+msgid "Required"
+msgstr "Requerido"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Saturation"
-msgstr ""
+msgstr "Saturación"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/views.xml:53
-#: code:addons/muk_web_theme/static/src/xml/views.xml:75
+#: code:addons/muk_web_theme/static/src/xml/views.xml:58
+#: code:addons/muk_web_theme/static/src/xml/views.xml:80
 #, python-format
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #. module: muk_web_theme
 #: selection:res.company,background_blend_mode:0
 msgid "Screen"
-msgstr ""
+msgstr "Pantalla"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/js/views/search_view.js:34
+#: code:addons/muk_web_theme/static/src/js/views/search_view.js:37
 #, python-format
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:42
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:47
 #, python-format
 msgid "Search menus..."
-msgstr ""
+msgstr "Buscar menús..."
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the background image for the apps menu"
-msgstr ""
+msgstr "Establecer la imagen de fondo para el menú de aplicaciones"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the default theme preferences"
-msgstr ""
+msgstr "Establecer las preferencias de tema predeterminadas"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the main menu colors"
-msgstr ""
+msgstr "Establecer los colores del menú principal"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Set the main theme colors"
-msgstr ""
+msgstr "Establecer los colores del tema principal"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_config_settings_view_form
 msgid "Sidebar"
-msgstr ""
+msgstr "Barra lateral"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_company__default_sidebar_preference
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_default_sidebar_preference
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_users__sidebar_type
 msgid "Sidebar Type"
-msgstr ""
+msgstr "Tipo de barra lateral"
 
 #. module: muk_web_theme
 #: selection:res.company,default_chatter_preference:0
 #: selection:res.users,chatter_position:0
 msgid "Sided"
-msgstr ""
+msgstr "Lateral"
 
 #. module: muk_web_theme
 #: selection:res.company,default_sidebar_preference:0
 #: selection:res.users,sidebar_type:0
 msgid "Small"
-msgstr ""
+msgstr "Compacto"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar_background
 msgid "Theme AppBar Background"
-msgstr ""
+msgstr "Tema de fondo AppBar"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_appbar_color
 msgid "Theme AppBar Color"
-msgstr ""
+msgstr "Color de la AppBar"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_brand
 msgid "Theme Brand Color"
-msgstr ""
+msgstr "Color de la marca"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_branding
+msgid "Theme Branding"
+msgstr "Marca en el Tema"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_mail
+msgid "Theme Mail"
+msgstr "Tema del Email"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_menu
 msgid "Theme Menu Color"
-msgstr ""
+msgstr "Color del menu"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_mobile
+msgid "Theme Mobile"
+msgstr "Tema en Smartphone"
 
 #. module: muk_web_theme
 #: model_terms:ir.ui.view,arch_db:muk_web_theme.res_users_preferences
 msgid "Theme Preferences"
-msgstr ""
+msgstr "Preferencias de tema"
 
 #. module: muk_web_theme
 #: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_primary
 msgid "Theme Primary Color"
-msgstr ""
+msgstr "Color Primario"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__theme_color_required
+msgid "Theme Required Color"
+msgstr "Color requerido del tema"
+
+#. module: muk_web_theme
+#: model:ir.model.fields,field_description:muk_web_theme.field_res_config_settings__module_muk_web_theme_website
+msgid "Theme Website"
+msgstr "Tema del Website"
 
 #. module: muk_web_theme
 #: model:ir.model,name:muk_web_theme.model_res_users
@@ -361,7 +444,7 @@ msgstr "Usuarios"
 
 #. module: muk_web_theme
 #. openerp-web
-#: code:addons/muk_web_theme/static/src/xml/apps.xml:31
+#: code:addons/muk_web_theme/static/src/xml/apps.xml:36
 #, python-format
 msgid "fa fa-th"
 msgstr ""
