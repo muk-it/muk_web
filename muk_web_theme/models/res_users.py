@@ -2,7 +2,7 @@
 #
 #    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Grid Snippets
+#    This file is part of MuK Theme
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -33,7 +33,7 @@ class ResUsers(models.Model):
     
     @api.model
     def _default_sidebar_type(self):
-        return self.env.user.company_id.default_sidebar_preference or 'small'
+        return self.env.user.company_id.default_sidebar_preference or 'large'
     
     @api.model
     def _default_chatter_position(self):

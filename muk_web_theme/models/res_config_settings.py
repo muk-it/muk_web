@@ -2,7 +2,7 @@
 #
 #    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Grid Snippets
+#    This file is part of MuK Theme
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -26,9 +26,6 @@ import base64
 
 from odoo import api, fields, models
 
-XML_ID = "muk_web_theme._assets_primary_variables"
-SCSS_URL = "/muk_web_theme/static/src/scss/colors.scss"
-
 
 class ResConfigSettings(models.TransientModel):
 
@@ -39,52 +36,52 @@ class ResConfigSettings(models.TransientModel):
     #----------------------------------------------------------
     
     theme_favicon = fields.Binary(
-        related="company_id.favicon",
+        related='company_id.favicon',
         readonly=False
     )
     
     theme_background_image = fields.Binary(
-        related="company_id.background_image",
+        related='company_id.background_image',
         readonly=False
     )
     
     theme_background_blend_mode = fields.Selection(
-        related="company_id.background_blend_mode",
+        related='company_id.background_blend_mode',
         readonly=False
     )
     
     theme_default_sidebar_preference = fields.Selection(
-        related="company_id.default_sidebar_preference",
+        related='company_id.default_sidebar_preference',
         readonly=False
     )
 
     theme_default_chatter_preference = fields.Selection(
-        related="company_id.default_chatter_preference",
+        related='company_id.default_chatter_preference',
         readonly=False
     )
     
     theme_color_brand = fields.Char(
-        string="Theme Brand Color"
+        string='Theme Brand Color'
     )
     
     theme_color_primary = fields.Char(
-        string="Theme Primary Color"
+        string='Theme Primary Color'
     )
     
     theme_color_required = fields.Char(
-        string="Theme Required Color"
+        string='Theme Required Color'
     )
     
     theme_color_menu = fields.Char(
-        string="Theme Menu Color"
+        string='Theme Menu Color'
     )
     
     theme_color_appbar_color = fields.Char(
-        string="Theme AppBar Color"
+        string='Theme AppBar Color'
     )
     
     theme_color_appbar_background = fields.Char(
-        string="Theme AppBar Background"
+        string='Theme AppBar Background'
     )
     
     #----------------------------------------------------------
@@ -102,8 +99,8 @@ class ResConfigSettings(models.TransientModel):
             'mk-appbar-color',
             'mk-appbar-background',
         ]
-        colors = self.env['muk_web_theme.scss_editor'].get_values(
-            SCSS_URL, XML_ID, variables
+        colors = self.env['web_editor.assets'].get_variables_values(
+            '/muk_web_theme/static/src/colors.scss', 'web._assets_primary_variables', variables
         )
         colors_changed = []
         colors_changed.append(self.theme_color_brand != colors['o-brand-odoo'])
@@ -121,10 +118,9 @@ class ResConfigSettings(models.TransientModel):
                 {'name': 'mk-appbar-color', 'value': self.theme_color_appbar_color or "#dee2e6"},
                 {'name': 'mk-appbar-background', 'value': self.theme_color_appbar_background or "#000000"},
             ]
-            self.env['muk_web_theme.scss_editor'].replace_values(
-                SCSS_URL, XML_ID, variables
+            self.env['web_editor.assets'].replace_variables_values(
+                '/muk_web_theme/static/src/colors.scss', 'web._assets_primary_variables', variables
             )
-        param.set_param('muk_web_theme.background_blend_mode', self.theme_background_blend_mode)
         return res
 
     @api.model
@@ -139,8 +135,8 @@ class ResConfigSettings(models.TransientModel):
             'mk-appbar-color',
             'mk-appbar-background',
         ]
-        colors = self.env['muk_web_theme.scss_editor'].get_values(
-            SCSS_URL, XML_ID, variables
+        colors = self.env['web_editor.assets'].get_variables_values(
+            '/muk_web_theme/static/src/colors.scss', 'web._assets_primary_variables', variables
         )
         res.update({
             'theme_color_brand': colors['o-brand-odoo'],
@@ -149,6 +145,5 @@ class ResConfigSettings(models.TransientModel):
             'theme_color_menu': colors['mk-apps-color'],
             'theme_color_appbar_color': colors['mk-appbar-color'],
             'theme_color_appbar_background': colors['mk-appbar-background'],
-            'theme_background_blend_mode': params.get_param('muk_web_theme.background_blend_mode', 'normal'),
         })
         return res

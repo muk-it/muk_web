@@ -2,7 +2,7 @@
 #
 #    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Grid Snippets
+#    This file is part of MuK Theme
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@ class ResCompany(models.Model):
     #----------------------------------------------------------
     
     background_image = fields.Binary(
-        string="Apps Menu Background Image",
+        string='Apps Menu Background Image',
         attachment=True
     )
     
@@ -55,7 +55,7 @@ class ResCompany(models.Model):
             ('color', 'Color'),
             ('luminosity', 'Luminosity'),
         ], 
-        string="Apps Menu Background Blend Mode",
+        string='Apps Menu Background Blend Mode',
         default='normal'
     )
     
@@ -65,8 +65,8 @@ class ResCompany(models.Model):
             ('small', 'Small'),
             ('large', 'Large')
         ], 
-        string="Sidebar Type",
-        default='small'
+        string='Sidebar Type',
+        default='large'
     )
     
     default_chatter_preference = fields.Selection(
@@ -74,6 +74,6 @@ class ResCompany(models.Model):
             ('normal', 'Normal'),
             ('sided', 'Sided'),
         ], 
-        string="Chatter Position", 
+        string='Chatter Position', 
         default='sided'
     )

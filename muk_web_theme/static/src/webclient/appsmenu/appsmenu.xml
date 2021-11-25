@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
 
@@ -22,24 +22,14 @@
 
   -->
   
-<odoo>
-	
-    <record id="res_users_preferences" model="ir.ui.view">
-        <field name="name">res.users.preferences</field>
-        <field name="model">res.users</field>
-        <field name="inherit_id" ref="base.view_users_form_simple_modif" />
-        <field name="arch" type="xml">
-             <xpath expr="//group[@name='preferences']" position="after">
-	            <group name="preference_theme">
-	                <group >
-	                    <field name="sidebar_type" readonly="0"/>
-	                </group>
-	                <group >
-	                    <field name="chatter_position" readonly="0" />
-	                </group>
-	            </group>
-            </xpath>
-        </field>
-    </record>
+<templates xml:space="preserve">
 
-</odoo>
+	<t t-name="muk_web_theme.AppsMenu" t-inherit="web.Dropdown" t-inherit-mode="primary" owl="1">
+		<xpath expr="//div[@t-ref='menuRef']" position="attributes">
+			<attribute name="t-attf-style">
+	        	background-image: url("{{ backgroundImageUrl }}");
+		    </attribute>
+	    </xpath>
+	</t>
+	
+</templates>

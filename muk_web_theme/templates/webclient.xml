@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+    Copyright (c) 2017-today MuK IT GmbH.
+
+    This file is part of MuK Theme
+    (see https://mukit.at).
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+  -->
+  
+<odoo>
+	
+	<template id="webclient_bootstrap" name="Web Client" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//t[@t-set='head']" position="after">
+            <t t-set="head_web_theme">
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+            </t>
+            <t t-set="head" t-value="head_web_theme + (head or '')"/>
+        </xpath>
+        <xpath expr="//t[@t-set='body_classname']" position="after">
+        	<t t-set="body_sidebar_classname" t-value="'mk_sidebar_type_' + request.env.user.sidebar_type or 'small'"/>
+        	<t t-set="body_chatter_classname" t-value="'mk_chatter_position_' + request.env.user.chatter_position or 'sided'"/>
+            <t t-set="body_classname" t-value="'%s %s %s' % (body_classname, body_sidebar_classname, body_chatter_classname)"/>
+        </xpath>
+    </template>
+	
+</odoo>

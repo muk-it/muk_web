@@ -1,0 +1,50 @@
+/**********************************************************************************
+*
+*    Copyright (c) 2017-today MuK IT GmbH.
+*
+*    This file is part of MuK Theme
+*    (see https://mukit.at).
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Lesser General Public License as published by
+*    the Free Software Foundation, either version 3 of the License, or
+*    (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Lesser General Public License for more details.
+*
+*    You should have received a copy of the GNU Lesser General Public License
+*    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+@include media-breakpoint-down(sm) {
+    .o_calendar_view .o_calendar_widget {
+        .fc-timeGridDay-view .fc-axis,
+        .fc-timeGridWeek-view .fc-axis {
+            padding-left: 0px;
+        }
+        .fc-dayGridMonth-view {
+            padding-left: 0px;
+            .fc-week-number {
+                display: none;
+            }
+        }
+        .fc-dayGridYear-view {
+            padding-left: 0px;
+            > .fc-month-container {
+                width: 95%;
+            }
+        }
+        .fc-timeGridDay-view .fc-widget-header {
+            margin: 0 4px;
+        }
+        .fc-timeGridWeek-view .fc-widget-header {
+            word-spacing: 4em;
+            white-space: normal;
+            text-align: center;
+        }
+    }
+}

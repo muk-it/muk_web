@@ -2,7 +2,7 @@
 #
 #    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Grid Snippets
+#    This file is part of MuK Theme
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,8 +20,8 @@
 #
 ###################################################################################
 
-from . import res_company
-from . import res_users
 from . import ir_http
-from . import scss_editor
+from . import res_company
 from . import res_config_settings
+from . import res_users
+from . import web_editor_assets

@@ -2,7 +2,7 @@
 #
 #    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Grid Snippets
+#    This file is part of MuK Theme
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -25,12 +25,15 @@ from odoo.http import request
 
 
 class IrHttp(models.AbstractModel):
-    
-    _inherit = 'ir.http'
+
+    _inherit = "ir.http"
 
     def session_info(self):
         result = super(IrHttp, self).session_info()
-        params = request.env['ir.config_parameter'].sudo()
-        blend_mode = params.get_param('muk_web_theme.background_blend_mode')
-        result.update(muk_web_theme_background_blend_mode=blend_mode or 'normal')
+        company = request.session.uid and request.env.user.company_id
+        blend_mode = company and company.background_blend_mode or False
+        result.update(
+            theme_background_blend_mode=blend_mode or "normal",
+            theme_has_background_image=bool(company and company.background_image)
+        )
         return result

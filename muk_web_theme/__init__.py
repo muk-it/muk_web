@@ -2,7 +2,7 @@
 #
 #    Copyright (c) 2017-today MuK IT GmbH.
 #
-#    This file is part of MuK Grid Snippets
+#    This file is part of MuK Theme
 #    (see https://mukit.at).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,14 +20,14 @@
 #
 ###################################################################################
 
-from odoo import api, SUPERUSER_ID
-
 from . import models
 
-XML_ID = "muk_web_theme._assets_primary_variables"
-SCSS_URL = "/muk_web_theme/static/src/scss/colors.scss"
+from odoo import api, SUPERUSER_ID
 
 
 def _uninstall_reset_changes(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
-    env['muk_web_theme.scss_editor'].reset_values(SCSS_URL, XML_ID)
+    env['web_editor.assets'].reset_asset(
+        '/muk_web_theme/static/src/colors.scss', 
+        'web._assets_primary_variables'
+    )

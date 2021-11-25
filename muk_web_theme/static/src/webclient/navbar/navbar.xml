@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+    Copyright (c) 2017-today MuK IT GmbH.
+
+    This file is part of MuK Theme
+    (see https://mukit.at).
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+  -->
+  
+<templates xml:space="preserve">
+
+	<t t-name="muk_web_theme.NavBar" t-inherit="web.NavBar" t-inherit-mode="extension" owl="1">
+	    <xpath expr="//nav" position="before">
+	    	<t t-set="apps" t-value="menuService.getApps()" />
+	    </xpath>
+		<xpath expr="//t[@t-call='web.NavBar.AppsMenu']" position="replace">
+			<AppsMenu hotkey="'h'" title="'Home Menu'" class="o_navbar_apps_menu" manualOnly="true">
+				<t t-set-slot="toggler">
+					<i class="fa fa-th" />
+				</t>
+				<MenuItem
+					t-foreach="apps"
+					t-as="app"
+					t-key="app.id"
+					class="o_app"
+					t-att-class="{ focus: menuService.getCurrentApp() === app }"
+					payload="app"
+				>
+					<a t-att-href="getMenuItemHref(app)" t-on-click.prevent="">
+						<img 
+					        t-if="app.webIconData"          		
+		            		class="mk_app_icon" 
+		            		t-attf-src="data:image/png;base64,{{ app.webIconData }}"
+		            	/>
+		            	<img  
+		            		t-else="" 
+		            		class="mk_app_icon" 
+		            		src="/muk_web_theme/static/img/default_icon.png"
+		            	/>
+						<span class="mk_app_name" t-attf-style="mix-blend-mode: {{ backgroundBlendMode }};">
+							<t t-esc="app.name"/>
+						</span>
+					</a>
+				</MenuItem>
+			</AppsMenu>
+		</xpath>
+	    <xpath expr="//nav" position="inside">
+	    	<AppsBar apps="apps"/>
+	    </xpath>
+	</t>
+	
+</templates>

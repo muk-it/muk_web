@@ -1,0 +1,55 @@
+/**********************************************************************************
+*
+*    Copyright (c) 2017-today MuK IT GmbH.
+*
+*    This file is part of MuK Theme
+*    (see https://mukit.at).
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU Lesser General Public License as published by
+*    the Free Software Foundation, either version 3 of the License, or
+*    (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU Lesser General Public License for more details.
+*
+*    You should have received a copy of the GNU Lesser General Public License
+*    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+**********************************************************************************/
+
+@mixin mk-disable-scrollbar {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+    &::-webkit-scrollbar {
+	  display: none;
+	}
+}
+
+@mixin mk-full-screen-menu {
+    width: 100vw;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    transform: none !important;
+    position: fixed !important;
+    height: calc(100vh - #{$o-navbar-height});
+    max-height: calc(100vh - #{$o-navbar-height});
+    top: $o-navbar-height !important;
+    right: 0 !important;
+    left: 0 !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: none;
+    border: none;
+}
+
+@mixin mk-container-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      width: $container-max-width;
+    }
+  }
+}
