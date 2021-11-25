@@ -66,8 +66,8 @@
         ],
     },
     'images': [
-#        'static/description/banner.png',
-#        'static/description/theme_screenshot.png'
+        'static/description/banner.png',
+        'static/description/theme_screenshot.png'
     ],
     'external_dependencies': {
         'python': [],
