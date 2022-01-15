@@ -62,6 +62,9 @@
 	    <xpath expr="//nav" position="inside">
 	    	<AppsBar apps="apps"/>
 	    </xpath>
+	    <xpath expr="//t[@t-call='web.NavBar.SectionsMenu']" position="attributes">
+			<attribute name="t-if">currentAppSections.length</attribute>
+		</xpath>
 	</t>
 	
 </templates>
