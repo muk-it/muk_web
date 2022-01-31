@@ -88,7 +88,7 @@ const MenuSearchMixin = {
         const all = this.$search_results.find(".mk_menu_search_result");
         const key = event.key || String.fromCharCode(event.which);
         const pre_focused = all.filter(".active") || $(all[0]);
-        const offset = all.index(pre_focused);
+        let offset = all.index(pre_focused);
         if (key === "Tab") {
             event.preventDefault();
             key = event.shiftKey ? "ArrowUp" : "ArrowDown";
