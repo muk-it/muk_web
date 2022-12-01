@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+
+	<t t-name="muk_web_theme.AppsSearch" owl="1">
+		<div
+            class="mk_apps_search_container"
+            t-att-class="state.hasResults ? 'mk_apps_search_active' : ''"
+        >
+            <div class="mk_apps_search_input d-flex align-items-center">
+                <span class="mk_apps_search_icon fa fa-search" />
+                <input
+                    type="search"
+                    autocomplete="off"
+                    class="form-control"
+                    placeholder="Search menus..."
+                    data-allow-hotkeys="true"
+                    t-on-input="_onInput"
+                    t-on-keydown="_onKeyDown"
+                    t-ref="autofocus"
+                />
+            </div>
+            <div t-if="state.hasResults" class="mk_apps_search_menus">
+				<t t-foreach="state.results" t-as="menu" t-key="menu.id">
+					<a
+						t-att-style="menu.style ? menu.style : ''"
+	            		t-att-href="menu.href"
+            			t-att-data-menu-id="menu.id" 
+            			t-att-data-menu-xmlid="menu.xmlid" 
+            			t-att-data-action-id="menu.actionID"
+						t-on-click.prevent="() => menu.action()"
+						t-out="menu.name"
+            		/>
+                </t>
+            </div>
+        </div>
+	</t>
+	
+</templates>

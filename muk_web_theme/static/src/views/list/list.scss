@@ -1,0 +1,12 @@
+.o_list_view .o_list_renderer {
+    overflow-x: initial;
+	thead, thead tr:nth-child(1) th {
+        position: sticky;
+        border: none;
+        z-index: 1;
+        top: 0;
+    }
+    tfoot, tfoot tr:nth-child(1) td {
+		color: $white;
+    }
+}

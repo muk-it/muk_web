@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<template>
+
+    <t
+        t-name="web_refresher.Pager"
+        t-inherit="web.Pager"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//span[hasclass('o_pager_counter')]" position="before">
+            <button
+            	t-if="props.withAccessKey and !env.isSmall"
+	            type="button"
+	            class="fa fa-refresh btn btn-secondary rounded me-1"
+		        aria-label="Refresh" 
+	            title="Refresh"
+	            data-hotkey="r"
+		        tabindex="-1" 
+	            t-on-click.stop="() => this.navigate(0)"
+	        />
+        </xpath>
+    </t>
+    
+</template>
