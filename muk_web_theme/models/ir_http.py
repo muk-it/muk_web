@@ -59,4 +59,9 @@ class IrHttp(models.AbstractModel):
                 result['user_companies']['allowed_companies'][company.id].update({
                     'has_background_image': bool(company.background_image),
                 })
+        result['pager_autoload_interval'] = int(
+            self.env['ir.config_parameter'].sudo().get_param(
+                'muk_web_theme.autoload', default=30000
+            )
+        )
         return result

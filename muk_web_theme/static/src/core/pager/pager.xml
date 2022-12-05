@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
 
@@ -45,7 +45,7 @@
 <template>
 
     <t
-        t-name="web_refresher.Pager"
+        t-name="muk_web_theme.Pager"
         t-inherit="web.Pager"
         t-inherit-mode="extension"
         owl="1"
@@ -54,14 +54,35 @@
             <button
             	t-if="props.withAccessKey and !env.isSmall"
 	            type="button"
-	            class="fa fa-refresh btn btn-secondary rounded me-1"
-		        aria-label="Refresh" 
-	            title="Refresh"
-	            data-hotkey="r"
 		        tabindex="-1" 
+		        aria-label="Refresh" 
+	            data-hotkey="r"
+	            class="fa fa-refresh btn btn-secondary rounded me-1 mk_pager_refresh"
+	            t-att-class="this.autoLoadState.active ? 'mk_active_autoload' : ''"
+	            t-att-data-tooltip-info="this.getAutoloadTooltip()"
+	            t-att-data-tooltip-template="'muk_web_theme.RefreshTooltip'"
 	            t-on-click.stop="() => this.navigate(0)"
+	            t-on-dblclick.stop="() => this.toggleAutoLoad()"
 	        />
         </xpath>
     </t>
     
+    <t t-name="muk_web_theme.RefreshTooltip" owl="1">
+        <div>
+        	<p t-if="autoload" class="m-0">
+	            <t t-if="active">
+		            Auto Refresh (<span t-out="interval"/> Seconds)
+		        </t>
+		        <t t-else="">
+		        	<p class="m-0">Single Click: Refresh View</li>
+	        		<p class="m-0">Double Click: Auto Refresh</li>
+		        </t>
+            </p>
+            <p t-else="" class="m-0">
+            	Refresh View
+            </p>
+        </div>
+    </t>
+    
 </template>
+
