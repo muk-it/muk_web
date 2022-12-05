@@ -45,7 +45,7 @@
 <templates xml:space="preserve">
 
 	<t 
-		t-name="muk_web.theme.NavBar" 
+		t-name="muk_web_theme.NavBar" 
 		t-inherit="web.NavBar" 
 		t-inherit-mode="extension" 
 		owl="1"
