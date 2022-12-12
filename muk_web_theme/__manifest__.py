@@ -79,6 +79,8 @@
         ],
         'web.assets_backend': [
             'muk_web_theme/static/src/core/**/*.xml',
+            'muk_web_theme/static/src/core/**/*.scss',
+            'muk_web_theme/static/src/core/**/*.js',
             'muk_web_theme/static/src/webclient/**/*.xml',
             'muk_web_theme/static/src/webclient/**/*.scss',
             'muk_web_theme/static/src/webclient/**/*.js',
