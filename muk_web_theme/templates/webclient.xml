@@ -45,12 +45,6 @@
 <odoo>
 	
 	<template id="webclient_bootstrap" name="Web Client" inherit_id="web.webclient_bootstrap">
-        <xpath expr="//t[@t-set='head']" position="after">
-            <t t-set="head_web_theme">
-                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-            </t>
-            <t t-set="head" t-value="head_web_theme + (head or '')"/>
-        </xpath>
         <xpath expr="//t[@t-set='body_classname']" position="after">
         	<t t-set="body_sidebar_classname" t-value="'mk_sidebar_type_' + request.env.user.sidebar_type or 'small'"/>
             <t t-set="body_classname" t-value="'%s %s' % (body_classname, body_sidebar_classname)"/>
