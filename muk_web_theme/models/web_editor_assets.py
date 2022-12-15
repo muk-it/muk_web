@@ -76,13 +76,9 @@ class ScssEditor(models.AbstractModel):
         
     @api.model
     def _save_asset_hook(self):
-        res = super()._save_asset_hook()
-        if (
-            res.get('website_id', False) and 
-            self.env.context.get('theme_variables', False)
-        ):
-            res['website_id'] = False
-        return res
+        if not self.env.context.get('theme_variables', False):
+            return super()._save_asset_hook()
+        return {}
 
     # ----------------------------------------------------------
     # Functions
