@@ -86,21 +86,12 @@
 	}
 }
 
-.o_fullscreen {
-	.mk_apps_sidebar_panel {
-		display: none;
-	}
-	.o_action_manager {
-		padding-left: 0;
-	}
-}
-
 @include media-breakpoint-up(lg) {
 	.mk_sidebar_type_large {
 		.mk_apps_sidebar_panel {
 			width: $mk-sidebar-large-width;
 		}
-		.o_action_manager {
+		.o_navbar + .o_action_manager {
 			padding-left: $mk-sidebar-large-width;
 		}
 	}
@@ -114,7 +105,7 @@
 				margin-right: 0 !important;
 			}
 		}
-		.o_action_manager {
+		.o_navbar + .o_action_manager {
 			padding-left: $mk-sidebar-small-width;
 		}
 	}
@@ -136,7 +127,7 @@
 				margin-right: 0 !important;
 			}
 		}
-		.o_action_manager {
+		.o_navbar + .o_action_manager {
 			padding-left: $mk-sidebar-small-width;
 		}
 	}
