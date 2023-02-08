@@ -146,3 +146,12 @@
 		padding-left: 0;
 	}
 }
+
+.editor_has_snippets_hide_backend_navbar {
+	.mk_apps_sidebar_panel {
+		display: none !important;
+	}
+	.o_action_manager {
+		padding-left: 0 !important;
+	}
+}
