@@ -71,7 +71,7 @@ Menu.include({
     _onAppsMenuClick(event, checkedCanBeRemoved) {
     	const action_manager = this.getParent().action_manager;
     	const controller = action_manager.getCurrentController();
-    	if (controller && !checkedCanBeRemoved) {
+    	if (controller && controller.widget && !checkedCanBeRemoved) {
     		controller.widget.canBeRemoved().then(() => {
     			$(event.currentTarget).trigger('click', [true]);
     			$(event.currentTarget).off('.bs.dropdown');
