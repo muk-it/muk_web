@@ -68,13 +68,16 @@ class ResUsers(models.Model):
     # Setup
     #----------------------------------------------------------
 
-    def __init__(self, pool, cr):
-        init_res = super(ResUsers, self).__init__(pool, cr)
-        theme_fields = ['sidebar_type', 'chatter_position']
-        readable_fields = list(self.SELF_READABLE_FIELDS)
-        writeable_fields = list(self.SELF_WRITEABLE_FIELDS)
-        readable_fields.extend(theme_fields)
-        writeable_fields.extend(theme_fields)
-        type(self).SELF_READABLE_FIELDS = readable_fields
-        type(self).SELF_WRITEABLE_FIELDS = writeable_fields
-        return init_res
+    @property
+    def SELF_READABLE_FIELDS(self):
+        return super().SELF_READABLE_FIELDS + [
+            'sidebar_type',
+            'chatter_position',
+        ]
+
+    @property
+    def SELF_WRITEABLE_FIELDS(self):
+        return super().SELF_WRITEABLE_FIELDS + [
+            'sidebar_type',
+            'chatter_position'
+        ]
