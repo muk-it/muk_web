@@ -79,6 +79,9 @@
 					}
 		        }
 		    }
+	        > li.active > a {
+			    background: $o-brand-primary;
+	        }
 	        > li:hover > a {
 			    background: $o-brand-primary;
 	        }

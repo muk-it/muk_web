@@ -49,7 +49,7 @@
 			<div class="mk_apps_sidebar">
 				<ul class="mk_apps_sidebar_menu">
 				    <t t-foreach="props.apps" t-as="app" t-key="app.id">
-			            <li class="nav-item">
+			            <li t-attf-class="nav-item {{ app.active ? 'active' : '' }}">
 			            	<a 
 			            		t-att-href="app.href"
 		            			t-att-data-menu-id="app.id" 

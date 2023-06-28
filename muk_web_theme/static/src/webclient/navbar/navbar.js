@@ -51,6 +51,7 @@ import { AppsBar } from '@muk_web_theme/webclient/appsbar/appsbar';
 
 patch(NavBar.prototype, 'muk_web_theme.NavBar', {
 	getAppsMenuItems(apps) {
+	    const currentApp = this.menuService.getCurrentApp();
 		return apps.map((menu) => {
 			const appsMenuItem = {
 				id: menu.id,
@@ -60,6 +61,7 @@ patch(NavBar.prototype, 'muk_web_theme.NavBar', {
 				actionID: menu.actionID,
 				href: this.getMenuItemHref(menu),
 				action: () => this.menuService.selectMenu(menu),
+				active: currentApp && menu.id === currentApp.id,
 			};
 		    if (menu.webIconData) {
 		        const prefix = (
